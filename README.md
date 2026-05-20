@@ -73,9 +73,9 @@ To publish it at zero cost:
 
 1. Create a public GitHub repository for this folder.
 2. Push the project to GitHub.
-3. In the repository settings, enable GitHub Pages from the `main` branch and `/docs` folder.
-4. Open the Pages URL that GitHub shows after deployment.
-5. In the Actions tab, run `Update board data` once. It will also run automatically every six hours.
+3. In the repository settings, enable GitHub Pages with `GitHub Actions` as the source.
+4. In the Actions tab, run `Update board data` once.
+5. Open the Pages URL that GitHub shows after deployment.
 
 The scheduled workflow scans the previous calendar year plus the current year-to-date, exports fresh static data into `docs/data/`, and commits that data back to the repository when CCSD publishes new or changed meeting records.
 
