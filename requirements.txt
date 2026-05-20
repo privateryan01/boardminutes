@@ -1,0 +1,5 @@
+beautifulsoup4>=4.14
+flask>=3.1
+gunicorn>=23.0
+pypdf>=6.11
+requests>=2.34

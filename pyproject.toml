@@ -1,0 +1,26 @@
+[project]
+name = "ccsd-board-watch"
+version = "0.1.0"
+description = "Surface CCSD board personnel items for watched Las Vegas school clusters."
+requires-python = ">=3.12"
+dependencies = [
+  "beautifulsoup4>=4.14",
+  "flask>=3.1",
+  "gunicorn>=23.0",
+  "pypdf>=6.11",
+  "requests>=2.34",
+]
+
+[project.scripts]
+ccsd-watch = "ccsd_board_watch.cli:main"
+ccsd-watch-web = "ccsd_board_watch.web:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+ccsd_board_watch = ["templates/*.html", "static/*.css"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

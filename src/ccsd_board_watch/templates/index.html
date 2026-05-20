@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CCSD Board Personnel Watch</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Clark County School District</p>
+        <h1>Board Personnel Watch</h1>
+      </div>
+      <nav class="top-actions">
+        <a href="{{ url_for('schools') }}">Manage Schools</a>
+      </nav>
+      {% if data %}
+        <div class="run-meta">
+          <span>{{ data.meeting.meeting_date }}</span>
+          <strong>{{ summary.finding_count }}</strong>
+          <span>watched-school hits</span>
+        </div>
+      {% endif %}
+    </header>
+
+    <main>
+      <section class="scan-panel">
+        <form method="post" action="{{ url_for('scan') }}">
+          <label for="meeting_url">Meeting URL</label>
+          <div class="scan-row">
+            <input id="meeting_url" name="meeting_url" value="{{ default_meeting_url }}">
+            <button type="submit" name="action" value="single">Run Meeting</button>
+            <button type="submit" name="action" value="previous_year">Previous + Current Year</button>
+          </div>
+          <div class="date-row">
+            <label>
+              From
+              <input name="from_date" type="date">
+            </label>
+            <label>
+              To
+              <input name="to_date" type="date">
+            </label>
+            <button type="submit" name="action" value="range">Run Range</button>
+          </div>
+          <label class="checkbox"><input type="checkbox" name="include_all"> Scan all agenda attachments</label>
+        </form>
+        {% if run_dir %}
+          <p class="path">Latest output: {{ run_dir }}</p>
+        {% endif %}
+        {% if refresh_status %}
+          <p class="path">Auto refresh: {{ refresh_status.state }}{% if refresh_status.finished_at %} at {{ refresh_status.finished_at }}{% endif %}</p>
+        {% endif %}
+        {% if per_user %}
+          <p class="path">Personal browser profile: {{ user_id[:8] }}. School preferences and scan results are private to this browser profile.</p>
+        {% endif %}
+      </section>
+
+      {% if data %}
+        <section class="filter-panel">
+          <form method="get" action="{{ url_for('index') }}" class="filter-form">
+            <label for="cluster-filter">Cluster</label>
+            <div class="filter-row">
+              <select id="cluster-filter" name="cluster" onchange="this.form.submit()">
+                <option value="">All clusters</option>
+                {% for cluster, count in cluster_counts.items() %}
+                  <option value="{{ cluster }}" {% if cluster == selected_cluster %}selected{% endif %}>
+                    {{ cluster }} ({{ count }})
+                  </option>
+                {% endfor %}
+              </select>
+              {% if selected_cluster %}
+                <a class="clear-filter" href="{{ url_for('index') }}">Clear</a>
+              {% endif %}
+            </div>
+          </form>
+          {% if selected_cluster %}
+            <p class="filter-note">Showing only {{ selected_cluster }} findings.</p>
+          {% endif %}
+        </section>
+
+        <section class="metrics-grid">
+          <div class="metric">
+            <span>Meetings Scanned</span>
+            <strong>{{ summary.scanned_meeting_count }}</strong>
+          </div>
+          <div class="metric">
+            <span>Attachments</span>
+            <strong>{{ summary.attachment_count }}</strong>
+          </div>
+          <div class="metric">
+            <span>Schools Matched</span>
+            <strong>{{ summary.schools|length }}</strong>
+          </div>
+          <div class="metric">
+            <span>Findings</span>
+            <strong>{{ summary.finding_count }}</strong>
+          </div>
+        </section>
+
+        <section class="split">
+          <div>
+            <h2>Findings By Type</h2>
+            <ul class="bars">
+              {% for key, count in summary.by_type.items() %}
+                <li><span>{{ key.replace('_', ' ').title() }}</span><strong>{{ count }}</strong></li>
+              {% else %}
+                <li><span>No watched-school findings yet</span><strong>0</strong></li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div>
+            <h2>Attachments Scanned</h2>
+            <ul class="bars">
+              {% for key, count in summary.by_attachment_type.items() %}
+                <li><span>{{ key.replace('_', ' ').title() }}</span><strong>{{ count }}</strong></li>
+              {% endfor %}
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2>Board Year</h2>
+          <ul class="bars year-bars">
+            {% for section in summary.year_sections %}
+              <li>
+                <span>{{ section.label }}</span>
+                <strong>{{ section.count }}</strong>
+              </li>
+            {% else %}
+              <li><span>No watched-school findings yet</span><strong>0</strong></li>
+            {% endfor %}
+          </ul>
+        </section>
+
+        <section>
+          <h2>Cluster</h2>
+          <ul class="bars cluster-bars">
+            {% for key, count in summary.by_cluster.items() %}
+              <li><span>{{ key }}</span><strong>{{ count }}</strong></li>
+            {% else %}
+              <li><span>No watched-school findings yet</span><strong>0</strong></li>
+            {% endfor %}
+          </ul>
+        </section>
+
+        {% for section in summary.year_sections %}
+          <section>
+            <div class="section-heading">
+              <h2>{{ section.label }}</h2>
+              <span>{{ section.count }} findings</span>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>School</th>
+                    <th>Cluster</th>
+                    <th>Board Meeting</th>
+                    <th>Type</th>
+                    <th>Person</th>
+                    <th>Employment Date</th>
+                    <th>Reason</th>
+                    <th>Source</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for finding in section.findings %}
+                    <tr>
+                      <td>{{ finding.school_name }}</td>
+                      <td>{{ finding.cluster }}</td>
+                      <td>
+                        <a href="{{ finding.board_meeting_url }}" target="_blank" rel="noreferrer">{{ finding.meeting_date }}</a>
+                        <span class="subtle">{{ finding.meeting_name }}</span>
+                      </td>
+                      <td>{{ finding.movement_type.replace('_', ' ').title() }}</td>
+                      <td>
+                        <strong>{{ finding.person_name or 'Review needed' }}</strong>
+                        {% if finding.confidence != 'high' %}
+                          <span class="flag">{{ finding.confidence }}</span>
+                        {% endif %}
+                      </td>
+                      <td>{{ finding.effective_date }}</td>
+                      <td>{{ finding.reason }}</td>
+                      <td class="source-links">
+                        <a href="{{ url_for('source', finding_id=finding['_view_id']) }}">Trace</a>
+                        <a href="{{ finding.board_meeting_url }}" target="_blank" rel="noreferrer">Board Site</a>
+                      </td>
+                    </tr>
+                    <tr class="context">
+                      <td colspan="8"><pre>{{ finding.context }}</pre></td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </section>
+        {% else %}
+          <section class="empty">
+            <h2>No watched-school findings</h2>
+            <p>No watched schools were found in the scanned personnel PDFs.</p>
+          </section>
+        {% endfor %}
+      {% else %}
+        <section class="empty">
+          <h2>No scan has run yet</h2>
+          <p>Paste a CCSD Diligent meeting URL and run a scan to cache the personnel PDFs and produce a school-specific report.</p>
+        </section>
+      {% endif %}
+    </main>
+  </body>
+</html>

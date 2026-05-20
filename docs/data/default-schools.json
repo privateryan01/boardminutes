@@ -1,0 +1,380 @@
+{
+  "schools": [
+    {
+      "school_id": "coronado_hs",
+      "cluster": "Henderson",
+      "display_name": "Coronado HS",
+      "aliases": [
+        "Coronado HS",
+        "Coronado High School",
+        "Coronado"
+      ],
+      "source_image": "henderson cluster.png"
+    },
+    {
+      "school_id": "del_webb_ms",
+      "cluster": "Henderson",
+      "display_name": "Del Webb MS",
+      "aliases": [
+        "Del Webb MS",
+        "Del Webb Middle School",
+        "Del E. Webb MS",
+        "Del Webb"
+      ],
+      "source_image": "henderson cluster.png"
+    },
+    {
+      "school_id": "bob_miller_ms",
+      "cluster": "Henderson",
+      "display_name": "Bob Miller MS",
+      "aliases": [
+        "Bob Miller MS",
+        "Bob Miller Middle School",
+        "Miller MS",
+        "Bob Miller"
+      ],
+      "source_image": "henderson cluster.png"
+    },
+    {
+      "school_id": "wallin_es",
+      "cluster": "Henderson",
+      "display_name": "Wallin ES",
+      "aliases": [
+        "Wallin ES",
+        "Wallin Elementary School",
+        "Wallin"
+      ],
+      "source_image": "henderson cluster.png"
+    },
+    {
+      "school_id": "ellis_es",
+      "cluster": "Henderson",
+      "display_name": "Ellis ES",
+      "aliases": [
+        "Ellis ES",
+        "Ellis Elementary School",
+        "Ellis"
+      ],
+      "source_image": "henderson cluster.png"
+    },
+    {
+      "school_id": "lamping_es",
+      "cluster": "Henderson",
+      "display_name": "Lamping ES",
+      "aliases": [
+        "Lamping ES",
+        "Lamping Elementary School",
+        "Lamping"
+      ],
+      "source_image": "henderson cluster.png"
+    },
+    {
+      "school_id": "elise_wolff_es",
+      "cluster": "Henderson",
+      "display_name": "Elise Wolff ES",
+      "aliases": [
+        "Elise Wolff ES",
+        "Elise L. Wolff ES",
+        "Wolff ES",
+        "Wolff Elementary School",
+        "Elise Wolff"
+      ],
+      "source_image": "henderson cluster.png"
+    },
+    {
+      "school_id": "glen_taylor_es",
+      "cluster": "Henderson",
+      "display_name": "Glen Taylor ES",
+      "aliases": [
+        "Glen Taylor ES",
+        "Glen C. Taylor ES",
+        "Taylor ES",
+        "Glen Taylor"
+      ],
+      "source_image": "henderson cluster.png"
+    },
+    {
+      "school_id": "necta",
+      "cluster": "North East Vegas",
+      "display_name": "Northeast Career and Technical Academy",
+      "aliases": [
+        "Northeast Career and Technical Academy",
+        "NECTA",
+        "Northeast CTA",
+        "Northeast Career Technical Academy",
+        "Northeast Tech"
+      ],
+      "source_image": "North east vegas cluster.png"
+    },
+    {
+      "school_id": "cram_ms",
+      "cluster": "North East Vegas",
+      "display_name": "Cram MS",
+      "aliases": [
+        "Cram MS",
+        "Cram Middle School",
+        "Cram"
+      ],
+      "source_image": "North east vegas cluster.png"
+    },
+    {
+      "school_id": "simmons_es",
+      "cluster": "North East Vegas",
+      "display_name": "Simmons ES",
+      "aliases": [
+        "Simmons ES",
+        "Simmons Elementary School",
+        "Simmons"
+      ],
+      "source_image": "North east vegas cluster.png"
+    },
+    {
+      "school_id": "antonello_es",
+      "cluster": "North East Vegas",
+      "display_name": "Antonello ES",
+      "aliases": [
+        "Antonello ES",
+        "Antonello Elementary School",
+        "Antonello"
+      ],
+      "source_image": "North east vegas cluster.png"
+    },
+    {
+      "school_id": "duncan_es",
+      "cluster": "North East Vegas",
+      "display_name": "Duncan ES",
+      "aliases": [
+        "Duncan ES",
+        "Duncan Elementary School",
+        "Duncan"
+      ],
+      "source_image": "North east vegas cluster.png"
+    },
+    {
+      "school_id": "hayden_es",
+      "cluster": "North East Vegas",
+      "display_name": "Hayden ES",
+      "aliases": [
+        "Hayden ES",
+        "Hayden Elementary School",
+        "Hayden"
+      ],
+      "source_image": "North east vegas cluster.png"
+    },
+    {
+      "school_id": "gilbert_es",
+      "cluster": "North East Vegas",
+      "display_name": "Gilbert ES",
+      "aliases": [
+        "Gilbert ES",
+        "Gilbert Elementary School",
+        "Gilbert"
+      ],
+      "source_image": "North east vegas cluster.png"
+    },
+    {
+      "school_id": "secta",
+      "cluster": "Southeast Vegas",
+      "display_name": "Southeast Career Technical Academy",
+      "aliases": [
+        "Southeast Career Technical Academy",
+        "SECTA",
+        "Southeast CTA",
+        "Southeast Career and Technical Academy"
+      ],
+      "source_image": "southeast vegas cluster.png"
+    },
+    {
+      "school_id": "courtney_jhs",
+      "cluster": "Southeast Vegas",
+      "display_name": "Courtney JHS",
+      "aliases": [
+        "Courtney JHS",
+        "Cortney JHS",
+        "Courtney Junior High School",
+        "Cortney"
+      ],
+      "source_image": "southeast vegas cluster.png"
+    },
+    {
+      "school_id": "t_white_ms",
+      "cluster": "Southeast Vegas",
+      "display_name": "T. White MS",
+      "aliases": [
+        "T. White MS",
+        "T White MS",
+        "Theron H. White MS",
+        "White MS"
+      ],
+      "source_image": "southeast vegas cluster.png"
+    },
+    {
+      "school_id": "cowan_academic_center",
+      "cluster": "Southeast Vegas",
+      "display_name": "Cowan Academic Center",
+      "aliases": [
+        "Cowan Academic Center",
+        "Cowan",
+        "Cowan Elementary School"
+      ],
+      "source_image": "southeast vegas cluster.png"
+    },
+    {
+      "school_id": "harmon_es",
+      "cluster": "Southeast Vegas",
+      "display_name": "Harmon ES",
+      "aliases": [
+        "Harmon ES",
+        "Harmon Elementary School",
+        "Harmon"
+      ],
+      "source_image": "southeast vegas cluster.png"
+    },
+    {
+      "school_id": "treem_es",
+      "cluster": "Southeast Vegas",
+      "display_name": "Treem ES",
+      "aliases": [
+        "Treem ES",
+        "Treem Elementary School",
+        "Treem"
+      ],
+      "source_image": "southeast vegas cluster.png"
+    },
+    {
+      "school_id": "thorpe_es",
+      "cluster": "Southeast Vegas",
+      "display_name": "Thorpe ES",
+      "aliases": [
+        "Thorpe ES",
+        "Thorpe Elementary School",
+        "Thorpe"
+      ],
+      "source_image": "southeast vegas cluster.png"
+    },
+    {
+      "school_id": "whitney_es",
+      "cluster": "Southeast Vegas",
+      "display_name": "Whitney ES",
+      "aliases": [
+        "Whitney ES",
+        "Whitney Elementary School",
+        "Whitney"
+      ],
+      "source_image": "southeast vegas cluster.png"
+    },
+    {
+      "school_id": "aggie_roberts_es",
+      "cluster": "Southeast Vegas",
+      "display_name": "Aggie Roberts ES",
+      "aliases": [
+        "Aggie Roberts ES",
+        "Aggie Roberts Elementary School",
+        "Roberts ES",
+        "Aggie Roberts"
+      ],
+      "source_image": "southeast vegas cluster.png"
+    },
+    {
+      "school_id": "desert_oasis_hs",
+      "cluster": "Southwest Vegas",
+      "display_name": "Desert Oasis HS",
+      "aliases": [
+        "Desert Oasis HS",
+        "Desert Oasis High School",
+        "Desert Oasis"
+      ],
+      "source_image": "southwest vegas cluster.png"
+    },
+    {
+      "school_id": "gunderson_ms",
+      "cluster": "Southwest Vegas",
+      "display_name": "Gunderson MS",
+      "aliases": [
+        "Gunderson MS",
+        "Gunderson Middle School",
+        "Gunderson"
+      ],
+      "source_image": "southwest vegas cluster.png"
+    },
+    {
+      "school_id": "ortwein_es",
+      "cluster": "Southwest Vegas",
+      "display_name": "Ortwein ES",
+      "aliases": [
+        "Ortwein ES",
+        "Ortwein Elementary School",
+        "Ortwein"
+      ],
+      "source_image": "southwest vegas cluster.png"
+    },
+    {
+      "school_id": "stuckey_es",
+      "cluster": "Southwest Vegas",
+      "display_name": "Stuckey ES",
+      "aliases": [
+        "Stuckey ES",
+        "Stuckey Elementary School",
+        "Stuckey"
+      ],
+      "source_image": "southwest vegas cluster.png"
+    },
+    {
+      "school_id": "frias_es",
+      "cluster": "Southwest Vegas",
+      "display_name": "Frias ES",
+      "aliases": [
+        "Frias ES",
+        "Frias Elementary School",
+        "Frias"
+      ],
+      "source_image": "southwest vegas cluster.png"
+    },
+    {
+      "school_id": "wright_es",
+      "cluster": "Southwest Vegas",
+      "display_name": "Wright ES",
+      "aliases": [
+        "Wright ES",
+        "Wright Elementary School",
+        "Wright"
+      ],
+      "source_image": "southwest vegas cluster.png"
+    },
+    {
+      "school_id": "blackhurst_es",
+      "cluster": "Southwest Vegas",
+      "display_name": "Blackhurst ES",
+      "aliases": [
+        "Blackhurst ES",
+        "Blackhurst Elementary School",
+        "Blackhurst"
+      ],
+      "source_image": "southwest vegas cluster.png"
+    },
+    {
+      "school_id": "reedom_es",
+      "cluster": "Southwest Vegas",
+      "display_name": "Reedom ES",
+      "aliases": [
+        "Reedom ES",
+        "Reedom Elementary School",
+        "Reedom"
+      ],
+      "source_image": "southwest vegas cluster.png"
+    },
+    {
+      "school_id": "thompson_t_es",
+      "cluster": "Southwest Vegas",
+      "display_name": "T. Thompson ES",
+      "aliases": [
+        "T. Thompson ES",
+        "Thompson ES",
+        "Tyrone Thompson ES",
+        "Thompson"
+      ],
+      "source_image": "southwest vegas cluster.png"
+    }
+  ],
+  "generated_at": "2026-05-20T19:33:14.777511+00:00"
+}

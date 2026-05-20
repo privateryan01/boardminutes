@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Manage Schools - CCSD Board Personnel Watch</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Watched Schools</p>
+        <h1>Manage Clusters</h1>
+      </div>
+      <nav class="top-actions">
+        <a href="{{ url_for('index') }}">Dashboard</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="empty">
+        <h2>Editing This List</h2>
+        {% if per_user %}
+          <p>These schools are saved for this browser profile only. They will not change what any other user sees.</p>
+          <p>Profile: {{ user_id[:8] }}. Clearing browser cookies will create a new profile with the default school list.</p>
+        {% endif %}
+        <p>Changes apply to the next scan or auto-refresh. Existing findings stay as historical output until the board minutes are rescanned.</p>
+      </section>
+
+      <section class="scan-panel">
+        <h2>Add School</h2>
+        <form method="post" action="{{ url_for('add_school') }}" class="school-form">
+          <label>
+            Cluster
+            <input name="cluster" list="cluster-options" placeholder="Example: Henderson">
+          </label>
+          <label>
+            School name
+            <input name="display_name" placeholder="Example: Wallin ES">
+          </label>
+          <label>
+            Aliases
+            <textarea name="aliases" placeholder="One alias per line, or separate with semicolons"></textarea>
+          </label>
+          <button type="submit">Add School</button>
+          <datalist id="cluster-options">
+            {% for cluster in clusters %}
+              <option value="{{ cluster }}"></option>
+            {% endfor %}
+          </datalist>
+        </form>
+      </section>
+
+      <section>
+        <div class="section-heading">
+          <h2>Current List</h2>
+          <span>{{ school_count }} schools</span>
+        </div>
+        <div class="school-grid">
+          {% for school in schools %}
+            <article class="school-card">
+              <form method="post" action="{{ url_for('update_school', school_id=school.school_id) }}" class="school-form">
+                <label>
+                  Cluster
+                  <input name="cluster" list="cluster-options" value="{{ school.cluster }}">
+                </label>
+                <label>
+                  School name
+                  <input name="display_name" value="{{ school.display_name }}">
+                </label>
+                <label>
+                  Aliases
+                  <textarea name="aliases">{{ school.aliases|join('\n') }}</textarea>
+                </label>
+                <div class="card-actions">
+                  <button type="submit">Save</button>
+                </div>
+              </form>
+              <form method="post" action="{{ url_for('delete_school', school_id=school.school_id) }}">
+                <button class="danger-button" type="submit">Delete</button>
+              </form>
+            </article>
+          {% endfor %}
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

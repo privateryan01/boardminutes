@@ -1,0 +1,15 @@
+.DS_Store
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+.generated/
+data/runs/
+data/users/
+data/*-screenshot.png
+build/
+dist/
+*.spec
+
+docs/data/board-data.json.tmp

@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: ccsd-board-watch
+    runtime: python
+    plan: starter
+    buildCommand: pip install -r requirements.txt && pip install -e .
+    startCommand: gunicorn "wsgi:app" --bind 0.0.0.0:$PORT --workers 1 --threads 4 --timeout 180
+    autoDeploy: true
+    envVars:
+      - key: CCSD_WATCH_DATA_DIR
+        value: /var/data
+      - key: CCSD_AUTO_REFRESH
+        value: "1"
+      - key: CCSD_REFRESH_INTERVAL_MINUTES
+        value: "360"
+      - key: CCSD_REFRESH_ON_START
+        value: "1"
+    disk:
+      name: ccsd-board-watch-data
+      mountPath: /var/data
+      sizeGB: 5

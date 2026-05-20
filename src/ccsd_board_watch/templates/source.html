@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Source Trace - CCSD Board Personnel Watch</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
+  </head>
+  <body>
+    <header class="topbar source-topbar">
+      <div>
+        <p class="eyebrow">Source Trace</p>
+        <h1>{{ finding.school_name }} - {{ finding.movement_type.replace('_', ' ').title() }}</h1>
+      </div>
+      <nav class="source-actions">
+        <a href="{{ url_for('index') }}">Dashboard</a>
+        <a href="{{ finding.board_meeting_url }}" target="_blank" rel="noreferrer">Open Board Website</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="trace-summary">
+        <div>
+          <span>Board Meeting</span>
+          <strong>{{ finding.meeting_date }}</strong>
+          <p>{{ finding.meeting_name }}</p>
+        </div>
+        <div>
+          <span>Person</span>
+          <strong>{{ finding.person_name or 'Review needed' }}</strong>
+          <p>{{ finding.reason or finding.effective_date or 'No reason/date parsed' }}</p>
+        </div>
+        <div>
+          <span>Agenda Item</span>
+          <strong>{{ finding.item_number }}</strong>
+          <p>{{ finding.attachment_name }}</p>
+        </div>
+      </section>
+
+      <section class="official-source-panel">
+        <h2>Board Website Source</h2>
+        <p>This finding is tied to the official CCSD/Diligent board meeting page below. The board site blocks embedded viewing from other websites, so it opens in a new tab.</p>
+        <a class="official-link" href="{{ finding.board_meeting_url }}" target="_blank" rel="noreferrer">Open Official Board Meeting Website</a>
+        <div class="board-item">
+          <span>Agenda Item</span>
+          <strong>{{ finding.item_number }} - {{ finding.item_title }}</strong>
+          <span>Linked Attachment Listed On Board Website</span>
+          <strong>{{ finding.attachment_name }}</strong>
+        </div>
+      </section>
+
+      <section class="source-text-panel">
+        <div class="section-heading">
+          <h2>Highlighted Extracted Evidence</h2>
+          <span>{{ text_path }}</span>
+        </div>
+        <div class="source-lines">
+          {% for line in source_lines %}
+            <div
+              {% if line.target %}id="highlight-target"{% endif %}
+              class="source-line{% if line.highlight %} highlighted{% endif %}{% if line.target %} target-line{% endif %}"
+            >
+              <span class="line-number">{{ line.number }}</span>
+              <code>{{ line.text }}</code>
+            </div>
+          {% endfor %}
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const target = document.getElementById("highlight-target");
+      if (target) {
+        target.scrollIntoView({ block: "center" });
+      }
+    </script>
+  </body>
+</html>

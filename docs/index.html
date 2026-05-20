@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CCSD Board Personnel Watch</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Clark County School District</p>
+        <h1>Board Personnel Watch</h1>
+      </div>
+      <nav class="top-actions" aria-label="Primary">
+        <a href="#dashboard" data-nav="dashboard">Dashboard</a>
+        <a href="#schools" data-nav="schools">Schools</a>
+      </nav>
+      <div class="run-meta" id="runMeta">
+        <span>Loading</span>
+      </div>
+    </header>
+
+    <main>
+      <section class="status-panel" id="statusPanel">
+        <strong>Loading board data</strong>
+        <span>Reading the latest static export.</span>
+      </section>
+
+      <section class="view" id="dashboardView">
+        <section class="control-panel">
+          <div class="filters-grid">
+            <label>
+              Board Year
+              <select id="yearFilter"></select>
+            </label>
+            <label>
+              Cluster
+              <select id="clusterFilter"></select>
+            </label>
+            <label>
+              Change Type
+              <select id="typeFilter"></select>
+            </label>
+            <label>
+              Search
+              <input id="searchFilter" type="search" placeholder="School, person, meeting, reason">
+            </label>
+          </div>
+        </section>
+
+        <section class="metrics-grid" id="metricsGrid"></section>
+
+        <section class="split">
+          <div>
+            <h2>Findings By Type</h2>
+            <ul class="bars" id="typeBars"></ul>
+          </div>
+          <div>
+            <h2>Board Year</h2>
+            <ul class="bars" id="yearBars"></ul>
+          </div>
+        </section>
+
+        <section>
+          <h2>Cluster</h2>
+          <ul class="bars cluster-bars" id="clusterBars"></ul>
+        </section>
+
+        <section>
+          <div class="section-heading">
+            <h2>Recognized Employment Changes</h2>
+            <span id="findingCountLabel"></span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>School</th>
+                  <th>Cluster</th>
+                  <th>Board Meeting</th>
+                  <th>Type</th>
+                  <th>Person</th>
+                  <th>Employment Date</th>
+                  <th>Reason</th>
+                  <th>Source</th>
+                </tr>
+              </thead>
+              <tbody id="findingsBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+
+      <section class="view" id="schoolsView" hidden>
+        <section class="control-panel">
+          <div class="section-heading">
+            <h2>School Preferences</h2>
+            <div class="inline-actions">
+              <button id="resetSchoolsButton" type="button" class="secondary-button">Reset Defaults</button>
+              <button id="exportSchoolsButton" type="button" class="secondary-button">Export</button>
+              <button id="importSchoolsButton" type="button" class="secondary-button">Import</button>
+              <input id="importSchoolsInput" type="file" accept="application/json,.json" hidden>
+            </div>
+          </div>
+          <form id="addSchoolForm" class="school-form">
+            <label>
+              School
+              <input name="display_name" required placeholder="Example HS">
+            </label>
+            <label>
+              Cluster
+              <input name="cluster" required placeholder="Custom Cluster">
+            </label>
+            <label>
+              Aliases
+              <textarea name="aliases" placeholder="Example High School; Example HS"></textarea>
+            </label>
+            <button type="submit">Add School</button>
+          </form>
+        </section>
+        <section class="school-grid" id="schoolGrid"></section>
+      </section>
+
+      <section class="view" id="traceView" hidden>
+        <section class="trace-summary" id="traceSummary"></section>
+        <section class="official-source-panel" id="officialSourcePanel"></section>
+        <section class="source-text-panel">
+          <div class="section-heading">
+            <h2>Highlighted Extracted Evidence</h2>
+            <span id="traceLineLabel"></span>
+          </div>
+          <div class="source-lines" id="sourceLines"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

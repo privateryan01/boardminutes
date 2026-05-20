@@ -1,0 +1,53 @@
+name: Update board data
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Scan previous and current calendar years
+        run: |
+          PYTHONPATH=src python -m ccsd_board_watch.cli \
+            --previous-year \
+            --school-file data/schools.csv \
+            --output-dir .generated/runs
+
+      - name: Export GitHub Pages data
+        run: |
+          PYTHONPATH=src python -m ccsd_board_watch.static_export \
+            --output-dir .generated/runs \
+            --school-file data/schools.csv \
+            --docs-dir docs
+
+      - name: Commit updated static data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/data
+          if git diff --cached --quiet; then
+            echo "No board data changes to commit."
+          else
+            git commit -m "Update CCSD board data"
+            git push
+          fi
