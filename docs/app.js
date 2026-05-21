@@ -1,7 +1,15 @@
 const DATA_URL = "data/board-data.json";
 const SCHOOL_STORAGE_KEY = "ccsd-board-watch-schools-v1";
+const SCHOOL_VERSION_STORAGE_KEY = "ccsd-board-watch-schools-version-v1";
+const DEFAULT_SCHOOL_SET_VERSION = "cluster-1-40-v1";
 const FILTER_STORAGE_KEY = "ccsd-board-watch-filters-v1";
 const SNAPSHOT_STORAGE_KEY = "ccsd-board-watch-finding-snapshot-v1";
+const LEGACY_DEFAULT_SOURCE_IMAGES = new Set([
+  "henderson cluster.png",
+  "North east vegas cluster.png",
+  "southeast vegas cluster.png",
+  "southwest vegas cluster.png",
+]);
 
 const DATE_PATTERN = /\b(?:\d{1,2}\/\d{1,2}\/\d{2,4}|(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\s+\d{1,2},\s+\d{4}|TBD)\b/ig;
 const HEADER_HINTS = new Set([
@@ -158,7 +166,11 @@ function loadSavedSchools(defaultSchools) {
   try {
     const saved = JSON.parse(localStorage.getItem(SCHOOL_STORAGE_KEY) || "null");
     if (Array.isArray(saved) && saved.length) {
-      return normalizeSchools(saved);
+      const normalized = normalizeSchools(saved);
+      const savedVersion = localStorage.getItem(SCHOOL_VERSION_STORAGE_KEY) || "";
+      if (savedVersion === DEFAULT_SCHOOL_SET_VERSION || !isLegacyDefaultSchoolSet(normalized)) {
+        return normalized;
+      }
     }
   } catch {
     return fallback;
@@ -168,6 +180,11 @@ function loadSavedSchools(defaultSchools) {
 
 function saveSchoolsToStorage() {
   saveJsonToStorage(SCHOOL_STORAGE_KEY, state.schools);
+  saveTextToStorage(SCHOOL_VERSION_STORAGE_KEY, DEFAULT_SCHOOL_SET_VERSION);
+}
+
+function isLegacyDefaultSchoolSet(schools) {
+  return schools.length <= 40 && schools.every((school) => LEGACY_DEFAULT_SOURCE_IMAGES.has(school.source_image));
 }
 
 function normalizeSchools(schools) {
@@ -288,7 +305,7 @@ function renderFilterOptions() {
     ...years.filter((year) => year !== currentYear && year !== previousYear).map((year) => [year, year]),
   ], state.filters.year);
 
-  const clusters = unique(state.schools.map((school) => school.cluster).filter(Boolean)).sort();
+  const clusters = unique(state.schools.map((school) => school.cluster).filter(Boolean)).sort(compareClusters);
   setOptions(document.getElementById("clusterFilter"), [["all", "All clusters"], ...clusters.map((cluster) => [cluster, cluster])], state.filters.cluster);
 
   const types = unique((state.data.attachments || []).map((attachment) => attachment.movement_type).filter(Boolean)).sort();
@@ -303,7 +320,7 @@ function renderDashboard() {
   renderMetrics();
   renderBars("typeBars", countBy(state.filteredFindings, "movement_type"), labelMovementType);
   renderBars("yearBars", countBy(state.filteredFindings, "meeting_year"), (year) => labelYear(year));
-  renderBars("clusterBars", countBy(state.filteredFindings, "cluster"), (cluster) => cluster || "Unassigned");
+  renderBars("clusterBars", countBy(state.filteredFindings, "cluster"), (cluster) => cluster || "Unassigned", (a, b) => compareClusters(a[0], b[0]));
   renderFindingsTable();
 }
 
@@ -600,6 +617,7 @@ function deleteSchool(event) {
 
 function resetSchools() {
   removeFromStorage(SCHOOL_STORAGE_KEY);
+  removeFromStorage(SCHOOL_VERSION_STORAGE_KEY);
   state.schools = normalizeSchools(state.data.schools || []);
   persistSchoolChanges(false);
 }
@@ -637,7 +655,7 @@ function importSchools(event) {
 }
 
 function persistSchoolChanges(writeStorage = true) {
-  state.schools = normalizeSchools(state.schools).sort((a, b) => `${a.cluster} ${a.display_name}`.localeCompare(`${b.cluster} ${b.display_name}`));
+  state.schools = normalizeSchools(state.schools).sort((a, b) => compareClusters(a.cluster, b.cluster) || a.display_name.localeCompare(b.display_name));
   if (writeStorage) saveSchoolsToStorage();
   recomputeFindings();
   renderAll();
@@ -654,6 +672,14 @@ function setStatus(title, detail, hidden) {
 function saveJsonToStorage(key, value) {
   try {
     localStorage.setItem(key, JSON.stringify(value));
+  } catch {
+    // Managed browsers can disable storage; keep the app usable without persistence.
+  }
+}
+
+function saveTextToStorage(key, value) {
+  try {
+    localStorage.setItem(key, value);
   } catch {
     // Managed browsers can disable storage; keep the app usable without persistence.
   }
@@ -678,8 +704,8 @@ function setOptions(select, options, selectedValue) {
   if (select.id === "typeFilter") state.filters.type = finalValue;
 }
 
-function renderBars(elementId, counts, labeler) {
-  const entries = Object.entries(counts).sort((a, b) => b[1] - a[1] || String(a[0]).localeCompare(String(b[0])));
+function renderBars(elementId, counts, labeler, comparator) {
+  const entries = Object.entries(counts).sort(comparator || ((a, b) => b[1] - a[1] || String(a[0]).localeCompare(String(b[0]))));
   document.getElementById(elementId).innerHTML = entries.length
     ? entries.map(([key, count]) => `<li><span>${escapeHtml(labeler(key))}</span><strong>${count}</strong></li>`).join("")
     : `<li><span>No findings</span><strong>0</strong></li>`;
@@ -920,6 +946,20 @@ function compareFindings(a, b) {
   const dateB = Date.parse(b.meeting_date) || 0;
   if (dateA !== dateB) return dateB - dateA;
   return `${a.school_name} ${a.person_name}`.localeCompare(`${b.school_name} ${b.person_name}`);
+}
+
+function compareClusters(a, b) {
+  const numberA = clusterNumber(a);
+  const numberB = clusterNumber(b);
+  if (numberA !== null && numberB !== null && numberA !== numberB) return numberA - numberB;
+  if (numberA !== null && numberB === null) return -1;
+  if (numberA === null && numberB !== null) return 1;
+  return String(a || "").localeCompare(String(b || ""));
+}
+
+function clusterNumber(value) {
+  const match = String(value || "").match(/\b(?:cluster\s*)?(\d+)\b/i);
+  return match ? Number(match[1]) : null;
 }
 
 function labelMovementType(value) {

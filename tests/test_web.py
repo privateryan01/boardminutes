@@ -21,6 +21,18 @@ class WebFilterTests(unittest.TestCase):
             {"Henderson": 1, "Southwest Vegas": 2},
         )
 
+    def test_cluster_counts_sort_numbered_clusters_numerically(self):
+        findings = [
+            {"cluster": "Cluster 10"},
+            {"cluster": "Cluster 2"},
+            {"cluster": "Cluster 1"},
+        ]
+
+        self.assertEqual(
+            list(_cluster_counts(findings)),
+            ["Cluster 1", "Cluster 2", "Cluster 10"],
+        )
+
     def test_filtered_data_limits_findings_to_selected_cluster(self):
         data = {
             "attachments": [{"movement_type": "new_hire"}],

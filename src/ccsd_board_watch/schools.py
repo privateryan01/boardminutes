@@ -58,7 +58,7 @@ def save_schools(path: Path, schools: list[School]) -> None:
     with path.open("w", newline="", encoding="utf-8") as handle:
         writer = csv.DictWriter(handle, fieldnames=["school_id", "cluster", "display_name", "aliases", "source_image"])
         writer.writeheader()
-        for school in sorted(schools, key=lambda item: (item.cluster.lower(), item.display_name.lower())):
+        for school in sorted(schools, key=lambda item: (*cluster_sort_key(item.cluster), item.display_name.lower())):
             writer.writerow(
                 {
                     "school_id": school.school_id,
@@ -68,6 +68,14 @@ def save_schools(path: Path, schools: list[School]) -> None:
                     "source_image": school.source_image,
                 }
             )
+
+
+def cluster_sort_key(cluster: str) -> tuple[int, int, str]:
+    text = str(cluster or "").strip()
+    match = re.search(r"\b(?:cluster\s*)?(\d+)\b", text, re.I)
+    if match:
+        return (0, int(match.group(1)), text.lower())
+    return (1, 0, text.lower())
 
 
 def school_id_from_name(display_name: str, existing_ids: set[str] | None = None) -> str:

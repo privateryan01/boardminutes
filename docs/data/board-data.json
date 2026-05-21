@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-21T03:23:02.259680+00:00",
-  "source_run_at": "2026-05-21T03:23:01.919703+00:00",
+  "generated_at": "2026-05-21T04:40:18.887240+00:00",
+  "source_run_at": "2026-05-20T17:44:05.678082+00:00",
   "range": {
     "from_date": "2025-01-01",
-    "to_date": "2026-05-21"
+    "to_date": "2026-05-20"
   },
   "current_year": 2026,
   "previous_year": 2025,
@@ -13,383 +13,2962 @@
     "scanned_meeting_count": 98,
     "attachment_count": 184,
     "source_url": "https://ccsd.community.diligentoneplatform.com/Portal/MeetingInformation.aspx?Org=Cal&Id=1678",
-    "run_label": "20260521-032152-range-2025-01-01-to-2026-05-21"
+    "run_label": "20260520-104205-range-2025-01-01-to-2026-05-20"
   },
   "schools": [
     {
+      "school_id": "chaparral_hs",
+      "cluster": "Cluster 1",
+      "display_name": "Chaparral HS",
+      "aliases": [
+        "Chaparral HS"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "woodbury_ms",
+      "cluster": "Cluster 1",
+      "display_name": "Woodbury MS",
+      "aliases": [
+        "Woodbury MS"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "ullom_es",
+      "cluster": "Cluster 1",
+      "display_name": "Ullom ES",
+      "aliases": [
+        "Ullom ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "bailey_sister_robert_es",
+      "cluster": "Cluster 1",
+      "display_name": "Bailey Sister Robert ES",
+      "aliases": [
+        "Bailey Sister Robert ES",
+        "Sister Robert Bailey ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "ferron_es",
+      "cluster": "Cluster 1",
+      "display_name": "Ferron ES",
+      "aliases": [
+        "Ferron ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "cunningham_es",
+      "cluster": "Cluster 1",
+      "display_name": "Cunningham ES",
+      "aliases": [
+        "Cunningham ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "harris_g_es",
+      "cluster": "Cluster 1",
+      "display_name": "Harris G ES",
+      "aliases": [
+        "Harris G ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "beckley_es",
+      "cluster": "Cluster 1",
+      "display_name": "Beckley ES",
+      "aliases": [
+        "Beckley ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "desert_pines_hs",
+      "cluster": "Cluster 2",
+      "display_name": "Desert Pines HS",
+      "aliases": [
+        "Desert Pines HS"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "monaco_ms",
+      "cluster": "Cluster 2",
+      "display_name": "Monaco MS",
+      "aliases": [
+        "Monaco MS"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "miller_s_es",
+      "cluster": "Cluster 2",
+      "display_name": "Miller S ES",
+      "aliases": [
+        "Miller S ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "lynch_a_es",
+      "cluster": "Cluster 2",
+      "display_name": "Lynch A ES",
+      "aliases": [
+        "Lynch A ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "heard_l_es",
+      "cluster": "Cluster 2",
+      "display_name": "Heard L ES",
+      "aliases": [
+        "Heard L ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "diaz_r_es",
+      "cluster": "Cluster 2",
+      "display_name": "Diaz R ES",
+      "aliases": [
+        "Diaz R ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "cortez_es",
+      "cluster": "Cluster 2",
+      "display_name": "Cortez ES",
+      "aliases": [
+        "Cortez ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "earl_i_es",
+      "cluster": "Cluster 2",
+      "display_name": "Earl I ES",
+      "aliases": [
+        "Earl I ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "ecta",
+      "cluster": "Cluster 3",
+      "display_name": "ECTA",
+      "aliases": [
+        "ECTA",
+        "East CTA",
+        "East Career Technical Academy",
+        "East Career and Technical Academy"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "mack_j_ms",
+      "cluster": "Cluster 3",
+      "display_name": "Mack J MS",
+      "aliases": [
+        "Mack J MS"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "jenkins_es",
+      "cluster": "Cluster 3",
+      "display_name": "Jenkins ES",
+      "aliases": [
+        "Jenkins ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "smith_hal_es",
+      "cluster": "Cluster 3",
+      "display_name": "Smith Hal ES",
+      "aliases": [
+        "Smith Hal ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "dearing_l_es",
+      "cluster": "Cluster 3",
+      "display_name": "Dearing L ES",
+      "aliases": [
+        "Dearing L ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "long_es",
+      "cluster": "Cluster 3",
+      "display_name": "Long ES",
+      "aliases": [
+        "Long ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "snyder_es",
+      "cluster": "Cluster 3",
+      "display_name": "Snyder ES",
+      "aliases": [
+        "Snyder ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "goldfarb_es",
+      "cluster": "Cluster 3",
+      "display_name": "Goldfarb ES",
+      "aliases": [
+        "Goldfarb ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "eldorado_hs",
+      "cluster": "Cluster 4",
+      "display_name": "Eldorado HS",
+      "aliases": [
+        "Eldorado HS"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "ocallaghan_ms",
+      "cluster": "Cluster 4",
+      "display_name": "O'Callaghan MS",
+      "aliases": [
+        "O'Callaghan MS",
+        "O Callaghan MS"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "keller_ms",
+      "cluster": "Cluster 4",
+      "display_name": "Keller MS",
+      "aliases": [
+        "Keller MS"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "mountain_view_es",
+      "cluster": "Cluster 4",
+      "display_name": "Mountain View ES",
+      "aliases": [
+        "Mountain View ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "brookman_es",
+      "cluster": "Cluster 4",
+      "display_name": "Brookman ES",
+      "aliases": [
+        "Brookman ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "stanford_es",
+      "cluster": "Cluster 4",
+      "display_name": "Stanford ES",
+      "aliases": [
+        "Stanford ES",
+        "Standford ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "adams_es",
+      "cluster": "Cluster 4",
+      "display_name": "Adams ES",
+      "aliases": [
+        "Adams ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "keller_es",
+      "cluster": "Cluster 4",
+      "display_name": "Keller ES",
+      "aliases": [
+        "Keller ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "rundle_es",
+      "cluster": "Cluster 4",
+      "display_name": "Rundle ES",
+      "aliases": [
+        "Rundle ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "las_vegas_academy",
+      "cluster": "Cluster 5",
+      "display_name": "Las Vegas Academy",
+      "aliases": [
+        "Las Vegas Academy",
+        "Las Vegas Academy of the Arts",
+        "LVA"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "martin_ms",
+      "cluster": "Cluster 5",
+      "display_name": "Martin MS",
+      "aliases": [
+        "Martin MS"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "fremont_ms",
+      "cluster": "Cluster 5",
+      "display_name": "Fremont MS",
+      "aliases": [
+        "Fremont MS"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "hollingsworth_es",
+      "cluster": "Cluster 5",
+      "display_name": "Hollingsworth ES",
+      "aliases": [
+        "Hollingsworth ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "crestwood_es",
+      "cluster": "Cluster 5",
+      "display_name": "Crestwood ES",
+      "aliases": [
+        "Crestwood ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "park_es",
+      "cluster": "Cluster 5",
+      "display_name": "Park ES",
+      "aliases": [
+        "Park ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "sunrise_acres_es",
+      "cluster": "Cluster 5",
+      "display_name": "Sunrise Acres ES",
+      "aliases": [
+        "Sunrise Acres ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "hewetson_h_es",
+      "cluster": "Cluster 5",
+      "display_name": "Hewetson H ES",
+      "aliases": [
+        "Hewetson H ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "mendoza_es",
+      "cluster": "Cluster 5",
+      "display_name": "Mendoza ES",
+      "aliases": [
+        "Mendoza ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "las_vegas_hs",
+      "cluster": "Cluster 6",
+      "display_name": "Las Vegas HS",
+      "aliases": [
+        "Las Vegas HS"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "harney_ms",
+      "cluster": "Cluster 6",
+      "display_name": "Harney MS",
+      "aliases": [
+        "Harney MS"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "gragson_es",
+      "cluster": "Cluster 6",
+      "display_name": "Gragson ES",
+      "aliases": [
+        "Gragson ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "moore_es",
+      "cluster": "Cluster 6",
+      "display_name": "Moore ES",
+      "aliases": [
+        "Moore ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "edwards_es",
+      "cluster": "Cluster 6",
+      "display_name": "Edwards ES",
+      "aliases": [
+        "Edwards ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "thomas_ruby_es",
+      "cluster": "Cluster 6",
+      "display_name": "Thomas Ruby ES",
+      "aliases": [
+        "Thomas Ruby ES",
+        "Ruby Thomas ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "iverson_es",
+      "cluster": "Cluster 6",
+      "display_name": "Iverson ES",
+      "aliases": [
+        "Iverson ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "wengert_es",
+      "cluster": "Cluster 6",
+      "display_name": "Wengert ES",
+      "aliases": [
+        "Wengert ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "rancho_hs",
+      "cluster": "Cluster 7",
+      "display_name": "Rancho HS",
+      "aliases": [
+        "Rancho HS"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "smith_jd_ms",
+      "cluster": "Cluster 7",
+      "display_name": "Smith JD MS",
+      "aliases": [
+        "Smith JD MS",
+        "Smith J D MS"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "squires_es",
+      "cluster": "Cluster 7",
+      "display_name": "Squires ES",
+      "aliases": [
+        "Squires ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "williams_t_es",
+      "cluster": "Cluster 7",
+      "display_name": "Williams T ES",
+      "aliases": [
+        "Williams T ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "ronnow_es",
+      "cluster": "Cluster 7",
+      "display_name": "Ronnow ES",
+      "aliases": [
+        "Ronnow ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "bracken_es",
+      "cluster": "Cluster 7",
+      "display_name": "Bracken ES",
+      "aliases": [
+        "Bracken ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "cambeiro_es",
+      "cluster": "Cluster 7",
+      "display_name": "Cambeiro ES",
+      "aliases": [
+        "Cambeiro ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "lunt_es",
+      "cluster": "Cluster 7",
+      "display_name": "Lunt ES",
+      "aliases": [
+        "Lunt ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "valley_hs",
+      "cluster": "Cluster 8",
+      "display_name": "Valley HS",
+      "aliases": [
+        "Valley HS"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "knudson_ms",
+      "cluster": "Cluster 8",
+      "display_name": "Knudson MS",
+      "aliases": [
+        "Knudson MS"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "orr_ms",
+      "cluster": "Cluster 8",
+      "display_name": "Orr MS",
+      "aliases": [
+        "Orr MS"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "rowe_es",
+      "cluster": "Cluster 8",
+      "display_name": "Rowe ES",
+      "aliases": [
+        "Rowe ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "paradise_es",
+      "cluster": "Cluster 8",
+      "display_name": "Paradise ES",
+      "aliases": [
+        "Paradise ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "peterson_d_es",
+      "cluster": "Cluster 8",
+      "display_name": "Peterson D ES",
+      "aliases": [
+        "Peterson D ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "lake_r_es",
+      "cluster": "Cluster 8",
+      "display_name": "Lake R ES",
+      "aliases": [
+        "Lake R ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "stewart_helen_es",
+      "cluster": "Cluster 8",
+      "display_name": "Stewart Helen ES",
+      "aliases": [
+        "Stewart Helen ES",
+        "Helen Stewart ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "basic_hs",
+      "cluster": "Cluster 9",
+      "display_name": "Basic HS",
+      "aliases": [
+        "Basic HS"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "burkholder_ms",
+      "cluster": "Cluster 9",
+      "display_name": "Burkholder MS",
+      "aliases": [
+        "Burkholder MS"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "mahlon_brown_ms",
+      "cluster": "Cluster 9",
+      "display_name": "Mahlon Brown MS",
+      "aliases": [
+        "Mahlon Brown MS"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "newton_es",
+      "cluster": "Cluster 9",
+      "display_name": "Newton ES",
+      "aliases": [
+        "Newton ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "mccaw_es",
+      "cluster": "Cluster 9",
+      "display_name": "McCaw ES",
+      "aliases": [
+        "McCaw ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "robert_taylor_es",
+      "cluster": "Cluster 9",
+      "display_name": "Robert Taylor ES",
+      "aliases": [
+        "Robert Taylor ES",
+        "Taylor Robert ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "hinman_es",
+      "cluster": "Cluster 9",
+      "display_name": "Hinman ES",
+      "aliases": [
+        "Hinman ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "josh_stevens_es",
+      "cluster": "Cluster 9",
+      "display_name": "Josh Stevens ES",
+      "aliases": [
+        "Josh Stevens ES",
+        "Stevens Josh ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "boulder_city_hs",
+      "cluster": "Cluster 10",
+      "display_name": "Boulder City HS",
+      "aliases": [
+        "Boulder City HS"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "laughlin_ms_hs",
+      "cluster": "Cluster 10",
+      "display_name": "Laughlin MS-HS",
+      "aliases": [
+        "Laughlin MS-HS",
+        "Laughlin MS",
+        "Laughlin HS",
+        "Laughlin Middle School",
+        "Laughlin High School"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "garrett_ms",
+      "cluster": "Cluster 10",
+      "display_name": "Garrett MS",
+      "aliases": [
+        "Garrett MS"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "mitchell_es",
+      "cluster": "Cluster 10",
+      "display_name": "Mitchell ES",
+      "aliases": [
+        "Mitchell ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "m_p_king_es",
+      "cluster": "Cluster 10",
+      "display_name": "M P King ES",
+      "aliases": [
+        "M P King ES",
+        "M. P. King ES",
+        "MP King ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
+      "school_id": "bennett_es",
+      "cluster": "Cluster 10",
+      "display_name": "Bennett ES",
+      "aliases": [
+        "Bennett ES"
+      ],
+      "source_image": "clusters 1-10.png"
+    },
+    {
       "school_id": "coronado_hs",
-      "cluster": "Henderson",
+      "cluster": "Cluster 11",
       "display_name": "Coronado HS",
       "aliases": [
-        "Coronado HS",
-        "Coronado High School",
-        "Coronado"
+        "Coronado HS"
       ],
-      "source_image": "henderson cluster.png"
+      "source_image": "clusters 11-20.png"
     },
     {
       "school_id": "del_webb_ms",
-      "cluster": "Henderson",
+      "cluster": "Cluster 11",
       "display_name": "Del Webb MS",
       "aliases": [
-        "Del Webb MS",
-        "Del Webb Middle School",
-        "Del E. Webb MS",
-        "Del Webb"
+        "Del Webb MS"
       ],
-      "source_image": "henderson cluster.png"
+      "source_image": "clusters 11-20.png"
     },
     {
       "school_id": "bob_miller_ms",
-      "cluster": "Henderson",
+      "cluster": "Cluster 11",
       "display_name": "Bob Miller MS",
       "aliases": [
         "Bob Miller MS",
-        "Bob Miller Middle School",
-        "Miller MS",
-        "Bob Miller"
+        "Miller Bob MS"
       ],
-      "source_image": "henderson cluster.png"
+      "source_image": "clusters 11-20.png"
     },
     {
       "school_id": "wallin_es",
-      "cluster": "Henderson",
+      "cluster": "Cluster 11",
       "display_name": "Wallin ES",
       "aliases": [
-        "Wallin ES",
-        "Wallin Elementary School",
-        "Wallin"
+        "Wallin ES"
       ],
-      "source_image": "henderson cluster.png"
+      "source_image": "clusters 11-20.png"
     },
     {
       "school_id": "ellis_es",
-      "cluster": "Henderson",
+      "cluster": "Cluster 11",
       "display_name": "Ellis ES",
       "aliases": [
-        "Ellis ES",
-        "Ellis Elementary School",
-        "Ellis"
+        "Ellis ES"
       ],
-      "source_image": "henderson cluster.png"
+      "source_image": "clusters 11-20.png"
     },
     {
       "school_id": "lamping_es",
-      "cluster": "Henderson",
+      "cluster": "Cluster 11",
       "display_name": "Lamping ES",
       "aliases": [
-        "Lamping ES",
-        "Lamping Elementary School",
-        "Lamping"
+        "Lamping ES"
       ],
-      "source_image": "henderson cluster.png"
+      "source_image": "clusters 11-20.png"
     },
     {
       "school_id": "elise_wolff_es",
-      "cluster": "Henderson",
+      "cluster": "Cluster 11",
       "display_name": "Elise Wolff ES",
       "aliases": [
         "Elise Wolff ES",
-        "Elise L. Wolff ES",
-        "Wolff ES",
-        "Wolff Elementary School",
-        "Elise Wolff"
+        "Wolff Elise ES",
+        "Wolff ES"
       ],
-      "source_image": "henderson cluster.png"
+      "source_image": "clusters 11-20.png"
     },
     {
       "school_id": "glen_taylor_es",
-      "cluster": "Henderson",
+      "cluster": "Cluster 11",
       "display_name": "Glen Taylor ES",
       "aliases": [
         "Glen Taylor ES",
-        "Glen C. Taylor ES",
-        "Taylor ES",
-        "Glen Taylor"
+        "Taylor Glen ES"
       ],
-      "source_image": "henderson cluster.png"
+      "source_image": "clusters 11-20.png"
     },
     {
-      "school_id": "necta",
-      "cluster": "North East Vegas",
-      "display_name": "Northeast Career and Technical Academy",
+      "school_id": "del_sol_hs",
+      "cluster": "Cluster 12",
+      "display_name": "Del Sol HS",
       "aliases": [
-        "Northeast Career and Technical Academy",
-        "NECTA",
-        "Northeast CTA",
-        "Northeast Career Technical Academy",
-        "Northeast Tech"
+        "Del Sol HS"
       ],
-      "source_image": "North east vegas cluster.png"
+      "source_image": "clusters 11-20.png"
     },
     {
-      "school_id": "cram_ms",
-      "cluster": "North East Vegas",
-      "display_name": "Cram MS",
+      "school_id": "cannon_ms",
+      "cluster": "Cluster 12",
+      "display_name": "Cannon MS",
       "aliases": [
-        "Cram MS",
-        "Cram Middle School",
-        "Cram"
+        "Cannon MS"
       ],
-      "source_image": "North east vegas cluster.png"
+      "source_image": "clusters 11-20.png"
     },
     {
-      "school_id": "simmons_es",
-      "cluster": "North East Vegas",
-      "display_name": "Simmons ES",
+      "school_id": "french_es",
+      "cluster": "Cluster 12",
+      "display_name": "French ES",
       "aliases": [
-        "Simmons ES",
-        "Simmons Elementary School",
-        "Simmons"
+        "French ES"
       ],
-      "source_image": "North east vegas cluster.png"
+      "source_image": "clusters 11-20.png"
     },
     {
-      "school_id": "antonello_es",
-      "cluster": "North East Vegas",
-      "display_name": "Antonello ES",
+      "school_id": "gene_ward_es",
+      "cluster": "Cluster 12",
+      "display_name": "Gene Ward ES",
       "aliases": [
-        "Antonello ES",
-        "Antonello Elementary School",
-        "Antonello"
+        "Gene Ward ES",
+        "Ward Gene ES"
       ],
-      "source_image": "North east vegas cluster.png"
+      "source_image": "clusters 11-20.png"
     },
     {
-      "school_id": "duncan_es",
-      "cluster": "North East Vegas",
-      "display_name": "Duncan ES",
+      "school_id": "dailey_es",
+      "cluster": "Cluster 12",
+      "display_name": "Dailey ES",
       "aliases": [
-        "Duncan ES",
-        "Duncan Elementary School",
-        "Duncan"
+        "Dailey ES"
       ],
-      "source_image": "North east vegas cluster.png"
+      "source_image": "clusters 11-20.png"
     },
     {
-      "school_id": "hayden_es",
-      "cluster": "North East Vegas",
-      "display_name": "Hayden ES",
+      "school_id": "tomiyasu_es",
+      "cluster": "Cluster 12",
+      "display_name": "Tomiyasu ES",
       "aliases": [
-        "Hayden ES",
-        "Hayden Elementary School",
-        "Hayden"
+        "Tomiyasu ES"
       ],
-      "source_image": "North east vegas cluster.png"
+      "source_image": "clusters 11-20.png"
     },
     {
-      "school_id": "gilbert_es",
-      "cluster": "North East Vegas",
-      "display_name": "Gilbert ES",
+      "school_id": "nate_mack_es",
+      "cluster": "Cluster 12",
+      "display_name": "Nate Mack ES",
       "aliases": [
-        "Gilbert ES",
-        "Gilbert Elementary School",
-        "Gilbert"
+        "Nate Mack ES",
+        "Mack Nate ES"
       ],
-      "source_image": "North east vegas cluster.png"
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "foothill_hs",
+      "cluster": "Cluster 13",
+      "display_name": "Foothill HS",
+      "aliases": [
+        "Foothill HS"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "mannion_ms",
+      "cluster": "Cluster 13",
+      "display_name": "Mannion MS",
+      "aliases": [
+        "Mannion MS"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "galloway_es",
+      "cluster": "Cluster 13",
+      "display_name": "Galloway ES",
+      "aliases": [
+        "Galloway ES"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "smalley_es",
+      "cluster": "Cluster 13",
+      "display_name": "Smalley ES",
+      "aliases": [
+        "Smalley ES"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "walker_es",
+      "cluster": "Cluster 13",
+      "display_name": "Walker ES",
+      "aliases": [
+        "Walker ES"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "dooley_es",
+      "cluster": "Cluster 13",
+      "display_name": "Dooley ES",
+      "aliases": [
+        "Dooley ES"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "morrow_es",
+      "cluster": "Cluster 13",
+      "display_name": "Morrow ES",
+      "aliases": [
+        "Morrow ES"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "ct_sewell_es",
+      "cluster": "Cluster 13",
+      "display_name": "CT Sewell ES",
+      "aliases": [
+        "CT Sewell ES",
+        "C T Sewell ES"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "green_valley_hs",
+      "cluster": "Cluster 14",
+      "display_name": "Green Valley HS",
+      "aliases": [
+        "Green Valley HS"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "greenspun_ms",
+      "cluster": "Cluster 14",
+      "display_name": "Greenspun MS",
+      "aliases": [
+        "Greenspun MS"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "twitchell_es",
+      "cluster": "Cluster 14",
+      "display_name": "Twitchell ES",
+      "aliases": [
+        "Twitchell ES"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "h_m_brown_es",
+      "cluster": "Cluster 14",
+      "display_name": "H M Brown ES",
+      "aliases": [
+        "H M Brown ES",
+        "H.M. Brown ES",
+        "Brown H M ES"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "gibson_es",
+      "cluster": "Cluster 14",
+      "display_name": "Gibson ES",
+      "aliases": [
+        "Gibson ES"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "kesterson_es",
+      "cluster": "Cluster 14",
+      "display_name": "Kesterson ES",
+      "aliases": [
+        "Kesterson ES"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "bartlett_es",
+      "cluster": "Cluster 14",
+      "display_name": "Bartlett ES",
+      "aliases": [
+        "Bartlett ES"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "vanderburg_es",
+      "cluster": "Cluster 14",
+      "display_name": "Vanderburg ES",
+      "aliases": [
+        "Vanderburg ES"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "liberty_hs",
+      "cluster": "Cluster 15",
+      "display_name": "Liberty HS",
+      "aliases": [
+        "Liberty HS"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "silvestri_ms",
+      "cluster": "Cluster 15",
+      "display_name": "Silvestri MS",
+      "aliases": [
+        "Silvestri MS"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "schorr_es",
+      "cluster": "Cluster 15",
+      "display_name": "Schorr ES",
+      "aliases": [
+        "Schorr ES"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "bass_es",
+      "cluster": "Cluster 15",
+      "display_name": "Bass ES",
+      "aliases": [
+        "Bass ES"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "hummel_es",
+      "cluster": "Cluster 15",
+      "display_name": "Hummel ES",
+      "aliases": [
+        "Hummel ES"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "barber_es",
+      "cluster": "Cluster 15",
+      "display_name": "Barber ES",
+      "aliases": [
+        "Barber ES"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "cartwright_es",
+      "cluster": "Cluster 15",
+      "display_name": "Cartwright ES",
+      "aliases": [
+        "Cartwright ES"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "gehring_es",
+      "cluster": "Cluster 15",
+      "display_name": "Gehring ES",
+      "aliases": [
+        "Gehring ES"
+      ],
+      "source_image": "clusters 11-20.png"
     },
     {
       "school_id": "secta",
-      "cluster": "Southeast Vegas",
-      "display_name": "Southeast Career Technical Academy",
+      "cluster": "Cluster 16",
+      "display_name": "SECTA",
       "aliases": [
-        "Southeast Career Technical Academy",
         "SECTA",
         "Southeast CTA",
+        "Southeast Career Technical Academy",
         "Southeast Career and Technical Academy"
       ],
-      "source_image": "southeast vegas cluster.png"
+      "source_image": "clusters 11-20.png"
     },
     {
       "school_id": "courtney_jhs",
-      "cluster": "Southeast Vegas",
+      "cluster": "Cluster 16",
       "display_name": "Courtney JHS",
       "aliases": [
         "Courtney JHS",
         "Cortney JHS",
-        "Courtney Junior High School",
-        "Cortney"
+        "Courtney MS",
+        "Cortney MS"
       ],
-      "source_image": "southeast vegas cluster.png"
+      "source_image": "clusters 11-20.png"
     },
     {
       "school_id": "t_white_ms",
-      "cluster": "Southeast Vegas",
-      "display_name": "T. White MS",
+      "cluster": "Cluster 16",
+      "display_name": "T White MS",
       "aliases": [
-        "T. White MS",
         "T White MS",
-        "Theron H. White MS",
-        "White MS"
+        "T. White MS",
+        "White T MS"
       ],
-      "source_image": "southeast vegas cluster.png"
+      "source_image": "clusters 11-20.png"
     },
     {
       "school_id": "cowan_academic_center",
-      "cluster": "Southeast Vegas",
+      "cluster": "Cluster 16",
       "display_name": "Cowan Academic Center",
       "aliases": [
         "Cowan Academic Center",
-        "Cowan",
-        "Cowan Elementary School"
+        "Cowan ES",
+        "Cowan"
       ],
-      "source_image": "southeast vegas cluster.png"
+      "source_image": "clusters 11-20.png"
     },
     {
       "school_id": "harmon_es",
-      "cluster": "Southeast Vegas",
+      "cluster": "Cluster 16",
       "display_name": "Harmon ES",
       "aliases": [
-        "Harmon ES",
-        "Harmon Elementary School",
-        "Harmon"
+        "Harmon ES"
       ],
-      "source_image": "southeast vegas cluster.png"
+      "source_image": "clusters 11-20.png"
     },
     {
       "school_id": "treem_es",
-      "cluster": "Southeast Vegas",
+      "cluster": "Cluster 16",
       "display_name": "Treem ES",
       "aliases": [
-        "Treem ES",
-        "Treem Elementary School",
-        "Treem"
+        "Treem ES"
       ],
-      "source_image": "southeast vegas cluster.png"
+      "source_image": "clusters 11-20.png"
     },
     {
       "school_id": "thorpe_es",
-      "cluster": "Southeast Vegas",
+      "cluster": "Cluster 16",
       "display_name": "Thorpe ES",
       "aliases": [
-        "Thorpe ES",
-        "Thorpe Elementary School",
-        "Thorpe"
+        "Thorpe ES"
       ],
-      "source_image": "southeast vegas cluster.png"
+      "source_image": "clusters 11-20.png"
     },
     {
       "school_id": "whitney_es",
-      "cluster": "Southeast Vegas",
+      "cluster": "Cluster 16",
       "display_name": "Whitney ES",
       "aliases": [
-        "Whitney ES",
-        "Whitney Elementary School",
-        "Whitney"
+        "Whitney ES"
       ],
-      "source_image": "southeast vegas cluster.png"
+      "source_image": "clusters 11-20.png"
     },
     {
       "school_id": "aggie_roberts_es",
-      "cluster": "Southeast Vegas",
+      "cluster": "Cluster 16",
       "display_name": "Aggie Roberts ES",
       "aliases": [
         "Aggie Roberts ES",
-        "Aggie Roberts Elementary School",
-        "Roberts ES",
-        "Aggie Roberts"
+        "Roberts Aggie ES"
       ],
-      "source_image": "southeast vegas cluster.png"
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "silverado_hs",
+      "cluster": "Cluster 17",
+      "display_name": "Silverado HS",
+      "aliases": [
+        "Silverado HS"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "schofield_ms",
+      "cluster": "Cluster 17",
+      "display_name": "Schofield MS",
+      "aliases": [
+        "Schofield MS"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "beatty_es",
+      "cluster": "Cluster 17",
+      "display_name": "Beatty ES",
+      "aliases": [
+        "Beatty ES"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "weiner_es",
+      "cluster": "Cluster 17",
+      "display_name": "Weiner ES",
+      "aliases": [
+        "Weiner ES"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "hill_es",
+      "cluster": "Cluster 17",
+      "display_name": "Hill ES",
+      "aliases": [
+        "Hill ES"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "cox_david_es",
+      "cluster": "Cluster 17",
+      "display_name": "Cox David ES",
+      "aliases": [
+        "Cox David ES",
+        "David Cox ES"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "mcdoniel_es",
+      "cluster": "Cluster 17",
+      "display_name": "McDoniel ES",
+      "aliases": [
+        "McDoniel ES"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "atech",
+      "cluster": "Cluster 18",
+      "display_name": "ATECH",
+      "aliases": [
+        "ATECH",
+        "Advanced Technologies Academy",
+        "Advanced Tech",
+        "A-TECH"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "west_prep",
+      "cluster": "Cluster 18",
+      "display_name": "West Prep",
+      "aliases": [
+        "West Prep",
+        "West Prep Academy"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "kelly_es",
+      "cluster": "Cluster 18",
+      "display_name": "Kelly ES",
+      "aliases": [
+        "Kelly ES"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "toland_es",
+      "cluster": "Cluster 18",
+      "display_name": "Toland ES",
+      "aliases": [
+        "Toland ES"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "booker_es",
+      "cluster": "Cluster 18",
+      "display_name": "Booker ES",
+      "aliases": [
+        "Booker ES"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "martinez_es",
+      "cluster": "Cluster 18",
+      "display_name": "Martinez ES",
+      "aliases": [
+        "Martinez ES"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "canyon_springs_hs",
+      "cluster": "Cluster 19",
+      "display_name": "Canyon Springs HS",
+      "aliases": [
+        "Canyon Springs HS"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "desert_rose_hs",
+      "cluster": "Cluster 19",
+      "display_name": "Desert Rose HS",
+      "aliases": [
+        "Desert Rose HS"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "csn_east",
+      "cluster": "Cluster 19",
+      "display_name": "CSN East",
+      "aliases": [
+        "CSN East"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "sedway_ms",
+      "cluster": "Cluster 19",
+      "display_name": "Sedway MS",
+      "aliases": [
+        "Sedway MS"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "wilhelm_es",
+      "cluster": "Cluster 19",
+      "display_name": "Wilhelm ES",
+      "aliases": [
+        "Wilhelm ES"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "c_perkins_es",
+      "cluster": "Cluster 19",
+      "display_name": "C Perkins ES",
+      "aliases": [
+        "C Perkins ES",
+        "C. Perkins ES",
+        "Perkins C ES"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "priest_es",
+      "cluster": "Cluster 19",
+      "display_name": "Priest ES",
+      "aliases": [
+        "Priest ES"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "craig_es",
+      "cluster": "Cluster 19",
+      "display_name": "Craig ES",
+      "aliases": [
+        "Craig ES"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "lincoln_es",
+      "cluster": "Cluster 19",
+      "display_name": "Lincoln ES",
+      "aliases": [
+        "Lincoln ES"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "sunrise_mountain_hs",
+      "cluster": "Cluster 20",
+      "display_name": "Sunrise Mountain HS",
+      "aliases": [
+        "Sunrise Mountain HS"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "bailey_w_h_ms",
+      "cluster": "Cluster 20",
+      "display_name": "Bailey W H MS",
+      "aliases": [
+        "Bailey W H MS",
+        "Bailey W.H. MS",
+        "W H Bailey MS"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "von_tobel_ms",
+      "cluster": "Cluster 20",
+      "display_name": "Von Tobel MS",
+      "aliases": [
+        "Von Tobel MS"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "hickey_es",
+      "cluster": "Cluster 20",
+      "display_name": "Hickey ES",
+      "aliases": [
+        "Hickey ES"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "herr_es",
+      "cluster": "Cluster 20",
+      "display_name": "Herr ES",
+      "aliases": [
+        "Herr ES"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "ml_king_es",
+      "cluster": "Cluster 20",
+      "display_name": "ML King ES",
+      "aliases": [
+        "ML King ES",
+        "M L King ES",
+        "Martin Luther King ES"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "tate_es",
+      "cluster": "Cluster 20",
+      "display_name": "Tate ES",
+      "aliases": [
+        "Tate ES"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "mccall_es",
+      "cluster": "Cluster 20",
+      "display_name": "McCall ES",
+      "aliases": [
+        "McCall ES"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "cahlan_es",
+      "cluster": "Cluster 20",
+      "display_name": "Cahlan ES",
+      "aliases": [
+        "Cahlan ES"
+      ],
+      "source_image": "clusters 11-20.png"
+    },
+    {
+      "school_id": "legacy_hs",
+      "cluster": "Cluster 21",
+      "display_name": "Legacy HS",
+      "aliases": [
+        "Legacy HS"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "johnston_ms",
+      "cluster": "Cluster 21",
+      "display_name": "Johnston MS",
+      "aliases": [
+        "Johnston MS"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "manch_es",
+      "cluster": "Cluster 21",
+      "display_name": "Manch ES",
+      "aliases": [
+        "Manch ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "lowman_es",
+      "cluster": "Cluster 21",
+      "display_name": "Lowman ES",
+      "aliases": [
+        "Lowman ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "scott_es",
+      "cluster": "Cluster 21",
+      "display_name": "Scott ES",
+      "aliases": [
+        "Scott ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "tartan_es",
+      "cluster": "Cluster 21",
+      "display_name": "Tartan ES",
+      "aliases": [
+        "Tartan ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "dickens_es",
+      "cluster": "Cluster 21",
+      "display_name": "Dickens ES",
+      "aliases": [
+        "Dickens ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "mojave_hs",
+      "cluster": "Cluster 22",
+      "display_name": "Mojave HS",
+      "aliases": [
+        "Mojave HS"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "findlay_ms",
+      "cluster": "Cluster 22",
+      "display_name": "Findlay MS",
+      "aliases": [
+        "Findlay MS"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "watson_es",
+      "cluster": "Cluster 22",
+      "display_name": "Watson ES",
+      "aliases": [
+        "Watson ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "cozine_es",
+      "cluster": "Cluster 22",
+      "display_name": "Cozine ES",
+      "aliases": [
+        "Cozine ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "elizondo_es",
+      "cluster": "Cluster 22",
+      "display_name": "Elizondo ES",
+      "aliases": [
+        "Elizondo ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "cox_clyde_es",
+      "cluster": "Cluster 22",
+      "display_name": "Cox Clyde ES",
+      "aliases": [
+        "Cox Clyde ES",
+        "Clyde Cox ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "woolley_es",
+      "cluster": "Cluster 22",
+      "display_name": "Woolley ES",
+      "aliases": [
+        "Woolley ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "cecil_walnut_es",
+      "cluster": "Cluster 22",
+      "display_name": "Cecil Walnut ES",
+      "aliases": [
+        "Cecil Walnut ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "veterans_tribute_cta",
+      "cluster": "Cluster 23",
+      "display_name": "Veterans Tribute CTA",
+      "aliases": [
+        "Veterans Tribute CTA",
+        "Veterans Tribute Career Technical Academy",
+        "Veterans Tribute Career and Technical Academy"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "mackey_ms",
+      "cluster": "Cluster 23",
+      "display_name": "Mackey MS",
+      "aliases": [
+        "Mackey MS"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "bridger_ms",
+      "cluster": "Cluster 23",
+      "display_name": "Bridger MS",
+      "aliases": [
+        "Bridger MS"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "hoggard_es",
+      "cluster": "Cluster 23",
+      "display_name": "Hoggard ES",
+      "aliases": [
+        "Hoggard ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "w_williams_es",
+      "cluster": "Cluster 23",
+      "display_name": "W Williams ES",
+      "aliases": [
+        "W Williams ES",
+        "W. Williams ES",
+        "Williams W ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "fitzgerald_es",
+      "cluster": "Cluster 23",
+      "display_name": "Fitzgerald ES",
+      "aliases": [
+        "Fitzgerald ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "jeffers_j_es",
+      "cluster": "Cluster 23",
+      "display_name": "Jeffers J ES",
+      "aliases": [
+        "Jeffers J ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "herron_es",
+      "cluster": "Cluster 23",
+      "display_name": "Herron ES",
+      "aliases": [
+        "Herron ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "necta",
+      "cluster": "Cluster 24",
+      "display_name": "NECTA",
+      "aliases": [
+        "NECTA",
+        "Northeast CTA",
+        "Northeast Career Technical Academy",
+        "Northeast Career and Technical Academy"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "cram_ms",
+      "cluster": "Cluster 24",
+      "display_name": "Cram MS",
+      "aliases": [
+        "Cram MS"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "simmons_es",
+      "cluster": "Cluster 24",
+      "display_name": "Simmons ES",
+      "aliases": [
+        "Simmons ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "antonello_es",
+      "cluster": "Cluster 24",
+      "display_name": "Antonello ES",
+      "aliases": [
+        "Antonello ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "duncan_es",
+      "cluster": "Cluster 24",
+      "display_name": "Duncan ES",
+      "aliases": [
+        "Duncan ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "hayden_es",
+      "cluster": "Cluster 24",
+      "display_name": "Hayden ES",
+      "aliases": [
+        "Hayden ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "gilbert_es",
+      "cluster": "Cluster 24",
+      "display_name": "Gilbert ES",
+      "aliases": [
+        "Gilbert ES"
+      ],
+      "source_image": "clusters 21-30.png"
     },
     {
       "school_id": "desert_oasis_hs",
-      "cluster": "Southwest Vegas",
+      "cluster": "Cluster 25",
       "display_name": "Desert Oasis HS",
       "aliases": [
-        "Desert Oasis HS",
-        "Desert Oasis High School",
-        "Desert Oasis"
+        "Desert Oasis HS"
       ],
-      "source_image": "southwest vegas cluster.png"
+      "source_image": "clusters 21-30.png"
     },
     {
       "school_id": "gunderson_ms",
-      "cluster": "Southwest Vegas",
+      "cluster": "Cluster 25",
       "display_name": "Gunderson MS",
       "aliases": [
-        "Gunderson MS",
-        "Gunderson Middle School",
-        "Gunderson"
+        "Gunderson MS"
       ],
-      "source_image": "southwest vegas cluster.png"
+      "source_image": "clusters 21-30.png"
     },
     {
       "school_id": "ortwein_es",
-      "cluster": "Southwest Vegas",
+      "cluster": "Cluster 25",
       "display_name": "Ortwein ES",
       "aliases": [
-        "Ortwein ES",
-        "Ortwein Elementary School",
-        "Ortwein"
+        "Ortwein ES"
       ],
-      "source_image": "southwest vegas cluster.png"
+      "source_image": "clusters 21-30.png"
     },
     {
       "school_id": "stuckey_es",
-      "cluster": "Southwest Vegas",
+      "cluster": "Cluster 25",
       "display_name": "Stuckey ES",
       "aliases": [
-        "Stuckey ES",
-        "Stuckey Elementary School",
-        "Stuckey"
+        "Stuckey ES"
       ],
-      "source_image": "southwest vegas cluster.png"
+      "source_image": "clusters 21-30.png"
     },
     {
       "school_id": "frias_es",
-      "cluster": "Southwest Vegas",
+      "cluster": "Cluster 25",
       "display_name": "Frias ES",
       "aliases": [
-        "Frias ES",
-        "Frias Elementary School",
-        "Frias"
+        "Frias ES"
       ],
-      "source_image": "southwest vegas cluster.png"
+      "source_image": "clusters 21-30.png"
     },
     {
       "school_id": "wright_es",
-      "cluster": "Southwest Vegas",
+      "cluster": "Cluster 25",
       "display_name": "Wright ES",
       "aliases": [
-        "Wright ES",
-        "Wright Elementary School",
-        "Wright"
+        "Wright ES"
       ],
-      "source_image": "southwest vegas cluster.png"
+      "source_image": "clusters 21-30.png"
     },
     {
       "school_id": "blackhurst_es",
-      "cluster": "Southwest Vegas",
+      "cluster": "Cluster 25",
       "display_name": "Blackhurst ES",
       "aliases": [
-        "Blackhurst ES",
-        "Blackhurst Elementary School",
-        "Blackhurst"
+        "Blackhurst ES"
       ],
-      "source_image": "southwest vegas cluster.png"
+      "source_image": "clusters 21-30.png"
     },
     {
       "school_id": "reedom_es",
-      "cluster": "Southwest Vegas",
+      "cluster": "Cluster 25",
       "display_name": "Reedom ES",
       "aliases": [
-        "Reedom ES",
-        "Reedom Elementary School",
-        "Reedom"
+        "Reedom ES"
       ],
-      "source_image": "southwest vegas cluster.png"
+      "source_image": "clusters 21-30.png"
     },
     {
       "school_id": "thompson_t_es",
-      "cluster": "Southwest Vegas",
-      "display_name": "T. Thompson ES",
+      "cluster": "Cluster 25",
+      "display_name": "Thompson T ES",
       "aliases": [
-        "T. Thompson ES",
-        "Thompson ES",
-        "Tyrone Thompson ES",
-        "Thompson"
+        "Thompson T ES",
+        "T Thompson ES",
+        "T. Thompson ES"
       ],
-      "source_image": "southwest vegas cluster.png"
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "southwest_cta",
+      "cluster": "Cluster 26",
+      "display_name": "Southwest CTA",
+      "aliases": [
+        "Southwest CTA",
+        "Southwest Career Technical Academy",
+        "Southwest Career and Technical Academy"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "cannarelli_ms",
+      "cluster": "Cluster 26",
+      "display_name": "Cannarelli MS",
+      "aliases": [
+        "Cannarelli MS"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "tarkanian_ms",
+      "cluster": "Cluster 26",
+      "display_name": "Tarkanian MS",
+      "aliases": [
+        "Tarkanian MS"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "ries_es",
+      "cluster": "Cluster 26",
+      "display_name": "Ries ES",
+      "aliases": [
+        "Ries ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "forbuss_es",
+      "cluster": "Cluster 26",
+      "display_name": "Forbuss ES",
+      "aliases": [
+        "Forbuss ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "mathis_es",
+      "cluster": "Cluster 26",
+      "display_name": "Mathis ES",
+      "aliases": [
+        "Mathis ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "fine_es",
+      "cluster": "Cluster 26",
+      "display_name": "Fine ES",
+      "aliases": [
+        "Fine ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "snyder_dd_es",
+      "cluster": "Cluster 26",
+      "display_name": "Snyder D&D ES",
+      "aliases": [
+        "Snyder D&D ES",
+        "Snyder D D ES",
+        "D&D Snyder ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "sierra_vista_hs",
+      "cluster": "Cluster 27",
+      "display_name": "Sierra Vista HS",
+      "aliases": [
+        "Sierra Vista HS"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "fertitta_ms",
+      "cluster": "Cluster 27",
+      "display_name": "Fertitta MS",
+      "aliases": [
+        "Fertitta MS"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "faiss_ms",
+      "cluster": "Cluster 27",
+      "display_name": "Faiss MS",
+      "aliases": [
+        "Faiss MS",
+        "Faiss"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "steele_es",
+      "cluster": "Cluster 27",
+      "display_name": "Steele ES",
+      "aliases": [
+        "Steele ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "batterman_es",
+      "cluster": "Cluster 27",
+      "display_name": "Batterman ES",
+      "aliases": [
+        "Batterman ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "rogers_es",
+      "cluster": "Cluster 27",
+      "display_name": "Rogers ES",
+      "aliases": [
+        "Rogers ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "berkley_es",
+      "cluster": "Cluster 27",
+      "display_name": "Berkley ES",
+      "aliases": [
+        "Berkley ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "tanaka_es",
+      "cluster": "Cluster 27",
+      "display_name": "Tanaka ES",
+      "aliases": [
+        "Tanaka ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "alamo_es",
+      "cluster": "Cluster 27",
+      "display_name": "Alamo ES",
+      "aliases": [
+        "Alamo ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "durango_hs",
+      "cluster": "Cluster 28",
+      "display_name": "Durango HS",
+      "aliases": [
+        "Durango HS"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "guinn_ms",
+      "cluster": "Cluster 28",
+      "display_name": "Guinn MS",
+      "aliases": [
+        "Guinn MS"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "sawyer_ms",
+      "cluster": "Cluster 28",
+      "display_name": "Sawyer MS",
+      "aliases": [
+        "Sawyer MS"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "jydstrup_es",
+      "cluster": "Cluster 28",
+      "display_name": "Jydstrup ES",
+      "aliases": [
+        "Jydstrup ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "thiriot_es",
+      "cluster": "Cluster 28",
+      "display_name": "Thiriot ES",
+      "aliases": [
+        "Thiriot ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "dondero_es",
+      "cluster": "Cluster 28",
+      "display_name": "Dondero ES",
+      "aliases": [
+        "Dondero ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "earl_marion_es",
+      "cluster": "Cluster 28",
+      "display_name": "Earl Marion ES",
+      "aliases": [
+        "Earl Marion ES",
+        "Marion Earl ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "kim_frank_es",
+      "cluster": "Cluster 28",
+      "display_name": "Kim Frank ES",
+      "aliases": [
+        "Kim Frank ES",
+        "Frank Kim ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "spring_valley_hs",
+      "cluster": "Cluster 29",
+      "display_name": "Spring Valley HS",
+      "aliases": [
+        "Spring Valley HS"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "lawrence_ms",
+      "cluster": "Cluster 29",
+      "display_name": "Lawrence MS",
+      "aliases": [
+        "Lawrence MS"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "diskin_es",
+      "cluster": "Cluster 29",
+      "display_name": "Diskin ES",
+      "aliases": [
+        "Diskin ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "christensen_es",
+      "cluster": "Cluster 29",
+      "display_name": "Christensen ES",
+      "aliases": [
+        "Christensen ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "hayes_es",
+      "cluster": "Cluster 29",
+      "display_name": "Hayes ES",
+      "aliases": [
+        "Hayes ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "bendorf_es",
+      "cluster": "Cluster 29",
+      "display_name": "Bendorf ES",
+      "aliases": [
+        "Bendorf ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "bryan_r_es",
+      "cluster": "Cluster 29",
+      "display_name": "Bryan R ES",
+      "aliases": [
+        "Bryan R ES",
+        "R Bryan ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "abston_es",
+      "cluster": "Cluster 29",
+      "display_name": "Abston ES",
+      "aliases": [
+        "Abston ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "clark_hs",
+      "cluster": "Cluster 30",
+      "display_name": "Clark HS",
+      "aliases": [
+        "Clark HS"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "hyde_park_ms",
+      "cluster": "Cluster 30",
+      "display_name": "Hyde Park MS",
+      "aliases": [
+        "Hyde Park MS"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "cashman_ms",
+      "cluster": "Cluster 30",
+      "display_name": "Cashman MS",
+      "aliases": [
+        "Cashman MS"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "griffith_es",
+      "cluster": "Cluster 30",
+      "display_name": "Griffith ES",
+      "aliases": [
+        "Griffith ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "wasden_es",
+      "cluster": "Cluster 30",
+      "display_name": "Wasden ES",
+      "aliases": [
+        "Wasden ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "vegas_verdes_es",
+      "cluster": "Cluster 30",
+      "display_name": "Vegas Verdes ES",
+      "aliases": [
+        "Vegas Verdes ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "bell_rex_es",
+      "cluster": "Cluster 30",
+      "display_name": "Bell Rex ES",
+      "aliases": [
+        "Bell Rex ES",
+        "Rex Bell ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "roundy_es",
+      "cluster": "Cluster 30",
+      "display_name": "Roundy ES",
+      "aliases": [
+        "Roundy ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "wynn_es",
+      "cluster": "Cluster 30",
+      "display_name": "Wynn ES",
+      "aliases": [
+        "Wynn ES"
+      ],
+      "source_image": "clusters 21-30.png"
+    },
+    {
+      "school_id": "bonanza_hs",
+      "cluster": "Cluster 31",
+      "display_name": "Bonanza HS",
+      "aliases": [
+        "Bonanza HS"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "garside_ms",
+      "cluster": "Cluster 31",
+      "display_name": "Garside MS",
+      "aliases": [
+        "Garside MS"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "adcock_es",
+      "cluster": "Cluster 31",
+      "display_name": "Adcock ES",
+      "aliases": [
+        "Adcock ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "warren_r_es",
+      "cluster": "Cluster 31",
+      "display_name": "Warren R ES",
+      "aliases": [
+        "Warren R ES",
+        "R Warren ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "red_rock_es",
+      "cluster": "Cluster 31",
+      "display_name": "Red Rock ES",
+      "aliases": [
+        "Red Rock ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "hancock_es",
+      "cluster": "Cluster 31",
+      "display_name": "Hancock ES",
+      "aliases": [
+        "Hancock ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "gray_es",
+      "cluster": "Cluster 31",
+      "display_name": "Gray ES",
+      "aliases": [
+        "Gray ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "decker_es",
+      "cluster": "Cluster 31",
+      "display_name": "Decker ES",
+      "aliases": [
+        "Decker ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "west_cta",
+      "cluster": "Cluster 32",
+      "display_name": "West CTA",
+      "aliases": [
+        "West CTA",
+        "West Career Technical Academy",
+        "West Career and Technical Academy"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "johnson_jhs",
+      "cluster": "Cluster 32",
+      "display_name": "Johnson JHS",
+      "aliases": [
+        "Johnson JHS",
+        "Johnson MS"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "jacobson_es",
+      "cluster": "Cluster 32",
+      "display_name": "Jacobson ES",
+      "aliases": [
+        "Jacobson ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "h_m_smith_es",
+      "cluster": "Cluster 32",
+      "display_name": "H M Smith ES",
+      "aliases": [
+        "H M Smith ES",
+        "H.M. Smith ES",
+        "Smith H M ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "piggott_es",
+      "cluster": "Cluster 32",
+      "display_name": "Piggott ES",
+      "aliases": [
+        "Piggott ES",
+        "Piggot ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "ober_es",
+      "cluster": "Cluster 32",
+      "display_name": "Ober ES",
+      "aliases": [
+        "Ober ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "goolsby_es",
+      "cluster": "Cluster 32",
+      "display_name": "Goolsby ES",
+      "aliases": [
+        "Goolsby ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "derfelt_es",
+      "cluster": "Cluster 32",
+      "display_name": "Derfelt ES",
+      "aliases": [
+        "Derfelt ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "arbor_view_hs",
+      "cluster": "Cluster 33",
+      "display_name": "Arbor View HS",
+      "aliases": [
+        "Arbor View HS"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "cadwallader_ms",
+      "cluster": "Cluster 33",
+      "display_name": "Cadwallader MS",
+      "aliases": [
+        "Cadwallader MS"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "rhodes_es",
+      "cluster": "Cluster 33",
+      "display_name": "Rhodes ES",
+      "aliases": [
+        "Rhodes ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "oroarke_es",
+      "cluster": "Cluster 33",
+      "display_name": "O'Roarke ES",
+      "aliases": [
+        "O'Roarke ES",
+        "O Roarke ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "scherkenbach_es",
+      "cluster": "Cluster 33",
+      "display_name": "Scherkenbach ES",
+      "aliases": [
+        "Scherkenbach ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "bilbray_es",
+      "cluster": "Cluster 33",
+      "display_name": "Bilbray ES",
+      "aliases": [
+        "Bilbray ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "thompson_s_es",
+      "cluster": "Cluster 33",
+      "display_name": "Thompson S ES",
+      "aliases": [
+        "Thompson S ES",
+        "S Thompson ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "centennial_hs",
+      "cluster": "Cluster 34",
+      "display_name": "Centennial HS",
+      "aliases": [
+        "Centennial HS"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "escobedo_ms",
+      "cluster": "Cluster 34",
+      "display_name": "Escobedo MS",
+      "aliases": [
+        "Escobedo MS"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "bozarth_es",
+      "cluster": "Cluster 34",
+      "display_name": "Bozarth ES",
+      "aliases": [
+        "Bozarth ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "divich_es",
+      "cluster": "Cluster 34",
+      "display_name": "Divich ES",
+      "aliases": [
+        "Divich ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "darnell_es",
+      "cluster": "Cluster 34",
+      "display_name": "Darnell ES",
+      "aliases": [
+        "Darnell ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "conners_es",
+      "cluster": "Cluster 34",
+      "display_name": "Conners ES",
+      "aliases": [
+        "Conners ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "tarr_es",
+      "cluster": "Cluster 34",
+      "display_name": "Tarr ES",
+      "aliases": [
+        "Tarr ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "garehime_es",
+      "cluster": "Cluster 34",
+      "display_name": "Garehime ES",
+      "aliases": [
+        "Garehime ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "cheyenne_hs",
+      "cluster": "Cluster 35",
+      "display_name": "Cheyenne HS",
+      "aliases": [
+        "Cheyenne HS"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "swainston_ms",
+      "cluster": "Cluster 35",
+      "display_name": "Swainston MS",
+      "aliases": [
+        "Swainston MS"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "bruner_es",
+      "cluster": "Cluster 35",
+      "display_name": "Bruner ES",
+      "aliases": [
+        "Bruner ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "carl_es",
+      "cluster": "Cluster 35",
+      "display_name": "Carl ES",
+      "aliases": [
+        "Carl ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "guy_es",
+      "cluster": "Cluster 35",
+      "display_name": "Guy ES",
+      "aliases": [
+        "Guy ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "may_es",
+      "cluster": "Cluster 35",
+      "display_name": "May ES",
+      "aliases": [
+        "May ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "parson_es",
+      "cluster": "Cluster 35",
+      "display_name": "Parson ES",
+      "aliases": [
+        "Parson ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "wolfe_eva_es",
+      "cluster": "Cluster 35",
+      "display_name": "Wolfe Eva ES",
+      "aliases": [
+        "Wolfe Eva ES",
+        "Eva Wolfe ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "cimarron_hs",
+      "cluster": "Cluster 36",
+      "display_name": "Cimarron HS",
+      "aliases": [
+        "Cimarron HS"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "brinley_ms",
+      "cluster": "Cluster 36",
+      "display_name": "Brinley MS",
+      "aliases": [
+        "Brinley MS"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "bryan_r_h_es",
+      "cluster": "Cluster 36",
+      "display_name": "Bryan R H ES",
+      "aliases": [
+        "Bryan R H ES",
+        "R H Bryan ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "bunker_es",
+      "cluster": "Cluster 36",
+      "display_name": "Bunker ES",
+      "aliases": [
+        "Bunker ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "fong_es",
+      "cluster": "Cluster 36",
+      "display_name": "Fong ES",
+      "aliases": [
+        "Fong ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "katz_es",
+      "cluster": "Cluster 36",
+      "display_name": "Katz ES",
+      "aliases": [
+        "Katz ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "mcmillan_es",
+      "cluster": "Cluster 36",
+      "display_name": "McMillan ES",
+      "aliases": [
+        "McMillan ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "pittman_es",
+      "cluster": "Cluster 36",
+      "display_name": "Pittman ES",
+      "aliases": [
+        "Pittman ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "northwest_cta",
+      "cluster": "Cluster 37",
+      "display_name": "Northwest CTA",
+      "aliases": [
+        "Northwest CTA",
+        "Northwest Career Technical Academy",
+        "Northwest Career and Technical Academy"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "leavitt_ms",
+      "cluster": "Cluster 37",
+      "display_name": "Leavitt MS",
+      "aliases": [
+        "Leavitt MS"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "molasky_ms",
+      "cluster": "Cluster 37",
+      "display_name": "Molasky MS",
+      "aliases": [
+        "Molasky MS"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "allen_es",
+      "cluster": "Cluster 37",
+      "display_name": "Allen ES",
+      "aliases": [
+        "Allen ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "deskin_es",
+      "cluster": "Cluster 37",
+      "display_name": "Deskin ES",
+      "aliases": [
+        "Deskin ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "eisenberg_es",
+      "cluster": "Cluster 37",
+      "display_name": "Eisenberg ES",
+      "aliases": [
+        "Eisenberg ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "tobler_es",
+      "cluster": "Cluster 37",
+      "display_name": "Tobler ES",
+      "aliases": [
+        "Tobler ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "kahre_es",
+      "cluster": "Cluster 37",
+      "display_name": "Kahre ES",
+      "aliases": [
+        "Kahre ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "palo_verde_hs",
+      "cluster": "Cluster 38",
+      "display_name": "Palo Verde HS",
+      "aliases": [
+        "Palo Verde HS"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "rogich_ms",
+      "cluster": "Cluster 38",
+      "display_name": "Rogich MS",
+      "aliases": [
+        "Rogich MS"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "becker_ms",
+      "cluster": "Cluster 38",
+      "display_name": "Becker MS",
+      "aliases": [
+        "Becker MS"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "vassiliadis_es",
+      "cluster": "Cluster 38",
+      "display_name": "Vassiliadis ES",
+      "aliases": [
+        "Vassiliadis ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "givens_es",
+      "cluster": "Cluster 38",
+      "display_name": "Givens ES",
+      "aliases": [
+        "Givens ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "bonner_es",
+      "cluster": "Cluster 38",
+      "display_name": "Bonner ES",
+      "aliases": [
+        "Bonner ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "staton_es",
+      "cluster": "Cluster 38",
+      "display_name": "Staton ES",
+      "aliases": [
+        "Staton ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "lummis_es",
+      "cluster": "Cluster 38",
+      "display_name": "Lummis ES",
+      "aliases": [
+        "Lummis ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "shadow_ridge_hs",
+      "cluster": "Cluster 39",
+      "display_name": "Shadow Ridge HS",
+      "aliases": [
+        "Shadow Ridge HS"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "saville_ms",
+      "cluster": "Cluster 39",
+      "display_name": "Saville MS",
+      "aliases": [
+        "Saville MS"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "lied_ms",
+      "cluster": "Cluster 39",
+      "display_name": "Lied MS",
+      "aliases": [
+        "Lied MS"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "ward_kitty_es",
+      "cluster": "Cluster 39",
+      "display_name": "Ward Kitty ES",
+      "aliases": [
+        "Ward Kitty ES",
+        "Kitty Ward ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "heckethorn_es",
+      "cluster": "Cluster 39",
+      "display_name": "Heckethorn ES",
+      "aliases": [
+        "Heckethorn ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "triggs_es",
+      "cluster": "Cluster 39",
+      "display_name": "Triggs ES",
+      "aliases": [
+        "Triggs ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "goynes_es",
+      "cluster": "Cluster 39",
+      "display_name": "Goynes ES",
+      "aliases": [
+        "Goynes ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "neal_es",
+      "cluster": "Cluster 39",
+      "display_name": "Neal ES",
+      "aliases": [
+        "Neal ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "western_hs",
+      "cluster": "Cluster 40",
+      "display_name": "Western HS",
+      "aliases": [
+        "Western HS"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "gibson_ms",
+      "cluster": "Cluster 40",
+      "display_name": "Gibson MS",
+      "aliases": [
+        "Gibson MS"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "twin_lakes_es",
+      "cluster": "Cluster 40",
+      "display_name": "Twin Lakes ES",
+      "aliases": [
+        "Twin Lakes ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "detwiler_es",
+      "cluster": "Cluster 40",
+      "display_name": "Detwiler ES",
+      "aliases": [
+        "Detwiler ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "mcwilliams_es",
+      "cluster": "Cluster 40",
+      "display_name": "McWilliams ES",
+      "aliases": [
+        "McWilliams ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "culley_es",
+      "cluster": "Cluster 40",
+      "display_name": "Culley ES",
+      "aliases": [
+        "Culley ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "reed_es",
+      "cluster": "Cluster 40",
+      "display_name": "Reed ES",
+      "aliases": [
+        "Reed ES"
+      ],
+      "source_image": "clusters 31-40.png"
+    },
+    {
+      "school_id": "ronzone_es",
+      "cluster": "Cluster 40",
+      "display_name": "Ronzone ES",
+      "aliases": [
+        "Ronzone ES"
+      ],
+      "source_image": "clusters 31-40.png"
     }
   ],
   "meetings": [

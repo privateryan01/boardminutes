@@ -3,12 +3,17 @@ import tempfile
 import unittest
 
 from ccsd_board_watch.models import School
-from ccsd_board_watch.schools import load_schools, save_schools, school_id_from_name
+from ccsd_board_watch.schools import cluster_sort_key, load_schools, save_schools, school_id_from_name
 
 
 class SchoolConfigTests(unittest.TestCase):
     def test_school_id_from_name_is_unique(self):
         self.assertEqual(school_id_from_name("Wallin ES", {"wallin_es"}), "wallin_es_2")
+
+    def test_cluster_sort_key_sorts_numbered_clusters_numerically(self):
+        clusters = ["Cluster 10", "Cluster 2", "Cluster 1", "Henderson"]
+
+        self.assertEqual(sorted(clusters, key=cluster_sort_key), ["Cluster 1", "Cluster 2", "Cluster 10", "Henderson"])
 
     def test_save_and_load_schools_round_trip(self):
         with tempfile.TemporaryDirectory() as tmp:

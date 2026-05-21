@@ -1,34 +1,320 @@
 school_id,cluster,display_name,aliases,source_image
-coronado_hs,Henderson,Coronado HS,Coronado HS;Coronado High School;Coronado,henderson cluster.png
-del_webb_ms,Henderson,Del Webb MS,Del Webb MS;Del Webb Middle School;Del E. Webb MS;Del Webb,henderson cluster.png
-bob_miller_ms,Henderson,Bob Miller MS,Bob Miller MS;Bob Miller Middle School;Miller MS;Bob Miller,henderson cluster.png
-wallin_es,Henderson,Wallin ES,Wallin ES;Wallin Elementary School;Wallin,henderson cluster.png
-ellis_es,Henderson,Ellis ES,Ellis ES;Ellis Elementary School;Ellis,henderson cluster.png
-lamping_es,Henderson,Lamping ES,Lamping ES;Lamping Elementary School;Lamping,henderson cluster.png
-elise_wolff_es,Henderson,Elise Wolff ES,Elise Wolff ES;Elise L. Wolff ES;Wolff ES;Wolff Elementary School;Elise Wolff,henderson cluster.png
-glen_taylor_es,Henderson,Glen Taylor ES,Glen Taylor ES;Glen C. Taylor ES;Taylor ES;Glen Taylor,henderson cluster.png
-necta,North East Vegas,Northeast Career and Technical Academy,NECTA;Northeast CTA;Northeast Career and Technical Academy;Northeast Career Technical Academy;Northeast Tech,North east vegas cluster.png
-cram_ms,North East Vegas,Cram MS,Cram MS;Cram Middle School;Cram,North east vegas cluster.png
-simmons_es,North East Vegas,Simmons ES,Simmons ES;Simmons Elementary School;Simmons,North east vegas cluster.png
-antonello_es,North East Vegas,Antonello ES,Antonello ES;Antonello Elementary School;Antonello,North east vegas cluster.png
-duncan_es,North East Vegas,Duncan ES,Duncan ES;Duncan Elementary School;Duncan,North east vegas cluster.png
-hayden_es,North East Vegas,Hayden ES,Hayden ES;Hayden Elementary School;Hayden,North east vegas cluster.png
-gilbert_es,North East Vegas,Gilbert ES,Gilbert ES;Gilbert Elementary School;Gilbert,North east vegas cluster.png
-secta,Southeast Vegas,Southeast Career Technical Academy,SECTA;Southeast CTA;Southeast Career Technical Academy;Southeast Career and Technical Academy,southeast vegas cluster.png
-courtney_jhs,Southeast Vegas,Courtney JHS,Courtney JHS;Cortney JHS;Courtney Junior High School;Cortney,southeast vegas cluster.png
-t_white_ms,Southeast Vegas,T. White MS,T. White MS;T White MS;Theron H. White MS;White MS,southeast vegas cluster.png
-cowan_academic_center,Southeast Vegas,Cowan Academic Center,Cowan Academic Center;Cowan;Cowan Elementary School,southeast vegas cluster.png
-harmon_es,Southeast Vegas,Harmon ES,Harmon ES;Harmon Elementary School;Harmon,southeast vegas cluster.png
-treem_es,Southeast Vegas,Treem ES,Treem ES;Treem Elementary School;Treem,southeast vegas cluster.png
-thorpe_es,Southeast Vegas,Thorpe ES,Thorpe ES;Thorpe Elementary School;Thorpe,southeast vegas cluster.png
-whitney_es,Southeast Vegas,Whitney ES,Whitney ES;Whitney Elementary School;Whitney,southeast vegas cluster.png
-aggie_roberts_es,Southeast Vegas,Aggie Roberts ES,Aggie Roberts ES;Aggie Roberts Elementary School;Roberts ES;Aggie Roberts,southeast vegas cluster.png
-desert_oasis_hs,Southwest Vegas,Desert Oasis HS,Desert Oasis HS;Desert Oasis High School;Desert Oasis,southwest vegas cluster.png
-gunderson_ms,Southwest Vegas,Gunderson MS,Gunderson MS;Gunderson Middle School;Gunderson,southwest vegas cluster.png
-ortwein_es,Southwest Vegas,Ortwein ES,Ortwein ES;Ortwein Elementary School;Ortwein,southwest vegas cluster.png
-stuckey_es,Southwest Vegas,Stuckey ES,Stuckey ES;Stuckey Elementary School;Stuckey,southwest vegas cluster.png
-frias_es,Southwest Vegas,Frias ES,Frias ES;Frias Elementary School;Frias,southwest vegas cluster.png
-wright_es,Southwest Vegas,Wright ES,Wright ES;Wright Elementary School;Wright,southwest vegas cluster.png
-blackhurst_es,Southwest Vegas,Blackhurst ES,Blackhurst ES;Blackhurst Elementary School;Blackhurst,southwest vegas cluster.png
-reedom_es,Southwest Vegas,Reedom ES,Reedom ES;Reedom Elementary School;Reedom,southwest vegas cluster.png
-thompson_t_es,Southwest Vegas,T. Thompson ES,T. Thompson ES;Thompson ES;Tyrone Thompson ES;Thompson,southwest vegas cluster.png
+chaparral_hs,Cluster 1,Chaparral HS,,clusters 1-10.png
+woodbury_ms,Cluster 1,Woodbury MS,,clusters 1-10.png
+ullom_es,Cluster 1,Ullom ES,,clusters 1-10.png
+bailey_sister_robert_es,Cluster 1,Bailey Sister Robert ES,Sister Robert Bailey ES,clusters 1-10.png
+ferron_es,Cluster 1,Ferron ES,,clusters 1-10.png
+cunningham_es,Cluster 1,Cunningham ES,,clusters 1-10.png
+harris_g_es,Cluster 1,Harris G ES,,clusters 1-10.png
+beckley_es,Cluster 1,Beckley ES,,clusters 1-10.png
+desert_pines_hs,Cluster 2,Desert Pines HS,,clusters 1-10.png
+monaco_ms,Cluster 2,Monaco MS,,clusters 1-10.png
+miller_s_es,Cluster 2,Miller S ES,,clusters 1-10.png
+lynch_a_es,Cluster 2,Lynch A ES,,clusters 1-10.png
+heard_l_es,Cluster 2,Heard L ES,,clusters 1-10.png
+diaz_r_es,Cluster 2,Diaz R ES,,clusters 1-10.png
+cortez_es,Cluster 2,Cortez ES,,clusters 1-10.png
+earl_i_es,Cluster 2,Earl I ES,,clusters 1-10.png
+ecta,Cluster 3,ECTA,East CTA;East Career Technical Academy;East Career and Technical Academy,clusters 1-10.png
+mack_j_ms,Cluster 3,Mack J MS,,clusters 1-10.png
+jenkins_es,Cluster 3,Jenkins ES,,clusters 1-10.png
+smith_hal_es,Cluster 3,Smith Hal ES,,clusters 1-10.png
+dearing_l_es,Cluster 3,Dearing L ES,,clusters 1-10.png
+long_es,Cluster 3,Long ES,,clusters 1-10.png
+snyder_es,Cluster 3,Snyder ES,,clusters 1-10.png
+goldfarb_es,Cluster 3,Goldfarb ES,,clusters 1-10.png
+eldorado_hs,Cluster 4,Eldorado HS,,clusters 1-10.png
+ocallaghan_ms,Cluster 4,O'Callaghan MS,O Callaghan MS,clusters 1-10.png
+keller_ms,Cluster 4,Keller MS,,clusters 1-10.png
+mountain_view_es,Cluster 4,Mountain View ES,,clusters 1-10.png
+brookman_es,Cluster 4,Brookman ES,,clusters 1-10.png
+stanford_es,Cluster 4,Stanford ES,Standford ES,clusters 1-10.png
+adams_es,Cluster 4,Adams ES,,clusters 1-10.png
+keller_es,Cluster 4,Keller ES,,clusters 1-10.png
+rundle_es,Cluster 4,Rundle ES,,clusters 1-10.png
+las_vegas_academy,Cluster 5,Las Vegas Academy,Las Vegas Academy of the Arts;LVA,clusters 1-10.png
+martin_ms,Cluster 5,Martin MS,,clusters 1-10.png
+fremont_ms,Cluster 5,Fremont MS,,clusters 1-10.png
+hollingsworth_es,Cluster 5,Hollingsworth ES,,clusters 1-10.png
+crestwood_es,Cluster 5,Crestwood ES,,clusters 1-10.png
+park_es,Cluster 5,Park ES,,clusters 1-10.png
+sunrise_acres_es,Cluster 5,Sunrise Acres ES,,clusters 1-10.png
+hewetson_h_es,Cluster 5,Hewetson H ES,,clusters 1-10.png
+mendoza_es,Cluster 5,Mendoza ES,,clusters 1-10.png
+las_vegas_hs,Cluster 6,Las Vegas HS,,clusters 1-10.png
+harney_ms,Cluster 6,Harney MS,,clusters 1-10.png
+gragson_es,Cluster 6,Gragson ES,,clusters 1-10.png
+moore_es,Cluster 6,Moore ES,,clusters 1-10.png
+edwards_es,Cluster 6,Edwards ES,,clusters 1-10.png
+thomas_ruby_es,Cluster 6,Thomas Ruby ES,Ruby Thomas ES,clusters 1-10.png
+iverson_es,Cluster 6,Iverson ES,,clusters 1-10.png
+wengert_es,Cluster 6,Wengert ES,,clusters 1-10.png
+rancho_hs,Cluster 7,Rancho HS,,clusters 1-10.png
+smith_jd_ms,Cluster 7,Smith JD MS,Smith J D MS,clusters 1-10.png
+squires_es,Cluster 7,Squires ES,,clusters 1-10.png
+williams_t_es,Cluster 7,Williams T ES,,clusters 1-10.png
+ronnow_es,Cluster 7,Ronnow ES,,clusters 1-10.png
+bracken_es,Cluster 7,Bracken ES,,clusters 1-10.png
+cambeiro_es,Cluster 7,Cambeiro ES,,clusters 1-10.png
+lunt_es,Cluster 7,Lunt ES,,clusters 1-10.png
+valley_hs,Cluster 8,Valley HS,,clusters 1-10.png
+knudson_ms,Cluster 8,Knudson MS,,clusters 1-10.png
+orr_ms,Cluster 8,Orr MS,,clusters 1-10.png
+rowe_es,Cluster 8,Rowe ES,,clusters 1-10.png
+paradise_es,Cluster 8,Paradise ES,,clusters 1-10.png
+peterson_d_es,Cluster 8,Peterson D ES,,clusters 1-10.png
+lake_r_es,Cluster 8,Lake R ES,,clusters 1-10.png
+stewart_helen_es,Cluster 8,Stewart Helen ES,Helen Stewart ES,clusters 1-10.png
+basic_hs,Cluster 9,Basic HS,,clusters 1-10.png
+burkholder_ms,Cluster 9,Burkholder MS,,clusters 1-10.png
+mahlon_brown_ms,Cluster 9,Mahlon Brown MS,,clusters 1-10.png
+newton_es,Cluster 9,Newton ES,,clusters 1-10.png
+mccaw_es,Cluster 9,McCaw ES,,clusters 1-10.png
+robert_taylor_es,Cluster 9,Robert Taylor ES,Taylor Robert ES,clusters 1-10.png
+hinman_es,Cluster 9,Hinman ES,,clusters 1-10.png
+josh_stevens_es,Cluster 9,Josh Stevens ES,Stevens Josh ES,clusters 1-10.png
+boulder_city_hs,Cluster 10,Boulder City HS,,clusters 1-10.png
+laughlin_ms_hs,Cluster 10,Laughlin MS-HS,Laughlin MS;Laughlin HS;Laughlin Middle School;Laughlin High School,clusters 1-10.png
+garrett_ms,Cluster 10,Garrett MS,,clusters 1-10.png
+mitchell_es,Cluster 10,Mitchell ES,,clusters 1-10.png
+m_p_king_es,Cluster 10,M P King ES,M. P. King ES;MP King ES,clusters 1-10.png
+bennett_es,Cluster 10,Bennett ES,,clusters 1-10.png
+coronado_hs,Cluster 11,Coronado HS,,clusters 11-20.png
+del_webb_ms,Cluster 11,Del Webb MS,,clusters 11-20.png
+bob_miller_ms,Cluster 11,Bob Miller MS,Miller Bob MS,clusters 11-20.png
+wallin_es,Cluster 11,Wallin ES,,clusters 11-20.png
+ellis_es,Cluster 11,Ellis ES,,clusters 11-20.png
+lamping_es,Cluster 11,Lamping ES,,clusters 11-20.png
+elise_wolff_es,Cluster 11,Elise Wolff ES,Wolff Elise ES;Wolff ES,clusters 11-20.png
+glen_taylor_es,Cluster 11,Glen Taylor ES,Taylor Glen ES,clusters 11-20.png
+del_sol_hs,Cluster 12,Del Sol HS,,clusters 11-20.png
+cannon_ms,Cluster 12,Cannon MS,,clusters 11-20.png
+french_es,Cluster 12,French ES,,clusters 11-20.png
+gene_ward_es,Cluster 12,Gene Ward ES,Ward Gene ES,clusters 11-20.png
+dailey_es,Cluster 12,Dailey ES,,clusters 11-20.png
+tomiyasu_es,Cluster 12,Tomiyasu ES,,clusters 11-20.png
+nate_mack_es,Cluster 12,Nate Mack ES,Mack Nate ES,clusters 11-20.png
+foothill_hs,Cluster 13,Foothill HS,,clusters 11-20.png
+mannion_ms,Cluster 13,Mannion MS,,clusters 11-20.png
+galloway_es,Cluster 13,Galloway ES,,clusters 11-20.png
+smalley_es,Cluster 13,Smalley ES,,clusters 11-20.png
+walker_es,Cluster 13,Walker ES,,clusters 11-20.png
+dooley_es,Cluster 13,Dooley ES,,clusters 11-20.png
+morrow_es,Cluster 13,Morrow ES,,clusters 11-20.png
+ct_sewell_es,Cluster 13,CT Sewell ES,C T Sewell ES,clusters 11-20.png
+green_valley_hs,Cluster 14,Green Valley HS,,clusters 11-20.png
+greenspun_ms,Cluster 14,Greenspun MS,,clusters 11-20.png
+twitchell_es,Cluster 14,Twitchell ES,,clusters 11-20.png
+h_m_brown_es,Cluster 14,H M Brown ES,H.M. Brown ES;Brown H M ES,clusters 11-20.png
+gibson_es,Cluster 14,Gibson ES,,clusters 11-20.png
+kesterson_es,Cluster 14,Kesterson ES,,clusters 11-20.png
+bartlett_es,Cluster 14,Bartlett ES,,clusters 11-20.png
+vanderburg_es,Cluster 14,Vanderburg ES,,clusters 11-20.png
+liberty_hs,Cluster 15,Liberty HS,,clusters 11-20.png
+silvestri_ms,Cluster 15,Silvestri MS,,clusters 11-20.png
+schorr_es,Cluster 15,Schorr ES,,clusters 11-20.png
+bass_es,Cluster 15,Bass ES,,clusters 11-20.png
+hummel_es,Cluster 15,Hummel ES,,clusters 11-20.png
+barber_es,Cluster 15,Barber ES,,clusters 11-20.png
+cartwright_es,Cluster 15,Cartwright ES,,clusters 11-20.png
+gehring_es,Cluster 15,Gehring ES,,clusters 11-20.png
+secta,Cluster 16,SECTA,Southeast CTA;Southeast Career Technical Academy;Southeast Career and Technical Academy,clusters 11-20.png
+courtney_jhs,Cluster 16,Courtney JHS,Cortney JHS;Courtney MS;Cortney MS,clusters 11-20.png
+t_white_ms,Cluster 16,T White MS,T. White MS;White T MS,clusters 11-20.png
+cowan_academic_center,Cluster 16,Cowan Academic Center,Cowan ES;Cowan,clusters 11-20.png
+harmon_es,Cluster 16,Harmon ES,,clusters 11-20.png
+treem_es,Cluster 16,Treem ES,,clusters 11-20.png
+thorpe_es,Cluster 16,Thorpe ES,,clusters 11-20.png
+whitney_es,Cluster 16,Whitney ES,,clusters 11-20.png
+aggie_roberts_es,Cluster 16,Aggie Roberts ES,Roberts Aggie ES,clusters 11-20.png
+silverado_hs,Cluster 17,Silverado HS,,clusters 11-20.png
+schofield_ms,Cluster 17,Schofield MS,,clusters 11-20.png
+beatty_es,Cluster 17,Beatty ES,,clusters 11-20.png
+weiner_es,Cluster 17,Weiner ES,,clusters 11-20.png
+hill_es,Cluster 17,Hill ES,,clusters 11-20.png
+cox_david_es,Cluster 17,Cox David ES,David Cox ES,clusters 11-20.png
+mcdoniel_es,Cluster 17,McDoniel ES,,clusters 11-20.png
+atech,Cluster 18,ATECH,Advanced Technologies Academy;Advanced Tech;A-TECH,clusters 11-20.png
+west_prep,Cluster 18,West Prep,West Prep Academy,clusters 11-20.png
+kelly_es,Cluster 18,Kelly ES,,clusters 11-20.png
+toland_es,Cluster 18,Toland ES,,clusters 11-20.png
+booker_es,Cluster 18,Booker ES,,clusters 11-20.png
+martinez_es,Cluster 18,Martinez ES,,clusters 11-20.png
+canyon_springs_hs,Cluster 19,Canyon Springs HS,,clusters 11-20.png
+desert_rose_hs,Cluster 19,Desert Rose HS,,clusters 11-20.png
+csn_east,Cluster 19,CSN East,,clusters 11-20.png
+sedway_ms,Cluster 19,Sedway MS,,clusters 11-20.png
+wilhelm_es,Cluster 19,Wilhelm ES,,clusters 11-20.png
+c_perkins_es,Cluster 19,C Perkins ES,C. Perkins ES;Perkins C ES,clusters 11-20.png
+priest_es,Cluster 19,Priest ES,,clusters 11-20.png
+craig_es,Cluster 19,Craig ES,,clusters 11-20.png
+lincoln_es,Cluster 19,Lincoln ES,,clusters 11-20.png
+sunrise_mountain_hs,Cluster 20,Sunrise Mountain HS,,clusters 11-20.png
+bailey_w_h_ms,Cluster 20,Bailey W H MS,Bailey W.H. MS;W H Bailey MS,clusters 11-20.png
+von_tobel_ms,Cluster 20,Von Tobel MS,,clusters 11-20.png
+hickey_es,Cluster 20,Hickey ES,,clusters 11-20.png
+herr_es,Cluster 20,Herr ES,,clusters 11-20.png
+ml_king_es,Cluster 20,ML King ES,M L King ES;Martin Luther King ES,clusters 11-20.png
+tate_es,Cluster 20,Tate ES,,clusters 11-20.png
+mccall_es,Cluster 20,McCall ES,,clusters 11-20.png
+cahlan_es,Cluster 20,Cahlan ES,,clusters 11-20.png
+legacy_hs,Cluster 21,Legacy HS,,clusters 21-30.png
+johnston_ms,Cluster 21,Johnston MS,,clusters 21-30.png
+manch_es,Cluster 21,Manch ES,,clusters 21-30.png
+lowman_es,Cluster 21,Lowman ES,,clusters 21-30.png
+scott_es,Cluster 21,Scott ES,,clusters 21-30.png
+tartan_es,Cluster 21,Tartan ES,,clusters 21-30.png
+dickens_es,Cluster 21,Dickens ES,,clusters 21-30.png
+mojave_hs,Cluster 22,Mojave HS,,clusters 21-30.png
+findlay_ms,Cluster 22,Findlay MS,,clusters 21-30.png
+watson_es,Cluster 22,Watson ES,,clusters 21-30.png
+cozine_es,Cluster 22,Cozine ES,,clusters 21-30.png
+elizondo_es,Cluster 22,Elizondo ES,,clusters 21-30.png
+cox_clyde_es,Cluster 22,Cox Clyde ES,Clyde Cox ES,clusters 21-30.png
+woolley_es,Cluster 22,Woolley ES,,clusters 21-30.png
+cecil_walnut_es,Cluster 22,Cecil Walnut ES,,clusters 21-30.png
+veterans_tribute_cta,Cluster 23,Veterans Tribute CTA,Veterans Tribute Career Technical Academy;Veterans Tribute Career and Technical Academy,clusters 21-30.png
+mackey_ms,Cluster 23,Mackey MS,,clusters 21-30.png
+bridger_ms,Cluster 23,Bridger MS,,clusters 21-30.png
+hoggard_es,Cluster 23,Hoggard ES,,clusters 21-30.png
+w_williams_es,Cluster 23,W Williams ES,W. Williams ES;Williams W ES,clusters 21-30.png
+fitzgerald_es,Cluster 23,Fitzgerald ES,,clusters 21-30.png
+jeffers_j_es,Cluster 23,Jeffers J ES,,clusters 21-30.png
+herron_es,Cluster 23,Herron ES,,clusters 21-30.png
+necta,Cluster 24,NECTA,Northeast CTA;Northeast Career Technical Academy;Northeast Career and Technical Academy,clusters 21-30.png
+cram_ms,Cluster 24,Cram MS,,clusters 21-30.png
+simmons_es,Cluster 24,Simmons ES,,clusters 21-30.png
+antonello_es,Cluster 24,Antonello ES,,clusters 21-30.png
+duncan_es,Cluster 24,Duncan ES,,clusters 21-30.png
+hayden_es,Cluster 24,Hayden ES,,clusters 21-30.png
+gilbert_es,Cluster 24,Gilbert ES,,clusters 21-30.png
+desert_oasis_hs,Cluster 25,Desert Oasis HS,,clusters 21-30.png
+gunderson_ms,Cluster 25,Gunderson MS,,clusters 21-30.png
+ortwein_es,Cluster 25,Ortwein ES,,clusters 21-30.png
+stuckey_es,Cluster 25,Stuckey ES,,clusters 21-30.png
+frias_es,Cluster 25,Frias ES,,clusters 21-30.png
+wright_es,Cluster 25,Wright ES,,clusters 21-30.png
+blackhurst_es,Cluster 25,Blackhurst ES,,clusters 21-30.png
+reedom_es,Cluster 25,Reedom ES,,clusters 21-30.png
+thompson_t_es,Cluster 25,Thompson T ES,T Thompson ES;T. Thompson ES,clusters 21-30.png
+southwest_cta,Cluster 26,Southwest CTA,Southwest Career Technical Academy;Southwest Career and Technical Academy,clusters 21-30.png
+cannarelli_ms,Cluster 26,Cannarelli MS,,clusters 21-30.png
+tarkanian_ms,Cluster 26,Tarkanian MS,,clusters 21-30.png
+ries_es,Cluster 26,Ries ES,,clusters 21-30.png
+forbuss_es,Cluster 26,Forbuss ES,,clusters 21-30.png
+mathis_es,Cluster 26,Mathis ES,,clusters 21-30.png
+fine_es,Cluster 26,Fine ES,,clusters 21-30.png
+snyder_dd_es,Cluster 26,Snyder D&D ES,Snyder D D ES;D&D Snyder ES,clusters 21-30.png
+sierra_vista_hs,Cluster 27,Sierra Vista HS,,clusters 21-30.png
+fertitta_ms,Cluster 27,Fertitta MS,,clusters 21-30.png
+faiss_ms,Cluster 27,Faiss MS,Faiss,clusters 21-30.png
+steele_es,Cluster 27,Steele ES,,clusters 21-30.png
+batterman_es,Cluster 27,Batterman ES,,clusters 21-30.png
+rogers_es,Cluster 27,Rogers ES,,clusters 21-30.png
+berkley_es,Cluster 27,Berkley ES,,clusters 21-30.png
+tanaka_es,Cluster 27,Tanaka ES,,clusters 21-30.png
+alamo_es,Cluster 27,Alamo ES,,clusters 21-30.png
+durango_hs,Cluster 28,Durango HS,,clusters 21-30.png
+guinn_ms,Cluster 28,Guinn MS,,clusters 21-30.png
+sawyer_ms,Cluster 28,Sawyer MS,,clusters 21-30.png
+jydstrup_es,Cluster 28,Jydstrup ES,,clusters 21-30.png
+thiriot_es,Cluster 28,Thiriot ES,,clusters 21-30.png
+dondero_es,Cluster 28,Dondero ES,,clusters 21-30.png
+earl_marion_es,Cluster 28,Earl Marion ES,Marion Earl ES,clusters 21-30.png
+kim_frank_es,Cluster 28,Kim Frank ES,Frank Kim ES,clusters 21-30.png
+spring_valley_hs,Cluster 29,Spring Valley HS,,clusters 21-30.png
+lawrence_ms,Cluster 29,Lawrence MS,,clusters 21-30.png
+diskin_es,Cluster 29,Diskin ES,,clusters 21-30.png
+christensen_es,Cluster 29,Christensen ES,,clusters 21-30.png
+hayes_es,Cluster 29,Hayes ES,,clusters 21-30.png
+bendorf_es,Cluster 29,Bendorf ES,,clusters 21-30.png
+bryan_r_es,Cluster 29,Bryan R ES,R Bryan ES,clusters 21-30.png
+abston_es,Cluster 29,Abston ES,,clusters 21-30.png
+clark_hs,Cluster 30,Clark HS,,clusters 21-30.png
+hyde_park_ms,Cluster 30,Hyde Park MS,,clusters 21-30.png
+cashman_ms,Cluster 30,Cashman MS,,clusters 21-30.png
+griffith_es,Cluster 30,Griffith ES,,clusters 21-30.png
+wasden_es,Cluster 30,Wasden ES,,clusters 21-30.png
+vegas_verdes_es,Cluster 30,Vegas Verdes ES,,clusters 21-30.png
+bell_rex_es,Cluster 30,Bell Rex ES,Rex Bell ES,clusters 21-30.png
+roundy_es,Cluster 30,Roundy ES,,clusters 21-30.png
+wynn_es,Cluster 30,Wynn ES,,clusters 21-30.png
+bonanza_hs,Cluster 31,Bonanza HS,,clusters 31-40.png
+garside_ms,Cluster 31,Garside MS,,clusters 31-40.png
+adcock_es,Cluster 31,Adcock ES,,clusters 31-40.png
+warren_r_es,Cluster 31,Warren R ES,R Warren ES,clusters 31-40.png
+red_rock_es,Cluster 31,Red Rock ES,,clusters 31-40.png
+hancock_es,Cluster 31,Hancock ES,,clusters 31-40.png
+gray_es,Cluster 31,Gray ES,,clusters 31-40.png
+decker_es,Cluster 31,Decker ES,,clusters 31-40.png
+west_cta,Cluster 32,West CTA,West Career Technical Academy;West Career and Technical Academy,clusters 31-40.png
+johnson_jhs,Cluster 32,Johnson JHS,Johnson MS,clusters 31-40.png
+jacobson_es,Cluster 32,Jacobson ES,,clusters 31-40.png
+h_m_smith_es,Cluster 32,H M Smith ES,H.M. Smith ES;Smith H M ES,clusters 31-40.png
+piggott_es,Cluster 32,Piggott ES,Piggot ES,clusters 31-40.png
+ober_es,Cluster 32,Ober ES,,clusters 31-40.png
+goolsby_es,Cluster 32,Goolsby ES,,clusters 31-40.png
+derfelt_es,Cluster 32,Derfelt ES,,clusters 31-40.png
+arbor_view_hs,Cluster 33,Arbor View HS,,clusters 31-40.png
+cadwallader_ms,Cluster 33,Cadwallader MS,,clusters 31-40.png
+rhodes_es,Cluster 33,Rhodes ES,,clusters 31-40.png
+oroarke_es,Cluster 33,O'Roarke ES,O Roarke ES,clusters 31-40.png
+scherkenbach_es,Cluster 33,Scherkenbach ES,,clusters 31-40.png
+bilbray_es,Cluster 33,Bilbray ES,,clusters 31-40.png
+thompson_s_es,Cluster 33,Thompson S ES,S Thompson ES;Thompson S ES,clusters 31-40.png
+centennial_hs,Cluster 34,Centennial HS,,clusters 31-40.png
+escobedo_ms,Cluster 34,Escobedo MS,,clusters 31-40.png
+bozarth_es,Cluster 34,Bozarth ES,,clusters 31-40.png
+divich_es,Cluster 34,Divich ES,,clusters 31-40.png
+darnell_es,Cluster 34,Darnell ES,,clusters 31-40.png
+conners_es,Cluster 34,Conners ES,,clusters 31-40.png
+tarr_es,Cluster 34,Tarr ES,,clusters 31-40.png
+garehime_es,Cluster 34,Garehime ES,,clusters 31-40.png
+cheyenne_hs,Cluster 35,Cheyenne HS,,clusters 31-40.png
+swainston_ms,Cluster 35,Swainston MS,,clusters 31-40.png
+bruner_es,Cluster 35,Bruner ES,,clusters 31-40.png
+carl_es,Cluster 35,Carl ES,,clusters 31-40.png
+guy_es,Cluster 35,Guy ES,,clusters 31-40.png
+may_es,Cluster 35,May ES,,clusters 31-40.png
+parson_es,Cluster 35,Parson ES,,clusters 31-40.png
+wolfe_eva_es,Cluster 35,Wolfe Eva ES,Eva Wolfe ES,clusters 31-40.png
+cimarron_hs,Cluster 36,Cimarron HS,,clusters 31-40.png
+brinley_ms,Cluster 36,Brinley MS,,clusters 31-40.png
+bryan_r_h_es,Cluster 36,Bryan R H ES,R H Bryan ES,clusters 31-40.png
+bunker_es,Cluster 36,Bunker ES,,clusters 31-40.png
+fong_es,Cluster 36,Fong ES,,clusters 31-40.png
+katz_es,Cluster 36,Katz ES,,clusters 31-40.png
+mcmillan_es,Cluster 36,McMillan ES,,clusters 31-40.png
+pittman_es,Cluster 36,Pittman ES,,clusters 31-40.png
+northwest_cta,Cluster 37,Northwest CTA,Northwest Career Technical Academy;Northwest Career and Technical Academy,clusters 31-40.png
+leavitt_ms,Cluster 37,Leavitt MS,,clusters 31-40.png
+molasky_ms,Cluster 37,Molasky MS,,clusters 31-40.png
+allen_es,Cluster 37,Allen ES,,clusters 31-40.png
+deskin_es,Cluster 37,Deskin ES,,clusters 31-40.png
+eisenberg_es,Cluster 37,Eisenberg ES,,clusters 31-40.png
+tobler_es,Cluster 37,Tobler ES,,clusters 31-40.png
+kahre_es,Cluster 37,Kahre ES,,clusters 31-40.png
+palo_verde_hs,Cluster 38,Palo Verde HS,,clusters 31-40.png
+rogich_ms,Cluster 38,Rogich MS,,clusters 31-40.png
+becker_ms,Cluster 38,Becker MS,,clusters 31-40.png
+vassiliadis_es,Cluster 38,Vassiliadis ES,,clusters 31-40.png
+givens_es,Cluster 38,Givens ES,,clusters 31-40.png
+bonner_es,Cluster 38,Bonner ES,,clusters 31-40.png
+staton_es,Cluster 38,Staton ES,,clusters 31-40.png
+lummis_es,Cluster 38,Lummis ES,,clusters 31-40.png
+shadow_ridge_hs,Cluster 39,Shadow Ridge HS,,clusters 31-40.png
+saville_ms,Cluster 39,Saville MS,,clusters 31-40.png
+lied_ms,Cluster 39,Lied MS,,clusters 31-40.png
+ward_kitty_es,Cluster 39,Ward Kitty ES,Kitty Ward ES,clusters 31-40.png
+heckethorn_es,Cluster 39,Heckethorn ES,,clusters 31-40.png
+triggs_es,Cluster 39,Triggs ES,,clusters 31-40.png
+goynes_es,Cluster 39,Goynes ES,,clusters 31-40.png
+neal_es,Cluster 39,Neal ES,,clusters 31-40.png
+western_hs,Cluster 40,Western HS,,clusters 31-40.png
+gibson_ms,Cluster 40,Gibson MS,,clusters 31-40.png
+twin_lakes_es,Cluster 40,Twin Lakes ES,,clusters 31-40.png
+detwiler_es,Cluster 40,Detwiler ES,,clusters 31-40.png
+mcwilliams_es,Cluster 40,McWilliams ES,,clusters 31-40.png
+culley_es,Cluster 40,Culley ES,,clusters 31-40.png
+reed_es,Cluster 40,Reed ES,,clusters 31-40.png
+ronzone_es,Cluster 40,Ronzone ES,,clusters 31-40.png

@@ -17,7 +17,7 @@ from flask import Flask, abort, g, redirect, render_template, request, send_file
 from .diligent import DEFAULT_MEETING_URL
 from .models import School
 from .scanner import latest_run, load_run, previous_and_current_calendar_window, scan_meeting, scan_meeting_range
-from .schools import load_schools, save_schools, school_id_from_name
+from .schools import cluster_sort_key, load_schools, save_schools, school_id_from_name
 
 USER_COOKIE = "ccsd_watch_user"
 USER_ID_PATTERN = re.compile(r"^[a-f0-9]{32}$")
@@ -115,7 +115,7 @@ def create_app(
     def schools():
         active_school_file, _ = _active_paths(per_user, data_dir, school_file, output_dir, default_school_file)
         schools = load_schools(active_school_file)
-        clusters = sorted({school.cluster for school in schools})
+        clusters = sorted({school.cluster for school in schools}, key=cluster_sort_key)
         return render_template("schools.html", schools=schools, clusters=clusters, school_count=len(schools), user_id=getattr(g, "ccsd_user_id", ""), per_user=per_user)
 
     @app.post("/schools")
@@ -400,7 +400,7 @@ def _run_auto_refresh_targets(
 
 
 def _cluster_counts(findings: list[dict]) -> dict[str, int]:
-    return dict(sorted(Counter(finding["cluster"] for finding in findings).items()))
+    return dict(sorted(Counter(finding["cluster"] for finding in findings).items(), key=lambda item: cluster_sort_key(item[0])))
 
 
 def _filtered_data(data: dict, selected_cluster: str) -> dict:
@@ -413,7 +413,7 @@ def _filtered_data(data: dict, selected_cluster: str) -> dict:
 
 def _summary(data: dict) -> dict:
     findings = data.get("findings", [])
-    by_cluster = Counter(finding["cluster"] for finding in findings)
+    by_cluster = dict(sorted(Counter(finding["cluster"] for finding in findings).items(), key=lambda item: cluster_sort_key(item[0])))
     by_type = Counter(finding["movement_type"] for finding in findings)
     by_attachment_type = Counter(attachment["movement_type"] for attachment in data.get("attachments", []))
     schools = defaultdict(int)
