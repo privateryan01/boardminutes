@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-21T16:55:18.678846+00:00",
-  "source_run_at": "2026-05-21T16:55:18.066375+00:00",
+  "generated_at": "2026-05-21T23:15:16.142593+00:00",
+  "source_run_at": "2026-05-21T23:15:15.545700+00:00",
   "range": {
     "from_date": "2025-01-01",
     "to_date": "2026-05-21"
@@ -13,7 +13,9 @@
     "scanned_meeting_count": 98,
     "attachment_count": 184,
     "source_url": "https://ccsd.community.diligentoneplatform.com/Portal/MeetingInformation.aspx?Org=Cal&Id=1678",
-    "run_label": "20260521-163116-range-2025-01-01-to-2026-05-21"
+    "run_label": "20260521-225058-range-2025-01-01-to-2026-05-21",
+    "compared_to_previous_export": true,
+    "new_attachment_count": 0
   },
   "schools": [
     {
@@ -4602,6 +4604,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/ade31f45-8d51-4ff8-aa5f-b29bc5d7f6f9",
       "movement_type": "new_hire",
       "line_count": 40,
+      "content_signature": "6af3b91811a37343c57bdb2a7081c05086f99e7d",
       "lines": [
         "--- page 1 ---",
         "UNIFIED PERSONNEL EMPLOYMENT",
@@ -4643,7 +4646,8 @@
         "Morgantown, WV (2008-2016)",
         "Page 2 of 2",
         "Reference 2.05"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "02f697758e4b9855cf",
@@ -4660,6 +4664,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/3e647252-d024-46b4-b2a9-d9cb45bf0f49",
       "movement_type": "new_hire",
       "line_count": 109,
+      "content_signature": "ac1f96b368ed9193c98c670d7418f5089f30cb3e",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -4770,7 +4775,8 @@
         "shall be subject to the policies, regulations, rules, procedures, and practices of the Clark County School District, and shall begin with the Effective Start Date.",
         "Page 2 of 2",
         "Reference 2.06"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "5e2ef66972ea94a2a6",
@@ -4787,6 +4793,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/de5edc9d-1908-4018-8b92-173dfe43b9bf",
       "movement_type": "promotion_transfer",
       "line_count": 130,
+      "content_signature": "2f4de613f68a8dfafaa6754ecc34e3ec9aabc688",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL PROMOTIONS AND TRANSFERS/REASSIGNMENTS",
@@ -4918,7 +4925,8 @@
         "TBD",
         "TBD",
         "Information 8.01"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "812f2e43bf75c98b71",
@@ -4935,6 +4943,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/49aedd31-f29c-4dd4-81aa-b37e3330c7ab",
       "movement_type": "separation",
       "line_count": 39,
+      "content_signature": "627567d78becfebf60e7ee454a0f7776b96acc48",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL SEPARATIONS",
@@ -4975,7 +4984,8 @@
         "Assistant Principal",
         "08/13/97 04/25/25 Retirement",
         "Information 8.02"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "02ba9657439020abbe",
@@ -4992,6 +5002,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/b1b0c011-1f91-41ef-8a6f-ef7783c5d1aa",
       "movement_type": "separation",
       "line_count": 165,
+      "content_signature": "4af4dd4e28f35755479a8f7aa7de9967a25397f8",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON LICENSED PERSONNEL SEPARATIONS",
@@ -5158,7 +5169,8 @@
         "Jody Wong Heard ES 10/24/95 11/13/24 Retirement",
         "Third Grade",
         "Information 8.03"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "dc8bebdba7fc4ed4ff",
@@ -5175,6 +5187,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/0365a4bf-ce1d-49c7-b28d-854de5ea330c",
       "movement_type": "staffing_report",
       "line_count": 57,
+      "content_signature": "783629e5df7c6d4e0c50f3ed1f9ad856908e121a",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -5233,7 +5246,8 @@
         "January 9, 2025",
         "Page 1 of 1",
         "Information 8.04"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "bdc18f7d02d0871140",
@@ -5250,6 +5264,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/c7530a07-bc98-4d7d-ad6f-8b95a250a7a4",
       "movement_type": "new_hire",
       "line_count": 125,
+      "content_signature": "75fde4a9a606dcaf4c69989040d5db39db2eb6dd",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -5376,7 +5391,8 @@
         "shall be subject to the policies, regulations, rules, procedures, and practices of the Clark County School District, and shall begin with the Effective Start Date.",
         "Page 2 of 2",
         "Reference 2.05"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "8d1c35178a28bb8bd3",
@@ -5393,6 +5409,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/f0498d78-2d74-4bc0-94a2-0d524d43cbcc",
       "movement_type": "promotion_transfer",
       "line_count": 261,
+      "content_signature": "27e2017e1d76de51a8bea83bda2d52e705ee3d1d",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL PROMOTIONS AND TRANSFERS/REASSIGNMENTS",
@@ -5655,7 +5672,8 @@
         "Saville MS",
         "TBD",
         "Information 7.02"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "29f745c2e8d47ded7b",
@@ -5672,6 +5690,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/26b871db-18a3-45cb-83be-d30381566e19",
       "movement_type": "separation",
       "line_count": 22,
+      "content_signature": "e4b009afe48c3dc7a24e2a66eac97a8ea2400052",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL SEPARATIONS",
@@ -5695,7 +5714,8 @@
         "Assistant Principal",
         "08/21/12 01/03/25 Relocation",
         "Information 7.03"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "75376a902494128b52",
@@ -5712,6 +5732,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/0e418957-d087-4916-8d23-696b4e88aa3b",
       "movement_type": "separation",
       "line_count": 100,
+      "content_signature": "f4230a7dc51f7ce8b993c23ed4799b7693ea38c3",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON LICENSED PERSONNEL SEPARATIONS",
@@ -5813,7 +5834,8 @@
         "Jennifer Yung Clark HS 08/13/14 12/21/24 Deceased",
         "Mathematics",
         "Information 7.04"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "c8168b5fa52e2071e5",
@@ -5830,6 +5852,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/7d1a9c63-0e9a-42ae-8375-87a48242e19e",
       "movement_type": "staffing_report",
       "line_count": 60,
+      "content_signature": "7f3402952eafba1daa2755c3572edce1eb0936a6",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -5891,7 +5914,8 @@
         "Data Source HCM",
         "Page 2 of 2",
         "Information 7.05"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "81f9601e2b4e7bcf1c",
@@ -5908,6 +5932,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/3b15b5a9-9eda-4b4b-90c4-83e27d53c132",
       "movement_type": "new_hire",
       "line_count": 80,
+      "content_signature": "94d27e8fa3b2f6cd5ac2366fde46e404868e80e8",
       "lines": [
         "--- page 1 ---",
         "UNIFIED PERSONNEL EMPLOYMENT",
@@ -5989,7 +6014,8 @@
         "Las Vegas, NV (2016-2017)",
         "Page 3 of 3",
         "Reference 2.06"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "ccfb8cadc533cb2b6f",
@@ -6006,6 +6032,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/3dd83792-7524-44fc-8ace-a6b75732da73",
       "movement_type": "new_hire",
       "line_count": 175,
+      "content_signature": "0668e226aa26a8d9caf667d833a4ebc04eb95140",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -6182,7 +6209,8 @@
         "shall be subject to the policies, regulations, rules, procedures, and practices of the Clark County School District, and shall begin with the Effective Start Date.",
         "Page 3 of 3",
         "Reference 2.07"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "1c4481eb3bcf2972f4",
@@ -6199,6 +6227,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/2cda1310-dc33-4e58-9294-89e4bc1d401f",
       "movement_type": "promotion_transfer",
       "line_count": 254,
+      "content_signature": "bfefbb59496b9798025b225dfd56ac5aa44a9500",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL PROMOTIONS AND TRANSFERS/REASSIGNMENTS",
@@ -6454,7 +6483,8 @@
         "February 5, 2025",
         "February 10, 2025",
         "Information 8.02"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "69b0cc3287a4f0dbab",
@@ -6471,6 +6501,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/dd3696aa-f58d-46df-a0de-16e624534b9c",
       "movement_type": "separation",
       "line_count": 26,
+      "content_signature": "fcd31cefed3c037d11fe205bab071eb26cb68cae",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL SEPARATIONS",
@@ -6498,7 +6529,8 @@
         "Principal",
         "08/11/99 05/01/25 Retirement",
         "Information 8.03"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "fc7b20d5cf93a01235",
@@ -6515,6 +6547,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/308759a6-4e85-428f-9d09-01079dbfa86c",
       "movement_type": "separation",
       "line_count": 81,
+      "content_signature": "8efccaae663e1c278bfde1b3a8400b6941b1b116",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON LICENSED PERSONNEL SEPARATIONS",
@@ -6597,7 +6630,8 @@
         "Vincent Ulloa Chaparral HS 01/07/19 01/18/25 Retirement",
         "English",
         "Information 8.04"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "aaea227b63eb4a769f",
@@ -6614,6 +6648,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/0f100295-f81f-4a9e-8c7b-23a83919cadd",
       "movement_type": "staffing_report",
       "line_count": 67,
+      "content_signature": "4fd33856c94fea7b0138a8851c362c2f1f474795",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -6682,7 +6717,8 @@
         "Data Source HCM",
         "Page 2 of 2",
         "Information 8.05"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "9af263d3a2f72c2ac7",
@@ -6699,6 +6735,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/f9448081-fce4-482a-aa91-e663c7155d02",
       "movement_type": "new_hire",
       "line_count": 80,
+      "content_signature": "dca55c13153b37d83284b74a415d1d71e40bd9f0",
       "lines": [
         "--- page 1 ---",
         "UNIFIED PERSONNEL EMPLOYMENT",
@@ -6780,7 +6817,8 @@
         "Las Vegas, NV (2016-2017)",
         "Page 3 of 3",
         "Reference 2.06"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "d69952bed6a5eea8fc",
@@ -6797,6 +6835,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/4ebd7f86-005c-42ad-9cb9-772785b6bced",
       "movement_type": "new_hire",
       "line_count": 175,
+      "content_signature": "830529d546839d9cb0bf6fe9af3ddf487e12c1d6",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -6973,7 +7012,8 @@
         "shall be subject to the policies, regulations, rules, procedures, and practices of the Clark County School District, and shall begin with the Effective Start Date.",
         "Page 3 of 3",
         "Reference 2.07"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "4aaf97d38f5f7b7890",
@@ -6990,6 +7030,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/44b630b4-a9fc-4527-b1bc-96fde3964c84",
       "movement_type": "promotion_transfer",
       "line_count": 254,
+      "content_signature": "42e104bb019bf6428bd23cb591920a05830e4f36",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL PROMOTIONS AND TRANSFERS/REASSIGNMENTS",
@@ -7245,7 +7286,8 @@
         "February 5, 2025",
         "February 10, 2025",
         "Information 8.02"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "66a064885da59e274d",
@@ -7262,6 +7304,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/1f35b8a0-09e2-4f75-8e07-e3242f010c0f",
       "movement_type": "separation",
       "line_count": 26,
+      "content_signature": "bc34bc088000707022574b26551e1d6cb0d93327",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL SEPARATIONS",
@@ -7289,7 +7332,8 @@
         "Principal",
         "08/11/99 05/01/25 Retirement",
         "Information 8.03"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "49a0d9e3cdacd72d73",
@@ -7306,6 +7350,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/359e3f6c-abd8-490e-8123-ca9b1b231c3b",
       "movement_type": "separation",
       "line_count": 81,
+      "content_signature": "1e40a730f1cbd9a18fdd706179323bac71c5cf2b",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON LICENSED PERSONNEL SEPARATIONS",
@@ -7388,7 +7433,8 @@
         "Vincent Ulloa Chaparral HS 01/07/19 01/18/25 Retirement",
         "English",
         "Information 8.04"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "13b843ed46d1628f9f",
@@ -7405,6 +7451,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/220f95d1-3d5d-415b-8d3a-8a1f81c98d85",
       "movement_type": "staffing_report",
       "line_count": 67,
+      "content_signature": "fab51d1282f126eef6ddd67a9d45486d7eac39e3",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -7473,7 +7520,8 @@
         "Data Source HCM",
         "Page 2 of 2",
         "Information 8.05"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "b91b62a77740ad0a4b",
@@ -7490,6 +7538,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/4c0ee780-e8e2-4237-aaf5-b3f817cde0fa",
       "movement_type": "new_hire",
       "line_count": 79,
+      "content_signature": "f6a9df60ed6fca4f66f173f406d6a9717e81800f",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -7570,7 +7619,8 @@
         "shall be subject to the policies, regulations, rules, procedures, and practices of the Clark County School District, and shall begin with the Effective Start Date.",
         "Page 2 of 2",
         "Reference 2.06"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "c0abf8a2862c0d6272",
@@ -7587,6 +7637,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/ad9a758a-4ea5-4751-8a23-442e134253e2",
       "movement_type": "promotion_transfer",
       "line_count": 92,
+      "content_signature": "5dae17b2bacc529507f0a6f6e2989e974f00ada9",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL PROMOTIONS AND TRANSFERS/REASSIGNMENTS",
@@ -7680,7 +7731,8 @@
         "F",
         "ebruary 27, 2025",
         "Information 8.03"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "8e6c0165c7d63f2beb",
@@ -7697,6 +7749,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/c198acb7-4a30-4208-89ae-910f086013a0",
       "movement_type": "separation",
       "line_count": 28,
+      "content_signature": "cfc48f47f61e6409cedd7098d6c803796f53a174",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL SEPARATIONS",
@@ -7726,7 +7779,8 @@
         "Assistant Principal",
         "08/20/01 02/27/25 Retirement",
         "Information 8.04"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "3ffbe5360cdec0be18",
@@ -7743,6 +7797,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/04aa2b5a-35de-4b7d-a708-fdea41fa8dc9",
       "movement_type": "separation",
       "line_count": 673,
+      "content_signature": "0cb755bc57e6bfb702105c20f983d805258c6c49",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON LICENSED PERSONNEL SEPARATIONS",
@@ -8417,7 +8472,8 @@
         "Hale Zorlu Beatty ES 07/28/21 05/28/25 Return To School",
         "Special Education",
         "Information 8.05"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "76bd99e2c13ee15a89",
@@ -8434,6 +8490,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/45745a27-6da7-44f1-8ce6-ac7c82e4630f",
       "movement_type": "separation",
       "line_count": 679,
+      "content_signature": "f4f73752e055c47269fce94004a9135a161901d8",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON LICENSED PERSONNEL SEPARATIONS",
@@ -9114,7 +9171,8 @@
         "Hale Zorlu Beatty ES 07/28/21 05/28/25 Return To School",
         "Special Education",
         "Revised Information 8.05"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "f6835efecc05a4e296",
@@ -9131,6 +9189,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/20db03d1-1922-4d88-9250-fc8efabc29cf",
       "movement_type": "staffing_report",
       "line_count": 62,
+      "content_signature": "9c4400359140b3f8fc8562b94c64e90fea34eab7",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -9194,7 +9253,8 @@
         "Data Source HCM",
         "Page 2 of 2",
         "Information 8.06"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "ca0f71fe6537a46184",
@@ -9211,6 +9271,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/718a1210-2db1-45f3-a974-b54a5b6066a6",
       "movement_type": "new_hire",
       "line_count": 42,
+      "content_signature": "b22145ad8d08681d46214a08f8e02c8c523416b6",
       "lines": [
         "--- page 1 ---",
         "UNIFIED PERSONNEL EMPLOYMENT",
@@ -9254,7 +9315,8 @@
         "Wichita, KS (2005-2012)",
         "Page 2 of 2",
         "Reference 2.04"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "2422bff4aa74b1c17d",
@@ -9271,6 +9333,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/94798ce6-dc5a-4bde-94f2-8a37abdf5761",
       "movement_type": "new_hire",
       "line_count": 101,
+      "content_signature": "08993279cf8e4f95befd18531002fa617c464127",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -9373,7 +9436,8 @@
         "shall be subject to the policies, regulations, rules, procedures, and practices of the Clark County School District, and shall begin with the Effective Start Date.",
         "Page 2 of 2",
         "Reference 2.05"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "aed66a948698e6f1a0",
@@ -9390,6 +9454,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/c8ba72b5-c807-4549-abd6-6cd7e0276122",
       "movement_type": "promotion_transfer",
       "line_count": 147,
+      "content_signature": "1b00c381043ca5dce2d10c791ff63560a76b03bc",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL PROMOTIONS AND TRANSFERS/REASSIGNMENTS",
@@ -9538,7 +9603,8 @@
         "Neal ES",
         "February 20, 2025",
         "Information 7.02"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "b7a3ec2acd7c0424a8",
@@ -9555,6 +9621,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/aa3a1e24-3e83-4047-8397-f08802fd50f0",
       "movement_type": "separation",
       "line_count": 19,
+      "content_signature": "a744619d854da69d8d4373dc62fef92bb693e78c",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL SEPARATIONS",
@@ -9575,7 +9642,8 @@
         "Principal",
         "01/04/17 03/17/25 Retirement",
         "Information 7.03"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "d881ce69f6ebafca97",
@@ -9592,6 +9660,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/ae6686a4-33b1-40fb-85a9-21ff0ea34bb7",
       "movement_type": "separation",
       "line_count": 375,
+      "content_signature": "82ad6681910bd5847ae3d7d6d7a075885d3424a3",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON LICENSED PERSONNEL SEPARATIONS",
@@ -9968,7 +10037,8 @@
         "Amy Young-Bowie Warren ES 09/01/98 05/28/25 Retirement",
         "Learning Strategist",
         "Information 7.04"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "a7f04c7b407c2c009a",
@@ -9985,6 +10055,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/e44ea69a-5c3f-4a21-9ebe-07bd8c1a1e9c",
       "movement_type": "staffing_report",
       "line_count": 66,
+      "content_signature": "67b20a512236fbd999b5ebe80668634e8dac436f",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -10052,7 +10123,8 @@
         "Data Source HCM",
         "Page 2 of 2",
         "Information 7.05"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "564cc17e51e6c60285",
@@ -10069,6 +10141,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/c9731e41-59b6-47f4-a011-1c40715022fc",
       "movement_type": "new_hire",
       "line_count": 46,
+      "content_signature": "efe2bc57edaaba6348cb120f460abb88cf07b299",
       "lines": [
         "--- page 1 ---",
         "UNIFIED PERSONNEL EMPLOYMENT",
@@ -10116,7 +10189,8 @@
         "Los Angeles, CA (2014-2017)",
         "Page 2 of 2",
         "Reference 2.08"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "8091356694b5d036b8",
@@ -10133,6 +10207,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/904a3fa4-da70-457f-bf2a-0899103fa3ac",
       "movement_type": "new_hire",
       "line_count": 45,
+      "content_signature": "43033faa4652cfed88ae910c66e10b31969532a1",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -10179,7 +10254,8 @@
         "March 27, 2025",
         "Page 1 of 1",
         "Reference 2.09"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "3e68df4c17cbd8d7b5",
@@ -10196,6 +10272,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/3d89a96c-f480-4e7b-a5c7-757e35fd9810",
       "movement_type": "promotion_transfer",
       "line_count": 137,
+      "content_signature": "e1f8624f0450eda1f89140fee5a49907045c5456",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL PROMOTIONS AND TRANSFERS/REASSIGNMENTS",
@@ -10334,7 +10411,8 @@
         "TBD",
         "Page 2 of 2",
         "Information 7.02"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "0279f14da9981c1cd3",
@@ -10351,6 +10429,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/f926abe2-18cf-405b-8838-c478acf48b54",
       "movement_type": "separation",
       "line_count": 34,
+      "content_signature": "0ccf38227b0c86d40c6952a6b859fb91e18ea879",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL SEPARATIONS",
@@ -10386,7 +10465,8 @@
         "Assistant Principal",
         "09/11/03 06/23/25 Retirement",
         "Information 7.03"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "806d30a754c189229c",
@@ -10403,6 +10483,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/a1370579-3fe1-41f2-8b24-969fa1c93449",
       "movement_type": "separation",
       "line_count": 127,
+      "content_signature": "a15295e0641035f6669425a0dbc7df650c7dfc00",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON LICENSED PERSONNEL SEPARATIONS",
@@ -10531,7 +10612,8 @@
         "Vianey Zapata Ortega Brookman ES 07/31/24 04/01/25 Personal",
         "Kindergarten",
         "Information 7.04"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "c3ba7f1ce10e0fcef9",
@@ -10548,6 +10630,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/2c7f240b-6165-4abe-8017-63ae550f153d",
       "movement_type": "staffing_report",
       "line_count": 57,
+      "content_signature": "2bccbc894fcafd0701e757046520975166e784b8",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -10606,7 +10689,8 @@
         "Data Source HCM",
         "Page 2 of 2",
         "Information 7.05"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "0e296f64e970a63e8c",
@@ -10623,6 +10707,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/f76f9dcd-bd9a-4fae-9f75-a6739d0ca565",
       "movement_type": "new_hire",
       "line_count": 59,
+      "content_signature": "b0ce167b653568c2ee66f605279383b5a3f73c93",
       "lines": [
         "--- page 1 ---",
         "UN",
@@ -10683,7 +10768,8 @@
         "Las Vegas, NV (2016-2017)",
         "Page 2 of 2",
         "Reference 2.03"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "b545ee2337f5319fc6",
@@ -10700,6 +10786,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/2aef1b3a-c286-4a4c-939b-3cf82b83b798",
       "movement_type": "new_hire",
       "line_count": 61,
+      "content_signature": "ca2e9669df7b58b256fac4237675681a7242ec99",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -10762,7 +10849,8 @@
         "April 10, 2025",
         "Page 1 of 1",
         "Reference 2.04"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "3c0589c51d2c6a168a",
@@ -10779,6 +10867,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/288de461-c519-4914-bd00-062adda51846",
       "movement_type": "promotion_transfer",
       "line_count": 83,
+      "content_signature": "fce872a77a0dd20a32707c81d6e2f17cbfb3b8e9",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL PROMOTIONS AND TRANSFERS/REASSIGNMENTS",
@@ -10863,7 +10952,8 @@
         "A",
         "pril 10, 2025",
         "Information 7.01"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "4b580204839312f51d",
@@ -10880,6 +10970,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/f0624aa2-e2e2-42a8-b2f1-46e80975fef2",
       "movement_type": "separation",
       "line_count": 56,
+      "content_signature": "c76464c8b81a9de1d7aeb3dd46003c9c1490230d",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL SEPARATIONS",
@@ -10937,7 +11028,8 @@
         "08/14/13 06/23/25 Return to",
         "Licensed Status",
         "Information 7.02"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "8e31da18414054625a",
@@ -10954,6 +11046,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/5aa228cc-e87f-425b-8616-7e05e42d08cf",
       "movement_type": "separation",
       "line_count": 263,
+      "content_signature": "b4bdbd3b96cb93b5ed7c5b4f7c5730a89d0397b1",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON LICENSED PERSONNEL SEPARATIONS",
@@ -11218,7 +11311,8 @@
         "Susan Zell Webb MS 08/14/02 05/28/25 Retirement",
         "Reading",
         "Information 7.03"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "15e7a10d75a9bd45b5",
@@ -11235,6 +11329,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/bb12b7b6-2ed7-42ad-8c5f-313053ff7a0c",
       "movement_type": "staffing_report",
       "line_count": 58,
+      "content_signature": "a7adc74b3da6eb3cf6b809d104dae1e3317c24aa",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -11294,7 +11389,8 @@
         "Data Source HCM",
         "Page 2 of 2",
         "Information 7.04"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "74016d566baeec3468",
@@ -11311,6 +11407,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/b590eed1-aa22-4146-adfb-75f914a72de3",
       "movement_type": "new_hire",
       "line_count": 76,
+      "content_signature": "807cdd8394f319c2dd0ae9a8ef2fde2755e4228c",
       "lines": [
         "--- page 1 ---",
         "Name     Assignment and Location Effective Date",
@@ -11388,7 +11485,8 @@
         "UNIFIED PERSONNEL EMPLOYMENT",
         "Page 3 of 3",
         "Reference 2.07"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "1a36e6d86056c4d71c",
@@ -11405,6 +11503,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/b4610077-03a9-4a73-aea9-091a61b5908d",
       "movement_type": "new_hire",
       "line_count": 44,
+      "content_signature": "0ffd516f96db0e9c079947eff4060159de365083",
       "lines": [
         "--- page 1 ---",
         "LAST NAME",
@@ -11450,7 +11549,8 @@
         "April 24, 2025",
         "Page 1 of 1",
         "Reference 2.08"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "9e85b9402ee0da99be",
@@ -11467,6 +11567,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/b612772c-76a5-45f1-93b5-a9646eb6c0a4",
       "movement_type": "promotion_transfer",
       "line_count": 81,
+      "content_signature": "5763532f5f796a742b82caec1fb3ff03d2a015f5",
       "lines": [
         "--- page 1 ---",
         "The Interim Superintendent of Schools approved the following promotions and transfers/reassignments:",
@@ -11549,7 +11650,8 @@
         "INFORMATION ON UNIFIED PERSONNEL PROMOTIONS AND TRANSFERS/REASSIGNMENTS",
         "Page 2 of 2",
         "Information 7.02"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "9adef49bd0a108a511",
@@ -11566,6 +11668,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/76f353d8-55e4-4598-9912-3f57ad577b78",
       "movement_type": "separation",
       "line_count": 42,
+      "content_signature": "1f5839239303400b182942d12fe1eef4841f904e",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL SEPARATIONS",
@@ -11609,7 +11712,8 @@
         "RoAnn Triana",
         "April 24, 2025",
         "Information 7.03"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "e052a40204ff1105c2",
@@ -11626,6 +11730,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/e5258b30-f024-4cef-97b7-1bb4b780ec9a",
       "movement_type": "separation",
       "line_count": 220,
+      "content_signature": "5a05190092b4c9225b6b59795aa6e735f981d9bc",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON LICENSED PERSONNEL SEPARATIONS",
@@ -11847,7 +11952,8 @@
         "Project Facilitator",
         "Page 6 of 6",
         "Information 7.04"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "9224110a94227fedeb",
@@ -11864,6 +11970,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/bad86e9b-704f-4153-b119-0104b466effa",
       "movement_type": "staffing_report",
       "line_count": 50,
+      "content_signature": "e1e88d7af950a2f16334002b19e5ddc13d8dc4ff",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -11915,7 +12022,8 @@
         "RoAnn Triana",
         "April 24, 2025",
         "Information 7.05"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "25fcea31e6a023f04d",
@@ -11932,6 +12040,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/6d062267-c462-4c9e-8e73-9bed6fa2e378",
       "movement_type": "new_hire",
       "line_count": 22,
+      "content_signature": "808268274d7d65bf048b87bc4b68baf87cb84325",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -11955,7 +12064,8 @@
         "May 8, 2025",
         "Page 1 of 1",
         "Reference 2.08"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "c43b7052f95bca9496",
@@ -11972,6 +12082,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/c4329add-8a62-47b5-ae42-ed31c3e5807a",
       "movement_type": "separation",
       "line_count": 27,
+      "content_signature": "3d1123c0375f067928de721a9a0ea89cac066aa7",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL SEPARATIONS",
@@ -12000,7 +12111,8 @@
         "Interim Superintendent",
         "08/11/94 04/17/25 Retirement",
         "Information 8.02"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "f0f9ede0d4867b2859",
@@ -12017,6 +12129,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/83def4e5-c3f1-437d-9f2b-9a0cadf8a551",
       "movement_type": "promotion_transfer",
       "line_count": 34,
+      "content_signature": "ed7da1018aa3cc152f6bea0636c450f50747deb1",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL PROMOTIONS AND TRANSFERS/REASSIGNMENTS",
@@ -12052,7 +12165,8 @@
         "May 8, 2025",
         "Page 1 of 1",
         "Information 8.03"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "92ac00122bb0df5570",
@@ -12069,6 +12183,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/52ea640e-8e81-4314-9e92-555e84c51940",
       "movement_type": "separation",
       "line_count": 187,
+      "content_signature": "31b197d49f8c8b424902cfbb2a3355fa97411e36",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON LICENSED PERSONNEL SEPARATIONS",
@@ -12257,7 +12372,8 @@
         "Technical Academy",
         "Page 5 of 5",
         "Information 8.04"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "12f34e7577a0f9d3d8",
@@ -12274,6 +12390,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/f3754dff-539f-4fb8-8211-edbf55cb4114",
       "movement_type": "staffing_report",
       "line_count": 54,
+      "content_signature": "fa0c6d50d44192704956212028483ef7ee296300",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -12329,7 +12446,8 @@
         "May 8, 2025",
         "Page 1 of 1",
         "Information 8.05"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "64c45b371621abab64",
@@ -12346,6 +12464,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/d8e63fa0-3f8c-4d80-a500-94a7e181335f",
       "movement_type": "new_hire",
       "line_count": 19,
+      "content_signature": "a01c75c44fb937fb2e424dd80261dd13a5a1c431",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -12366,7 +12485,8 @@
         "May 15, 2025",
         "Page 1 of 1",
         "Reference 2.06"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "a3d33cd389b33850f4",
@@ -12383,6 +12503,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/d1be449e-a13c-47f6-968a-b4d7c88da029",
       "movement_type": "new_hire",
       "line_count": 43,
+      "content_signature": "32207588168ab181539b5a033996642f8beecb80",
       "lines": [
         "--- page 1 ---",
         "UNIFIED PERSONNEL EMPLOYMENT",
@@ -12427,7 +12548,8 @@
         "May 15, 2025",
         "Page 2 of 2",
         "Reference 2.07"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "1db6b78dacc65ebc54",
@@ -12444,6 +12566,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/3344d6d7-d418-400e-9b9e-7557fb826337",
       "movement_type": "promotion_transfer",
       "line_count": 38,
+      "content_signature": "23c4540d96b466aa481e7009ed9292c45819884d",
       "lines": [
         "--- page 1 ---",
         "The Superintendent of Schools approved the following promotions and transfers/reassignments:",
@@ -12483,7 +12606,8 @@
         "May 15, 2025",
         "Page 1 of 1",
         "Information 7.02"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "649be1b9c35d8b9592",
@@ -12500,6 +12624,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/1ca15104-c401-4f49-a686-759e764dd594",
       "movement_type": "separation",
       "line_count": 179,
+      "content_signature": "159ea13bd4ac2092f479ed891bc005c7d634ca7b",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON LICENSED PERSONNEL SEPARATIONS",
@@ -12680,7 +12805,8 @@
         "Spanish",
         "Page 5 of 5",
         "Information 7.03"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "56bab612a1ef6eee6c",
@@ -12697,6 +12823,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/417a3c1a-3da0-4784-87fa-38098a7f77ae",
       "movement_type": "separation",
       "line_count": 41,
+      "content_signature": "90a817880d14136d8108cf4a0af8a21a11cbf695",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL SEPARATIONS",
@@ -12739,7 +12866,8 @@
         "May 15, 2025",
         "Page 1 of 1",
         "Information 7.04"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "09da8407ea3065ea9c",
@@ -12756,6 +12884,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/953a66df-178a-49f3-a9f4-217439730919",
       "movement_type": "staffing_report",
       "line_count": 49,
+      "content_signature": "ee586798d36a60fbc72771e2936fe61da408cc65",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -12806,7 +12935,8 @@
         "May 15, 2025",
         "Page 1 of 1",
         "Information 7.05"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "8df1dc10fb3f165793",
@@ -12823,6 +12953,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/db2aa359-e32c-4648-a5de-09c2f2c51d90",
       "movement_type": "new_hire",
       "line_count": 23,
+      "content_signature": "a16c282f798a68cb1bf19ae5c2d49ac2f3a23702",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -12847,7 +12978,8 @@
         "June 12, 2025",
         "Page 1 of 1",
         "Reference 2.13"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "7b73a248d242e8ed77",
@@ -12864,6 +12996,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/1872ddcd-c728-4f47-a8e6-060d3c064c58",
       "movement_type": "new_hire",
       "line_count": 140,
+      "content_signature": "dde19e50a2891dfaaf8b75aa140863426ba0ba36",
       "lines": [
         "--- page 1 ---",
         "UNIFIED PERSONNEL EMPLOYMENT",
@@ -13005,7 +13138,8 @@
         "Las Vegas, NV (2004-2018)",
         "Page 5 of 5",
         "Reference 2.14"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "60d52661ff6db1d389",
@@ -13022,6 +13156,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/ada604d1-d303-451b-bc95-0a78a8f342f7",
       "movement_type": "promotion_transfer",
       "line_count": 197,
+      "content_signature": "fe7e241ddf5ded9e644871393de8da205536732b",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL PROMOTIONS AND TRANSFERS/REASSIGNMENTS",
@@ -13220,7 +13355,8 @@
         "May 12, 2025",
         "Page 3 of 3",
         "Information 7.02"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "429ca979691d40929a",
@@ -13237,6 +13373,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/da3c3e6d-4a8d-40c0-85fd-6582629fe685",
       "movement_type": "separation",
       "line_count": 78,
+      "content_signature": "0416bd4f896e4e278acf8149790e366ba97e40ba",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL SEPARATIONS",
@@ -13316,7 +13453,8 @@
         "District",
         "Page 2 of 2",
         "Information 7.03"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "488e86371ba2f38407",
@@ -13333,6 +13471,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/be5036c7-17fd-477a-8301-7d8266046622",
       "movement_type": "separation",
       "line_count": 562,
+      "content_signature": "38e638332ae1c00acf5a9518ba80603bc3841db8",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON LICENSED PERSONNEL SEPARATIONS",
@@ -13896,7 +14035,8 @@
         "School Psychologist",
         "Page 15 of 15",
         "Reference 7.04"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "31f2c826d0e494bfda",
@@ -13913,6 +14053,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/175e2cbb-2898-4f57-bf6f-301b5b49b610",
       "movement_type": "staffing_report",
       "line_count": 63,
+      "content_signature": "fbdd17354df2b6a75c7cdbbec0282fac43725be4",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -13977,7 +14118,8 @@
         "June 12, 2025",
         "Page 1 of 1",
         "Information 7.05"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "60a09a4af663e5d876",
@@ -13994,6 +14136,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/a4cab648-4e9b-4980-bf6d-f25c10291f98",
       "movement_type": "new_hire",
       "line_count": 41,
+      "content_signature": "a57fd778b26026e03a1fb4eaa131dc9aa48c43fe",
       "lines": [
         "--- page 1 ---",
         "UNIFIED PERSONNEL EMPLOYMENT",
@@ -14036,7 +14179,8 @@
         "Richmond, CA (2017-2021)",
         "Page 2 of 2",
         "Reference 2.10"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "4f14134f44d3295ff8",
@@ -14053,6 +14197,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/5d8408d5-fa2e-4f90-848b-ad70707d1f1c",
       "movement_type": "new_hire",
       "line_count": 100,
+      "content_signature": "8f19a1876795b6156a47ae560f67db3d9237e067",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -14154,7 +14299,8 @@
         "shall be subject to the policies, regulations, rules, procedures, and practices of the Clark County School District, and shall begin with the Effective Start Date.",
         "Page 2 of 2",
         "Reference 2.11"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "8556fad9f4f067620b",
@@ -14171,6 +14317,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/c4cf4dce-a99c-4fc3-8048-bac284896d69",
       "movement_type": "promotion_transfer",
       "line_count": 30,
+      "content_signature": "beff223b8daf30d555f96dfb75db630eecde0f61",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL PROMOTIONS AND TRANSFERS/REASSIGNMENTS",
@@ -14202,7 +14349,8 @@
         "June 26, 2025",
         "Page 1 of 1",
         "Information 8.02"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "4479d666711f4435ca",
@@ -14219,6 +14367,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/9582d5b9-39d8-42b6-995f-a49602e0d650",
       "movement_type": "separation",
       "line_count": 38,
+      "content_signature": "b3cb11b27e077d2d4664bec01865809b4bc85049",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL SEPARATIONS",
@@ -14258,7 +14407,8 @@
         "June 26, 2025",
         "Page 1 of 1",
         "Information 8.03"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "13ee06ce0c49d3f64e",
@@ -14275,6 +14425,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/428459c5-a9c3-4366-bcf9-a3db6b7f8c93",
       "movement_type": "separation",
       "line_count": 250,
+      "content_signature": "69730eb7389aff34084954096154cba9992e68b5",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON LICENSED PERSONNEL SEPARATIONS",
@@ -14526,7 +14677,8 @@
         "Explorations",
         "Page 7 of 7",
         "Information 8.04"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "21bce382516c71178f",
@@ -14543,6 +14695,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/6c9b5300-707e-4fcb-8ac1-a36a4f0675e6",
       "movement_type": "staffing_report",
       "line_count": 51,
+      "content_signature": "0619c15a43d3f7751d9fd4b45fe25a1f08131efb",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -14595,7 +14748,8 @@
         "June 26, 2025",
         "Page 1 of 1",
         "Information 8.05"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "aa3002d1cec6af55d8",
@@ -14612,6 +14766,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/e3b84b6d-db74-4459-93a4-05a92bf93ba2",
       "movement_type": "new_hire",
       "line_count": 59,
+      "content_signature": "293d9645b768b4fa19132b57967fcc71f0722c53",
       "lines": [
         "--- page 1 ---",
         "UNIFIED PERSONNEL EMPLOYMENT",
@@ -14672,7 +14827,8 @@
         "Greensboro, NC (2013-2023)",
         "Page 3 of 3",
         "Reference 2.09"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "8d46a212d924db999a",
@@ -14689,6 +14845,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/e6d063d0-8540-40a4-a9c0-9e24cfa85ee9",
       "movement_type": "new_hire",
       "line_count": 244,
+      "content_signature": "5b8d81ffa494b335bc2eadb99414f6641aafcb82",
       "lines": [
         "--- page 1 ---",
         "LAST NAME FIRST NAME WORK LOCATION ASSIGNMENT",
@@ -14934,7 +15091,8 @@
         "CLARK COUNTY SCHOOL DISTRICT LICENSED PERSONNEL EMPLOYMENT",
         "Page 4 of 4",
         "Reference 2.10"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "b8ac6ecce850e230dd",
@@ -14951,6 +15109,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/88166f7d-ac1e-40f7-aaca-8d214c7e726e",
       "movement_type": "separation",
       "line_count": 36,
+      "content_signature": "981f7f01b55d6235afa562a0c57f2ee5a5369777",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL SEPARATIONS",
@@ -14988,7 +15147,8 @@
         "July 10, 2025",
         "Page 1 of 1",
         "Information 7.02"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "917e438fa94258c93e",
@@ -15005,6 +15165,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/73c9372d-b5eb-4b51-b4ab-045ed0cb5a62",
       "movement_type": "promotion_transfer",
       "line_count": 33,
+      "content_signature": "f86f33e3f8e0dd8ed7292f029167c81d6f3b3547",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL PROMOTIONS AND TRANSFERS/REASSIGNMENTS",
@@ -15039,7 +15200,8 @@
         "July 10, 2025",
         "Page 1 of 1",
         "Information 7.03"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "5ef525b5b0a5f46bec",
@@ -15056,6 +15218,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/b3a9b2cd-30b7-4346-86c0-415f137f0ccf",
       "movement_type": "separation",
       "line_count": 60,
+      "content_signature": "0a890555d9f46fe1ed5fc40d4c88cbc0c16c7381",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON LICENSED PERSONNEL SEPARATIONS",
@@ -15117,7 +15280,8 @@
         "Third Grade",
         "Page 2 of 2",
         "Information 7.05"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "2ba81fe745c17022a9",
@@ -15134,6 +15298,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/b680de59-1412-4173-acb9-2ee93a71e58f",
       "movement_type": "staffing_report",
       "line_count": 38,
+      "content_signature": "f587c6672fe846d0d7baad731cc6ac400c3d925f",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -15173,7 +15338,8 @@
         "July 10, 2025",
         "Page 1 of 1",
         "Information 7.06"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "54582c556d46b7a5c4",
@@ -15190,6 +15356,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/bbe3c193-ccd6-4822-97db-a2f4bdfd5261",
       "movement_type": "new_hire",
       "line_count": 287,
+      "content_signature": "1e688e1186a3e267f9f8ef2ee87fad1308cbbad1",
       "lines": [
         "--- page 1 ---",
         "UNIFIED PERSONNEL EMPLOYMENT",
@@ -15478,7 +15645,8 @@
         "Pearland, TX (2014-2019)",
         "Page 10 of 10",
         "Reference 2.09"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "cc62eef9e1533c757a",
@@ -15495,6 +15663,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/62acc42e-4a91-4646-a881-349cb5dfd608",
       "movement_type": "new_hire",
       "line_count": 222,
+      "content_signature": "0ae67e5dbe83ab3167ac3d765734e475c7fa6ba2",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -15718,7 +15887,8 @@
         "EUTENEIER JENNA PHYSICAL & OCCUPATION THERAPY OCC THERAPIST 77,018.00$     7/30/2025",
         "Page 4 of 4",
         "Reference 2.10"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "5ce4f5cabd89f55aab",
@@ -15735,6 +15905,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/a0f390e0-d8d7-42d8-9206-3849f09aa7e6",
       "movement_type": "new_hire",
       "line_count": 777,
+      "content_signature": "3394d122d210e8bfa62d743ffaed52b4b88dda9b",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -16513,7 +16684,8 @@
         "Discussion and possible action on approval to employ licensed personnel, as listed, is recommended.",
         "Revised Reference 2.10",
         "Page 13 of 13"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "c09e687d7b96e04d27",
@@ -16530,6 +16702,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/efa40d9d-e077-4f45-b1d9-397f0fcdb00c",
       "movement_type": "promotion_transfer",
       "line_count": 102,
+      "content_signature": "bfa4a508b22858512ec814f6d7551ac00b03f050",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL PROMOTIONS AND TRANSFERS/REASSIGNMENTS",
@@ -16633,7 +16806,8 @@
         "Wendell Williams ES Gilbert ES",
         "Page 3 of 3",
         "Information 7.02"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "d73f4e6955ced829b1",
@@ -16650,6 +16824,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/13e17295-3fdb-4ba4-9904-1b943906462f",
       "movement_type": "separation",
       "line_count": 53,
+      "content_signature": "11431d663c786cf1fc3337e749a8fe2c7bc4c265",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL SEPARATIONS",
@@ -16704,7 +16879,8 @@
         "August 14, 2025",
         "Page 1 of 1",
         "Information 7.03"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "7fd8a02c53d46f5c4b",
@@ -16721,6 +16897,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/bd42da85-4647-40ae-bb6f-83e68f7fc12a",
       "movement_type": "separation",
       "line_count": 368,
+      "content_signature": "9fe31061e1f663556ab8fbf9f7ccc48d8a662086",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON LICENSED PERSONNEL SEPARATIONS",
@@ -17090,7 +17267,8 @@
         "Special Education",
         "Page 10 of         10",
         "Information 7.04"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "769c7487c71486f51f",
@@ -17107,6 +17285,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/8bc42a26-5048-46a1-a7c7-60e066a74227",
       "movement_type": "staffing_report",
       "line_count": 60,
+      "content_signature": "5680367298341d2e20659ebfdb32df8d1964bca7",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -17168,7 +17347,8 @@
         "August 14, 2025",
         "Page 1 of 1",
         "Information 7.05"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "522188a38f0c94fbd9",
@@ -17185,6 +17365,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/da86b8db-e49d-4eb5-82d8-d788e3950078",
       "movement_type": "new_hire",
       "line_count": 266,
+      "content_signature": "832950613f943f5ba8b0fd9c6f6f31401f209171",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -17452,7 +17633,8 @@
         "Discussion and possible action on approval to employ licensed personnel, as listed, is recommended.",
         "Page 5 of 5",
         "Reference 2.06"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "818e063e656cd8c94d",
@@ -17469,6 +17651,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/110fec9f-fb60-48dc-bcf6-7491a30321d2",
       "movement_type": "new_hire",
       "line_count": 129,
+      "content_signature": "17d5e5b1f05cd3d6bb07942c025978e0548551c4",
       "lines": [
         "--- page 1 ---",
         "UNIFIED PERSONNEL EMPLOYMENT",
@@ -17599,7 +17782,8 @@
         "Las Vegas, NV (2013-2024)",
         "Page 5 of 5",
         "Reference 2.07"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "41ec17f5009c14cc5c",
@@ -17616,6 +17800,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/6234ebcd-26f3-4abd-aa84-5517b10689f7",
       "movement_type": "separation",
       "line_count": 166,
+      "content_signature": "78dbac7a4c6b355bc2adc76210b9bcc13bc89cc8",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON LICENSED PERSONNEL SEPARATIONS",
@@ -17783,7 +17968,8 @@
         "Holli Zinna-Mikell Escobedo MS 08/18/04 05/28/25 Personal",
         "History",
         "Information 7.01"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "f08ab0a07d49e55e11",
@@ -17800,6 +17986,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/39fcd5d8-1ab8-4a09-a04c-78ef0fe92b75",
       "movement_type": "separation",
       "line_count": 129,
+      "content_signature": "0a9357ac7609e1a1a89565a667b7e86ff7d7e677",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON LICENSED PERSONNEL SEPARATIONS",
@@ -17930,7 +18117,8 @@
         "History",
         "Revised Reference 7.01",
         "Page 5 of 5"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "4ec00952f118f9c580",
@@ -17947,6 +18135,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/cd46305e-425c-4b72-82ba-09f9c9df25d3",
       "movement_type": "separation",
       "line_count": 24,
+      "content_signature": "907c61648068375acfc71a13cdbcf842ce11cd30",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL SEPARATIONS",
@@ -17972,7 +18161,8 @@
         "August 28, 2025",
         "Page 1 of 1",
         "Information 7.02"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "8180b09609d2a1ff20",
@@ -17989,6 +18179,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/254c5027-42d7-4ff5-99fe-53c17dd85bf5",
       "movement_type": "promotion_transfer",
       "line_count": 61,
+      "content_signature": "18e8ef4f427e45313cc8203a61fc59b2b868445e",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL PROMOTIONS AND TRANSFERS/REASSIGNMENTS",
@@ -18051,7 +18242,8 @@
         "Kahre ES",
         "Page 2 of 2",
         "Information 7.03"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "6cc25de67b02089543",
@@ -18068,6 +18260,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/6d9a1f04-0cac-47f0-921d-ce31e5f028dc",
       "movement_type": "new_hire",
       "line_count": 43,
+      "content_signature": "e7d095d58346ea096a150a22140c1a643e116f23",
       "lines": [
         "--- page 1 ---",
         "UNIFIED PERSONNEL EMPLOYMENT",
@@ -18112,7 +18305,8 @@
         "Las Vegas, NV (2012-2017)",
         "Page 2 of 2",
         "Reference 2.03"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "6b7dc0f7e8f8ad780c",
@@ -18129,6 +18323,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/f59aaa16-257e-4220-8c24-801f98533153",
       "movement_type": "new_hire",
       "line_count": 119,
+      "content_signature": "9cd583cea0511151c188e440bc19d9ec1d790f30",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -18249,7 +18444,8 @@
         "Discussion and possible action on approval to employ licensed personnel, as listed, is recommended.",
         "Page 2 of 2",
         "Reference 2.04"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "b543141efef27bd57f",
@@ -18266,6 +18462,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/ef036db8-5ce9-4671-aeb1-479620442d0a",
       "movement_type": "separation",
       "line_count": 210,
+      "content_signature": "e8c3f667a073be4abcd1d6f5d51e5b5d40dab879",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON LICENSED PERSONNEL SEPARATIONS",
@@ -18477,7 +18674,8 @@
         "Math in Other District",
         "Page 6 of 6",
         "Information 7.02"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "eb01603bcbd9d08f19",
@@ -18494,6 +18692,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/38ed3cc5-1bd9-405f-a7ed-e14036121b08",
       "movement_type": "promotion_transfer",
       "line_count": 29,
+      "content_signature": "e8604517fdd89123ceffcc88c17cda9fffa027fe",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL PROMOTIONS AND TRANSFERS/REASSIGNMENTS",
@@ -18524,7 +18723,8 @@
         "September 11, 2025",
         "Page 1 of 1",
         "Information 7.03"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "28383cfdcb9f8cd5f9",
@@ -18541,6 +18741,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/98d86f9e-5478-41fa-a14f-3c2962557c9f",
       "movement_type": "staffing_report",
       "line_count": 64,
+      "content_signature": "5dc2bdcb4e1a96f406b5909c54e352954a550dc0",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -18606,7 +18807,8 @@
         "September 11, 2025",
         "Page 1 of 1",
         "Information 7.04"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "08bd1035bfd880c9e3",
@@ -18623,6 +18825,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/4d3f7a64-935d-43f9-a8aa-825b190f60e1",
       "movement_type": "new_hire",
       "line_count": 84,
+      "content_signature": "ba12e7e7d9828c34eef03c9d4daacff9310c1e15",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -18708,7 +18911,8 @@
         "Page 2 of 2",
         "56",
         "Reference 3.08"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "a6e122b710eab4b842",
@@ -18725,6 +18929,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/b79c16ae-5287-410e-8d4b-2f3471e6e974",
       "movement_type": "new_hire",
       "line_count": 172,
+      "content_signature": "488ce0245426f5b19732520bdc24c6414b70351a",
       "lines": [
         "--- page 1 ---",
         "UNIFIED PERSONNEL EMPLOYMENT",
@@ -18898,7 +19103,8 @@
         "Kansas City, MO (2006-2012)",
         "Page 6 of 6",
         "Reference 3.09"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "500842c9b845f6327f",
@@ -18915,6 +19121,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/726a124a-459f-40f0-aa0b-ed871e99b7a0",
       "movement_type": "new_hire",
       "line_count": 39,
+      "content_signature": "b6c290838ba8cf260a366926845a4f19adcfcd57",
       "lines": [
         "--- page 1 ---",
         "UNIFIED PERSONNEL EMPLOYMENT",
@@ -18955,7 +19162,8 @@
         "New York, NY (2014-2015)",
         "Revised Reference 3.09",
         "Page 2 of 2"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "5be31038af3f4573c4",
@@ -18972,6 +19180,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/1bde521b-7117-4c54-b06c-1d0d8e94c88b",
       "movement_type": "separation",
       "line_count": 36,
+      "content_signature": "b40a0cbdc4257c269a9865a69ac8f1803a7112dd",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON LICENSED PERSONNEL SEPARATIONS",
@@ -19009,7 +19218,8 @@
         "September 25, 2025",
         "Page 1 of 1",
         "Information 8.01"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "67af4ecb598d21160b",
@@ -19026,6 +19236,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/93928aad-64a0-4835-91ed-eada1fe3277b",
       "movement_type": "separation",
       "line_count": 15,
+      "content_signature": "0051595665ac51482d017185ec79fdadc79ae754",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL SEPARATIONS",
@@ -19042,7 +19253,8 @@
         "September 25, 2025",
         "Page 1 of 1",
         "Information 8.02"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "eac3d9b304828dbc82",
@@ -19059,6 +19271,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/f6e74f09-bd58-41d4-8bec-006f69c5ad0f",
       "movement_type": "promotion_transfer",
       "line_count": 28,
+      "content_signature": "f69ccd19a76faa5631ea8c3397fa82e847d3b42a",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL PROMOTIONS AND TRANSFERS/REASSIGNMENTS",
@@ -19088,7 +19301,8 @@
         "September 25, 2025",
         "Page 1 of 1",
         "Information 8.03"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "e908a776ab8bca6405",
@@ -19105,6 +19319,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/e85937a3-f2e7-407b-b6f2-1e1b118a1f0b",
       "movement_type": "staffing_report",
       "line_count": 58,
+      "content_signature": "4ea8739cc8db060739e36a708ea6ffee9c72181b",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -19164,7 +19379,8 @@
         "September 25, 2025",
         "Page 1 of 1",
         "Information 8.04"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "cef27ad28a305f4a8b",
@@ -19181,6 +19397,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/8ba40b61-234b-4ff3-ae0c-f5e294c000da",
       "movement_type": "new_hire",
       "line_count": 59,
+      "content_signature": "4cd12288d70616830bb8914b091e7090e2702b90",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -19241,7 +19458,8 @@
         "October 9, 2025",
         "Page 1 of 1",
         "Reference 3.03"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "e634e4dc38ce37c5fa",
@@ -19258,6 +19476,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/bf6263b5-1f28-469a-bc2d-a96eb59d8f5f",
       "movement_type": "separation",
       "line_count": 89,
+      "content_signature": "27a38ab558b71a2a3762936f068830c6f2283596",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON LICENSED PERSONNEL SEPARATIONS",
@@ -19348,7 +19567,8 @@
         "Special Education",
         "Page 3 of 3",
         "Information 8.02"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "89527e8c776a31ce00",
@@ -19365,6 +19585,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/0c948da5-2602-4147-ac99-2685230f5428",
       "movement_type": "separation",
       "line_count": 42,
+      "content_signature": "cf8ec53b1a45c6143108969a4a54397b3328dc68",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL SEPARATIONS",
@@ -19408,7 +19629,8 @@
         "October 9, 2025",
         "Page 1 of 1",
         "Information 8.03"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "f1a17a2c0449472276",
@@ -19425,6 +19647,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/f7aafb2b-7322-4e2e-95a4-c4129161593a",
       "movement_type": "promotion_transfer",
       "line_count": 19,
+      "content_signature": "1c13500c200946226df9973c3a77ec83fb126627",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL PROMOTIONS AND TRANSFERS/REASSIGNMENTS",
@@ -19445,7 +19668,8 @@
         "October 9, 2025",
         "Page 1 of 1",
         "Information 8.04"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "da8dbf3a64640b8796",
@@ -19462,6 +19686,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/61a2053a-b5da-4042-b0e6-be20f9250406",
       "movement_type": "staffing_report",
       "line_count": 53,
+      "content_signature": "28615c8b9b0c09d0289be6efb63eb4cc45242193",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -19516,7 +19741,8 @@
         "October 9, 2025",
         "Page 1 of 1",
         "Information 8.05"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "f31e185828a0fa2789",
@@ -19533,6 +19759,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/bd29c70b-2b01-4cb6-baac-85387fba6384",
       "movement_type": "new_hire",
       "line_count": 56,
+      "content_signature": "6b89e9fc7fa78823e598bf743a5e9e55a9e00cea",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -19590,7 +19817,8 @@
         "October 30, 2025",
         "Page 1 of 1",
         "Reference 3.07"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "e2f32633e94a4aac0f",
@@ -19607,6 +19835,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/1cf63bdb-cdbb-48a3-ac1a-14fd975bcf08",
       "movement_type": "separation",
       "line_count": 30,
+      "content_signature": "d4de2a47eee58f742d2efb73479d79afe2789582",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL SEPARATIONS",
@@ -19638,7 +19867,8 @@
         "October 30, 2025",
         "Page 1 of 1",
         "Information 9.02"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "a79bed0ccea2760f1a",
@@ -19655,6 +19885,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/f5f3cafb-29d7-4037-97b2-48e96d21a65b",
       "movement_type": "promotion_transfer",
       "line_count": 36,
+      "content_signature": "6868627e2f5e7ac45a6a85fb3ab406056cddb795",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL PROMOTIONS AND TRANSFERS/REASSIGNMENTS",
@@ -19692,7 +19923,8 @@
         "October 30, 2025",
         "Page 1 of 1",
         "Information 9.03"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "dce11e422904d1b887",
@@ -19709,6 +19941,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/f3bca959-3300-40cf-9f7e-f961565964a9",
       "movement_type": "separation",
       "line_count": 115,
+      "content_signature": "887c6fdfcd4e233104cba203ac55ca4a072d9843",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON LICENSED PERSONNEL SEPARATIONS",
@@ -19825,7 +20058,8 @@
         "English",
         "Page 3 of 3",
         "Information 9.04"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "128f7cf7aba5a21ff1",
@@ -19842,6 +20076,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/b5c0fb48-3925-439d-9b00-e90a9858da2f",
       "movement_type": "staffing_report",
       "line_count": 52,
+      "content_signature": "a43e9b03a4e7d7ef21c4c3083bb0a7c417b7776d",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -19895,7 +20130,8 @@
         "October 30, 2025",
         "Page 1 of 1",
         "Information 9.05"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "2d09acc7dcbe750f29",
@@ -19912,6 +20148,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/cfad917a-608d-41bb-965b-f2ef5c847f25",
       "movement_type": "new_hire",
       "line_count": 35,
+      "content_signature": "e9cfcb776eaa33e6c74c0400b34dc4afb5d49725",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -19948,7 +20185,8 @@
         "November 13, 2025",
         "Page 1 of 1",
         "Reference 3.05"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "07212e5366171be5ae",
@@ -19965,6 +20203,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/e702d8bb-b5fa-4ec5-8336-4aa79484297b",
       "movement_type": "new_hire",
       "line_count": 38,
+      "content_signature": "e3b380732283eb305f3a8944f6e32049447c2da5",
       "lines": [
         "--- page 1 ---",
         "UNIFIED PERSONNEL EMPLOYMENT",
@@ -20004,7 +20243,8 @@
         "Los Angeles, CA (2009-2015)",
         "Page 2 of 2",
         "Reference 3.06"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "a3e126f86f53d4b91b",
@@ -20021,6 +20261,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/37a4005b-8188-4ea1-8675-776a06246189",
       "movement_type": "promotion_transfer",
       "line_count": 43,
+      "content_signature": "eb8319ff2bf487472991d05969cff0d0a5de680e",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL PROMOTIONS AND TRANSFERS/REASSIGNMENTS",
@@ -20065,7 +20306,8 @@
         "Human Resources Unit Bennett ES",
         "Page 2 of 2",
         "Reference 9.02"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "bb306bd077cb011231",
@@ -20082,6 +20324,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/202e8a69-fdb6-4b84-95e3-1e65413f5913",
       "movement_type": "separation",
       "line_count": 65,
+      "content_signature": "be3f47fec01750178cf163fe6cd8731445f59e08",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON LICENSED PERSONNEL SEPARATIONS",
@@ -20148,7 +20391,8 @@
         "Fire Science",
         "Page 2 of 2",
         "Information 9.03"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "48cec6b7f4232eac03",
@@ -20165,6 +20409,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/4d5e9d22-ed8b-4740-8656-3772d625a222",
       "movement_type": "staffing_report",
       "line_count": 50,
+      "content_signature": "290f8d257b9bfca9d559c3dfdf0318221a72d00e",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -20216,7 +20461,8 @@
         "November 13, 2025",
         "Page 1 of 1",
         "Information 9.04"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "e80312750c3586cf34",
@@ -20233,6 +20479,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/250bda00-6f9c-4238-b06f-ed61a5c663f1",
       "movement_type": "new_hire",
       "line_count": 97,
+      "content_signature": "5a117f2f4a9ff376b4c9052e884d8e7025de6a95",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -20331,7 +20578,8 @@
         "Discussion and possible action on approval to employ licensed personnel, as listed, is recommended.",
         "Page 2 of 2",
         "Reference 3.07"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "be0f0076134de15792",
@@ -20348,6 +20596,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/b2978513-9bcb-4d0b-bddd-be8e8c8d7112",
       "movement_type": "promotion_transfer",
       "line_count": 36,
+      "content_signature": "4c64ab5041fa2acc727351f5ff6840dbe4c87bbf",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL PROMOTIONS AND TRANSFERS/REASSIGNMENTS",
@@ -20385,7 +20634,8 @@
         "December 11, 2025",
         "Page 1 of 1",
         "Information 8.02"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "b04e5295595a9d9e56",
@@ -20402,6 +20652,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/6789f6fe-4d57-46b5-bc83-c203c8e62081",
       "movement_type": "separation",
       "line_count": 48,
+      "content_signature": "b093fa99c868164b3e98fc9bb39e73743b51d34d",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL SEPARATIONS",
@@ -20451,7 +20702,8 @@
         "December 11, 2025",
         "Page 1 of 1",
         "Information 8.03"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "e54a978f7d91136e0a",
@@ -20468,6 +20720,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/b0580780-5e80-4d65-b28f-18a80c8409cd",
       "movement_type": "separation",
       "line_count": 198,
+      "content_signature": "a300965bba01f50a974af35c3fbbacaac8b1cdcf",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON LICENSED PERSONNEL SEPARATIONS",
@@ -20667,7 +20920,8 @@
         "Fifth Grade",
         "Page 6 of 6",
         "Information 8.04"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "dbd7dd7c3a59fa7546",
@@ -20684,6 +20938,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/237279c7-00c8-4d69-be2b-dddf9ceee0cb",
       "movement_type": "staffing_report",
       "line_count": 54,
+      "content_signature": "5fb8f5bc68cacef791e81aaa33f701956ac4686f",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -20739,7 +20994,8 @@
         "December 11, 2025",
         "Page 1 of 1",
         "Information 8.05"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "10993e9967c7104a9e",
@@ -20756,6 +21012,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/50eb2d29-f9e9-46d7-b300-f118bacbc0a1",
       "movement_type": "new_hire",
       "line_count": 94,
+      "content_signature": "47bd9012b774737bf445c24792f2e677db180fbc",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -20851,7 +21108,8 @@
         "Discussion and possible action on approval to employ licensed personnel, as listed, is recommended.",
         "Page 2 of 2",
         "Reference 3.03"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "72642d9a6ce7d1721f",
@@ -20868,6 +21126,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/b94dcb7a-2490-48bd-8cd4-e7ae55c3926f",
       "movement_type": "promotion_transfer",
       "line_count": 53,
+      "content_signature": "f5213a5295dcac9a71b1bc458252d245f63f58dd",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL PROMOTIONS AND TRANSFERS/REASSIGNMENTS",
@@ -20922,7 +21181,8 @@
         "Wengert ES",
         "Page 2 of 2",
         "Information 8.02"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "9ea9eb2459783beba7",
@@ -20939,6 +21199,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/418639e7-eacd-41ee-87f8-15c276bd4d28",
       "movement_type": "separation",
       "line_count": 76,
+      "content_signature": "061c7feaf8f8b3fa3f37e5445d2b06a4905b32d1",
       "lines": [
         "--- page 1 ---",
         "Name Location and",
@@ -21016,7 +21277,8 @@
         "INFORMATION ON UNIFIED PERSONNEL SEPARATIONS",
         "Page 2 of 2",
         "Information 8.03"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "6e6115f381b9886569",
@@ -21033,6 +21295,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/7c3639a2-b6f4-4d2d-8c50-49a2330fe1b5",
       "movement_type": "separation",
       "line_count": 130,
+      "content_signature": "9c3932e6303ae1b1281ca69cef895f03f55a995c",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON LICENSED PERSONNEL SEPARATIONS",
@@ -21164,7 +21427,8 @@
         "Fourth Grade",
         "Page 4 of 4",
         "Information 8.04"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "0cfd43fe3cc7f9c9ed",
@@ -21181,6 +21445,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/52d5b76e-22f9-4a75-b147-ebc615b3be43",
       "movement_type": "staffing_report",
       "line_count": 55,
+      "content_signature": "0e80e2a9b08dc1232897ca4bd7c25eb5bb3f3d73",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -21237,7 +21502,8 @@
         "January 8, 2026",
         "Page 1 of 1",
         "Information 8.05"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "417171b98975ea02c0",
@@ -21254,6 +21520,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/ff86a68d-0062-49f7-b779-12a0cc5c7abf",
       "movement_type": "new_hire",
       "line_count": 36,
+      "content_signature": "415b0e2ba9f1181e425a60ab3f00d757623bf04e",
       "lines": [
         "--- page 1 ---",
         "UNIFIED PERSONNEL EMPLOYMENT",
@@ -21291,7 +21558,8 @@
         "Las Vegas, NV (2009-2022)",
         "Page 2 of 2",
         "Reference 3.06"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "68d5ee49f18b2035e0",
@@ -21308,6 +21576,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/710558e3-c89f-4968-b6a6-289d0d2c69b9",
       "movement_type": "new_hire",
       "line_count": 55,
+      "content_signature": "2c19c120a126c73c7067ae22c523ce2c8be41a3b",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -21364,7 +21633,8 @@
         "January 22, 2026",
         "Page 1 of 1",
         "Reference 3.07"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "4aad1ec06e787c9bc9",
@@ -21381,6 +21651,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/367a151f-e086-4de5-8b22-6be4bcd4a0d3",
       "movement_type": "promotion_transfer",
       "line_count": 47,
+      "content_signature": "0329088c9577870715f8ca7c5f9e9de6d743fee7",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL PROMOTIONS AND TRANSFERS/REASSIGNMENTS",
@@ -21429,7 +21700,8 @@
         "Student Services Division Student Services Division",
         "Page 2 of 2",
         "Information 9.02"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "89a7d3164851a16da5",
@@ -21446,6 +21718,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/e2c63d40-1163-413b-9cc3-ed082ce83390",
       "movement_type": "separation",
       "line_count": 42,
+      "content_signature": "73650bd8db6afc025face3001355c72986ea7592",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL SEPARATIONS",
@@ -21489,7 +21762,8 @@
         "January 22, 2026",
         "Page 1 of 1",
         "Information 9.03"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "2e9c8719c8e5bc3d42",
@@ -21506,6 +21780,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/f6290528-8041-4330-b3f4-ca8d2afa7b46",
       "movement_type": "separation",
       "line_count": 47,
+      "content_signature": "14fae1e1bf0843ece900cacb6f82ad33d3a24e14",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON LICENSED PERSONNEL SEPARATIONS",
@@ -21554,7 +21829,8 @@
         "Biology",
         "Page 2 of 2",
         "Information 9.04"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "4ace0ea83e972e8705",
@@ -21571,6 +21847,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/7ae28bce-2f20-47e1-b16a-40b29216e28f",
       "movement_type": "staffing_report",
       "line_count": 46,
+      "content_signature": "89f072e5eb098c6c5c990ab03da8cf9213253876",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -21618,7 +21895,8 @@
         "January 22, 2026",
         "Page 1 of 1",
         "Information 9.05"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "a91570cd8d152da7e9",
@@ -21635,6 +21913,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/4e269bbd-8fd5-4080-91e6-4d1fc3a2e6b9",
       "movement_type": "new_hire",
       "line_count": 45,
+      "content_signature": "dc762f6e6a3f2ff7ec879e52176b26cd8dab5a85",
       "lines": [
         "--- page 1 ---",
         "UNIFIED PERSONNEL EMPLOYMENT",
@@ -21681,7 +21960,8 @@
         "San Francisco, CA (2019-2019)",
         "Page 2 of 2",
         "Reference 3.06"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "6c3095b668fc591fc0",
@@ -21698,6 +21978,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/2d29b4c9-670e-468e-bc8c-a0a803421722",
       "movement_type": "new_hire",
       "line_count": 60,
+      "content_signature": "a5f24ec2937c3407235b5bf03023ade0679db2bf",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -21759,7 +22040,8 @@
         "February 12, 2026",
         "Page 1 of 1",
         "Reference 3.07"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "992de9147f76bdb3b9",
@@ -21776,6 +22058,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/dcec7a94-7643-4def-9061-866b8a1b1897",
       "movement_type": "promotion_transfer",
       "line_count": 40,
+      "content_signature": "e014ee639734968ea70f4f29a3ac46e42268d69f",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL PROMOTIONS AND TRANSFERS/REASSIGNMENTS",
@@ -21817,7 +22100,8 @@
         "Vegas Verdes ES Ira Earl ES",
         "Page 2 of 2",
         "Information 8.02"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "10a6449fa255fea15a",
@@ -21834,6 +22118,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/90463c91-5e45-4010-adf3-21c2f821c0a3",
       "movement_type": "separation",
       "line_count": 45,
+      "content_signature": "3fa99941e65a55c9fdf2c43e266a4a139c9f2a20",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL SEPARATIONS",
@@ -21880,7 +22165,8 @@
         "February 12, 2026",
         "Page 1 of 1",
         "Information 8.03"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "f597753a3ba987187f",
@@ -21897,6 +22183,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/44b31787-0aa9-46a1-9787-c9ecc21ea1bf",
       "movement_type": "separation",
       "line_count": 401,
+      "content_signature": "f6231b8550417fda8f9a17878072a9cb3f6e6ee1",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON LICENSED PERSONNEL SEPARATIONS",
@@ -22299,7 +22586,8 @@
         "First Grade",
         "Page 11 of 11",
         "Information 8.04"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "7af5ed47417f4c55cc",
@@ -22316,6 +22604,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/605ffa28-7c55-4f69-b1e3-b83acb2cae7b",
       "movement_type": "staffing_report",
       "line_count": 50,
+      "content_signature": "daa68507013898fdb1561dbf8debdea7b17e492a",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -22367,7 +22656,8 @@
         "February 12, 2026",
         "Page 1 of 1",
         "Information 8.05"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "208ad7ce78812f22f7",
@@ -22384,6 +22674,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/2b55ab3a-93bd-4e68-8ed9-6e524a7eb4ed",
       "movement_type": "new_hire",
       "line_count": 66,
+      "content_signature": "1038e29265d913827e9ed3d00688180b2e90f46d",
       "lines": [
         "--- page 1 ---",
         "UNIFIED PERSONNEL EMPLOYMENT",
@@ -22451,7 +22742,8 @@
         "Las Vegas, NV (2013-2014)",
         "Page 3 of 3",
         "Reference 3.08"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "61b56ecbcb3ebf29b9",
@@ -22468,6 +22760,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/9cba51b3-7c9e-4fb7-9cc5-744c23971eae",
       "movement_type": "new_hire",
       "line_count": 30,
+      "content_signature": "40f4aed8e676297d0be57d0a0557bb49c249f851",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -22499,7 +22792,8 @@
         "February 26, 2026",
         "Page 1 of 1",
         "Reference 3.09"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "e977652e4d1ad36be7",
@@ -22516,6 +22810,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/59c50567-7aa6-4028-9592-23d0fe688fff",
       "movement_type": "promotion_transfer",
       "line_count": 36,
+      "content_signature": "4b1e062e429a7fca0238a519a17e95664bbf6959",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL PROMOTIONS AND TRANSFERS/REASSIGNMENTS",
@@ -22553,7 +22848,8 @@
         "February 26, 2026",
         "Page 1 of 1",
         "Information 8.02"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "5f5b5124d28e9fc464",
@@ -22570,6 +22866,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/f6d2f581-387f-44e3-97e3-1c48c1a3160a",
       "movement_type": "separation",
       "line_count": 34,
+      "content_signature": "1a5e98362dbe09f2c425393bf86bc3315bb23503",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL SEPARATIONS",
@@ -22605,7 +22902,8 @@
         "February 26, 2026",
         "Page 1 of 1",
         "Information 8.03"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "ecf9b2c43b9c4fa973",
@@ -22622,6 +22920,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/d72b0a77-7e32-4520-929d-6a475894217c",
       "movement_type": "separation",
       "line_count": 480,
+      "content_signature": "ae574f6a4de6ef0c774d8c826910276668d2aeb3",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON LICENSED PERSONNEL SEPARATIONS",
@@ -23103,7 +23402,8 @@
         "Math",
         "Page 13 of 13",
         "Information 8.04"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "aa9de00097315ed008",
@@ -23120,6 +23420,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/e0e2d449-b74c-44d9-b640-3af6a2bbd403",
       "movement_type": "staffing_report",
       "line_count": 48,
+      "content_signature": "29dec48ebffe1a9c1d2f3eff0124b231319cbc41",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -23169,7 +23470,8 @@
         "February 26, 2026",
         "Page 1 of 1",
         "Information 8.05"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "85738f271da9ba3264",
@@ -23186,6 +23488,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/05624c02-e213-4a0b-935f-f84d920075e8",
       "movement_type": "new_hire",
       "line_count": 36,
+      "content_signature": "3b15b0081c787d840b251a2ffab5ae5f63d50690",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -23223,7 +23526,8 @@
         "March 12, 2026",
         "Page 1 of 1",
         "Reference 4.04"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "3147861671243a9476",
@@ -23240,6 +23544,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/cca84426-dc6d-4a16-a8ff-61bfccc9bcad",
       "movement_type": "new_hire",
       "line_count": 37,
+      "content_signature": "149c3f047faf78c0f987f46eb89ed614c7d9efad",
       "lines": [
         "--- page 1 ---",
         "UNIFIED PERSONNEL EMPLOYMENT",
@@ -23278,7 +23583,8 @@
         "Reno, NV (2021-2021)",
         "Page 2 of 2",
         "Reference 4.05"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "29004c019210334d9a",
@@ -23295,6 +23601,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/0747ac05-735e-4fd6-8c79-422f838ac70a",
       "movement_type": "separation",
       "line_count": 465,
+      "content_signature": "af981934f5de098246cdcaa23d1239e2ce9281fc",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON LICENSED PERSONNEL SEPARATIONS",
@@ -23761,7 +24068,8 @@
         "Counselor",
         "Page 13 of 13",
         "Information 10.02"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "c4b514daa3469986dc",
@@ -23778,6 +24086,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/fe0af448-d42e-4b0a-994a-abe79f911191",
       "movement_type": "promotion_transfer",
       "line_count": 21,
+      "content_signature": "10ad384a9fa3f68fb173941f9875df35962a556d",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL PROMOTIONS AND TRANSFERS/REASSIGNMENTS",
@@ -23800,7 +24109,8 @@
         "March 12, 2026",
         "Page 1 of 1",
         "Information 10.03"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "f28f1b9da7c6c0a2cb",
@@ -23817,6 +24127,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/f8e9c5c2-2e76-4ee3-9341-25d060a8eb2f",
       "movement_type": "separation",
       "line_count": 62,
+      "content_signature": "1fde58d0be7c1c4c485670743f038c1fa9c9dfcd",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL SEPARATIONS",
@@ -23880,7 +24191,8 @@
         "March 12, 2026",
         "Page 1 of 1",
         "Information 10.04"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "d613fb4fded5642c3b",
@@ -23897,6 +24209,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/47878457-296e-4ab9-a381-b51e04de1a7b",
       "movement_type": "staffing_report",
       "line_count": 57,
+      "content_signature": "d09db20dab766beb7b8ba7711bbba6ffd2bdaa73",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -23955,7 +24268,8 @@
         "March 12, 2026",
         "Page 1 of 1",
         "Information 10.05"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "c781d97ad5856b530f",
@@ -23972,6 +24286,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/ffaebfb0-5564-4f0e-b76e-368b37a86e22",
       "movement_type": "new_hire",
       "line_count": 28,
+      "content_signature": "fed87e1651b63787e5e700baefc364b96d5c22e9",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -24001,7 +24316,8 @@
         "March 26, 2026",
         "Page 1 of 1",
         "Reference 3.06"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "53e012ebdb713e187c",
@@ -24018,6 +24334,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/2a615df4-eb73-4c87-9329-d91f0029c9ce",
       "movement_type": "new_hire",
       "line_count": 40,
+      "content_signature": "032ffa6bdded2f00f24da4806e0e0c7cec60ec36",
       "lines": [
         "--- page 1 ---",
         "UNIFIED PERSONNEL EMPLOYMENT",
@@ -24059,7 +24376,8 @@
         "Chicago, IL (2015-2017)",
         "Page 2 of 2",
         "Reference 3.07"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "0167e77cfbe7b48909",
@@ -24076,6 +24394,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/1123c2b0-fd4f-4cce-be48-a4576faf4829",
       "movement_type": "separation",
       "line_count": 204,
+      "content_signature": "82679fa83601c68ba52f0d9e9ea36609b59c6466",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON LICENSED PERSONNEL SEPARATIONS",
@@ -24281,7 +24600,8 @@
         "School Psychologist",
         "Page 6 of 6",
         "Information 8.02"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "ee23457df1c305a024",
@@ -24298,6 +24618,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/756bc25b-0546-4324-a70f-0662a032e5d8",
       "movement_type": "separation",
       "line_count": 19,
+      "content_signature": "589140a4e893a15563b12b416f7fa841c7e485d7",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL SEPARATIONS",
@@ -24318,7 +24639,8 @@
         "March 26, 2026",
         "Page 1 of 1",
         "Information 8.03"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "b407d1035492b7f9ba",
@@ -24335,6 +24657,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/e29fada2-062a-4255-af0e-1ffc8b2249c9",
       "movement_type": "promotion_transfer",
       "line_count": 31,
+      "content_signature": "86d9f82ab258e8a7c7434a927e07493d390eddc1",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL PROMOTIONS AND TRANSFERS/REASSIGNMENTS",
@@ -24367,7 +24690,8 @@
         "March 26, 2026",
         "Page 1 of 1",
         "Information 8.04"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "3d27c7ce0433d0c4bc",
@@ -24384,6 +24708,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/c562871c-2441-445b-9117-3b9777b7d94e",
       "movement_type": "staffing_report",
       "line_count": 46,
+      "content_signature": "c1bfd0b72de1376444181cac30a0421c611f18d7",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -24431,7 +24756,8 @@
         "March 26, 2026",
         "Page 1 of 1",
         "Information 8.05"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "e740288ead668b1ac4",
@@ -24448,6 +24774,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/806bb045-c9ea-4c9d-8b83-8593058a7ab2",
       "movement_type": "new_hire",
       "line_count": 27,
+      "content_signature": "d19a31ccb8d02b719ca4fa80ff61272a8b83cb99",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -24476,7 +24803,8 @@
         "April 9, 2026",
         "Page 1 of 1",
         "Reference 3.05"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "49fa1929ffc019e202",
@@ -24493,6 +24821,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/b945f308-d2af-465b-a180-592b59c00a04",
       "movement_type": "separation",
       "line_count": 98,
+      "content_signature": "6897e97234ad7035f2d0754df42619e3b36e4f38",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON LICENSED PERSONNEL SEPARATIONS",
@@ -24592,7 +24921,8 @@
         "GATE",
         "Page 3 of 3",
         "Information 8.02"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "a9611fcb16b3b67ce6",
@@ -24609,6 +24939,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/9521047c-e883-42b6-872d-531ff03bdaf8",
       "movement_type": "promotion_transfer",
       "line_count": 29,
+      "content_signature": "36f339bbfe376455aa7fe47176789fae765d2a2a",
       "lines": [
         "--- page 1 ---",
         "The Superintendent of Schools approved the following promotions and transfers/reassignments:",
@@ -24639,7 +24970,8 @@
         "April 9, 2026",
         "Page 1 of 1",
         "Information 8.03"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "ac434c67d7ec1b9a77",
@@ -24656,6 +24988,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/6d06d604-be0b-4df9-b5ba-a808fafd2382",
       "movement_type": "separation",
       "line_count": 40,
+      "content_signature": "381e74fc9617aba840fc8f8b2c06586f2a680a07",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL SEPARATIONS",
@@ -24697,7 +25030,8 @@
         "April 9, 2026",
         "Page 1 of 1",
         "Information 8.04"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "53f06282cdd4fe941d",
@@ -24714,6 +25048,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/3b25cb66-4845-4416-a2fe-c919572226ab",
       "movement_type": "staffing_report",
       "line_count": 50,
+      "content_signature": "4e4a5fa0ac3e45620a332bc3f13487c952e17d7f",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -24765,7 +25100,8 @@
         "April 9, 2026",
         "Page 1 of 1",
         "Information 8.05"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "64528a69603cc078c3",
@@ -24782,6 +25118,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/8505e727-5a49-4710-b5fa-db9acdf74923",
       "movement_type": "new_hire",
       "line_count": 37,
+      "content_signature": "902e45559ce28e521c6efb5c8811190804f9f887",
       "lines": [
         "--- page 1 ---",
         "UNIFIED PERSONNEL EMPLOYMENT",
@@ -24820,7 +25157,8 @@
         "Las Vegas, NV (2016-2018)",
         "Page 2 of 2",
         "Addendum Item 1.01"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "e3e5c28799c5a16b6b",
@@ -24837,6 +25175,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/bd00893d-2fbf-49dd-8703-9ac6769ee95b",
       "movement_type": "new_hire",
       "line_count": 22,
+      "content_signature": "e2d29f04d03da56b12eaf8e04c3c640b67824e92",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -24860,7 +25199,8 @@
         "April 23, 2026",
         "Page 1 of 1",
         "Reference 3.07"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "51d5647db735c92aa5",
@@ -24877,6 +25217,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/cc9be02b-7b3c-4ae6-a688-62dd9048336e",
       "movement_type": "separation",
       "line_count": 46,
+      "content_signature": "4fd775de468a5ca58e44285503cb5ba104918304",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL SEPARATIONS",
@@ -24924,7 +25265,8 @@
         "RoAnn Triana",
         "April 23, 2026",
         "Page 1 of 1"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "301e0a7a05df54a5dd",
@@ -24941,6 +25283,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/8cdaacb7-919a-4210-94dc-be82b2952da6",
       "movement_type": "staffing_report",
       "line_count": 42,
+      "content_signature": "dec728f3bc9a029cb1f7074ad7e4949b21111173",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -24984,7 +25327,8 @@
         "RoAnn Triana",
         "April 23, 2026",
         "Page 1 of 1"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "d8b923ac43c808c7ae",
@@ -25001,6 +25345,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/25d45e5a-7e9a-47bc-aa02-8a28bdf55e01",
       "movement_type": "separation",
       "line_count": 216,
+      "content_signature": "2ca9754cfa462dd0153e2d806108b1442188a8a5",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON LICENSED PERSONNEL SEPARATIONS",
@@ -25218,7 +25563,8 @@
         "Kurtis Williams Cimarron Memorial HS 09/01/06 05/27/26 Retirement",
         "Special Education",
         "Page 6 of 6"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "c754ba696430b445d3",
@@ -25235,6 +25581,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/421f7ecd-7a84-4c9b-8e3c-cebf734a19c4",
       "movement_type": "promotion_transfer",
       "line_count": 21,
+      "content_signature": "e99f88d602b0ed4a6993653d60250c2200a4d918",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL PROMOTIONS AND TRANSFERS/REASSIGNMENTS",
@@ -25257,7 +25604,8 @@
         "RoAnn Triana",
         "April 23, 2026",
         "Page 1 of 1"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "cd10bb07b50b1f53b9",
@@ -25274,6 +25622,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/1be68c4a-21b1-4a4b-a6e7-679e0bf2a80e",
       "movement_type": "new_hire",
       "line_count": 20,
+      "content_signature": "225aa195b86c86c279fed31e88272f576fefd516",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -25295,7 +25644,8 @@
         "May 7, 2026",
         "Page 1 of 1",
         "Reference 4.05"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "7adebc6699ce42e67e",
@@ -25312,6 +25662,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/0a26b476-953e-4f88-b270-0146a71be087",
       "movement_type": "separation",
       "line_count": 52,
+      "content_signature": "28716ac77b9daa13902d16a76fda1aa901053000",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL SEPARATIONS",
@@ -25365,7 +25716,8 @@
         "May 7, 2026",
         "Page 1 of 1",
         "Information 9.02"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "3375e7d097b868a21e",
@@ -25382,6 +25734,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/0ca21be7-f8be-449b-91e1-20f2e2b5bcd7",
       "movement_type": "staffing_report",
       "line_count": 53,
+      "content_signature": "5545d4de2a106d7622ebc4429a59bd7836694bc9",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -25436,7 +25789,8 @@
         "May 7, 2026",
         "Page 1 of 1",
         "Information 9.03"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "d50f3c7be18a5f3750",
@@ -25453,6 +25807,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/85e26b20-0e1d-4bab-95af-d0b9b229680f",
       "movement_type": "separation",
       "line_count": 238,
+      "content_signature": "ce80cf73c09c1d0a039eec97fc7d5570285df241",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON LICENSED PERSONNEL SEPARATIONS",
@@ -25692,7 +26047,8 @@
         "Second Grade",
         "Page 7 of 7",
         "Information 9.04"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "ead27ea51a63b12631",
@@ -25709,6 +26065,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/ef689c87-bae5-49a7-a612-95ca24efe629",
       "movement_type": "promotion_transfer",
       "line_count": 17,
+      "content_signature": "9cbe99a3e2640845db100538b34376a9e077dc6a",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL PROMOTIONS AND TRANSFERS/REASSIGNMENTS",
@@ -25727,7 +26084,8 @@
         "May 7, 2026",
         "Page 1 of 1",
         "Information 9.05"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "d221f0dafefac13cdc",
@@ -25744,6 +26102,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/db87bbd0-7735-4b26-9236-00eba6f0de57",
       "movement_type": "new_hire",
       "line_count": 40,
+      "content_signature": "20b54c9c47c26e73ef206bcad0406d1a62812ebf",
       "lines": [
         "--- page 1 ---",
         "UNIFIED PERSONNEL EMPLOYMENT",
@@ -25785,7 +26144,8 @@
         "Tucson, AZ (2013-2016)",
         "Page 2 of 2",
         "Reference 3.07"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "a1eafcbdf48616c13a",
@@ -25802,6 +26162,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/bda709cc-f213-463a-ba53-c8dff191cfd7",
       "movement_type": "new_hire",
       "line_count": 19,
+      "content_signature": "cdd5f06c231d3e455e38cad718aaff7449941dda",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -25822,7 +26183,8 @@
         "May 14, 2026",
         "Page 1 of 1",
         "Reference 3.08"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "fa094a1e6c3cf4df47",
@@ -25839,6 +26201,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/d03ce302-49b9-4204-ab37-b9410ad8ef06",
       "movement_type": "promotion_transfer",
       "line_count": 24,
+      "content_signature": "b07faa97395c2067ad1ac759a7fa8762ce84b19f",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL PROMOTIONS AND TRANSFERS/REASSIGNMENTS",
@@ -25864,7 +26227,8 @@
         "May 14, 2026",
         "Page 1 of 1",
         "Information 8.02"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "1b48c640bda8560e48",
@@ -25881,6 +26245,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/bdb1dce5-e7a1-4124-bdf6-96caaa72e19a",
       "movement_type": "separation",
       "line_count": 37,
+      "content_signature": "abb0fe70c0b8d78b12a5cc245b879eb9199a5dd6",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON UNIFIED PERSONNEL SEPARATIONS",
@@ -25919,7 +26284,8 @@
         "May 14, 2026",
         "Page 1 of 1",
         "Information 8.03"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "55a578eb34eaae0cb8",
@@ -25936,6 +26302,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/870f2fda-249c-4eb9-bcc8-8da71da0ccd9",
       "movement_type": "separation",
       "line_count": 107,
+      "content_signature": "73b56577a992b21fd0e0d3864a6b62b0824c6f3e",
       "lines": [
         "--- page 1 ---",
         "INFORMATION ON LICENSED PERSONNEL SEPARATIONS",
@@ -26044,7 +26411,8 @@
         "Second Grade",
         "Page 3 of 3",
         "Information 8.04"
-      ]
+      ],
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "6c70b45b354a363579",
@@ -26061,6 +26429,7 @@
       "document_url": "https://ccsd.community.diligentoneplatform.com/document/344fd42b-bbd7-4285-980d-d61d2dde0c69",
       "movement_type": "staffing_report",
       "line_count": 57,
+      "content_signature": "7c61086ecbfeb87a6b98c5b577772cd7523a5341",
       "lines": [
         "--- page 1 ---",
         "CLARK COUNTY SCHOOL DISTRICT",
@@ -26119,7 +26488,8 @@
         "May 14, 2026",
         "Page 1 of 1",
         "Information 8.05"
-      ]
+      ],
+      "is_new_since_previous_export": false
     }
   ],
   "errors": []
