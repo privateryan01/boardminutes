@@ -65,6 +65,7 @@ section {
 }
 
 .scan-panel,
+.notice-panel,
 .filter-panel,
 .metric,
 .split > div,
@@ -79,8 +80,20 @@ section {
   border-radius: 8px;
 }
 
-.scan-panel {
+.scan-panel,
+.notice-panel {
   padding: 18px;
+}
+
+.notice-panel {
+  display: flex;
+  gap: 10px;
+  color: var(--muted);
+}
+
+.notice-panel strong {
+  color: var(--ink);
+  white-space: nowrap;
 }
 
 label {

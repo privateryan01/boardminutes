@@ -15,7 +15,7 @@ Local tool for scanning Clark County School District Diligent board meeting pers
 - Filters the dashboard by watched school cluster while keeping Trace links tied to the original source records.
 - Lets users add, edit, and delete watched clusters/schools from the browser at `/schools`.
 - Keeps hosted-user preferences private by assigning each browser a `ccsd_watch_user` cookie and storing that browser's school list and scan results in its own data folder.
-- Can run as a hosted web app with background auto-refresh, so users on locked-down work computers do not need to install anything.
+- Can run as a hosted web app with background auto-refresh, but the zero-cost GitHub Pages app is the public no-download path.
 - Writes `findings.csv`, `findings.json`, `attachments.csv`, cached PDFs, and extracted text under `data/runs/`.
 - Serves a small local dashboard for running scans and reviewing findings.
 
@@ -102,8 +102,11 @@ The repo includes `wsgi.py` and `render.yaml` for a hosted web deployment. On Re
 - `CCSD_AUTO_REFRESH=1` to refresh automatically.
 - `CCSD_REFRESH_INTERVAL_MINUTES=360` to check for newly published meetings every six hours.
 - `CCSD_REFRESH_ON_START=1` to seed or refresh the hosted app when it starts.
+- `CCSD_DISABLE_MANUAL_SCAN=1` to keep the public `/scan` route disabled on the hosted app.
 
 In hosted mode, each browser gets a private profile cookie. School edits and scan outputs are stored under `users/<profile-id>/`, so one user's watched schools do not affect another user's list. Clearing browser cookies creates a new default profile.
+
+Keep the hosted Flask app admin-only for scan execution. If you need manual hosted scans, remove `CCSD_DISABLE_MANUAL_SCAN` and set `CCSD_SCAN_ADMIN_TOKEN` to a long random value; the scan form will require that token. The GitHub Pages app remains the recommended public version because users cannot trigger server-side scan jobs.
 
 The app can also run on any internal server that supports Python:
 
@@ -113,6 +116,10 @@ CCSD_WATCH_DATA_DIR=/var/data CCSD_AUTO_REFRESH=1 gunicorn "wsgi:app" --bind 0.0
 ```
 
 Keep `--workers 1` when using the built-in background refresh so the scanner does not run in multiple web workers at once.
+
+## Privacy and source review
+
+The app uses public CCSD board materials and deterministic text matching. Browser-version school preferences stay in that person's browser `localStorage`; hosted Flask preferences stay under that browser profile's server-side folder. Review each recognized employment change against the linked official board meeting source before acting on it.
 
 ## Edit watched schools
 

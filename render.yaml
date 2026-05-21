@@ -15,6 +15,8 @@ services:
         value: "360"
       - key: CCSD_REFRESH_ON_START
         value: "1"
+      - key: CCSD_DISABLE_MANUAL_SCAN
+        value: "1"
     disk:
       name: ccsd-board-watch-data
       mountPath: /var/data

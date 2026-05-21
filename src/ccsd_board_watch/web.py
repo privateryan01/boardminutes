@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from collections import Counter, defaultdict
 from datetime import date
+import hmac
 import json
 import os
 from pathlib import Path
@@ -28,6 +29,8 @@ def create_app(
 ) -> Flask:
     app = Flask(__name__)
     data_dir = _configured_data_dir()
+    manual_scan_enabled = _manual_scan_enabled()
+    scan_admin_token = _scan_admin_token()
     per_user = school_file is None and output_dir is None
     default_school_file = data_dir / "schools.csv"
     school_file = school_file or default_school_file
@@ -77,10 +80,16 @@ def create_app(
             refresh_status=_load_refresh_status(active_output_dir),
             user_id=getattr(g, "ccsd_user_id", ""),
             per_user=per_user,
+            manual_scan_enabled=manual_scan_enabled,
+            scan_token_required=bool(scan_admin_token),
         )
 
     @app.post("/scan")
     def scan():
+        if not manual_scan_enabled:
+            abort(403, description="Manual scans are disabled on this hosted app.")
+        if scan_admin_token and not _valid_scan_admin_token(scan_admin_token):
+            abort(403, description="Manual scans require an administrator token.")
         active_school_file, active_output_dir = _active_paths(per_user, data_dir, school_file, output_dir, default_school_file)
         action = request.form.get("action") or "single"
         meeting_url = request.form.get("meeting_url") or DEFAULT_MEETING_URL
@@ -233,6 +242,19 @@ def _annotate_findings(data: dict) -> None:
 
 def _configured_data_dir() -> Path:
     return Path(os.environ.get("CCSD_WATCH_DATA_DIR", "data")).expanduser()
+
+
+def _manual_scan_enabled() -> bool:
+    return os.environ.get("CCSD_DISABLE_MANUAL_SCAN", "").lower() not in {"1", "true", "yes", "on"}
+
+
+def _scan_admin_token() -> str:
+    return os.environ.get("CCSD_SCAN_ADMIN_TOKEN", "").strip()
+
+
+def _valid_scan_admin_token(expected_token: str) -> bool:
+    provided_token = request.form.get("scan_token", "") or request.headers.get("X-CCSD-Scan-Token", "")
+    return hmac.compare_digest(provided_token, expected_token)
 
 
 def _valid_user_id(value: str) -> bool:

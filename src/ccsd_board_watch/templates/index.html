@@ -26,26 +26,34 @@
 
     <main>
       <section class="scan-panel">
-        <form method="post" action="{{ url_for('scan') }}">
-          <label for="meeting_url">Meeting URL</label>
-          <div class="scan-row">
-            <input id="meeting_url" name="meeting_url" value="{{ default_meeting_url }}">
-            <button type="submit" name="action" value="single">Run Meeting</button>
-            <button type="submit" name="action" value="previous_year">Previous + Current Year</button>
-          </div>
-          <div class="date-row">
-            <label>
-              From
-              <input name="from_date" type="date">
-            </label>
-            <label>
-              To
-              <input name="to_date" type="date">
-            </label>
-            <button type="submit" name="action" value="range">Run Range</button>
-          </div>
-          <label class="checkbox"><input type="checkbox" name="include_all"> Scan all agenda attachments</label>
-        </form>
+        {% if manual_scan_enabled %}
+          <form method="post" action="{{ url_for('scan') }}">
+            <label for="meeting_url">Meeting URL</label>
+            <div class="scan-row">
+              <input id="meeting_url" name="meeting_url" value="{{ default_meeting_url }}">
+              <button type="submit" name="action" value="single">Run Meeting</button>
+              <button type="submit" name="action" value="previous_year">Previous + Current Year</button>
+            </div>
+            <div class="date-row">
+              <label>
+                From
+                <input name="from_date" type="date">
+              </label>
+              <label>
+                To
+                <input name="to_date" type="date">
+              </label>
+              <button type="submit" name="action" value="range">Run Range</button>
+            </div>
+            {% if scan_token_required %}
+              <label for="scan_token">Scan administrator token</label>
+              <input id="scan_token" name="scan_token" type="password" autocomplete="off">
+            {% endif %}
+            <label class="checkbox"><input type="checkbox" name="include_all"> Scan all agenda attachments</label>
+          </form>
+        {% else %}
+          <p class="path">Manual scans are disabled on this hosted app. Published board data is refreshed by the scheduled updater.</p>
+        {% endif %}
         {% if run_dir %}
           <p class="path">Latest output: {{ run_dir }}</p>
         {% endif %}
@@ -55,6 +63,11 @@
         {% if per_user %}
           <p class="path">Personal browser profile: {{ user_id[:8] }}. School preferences and scan results are private to this browser profile.</p>
         {% endif %}
+      </section>
+
+      <section class="notice-panel">
+        <strong>Public source data</strong>
+        <span>Records are matched from public CCSD board materials. School preferences stay in this browser profile, and every match should be reviewed against the linked board source.</span>
       </section>
 
       {% if data %}

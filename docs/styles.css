@@ -66,6 +66,7 @@ section {
 }
 
 .status-panel,
+.notice-panel,
 .control-panel,
 .metric,
 .split > div,
@@ -80,18 +81,22 @@ section {
 }
 
 .status-panel,
+.notice-panel,
 .control-panel {
   padding: 18px;
 }
 
-.status-panel {
+.status-panel,
+.notice-panel {
   display: flex;
   gap: 10px;
   color: var(--muted);
 }
 
-.status-panel strong {
+.status-panel strong,
+.notice-panel strong {
   color: var(--ink);
+  white-space: nowrap;
 }
 
 .status-panel.is-hidden {

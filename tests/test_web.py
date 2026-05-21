@@ -95,3 +95,57 @@ class WebFilterTests(unittest.TestCase):
                 )
 
             self.assertEqual(response.status_code, 400)
+
+    def test_manual_scan_can_be_disabled_for_hosted_app(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            data_dir = Path(tmp)
+            shutil.copy2(Path("data/schools.csv"), data_dir / "schools.csv")
+            with patch.dict(os.environ, {"CCSD_DISABLE_MANUAL_SCAN": "1"}):
+                app = create_app(school_file=data_dir / "schools.csv", output_dir=data_dir / "runs")
+            app.config.update(TESTING=True)
+
+            with app.test_client() as client:
+                response = client.post(
+                    "/scan",
+                    data={"action": "single", "meeting_url": "https://ccsd.community.diligentoneplatform.com/Portal/MeetingInformation.aspx?Org=Cal&Id=1678"},
+                )
+
+            self.assertEqual(response.status_code, 403)
+
+    def test_manual_scan_requires_admin_token_when_configured(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            data_dir = Path(tmp)
+            shutil.copy2(Path("data/schools.csv"), data_dir / "schools.csv")
+            with patch.dict(os.environ, {"CCSD_SCAN_ADMIN_TOKEN": "secret-token"}):
+                app = create_app(school_file=data_dir / "schools.csv", output_dir=data_dir / "runs")
+            app.config.update(TESTING=True)
+
+            with app.test_client() as client:
+                response = client.post(
+                    "/scan",
+                    data={"action": "single", "meeting_url": "https://ccsd.community.diligentoneplatform.com/Portal/MeetingInformation.aspx?Org=Cal&Id=1678"},
+                )
+
+            self.assertEqual(response.status_code, 403)
+
+    def test_manual_scan_accepts_valid_admin_token(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            data_dir = Path(tmp)
+            shutil.copy2(Path("data/schools.csv"), data_dir / "schools.csv")
+            with patch.dict(os.environ, {"CCSD_SCAN_ADMIN_TOKEN": "secret-token"}):
+                app = create_app(school_file=data_dir / "schools.csv", output_dir=data_dir / "runs")
+            app.config.update(TESTING=True)
+
+            with patch("ccsd_board_watch.web.scan_meeting", return_value={}) as scan_meeting:
+                with app.test_client() as client:
+                    response = client.post(
+                        "/scan",
+                        data={
+                            "action": "single",
+                            "meeting_url": "https://ccsd.community.diligentoneplatform.com/Portal/MeetingInformation.aspx?Org=Cal&Id=1678",
+                            "scan_token": "secret-token",
+                        },
+                    )
+
+            self.assertEqual(response.status_code, 302)
+            scan_meeting.assert_called_once()
