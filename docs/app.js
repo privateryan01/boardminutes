@@ -1,7 +1,7 @@
 const DATA_URL = "data/board-data.json";
 const SCHOOL_STORAGE_KEY = "ccsd-board-watch-schools-v1";
 const SCHOOL_VERSION_STORAGE_KEY = "ccsd-board-watch-schools-version-v1";
-const DEFAULT_SCHOOL_SET_VERSION = "cluster-1-40-v1";
+const DEFAULT_SCHOOL_SET_VERSION = "cluster-1-40-v2";
 const FILTER_STORAGE_KEY = "ccsd-board-watch-filters-v1";
 const SNAPSHOT_STORAGE_KEY = "ccsd-board-watch-finding-snapshot-v1";
 const LEGACY_DEFAULT_SOURCE_IMAGES = new Set([
@@ -9,6 +9,12 @@ const LEGACY_DEFAULT_SOURCE_IMAGES = new Set([
   "North east vegas cluster.png",
   "southeast vegas cluster.png",
   "southwest vegas cluster.png",
+]);
+const CLUSTER_DEFAULT_SOURCE_IMAGES = new Set([
+  "clusters 1-10.png",
+  "clusters 11-20.png",
+  "clusters 21-30.png",
+  "clusters 31-40.png",
 ]);
 
 const DATE_PATTERN = /\b(?:\d{1,2}\/\d{1,2}\/\d{2,4}|(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\s+\d{1,2},\s+\d{4}|TBD)\b/ig;
@@ -168,7 +174,7 @@ function loadSavedSchools(defaultSchools) {
     if (Array.isArray(saved) && saved.length) {
       const normalized = normalizeSchools(saved);
       const savedVersion = localStorage.getItem(SCHOOL_VERSION_STORAGE_KEY) || "";
-      if (savedVersion === DEFAULT_SCHOOL_SET_VERSION || !isLegacyDefaultSchoolSet(normalized)) {
+      if (savedVersion === DEFAULT_SCHOOL_SET_VERSION || !isBundledDefaultSchoolSet(normalized)) {
         return normalized;
       }
     }
@@ -185,6 +191,12 @@ function saveSchoolsToStorage() {
 
 function isLegacyDefaultSchoolSet(schools) {
   return schools.length <= 40 && schools.every((school) => LEGACY_DEFAULT_SOURCE_IMAGES.has(school.source_image));
+}
+
+function isBundledDefaultSchoolSet(schools) {
+  return isLegacyDefaultSchoolSet(schools) || (
+    schools.length === 319 && schools.every((school) => CLUSTER_DEFAULT_SOURCE_IMAGES.has(school.source_image))
+  );
 }
 
 function normalizeSchools(schools) {

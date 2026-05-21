@@ -5,7 +5,9 @@
       "cluster": "Cluster 1",
       "display_name": "Chaparral HS",
       "aliases": [
-        "Chaparral HS"
+        "Chaparral HS",
+        "Chaparral",
+        "Chaparral High School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -14,7 +16,9 @@
       "cluster": "Cluster 1",
       "display_name": "Woodbury MS",
       "aliases": [
-        "Woodbury MS"
+        "Woodbury MS",
+        "Woodbury",
+        "Woodbury Middle School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -23,7 +27,9 @@
       "cluster": "Cluster 1",
       "display_name": "Ullom ES",
       "aliases": [
-        "Ullom ES"
+        "Ullom ES",
+        "Ullom",
+        "Ullom Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -33,7 +39,12 @@
       "display_name": "Bailey Sister Robert ES",
       "aliases": [
         "Bailey Sister Robert ES",
-        "Sister Robert Bailey ES"
+        "Sister Robert Bailey ES",
+        "Bailey, Sister Robert",
+        "Sister Robert Bailey",
+        "Sister Robert Bailey Elementary School",
+        "Bailey Sister Robert",
+        "Bailey Sister Robert Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -42,7 +53,9 @@
       "cluster": "Cluster 1",
       "display_name": "Ferron ES",
       "aliases": [
-        "Ferron ES"
+        "Ferron ES",
+        "Ferron",
+        "Ferron Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -51,7 +64,9 @@
       "cluster": "Cluster 1",
       "display_name": "Cunningham ES",
       "aliases": [
-        "Cunningham ES"
+        "Cunningham ES",
+        "Cunningham",
+        "Cunningham Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -60,7 +75,13 @@
       "cluster": "Cluster 1",
       "display_name": "Harris G ES",
       "aliases": [
-        "Harris G ES"
+        "Harris G ES",
+        "Harris, G",
+        "Harris, G.",
+        "G Harris",
+        "G. Harris",
+        "Harris G",
+        "Harris G Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -69,7 +90,9 @@
       "cluster": "Cluster 1",
       "display_name": "Beckley ES",
       "aliases": [
-        "Beckley ES"
+        "Beckley ES",
+        "Beckley",
+        "Beckley Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -78,7 +101,9 @@
       "cluster": "Cluster 2",
       "display_name": "Desert Pines HS",
       "aliases": [
-        "Desert Pines HS"
+        "Desert Pines HS",
+        "Desert Pines",
+        "Desert Pines High School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -87,7 +112,9 @@
       "cluster": "Cluster 2",
       "display_name": "Monaco MS",
       "aliases": [
-        "Monaco MS"
+        "Monaco MS",
+        "Monaco",
+        "Monaco Middle School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -96,7 +123,13 @@
       "cluster": "Cluster 2",
       "display_name": "Miller S ES",
       "aliases": [
-        "Miller S ES"
+        "Miller S ES",
+        "Miller, S",
+        "Miller, S.",
+        "S Miller",
+        "S. Miller",
+        "Miller S",
+        "Miller S Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -105,7 +138,13 @@
       "cluster": "Cluster 2",
       "display_name": "Lynch A ES",
       "aliases": [
-        "Lynch A ES"
+        "Lynch A ES",
+        "Lynch, A",
+        "Lynch, A.",
+        "A Lynch",
+        "A. Lynch",
+        "Lynch A",
+        "Lynch A Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -114,7 +153,13 @@
       "cluster": "Cluster 2",
       "display_name": "Heard L ES",
       "aliases": [
-        "Heard L ES"
+        "Heard L ES",
+        "Heard, L",
+        "Heard, L.",
+        "L Heard",
+        "L. Heard",
+        "Heard L",
+        "Heard L Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -123,7 +168,13 @@
       "cluster": "Cluster 2",
       "display_name": "Diaz R ES",
       "aliases": [
-        "Diaz R ES"
+        "Diaz R ES",
+        "Diaz, R",
+        "Diaz, R.",
+        "R Diaz",
+        "R. Diaz",
+        "Diaz R",
+        "Diaz R Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -132,7 +183,9 @@
       "cluster": "Cluster 2",
       "display_name": "Cortez ES",
       "aliases": [
-        "Cortez ES"
+        "Cortez ES",
+        "Cortez",
+        "Cortez Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -141,7 +194,13 @@
       "cluster": "Cluster 2",
       "display_name": "Earl I ES",
       "aliases": [
-        "Earl I ES"
+        "Earl I ES",
+        "Earl, I",
+        "Earl, I.",
+        "I Earl",
+        "I. Earl",
+        "Earl I",
+        "Earl I Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -162,7 +221,13 @@
       "cluster": "Cluster 3",
       "display_name": "Mack J MS",
       "aliases": [
-        "Mack J MS"
+        "Mack J MS",
+        "Mack, J",
+        "Mack, J.",
+        "J Mack",
+        "J. Mack",
+        "Mack J",
+        "Mack J Middle School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -171,7 +236,9 @@
       "cluster": "Cluster 3",
       "display_name": "Jenkins ES",
       "aliases": [
-        "Jenkins ES"
+        "Jenkins ES",
+        "Jenkins",
+        "Jenkins Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -180,7 +247,12 @@
       "cluster": "Cluster 3",
       "display_name": "Smith Hal ES",
       "aliases": [
-        "Smith Hal ES"
+        "Smith Hal ES",
+        "Smith, Hal",
+        "Hal Smith",
+        "Hal Smith Elementary School",
+        "Smith Hal",
+        "Smith Hal Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -189,7 +261,13 @@
       "cluster": "Cluster 3",
       "display_name": "Dearing L ES",
       "aliases": [
-        "Dearing L ES"
+        "Dearing L ES",
+        "Dearing, L",
+        "Dearing, L.",
+        "L Dearing",
+        "L. Dearing",
+        "Dearing L",
+        "Dearing L Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -198,7 +276,9 @@
       "cluster": "Cluster 3",
       "display_name": "Long ES",
       "aliases": [
-        "Long ES"
+        "Long ES",
+        "Long",
+        "Long Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -207,7 +287,9 @@
       "cluster": "Cluster 3",
       "display_name": "Snyder ES",
       "aliases": [
-        "Snyder ES"
+        "Snyder ES",
+        "Snyder",
+        "Snyder Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -216,7 +298,9 @@
       "cluster": "Cluster 3",
       "display_name": "Goldfarb ES",
       "aliases": [
-        "Goldfarb ES"
+        "Goldfarb ES",
+        "Goldfarb",
+        "Goldfarb Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -225,7 +309,9 @@
       "cluster": "Cluster 4",
       "display_name": "Eldorado HS",
       "aliases": [
-        "Eldorado HS"
+        "Eldorado HS",
+        "Eldorado",
+        "Eldorado High School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -235,7 +321,11 @@
       "display_name": "O'Callaghan MS",
       "aliases": [
         "O'Callaghan MS",
-        "O Callaghan MS"
+        "O Callaghan MS",
+        "O'Callaghan",
+        "O Callaghan",
+        "O'Callaghan Middle School",
+        "O Callaghan Middle School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -244,7 +334,9 @@
       "cluster": "Cluster 4",
       "display_name": "Keller MS",
       "aliases": [
-        "Keller MS"
+        "Keller MS",
+        "Keller",
+        "Keller Middle School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -253,7 +345,9 @@
       "cluster": "Cluster 4",
       "display_name": "Mountain View ES",
       "aliases": [
-        "Mountain View ES"
+        "Mountain View ES",
+        "Mountain View",
+        "Mountain View Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -262,7 +356,9 @@
       "cluster": "Cluster 4",
       "display_name": "Brookman ES",
       "aliases": [
-        "Brookman ES"
+        "Brookman ES",
+        "Brookman",
+        "Brookman Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -272,7 +368,9 @@
       "display_name": "Stanford ES",
       "aliases": [
         "Stanford ES",
-        "Standford ES"
+        "Standford ES",
+        "Stanford",
+        "Stanford Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -281,7 +379,9 @@
       "cluster": "Cluster 4",
       "display_name": "Adams ES",
       "aliases": [
-        "Adams ES"
+        "Adams ES",
+        "Adams",
+        "Adams Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -290,7 +390,9 @@
       "cluster": "Cluster 4",
       "display_name": "Keller ES",
       "aliases": [
-        "Keller ES"
+        "Keller ES",
+        "Keller",
+        "Keller Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -299,7 +401,9 @@
       "cluster": "Cluster 4",
       "display_name": "Rundle ES",
       "aliases": [
-        "Rundle ES"
+        "Rundle ES",
+        "Rundle",
+        "Rundle Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -319,7 +423,9 @@
       "cluster": "Cluster 5",
       "display_name": "Martin MS",
       "aliases": [
-        "Martin MS"
+        "Martin MS",
+        "Martin",
+        "Martin Middle School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -328,7 +434,9 @@
       "cluster": "Cluster 5",
       "display_name": "Fremont MS",
       "aliases": [
-        "Fremont MS"
+        "Fremont MS",
+        "Fremont",
+        "Fremont Middle School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -337,7 +445,9 @@
       "cluster": "Cluster 5",
       "display_name": "Hollingsworth ES",
       "aliases": [
-        "Hollingsworth ES"
+        "Hollingsworth ES",
+        "Hollingsworth",
+        "Hollingsworth Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -346,7 +456,9 @@
       "cluster": "Cluster 5",
       "display_name": "Crestwood ES",
       "aliases": [
-        "Crestwood ES"
+        "Crestwood ES",
+        "Crestwood",
+        "Crestwood Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -355,7 +467,9 @@
       "cluster": "Cluster 5",
       "display_name": "Park ES",
       "aliases": [
-        "Park ES"
+        "Park ES",
+        "Park",
+        "Park Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -364,7 +478,9 @@
       "cluster": "Cluster 5",
       "display_name": "Sunrise Acres ES",
       "aliases": [
-        "Sunrise Acres ES"
+        "Sunrise Acres ES",
+        "Sunrise Acres",
+        "Sunrise Acres Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -373,7 +489,13 @@
       "cluster": "Cluster 5",
       "display_name": "Hewetson H ES",
       "aliases": [
-        "Hewetson H ES"
+        "Hewetson H ES",
+        "Hewetson, H",
+        "Hewetson, H.",
+        "H Hewetson",
+        "H. Hewetson",
+        "Hewetson H",
+        "Hewetson H Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -382,7 +504,9 @@
       "cluster": "Cluster 5",
       "display_name": "Mendoza ES",
       "aliases": [
-        "Mendoza ES"
+        "Mendoza ES",
+        "Mendoza",
+        "Mendoza Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -391,7 +515,9 @@
       "cluster": "Cluster 6",
       "display_name": "Las Vegas HS",
       "aliases": [
-        "Las Vegas HS"
+        "Las Vegas HS",
+        "Las Vegas",
+        "Las Vegas High School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -400,7 +526,9 @@
       "cluster": "Cluster 6",
       "display_name": "Harney MS",
       "aliases": [
-        "Harney MS"
+        "Harney MS",
+        "Harney",
+        "Harney Middle School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -409,7 +537,9 @@
       "cluster": "Cluster 6",
       "display_name": "Gragson ES",
       "aliases": [
-        "Gragson ES"
+        "Gragson ES",
+        "Gragson",
+        "Gragson Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -418,7 +548,9 @@
       "cluster": "Cluster 6",
       "display_name": "Moore ES",
       "aliases": [
-        "Moore ES"
+        "Moore ES",
+        "Moore",
+        "Moore Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -427,7 +559,9 @@
       "cluster": "Cluster 6",
       "display_name": "Edwards ES",
       "aliases": [
-        "Edwards ES"
+        "Edwards ES",
+        "Edwards",
+        "Edwards Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -437,7 +571,12 @@
       "display_name": "Thomas Ruby ES",
       "aliases": [
         "Thomas Ruby ES",
-        "Ruby Thomas ES"
+        "Ruby Thomas ES",
+        "Thomas, Ruby",
+        "Ruby Thomas",
+        "Ruby Thomas Elementary School",
+        "Thomas Ruby",
+        "Thomas Ruby Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -446,7 +585,9 @@
       "cluster": "Cluster 6",
       "display_name": "Iverson ES",
       "aliases": [
-        "Iverson ES"
+        "Iverson ES",
+        "Iverson",
+        "Iverson Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -455,7 +596,9 @@
       "cluster": "Cluster 6",
       "display_name": "Wengert ES",
       "aliases": [
-        "Wengert ES"
+        "Wengert ES",
+        "Wengert",
+        "Wengert Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -464,7 +607,9 @@
       "cluster": "Cluster 7",
       "display_name": "Rancho HS",
       "aliases": [
-        "Rancho HS"
+        "Rancho HS",
+        "Rancho",
+        "Rancho High School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -474,7 +619,16 @@
       "display_name": "Smith JD MS",
       "aliases": [
         "Smith JD MS",
-        "Smith J D MS"
+        "Smith J D MS",
+        "Smith, J.D.",
+        "Smith, JD",
+        "J.D. Smith",
+        "JD Smith",
+        "J D Smith",
+        "Smith JD",
+        "Smith JD Middle School",
+        "Smith, JD.",
+        "JD. Smith"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -483,7 +637,9 @@
       "cluster": "Cluster 7",
       "display_name": "Squires ES",
       "aliases": [
-        "Squires ES"
+        "Squires ES",
+        "Squires",
+        "Squires Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -492,7 +648,13 @@
       "cluster": "Cluster 7",
       "display_name": "Williams T ES",
       "aliases": [
-        "Williams T ES"
+        "Williams T ES",
+        "Williams, T",
+        "Williams, T.",
+        "T Williams",
+        "T. Williams",
+        "Williams T",
+        "Williams T Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -501,7 +663,9 @@
       "cluster": "Cluster 7",
       "display_name": "Ronnow ES",
       "aliases": [
-        "Ronnow ES"
+        "Ronnow ES",
+        "Ronnow",
+        "Ronnow Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -510,7 +674,9 @@
       "cluster": "Cluster 7",
       "display_name": "Bracken ES",
       "aliases": [
-        "Bracken ES"
+        "Bracken ES",
+        "Bracken",
+        "Bracken Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -519,7 +685,9 @@
       "cluster": "Cluster 7",
       "display_name": "Cambeiro ES",
       "aliases": [
-        "Cambeiro ES"
+        "Cambeiro ES",
+        "Cambeiro",
+        "Cambeiro Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -528,7 +696,9 @@
       "cluster": "Cluster 7",
       "display_name": "Lunt ES",
       "aliases": [
-        "Lunt ES"
+        "Lunt ES",
+        "Lunt",
+        "Lunt Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -537,7 +707,9 @@
       "cluster": "Cluster 8",
       "display_name": "Valley HS",
       "aliases": [
-        "Valley HS"
+        "Valley HS",
+        "Valley",
+        "Valley High School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -546,7 +718,9 @@
       "cluster": "Cluster 8",
       "display_name": "Knudson MS",
       "aliases": [
-        "Knudson MS"
+        "Knudson MS",
+        "Knudson",
+        "Knudson Middle School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -555,7 +729,9 @@
       "cluster": "Cluster 8",
       "display_name": "Orr MS",
       "aliases": [
-        "Orr MS"
+        "Orr MS",
+        "Orr",
+        "Orr Middle School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -564,7 +740,9 @@
       "cluster": "Cluster 8",
       "display_name": "Rowe ES",
       "aliases": [
-        "Rowe ES"
+        "Rowe ES",
+        "Rowe",
+        "Rowe Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -573,7 +751,9 @@
       "cluster": "Cluster 8",
       "display_name": "Paradise ES",
       "aliases": [
-        "Paradise ES"
+        "Paradise ES",
+        "Paradise",
+        "Paradise Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -582,7 +762,13 @@
       "cluster": "Cluster 8",
       "display_name": "Peterson D ES",
       "aliases": [
-        "Peterson D ES"
+        "Peterson D ES",
+        "Peterson D",
+        "Peterson D Elementary School",
+        "Peterson, D",
+        "Peterson, D.",
+        "D Peterson",
+        "D. Peterson"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -591,7 +777,13 @@
       "cluster": "Cluster 8",
       "display_name": "Lake R ES",
       "aliases": [
-        "Lake R ES"
+        "Lake R ES",
+        "Lake R",
+        "Lake R Elementary School",
+        "Lake, R",
+        "Lake, R.",
+        "R Lake",
+        "R. Lake"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -601,7 +793,12 @@
       "display_name": "Stewart Helen ES",
       "aliases": [
         "Stewart Helen ES",
-        "Helen Stewart ES"
+        "Helen Stewart ES",
+        "Stewart, Helen",
+        "Helen Stewart",
+        "Helen Stewart Elementary School",
+        "Stewart Helen",
+        "Stewart Helen Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -610,7 +807,9 @@
       "cluster": "Cluster 9",
       "display_name": "Basic HS",
       "aliases": [
-        "Basic HS"
+        "Basic HS",
+        "Basic",
+        "Basic High School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -619,7 +818,9 @@
       "cluster": "Cluster 9",
       "display_name": "Burkholder MS",
       "aliases": [
-        "Burkholder MS"
+        "Burkholder MS",
+        "Burkholder",
+        "Burkholder Middle School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -628,7 +829,9 @@
       "cluster": "Cluster 9",
       "display_name": "Mahlon Brown MS",
       "aliases": [
-        "Mahlon Brown MS"
+        "Mahlon Brown MS",
+        "Mahlon Brown",
+        "Mahlon Brown Middle School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -637,7 +840,9 @@
       "cluster": "Cluster 9",
       "display_name": "Newton ES",
       "aliases": [
-        "Newton ES"
+        "Newton ES",
+        "Newton",
+        "Newton Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -646,7 +851,9 @@
       "cluster": "Cluster 9",
       "display_name": "McCaw ES",
       "aliases": [
-        "McCaw ES"
+        "McCaw ES",
+        "McCaw",
+        "McCaw Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -656,7 +863,11 @@
       "display_name": "Robert Taylor ES",
       "aliases": [
         "Robert Taylor ES",
-        "Taylor Robert ES"
+        "Taylor Robert ES",
+        "Robert Taylor",
+        "Taylor, Robert",
+        "Taylor Robert",
+        "Robert Taylor Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -665,7 +876,9 @@
       "cluster": "Cluster 9",
       "display_name": "Hinman ES",
       "aliases": [
-        "Hinman ES"
+        "Hinman ES",
+        "Hinman",
+        "Hinman Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -675,7 +888,11 @@
       "display_name": "Josh Stevens ES",
       "aliases": [
         "Josh Stevens ES",
-        "Stevens Josh ES"
+        "Stevens Josh ES",
+        "Josh Stevens",
+        "Stevens, Josh",
+        "Stevens Josh",
+        "Josh Stevens Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -684,7 +901,9 @@
       "cluster": "Cluster 10",
       "display_name": "Boulder City HS",
       "aliases": [
-        "Boulder City HS"
+        "Boulder City HS",
+        "Boulder City",
+        "Boulder City High School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -697,7 +916,11 @@
         "Laughlin MS",
         "Laughlin HS",
         "Laughlin Middle School",
-        "Laughlin High School"
+        "Laughlin High School",
+        "Laughlin Middle-High School",
+        "Laughlin",
+        "Laughlin MS HS",
+        "Laughlin Middle High School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -706,7 +929,9 @@
       "cluster": "Cluster 10",
       "display_name": "Garrett MS",
       "aliases": [
-        "Garrett MS"
+        "Garrett MS",
+        "Garrett",
+        "Garrett Middle School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -715,7 +940,9 @@
       "cluster": "Cluster 10",
       "display_name": "Mitchell ES",
       "aliases": [
-        "Mitchell ES"
+        "Mitchell ES",
+        "Mitchell",
+        "Mitchell Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -726,7 +953,16 @@
       "aliases": [
         "M P King ES",
         "M. P. King ES",
-        "MP King ES"
+        "MP King ES",
+        "M.P. King",
+        "M P King",
+        "MP King",
+        "King, M.P.",
+        "King M P",
+        "M P King Elementary School",
+        "M. P. King",
+        "King, M P",
+        "King, MP"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -735,7 +971,9 @@
       "cluster": "Cluster 10",
       "display_name": "Bennett ES",
       "aliases": [
-        "Bennett ES"
+        "Bennett ES",
+        "Bennett",
+        "Bennett Elementary School"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -744,7 +982,9 @@
       "cluster": "Cluster 11",
       "display_name": "Coronado HS",
       "aliases": [
-        "Coronado HS"
+        "Coronado HS",
+        "Coronado",
+        "Coronado High School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -753,7 +993,9 @@
       "cluster": "Cluster 11",
       "display_name": "Del Webb MS",
       "aliases": [
-        "Del Webb MS"
+        "Del Webb MS",
+        "Del Webb",
+        "Del Webb Middle School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -763,7 +1005,11 @@
       "display_name": "Bob Miller MS",
       "aliases": [
         "Bob Miller MS",
-        "Miller Bob MS"
+        "Miller Bob MS",
+        "Bob Miller",
+        "Miller, Bob",
+        "Miller Bob",
+        "Bob Miller Middle School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -772,7 +1018,9 @@
       "cluster": "Cluster 11",
       "display_name": "Wallin ES",
       "aliases": [
-        "Wallin ES"
+        "Wallin ES",
+        "Wallin",
+        "Wallin Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -781,7 +1029,9 @@
       "cluster": "Cluster 11",
       "display_name": "Ellis ES",
       "aliases": [
-        "Ellis ES"
+        "Ellis ES",
+        "Ellis",
+        "Ellis Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -790,7 +1040,9 @@
       "cluster": "Cluster 11",
       "display_name": "Lamping ES",
       "aliases": [
-        "Lamping ES"
+        "Lamping ES",
+        "Lamping",
+        "Lamping Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -801,7 +1053,12 @@
       "aliases": [
         "Elise Wolff ES",
         "Wolff Elise ES",
-        "Wolff ES"
+        "Wolff ES",
+        "Elise Wolff",
+        "Wolff, Elise",
+        "Wolff Elise",
+        "Wolff Elementary School",
+        "Elise Wolff Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -811,7 +1068,11 @@
       "display_name": "Glen Taylor ES",
       "aliases": [
         "Glen Taylor ES",
-        "Taylor Glen ES"
+        "Taylor Glen ES",
+        "Glen Taylor",
+        "Taylor, Glen",
+        "Taylor Glen",
+        "Glen Taylor Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -820,7 +1081,9 @@
       "cluster": "Cluster 12",
       "display_name": "Del Sol HS",
       "aliases": [
-        "Del Sol HS"
+        "Del Sol HS",
+        "Del Sol",
+        "Del Sol High School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -829,7 +1092,9 @@
       "cluster": "Cluster 12",
       "display_name": "Cannon MS",
       "aliases": [
-        "Cannon MS"
+        "Cannon MS",
+        "Cannon",
+        "Cannon Middle School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -838,7 +1103,9 @@
       "cluster": "Cluster 12",
       "display_name": "French ES",
       "aliases": [
-        "French ES"
+        "French ES",
+        "French",
+        "French Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -848,7 +1115,11 @@
       "display_name": "Gene Ward ES",
       "aliases": [
         "Gene Ward ES",
-        "Ward Gene ES"
+        "Ward Gene ES",
+        "Gene Ward",
+        "Ward, Gene",
+        "Ward Gene",
+        "Gene Ward Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -857,7 +1128,9 @@
       "cluster": "Cluster 12",
       "display_name": "Dailey ES",
       "aliases": [
-        "Dailey ES"
+        "Dailey ES",
+        "Dailey",
+        "Dailey Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -866,7 +1139,9 @@
       "cluster": "Cluster 12",
       "display_name": "Tomiyasu ES",
       "aliases": [
-        "Tomiyasu ES"
+        "Tomiyasu ES",
+        "Tomiyasu",
+        "Tomiyasu Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -876,7 +1151,11 @@
       "display_name": "Nate Mack ES",
       "aliases": [
         "Nate Mack ES",
-        "Mack Nate ES"
+        "Mack Nate ES",
+        "Nate Mack",
+        "Mack, Nate",
+        "Mack Nate",
+        "Nate Mack Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -885,7 +1164,9 @@
       "cluster": "Cluster 13",
       "display_name": "Foothill HS",
       "aliases": [
-        "Foothill HS"
+        "Foothill HS",
+        "Foothill",
+        "Foothill High School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -894,7 +1175,9 @@
       "cluster": "Cluster 13",
       "display_name": "Mannion MS",
       "aliases": [
-        "Mannion MS"
+        "Mannion MS",
+        "Mannion",
+        "Mannion Middle School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -903,7 +1186,9 @@
       "cluster": "Cluster 13",
       "display_name": "Galloway ES",
       "aliases": [
-        "Galloway ES"
+        "Galloway ES",
+        "Galloway",
+        "Galloway Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -912,7 +1197,9 @@
       "cluster": "Cluster 13",
       "display_name": "Smalley ES",
       "aliases": [
-        "Smalley ES"
+        "Smalley ES",
+        "Smalley",
+        "Smalley Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -921,7 +1208,9 @@
       "cluster": "Cluster 13",
       "display_name": "Walker ES",
       "aliases": [
-        "Walker ES"
+        "Walker ES",
+        "Walker",
+        "Walker Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -930,7 +1219,9 @@
       "cluster": "Cluster 13",
       "display_name": "Dooley ES",
       "aliases": [
-        "Dooley ES"
+        "Dooley ES",
+        "Dooley",
+        "Dooley Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -939,7 +1230,9 @@
       "cluster": "Cluster 13",
       "display_name": "Morrow ES",
       "aliases": [
-        "Morrow ES"
+        "Morrow ES",
+        "Morrow",
+        "Morrow Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -949,7 +1242,17 @@
       "display_name": "CT Sewell ES",
       "aliases": [
         "CT Sewell ES",
-        "C T Sewell ES"
+        "C T Sewell ES",
+        "C.T. Sewell",
+        "C T Sewell",
+        "CT Sewell",
+        "Sewell, C.T.",
+        "Sewell C T",
+        "CT Sewell Elementary School",
+        "CT. Sewell",
+        "Sewell, CT",
+        "Sewell, CT.",
+        "Sewell CT"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -958,7 +1261,9 @@
       "cluster": "Cluster 14",
       "display_name": "Green Valley HS",
       "aliases": [
-        "Green Valley HS"
+        "Green Valley HS",
+        "Green Valley",
+        "Green Valley High School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -967,7 +1272,9 @@
       "cluster": "Cluster 14",
       "display_name": "Greenspun MS",
       "aliases": [
-        "Greenspun MS"
+        "Greenspun MS",
+        "Greenspun",
+        "Greenspun Middle School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -976,7 +1283,9 @@
       "cluster": "Cluster 14",
       "display_name": "Twitchell ES",
       "aliases": [
-        "Twitchell ES"
+        "Twitchell ES",
+        "Twitchell",
+        "Twitchell Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -987,7 +1296,17 @@
       "aliases": [
         "H M Brown ES",
         "H.M. Brown ES",
-        "Brown H M ES"
+        "Brown H M ES",
+        "H.M. Brown",
+        "H. M. Brown",
+        "Brown, H.M.",
+        "Brown, H M",
+        "Brown H M",
+        "H M Brown",
+        "H M Brown Elementary School",
+        "HM Brown",
+        "HM Brown ES",
+        "Brown, HM"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -996,7 +1315,9 @@
       "cluster": "Cluster 14",
       "display_name": "Gibson ES",
       "aliases": [
-        "Gibson ES"
+        "Gibson ES",
+        "Gibson",
+        "Gibson Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1005,7 +1326,9 @@
       "cluster": "Cluster 14",
       "display_name": "Kesterson ES",
       "aliases": [
-        "Kesterson ES"
+        "Kesterson ES",
+        "Kesterson",
+        "Kesterson Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1014,7 +1337,9 @@
       "cluster": "Cluster 14",
       "display_name": "Bartlett ES",
       "aliases": [
-        "Bartlett ES"
+        "Bartlett ES",
+        "Bartlett",
+        "Bartlett Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1023,7 +1348,9 @@
       "cluster": "Cluster 14",
       "display_name": "Vanderburg ES",
       "aliases": [
-        "Vanderburg ES"
+        "Vanderburg ES",
+        "Vanderburg",
+        "Vanderburg Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1032,7 +1359,9 @@
       "cluster": "Cluster 15",
       "display_name": "Liberty HS",
       "aliases": [
-        "Liberty HS"
+        "Liberty HS",
+        "Liberty",
+        "Liberty High School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1041,7 +1370,9 @@
       "cluster": "Cluster 15",
       "display_name": "Silvestri MS",
       "aliases": [
-        "Silvestri MS"
+        "Silvestri MS",
+        "Silvestri",
+        "Silvestri Middle School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1050,7 +1381,9 @@
       "cluster": "Cluster 15",
       "display_name": "Schorr ES",
       "aliases": [
-        "Schorr ES"
+        "Schorr ES",
+        "Schorr",
+        "Schorr Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1059,7 +1392,9 @@
       "cluster": "Cluster 15",
       "display_name": "Bass ES",
       "aliases": [
-        "Bass ES"
+        "Bass ES",
+        "Bass",
+        "Bass Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1068,7 +1403,9 @@
       "cluster": "Cluster 15",
       "display_name": "Hummel ES",
       "aliases": [
-        "Hummel ES"
+        "Hummel ES",
+        "Hummel",
+        "Hummel Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1077,7 +1414,9 @@
       "cluster": "Cluster 15",
       "display_name": "Barber ES",
       "aliases": [
-        "Barber ES"
+        "Barber ES",
+        "Barber",
+        "Barber Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1086,7 +1425,9 @@
       "cluster": "Cluster 15",
       "display_name": "Cartwright ES",
       "aliases": [
-        "Cartwright ES"
+        "Cartwright ES",
+        "Cartwright",
+        "Cartwright Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1095,7 +1436,9 @@
       "cluster": "Cluster 15",
       "display_name": "Gehring ES",
       "aliases": [
-        "Gehring ES"
+        "Gehring ES",
+        "Gehring",
+        "Gehring Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1119,7 +1462,10 @@
         "Courtney JHS",
         "Cortney JHS",
         "Courtney MS",
-        "Cortney MS"
+        "Cortney MS",
+        "Courtney",
+        "Courtney Junior High School",
+        "Courtney Middle School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1130,7 +1476,13 @@
       "aliases": [
         "T White MS",
         "T. White MS",
-        "White T MS"
+        "White T MS",
+        "T White",
+        "T White Middle School",
+        "T. White",
+        "White, T",
+        "White, T.",
+        "White T"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1150,7 +1502,9 @@
       "cluster": "Cluster 16",
       "display_name": "Harmon ES",
       "aliases": [
-        "Harmon ES"
+        "Harmon ES",
+        "Harmon",
+        "Harmon Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1159,7 +1513,9 @@
       "cluster": "Cluster 16",
       "display_name": "Treem ES",
       "aliases": [
-        "Treem ES"
+        "Treem ES",
+        "Treem",
+        "Treem Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1168,7 +1524,9 @@
       "cluster": "Cluster 16",
       "display_name": "Thorpe ES",
       "aliases": [
-        "Thorpe ES"
+        "Thorpe ES",
+        "Thorpe",
+        "Thorpe Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1177,7 +1535,9 @@
       "cluster": "Cluster 16",
       "display_name": "Whitney ES",
       "aliases": [
-        "Whitney ES"
+        "Whitney ES",
+        "Whitney",
+        "Whitney Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1187,7 +1547,9 @@
       "display_name": "Aggie Roberts ES",
       "aliases": [
         "Aggie Roberts ES",
-        "Roberts Aggie ES"
+        "Roberts Aggie ES",
+        "Aggie Roberts",
+        "Aggie Roberts Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1196,7 +1558,9 @@
       "cluster": "Cluster 17",
       "display_name": "Silverado HS",
       "aliases": [
-        "Silverado HS"
+        "Silverado HS",
+        "Silverado",
+        "Silverado High School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1205,7 +1569,9 @@
       "cluster": "Cluster 17",
       "display_name": "Schofield MS",
       "aliases": [
-        "Schofield MS"
+        "Schofield MS",
+        "Schofield",
+        "Schofield Middle School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1214,7 +1580,9 @@
       "cluster": "Cluster 17",
       "display_name": "Beatty ES",
       "aliases": [
-        "Beatty ES"
+        "Beatty ES",
+        "Beatty",
+        "Beatty Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1223,7 +1591,9 @@
       "cluster": "Cluster 17",
       "display_name": "Weiner ES",
       "aliases": [
-        "Weiner ES"
+        "Weiner ES",
+        "Weiner",
+        "Weiner Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1232,7 +1602,9 @@
       "cluster": "Cluster 17",
       "display_name": "Hill ES",
       "aliases": [
-        "Hill ES"
+        "Hill ES",
+        "Hill",
+        "Hill Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1242,7 +1614,12 @@
       "display_name": "Cox David ES",
       "aliases": [
         "Cox David ES",
-        "David Cox ES"
+        "David Cox ES",
+        "Cox, David",
+        "David Cox",
+        "David Cox Elementary School",
+        "Cox David",
+        "Cox David Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1251,7 +1628,9 @@
       "cluster": "Cluster 17",
       "display_name": "McDoniel ES",
       "aliases": [
-        "McDoniel ES"
+        "McDoniel ES",
+        "McDoniel",
+        "McDoniel Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1263,7 +1642,8 @@
         "ATECH",
         "Advanced Technologies Academy",
         "Advanced Tech",
-        "A-TECH"
+        "A-TECH",
+        "A TECH"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1273,7 +1653,9 @@
       "display_name": "West Prep",
       "aliases": [
         "West Prep",
-        "West Prep Academy"
+        "West Prep Academy",
+        "Western Prep",
+        "Western Prep Academy"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1282,7 +1664,9 @@
       "cluster": "Cluster 18",
       "display_name": "Kelly ES",
       "aliases": [
-        "Kelly ES"
+        "Kelly ES",
+        "Kelly",
+        "Kelly Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1291,7 +1675,9 @@
       "cluster": "Cluster 18",
       "display_name": "Toland ES",
       "aliases": [
-        "Toland ES"
+        "Toland ES",
+        "Toland",
+        "Toland Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1300,7 +1686,9 @@
       "cluster": "Cluster 18",
       "display_name": "Booker ES",
       "aliases": [
-        "Booker ES"
+        "Booker ES",
+        "Booker",
+        "Booker Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1309,7 +1697,9 @@
       "cluster": "Cluster 18",
       "display_name": "Martinez ES",
       "aliases": [
-        "Martinez ES"
+        "Martinez ES",
+        "Martinez",
+        "Martinez Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1318,7 +1708,9 @@
       "cluster": "Cluster 19",
       "display_name": "Canyon Springs HS",
       "aliases": [
-        "Canyon Springs HS"
+        "Canyon Springs HS",
+        "Canyon Springs",
+        "Canyon Springs High School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1327,7 +1719,9 @@
       "cluster": "Cluster 19",
       "display_name": "Desert Rose HS",
       "aliases": [
-        "Desert Rose HS"
+        "Desert Rose HS",
+        "Desert Rose",
+        "Desert Rose High School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1336,7 +1730,8 @@
       "cluster": "Cluster 19",
       "display_name": "CSN East",
       "aliases": [
-        "CSN East"
+        "CSN East",
+        "College of Southern Nevada East"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1345,7 +1740,9 @@
       "cluster": "Cluster 19",
       "display_name": "Sedway MS",
       "aliases": [
-        "Sedway MS"
+        "Sedway MS",
+        "Sedway",
+        "Sedway Middle School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1354,7 +1751,9 @@
       "cluster": "Cluster 19",
       "display_name": "Wilhelm ES",
       "aliases": [
-        "Wilhelm ES"
+        "Wilhelm ES",
+        "Wilhelm",
+        "Wilhelm Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1365,7 +1764,13 @@
       "aliases": [
         "C Perkins ES",
         "C. Perkins ES",
-        "Perkins C ES"
+        "Perkins C ES",
+        "C. Perkins",
+        "C Perkins",
+        "Perkins, C",
+        "Perkins, C.",
+        "Perkins C",
+        "C Perkins Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1374,7 +1779,9 @@
       "cluster": "Cluster 19",
       "display_name": "Priest ES",
       "aliases": [
-        "Priest ES"
+        "Priest ES",
+        "Priest",
+        "Priest Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1383,7 +1790,9 @@
       "cluster": "Cluster 19",
       "display_name": "Craig ES",
       "aliases": [
-        "Craig ES"
+        "Craig ES",
+        "Craig",
+        "Craig Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1392,7 +1801,9 @@
       "cluster": "Cluster 19",
       "display_name": "Lincoln ES",
       "aliases": [
-        "Lincoln ES"
+        "Lincoln ES",
+        "Lincoln",
+        "Lincoln Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1401,7 +1812,9 @@
       "cluster": "Cluster 20",
       "display_name": "Sunrise Mountain HS",
       "aliases": [
-        "Sunrise Mountain HS"
+        "Sunrise Mountain HS",
+        "Sunrise Mountain",
+        "Sunrise Mountain High School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1412,7 +1825,17 @@
       "aliases": [
         "Bailey W H MS",
         "Bailey W.H. MS",
-        "W H Bailey MS"
+        "W H Bailey MS",
+        "Bailey, W.H.",
+        "Bailey, W H",
+        "W.H. Bailey",
+        "W H Bailey",
+        "W. H. Bailey",
+        "Bailey W H",
+        "Bailey W H Middle School",
+        "Bailey WH MS",
+        "Bailey, WH",
+        "WH Bailey"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1421,7 +1844,9 @@
       "cluster": "Cluster 20",
       "display_name": "Von Tobel MS",
       "aliases": [
-        "Von Tobel MS"
+        "Von Tobel MS",
+        "Von Tobel",
+        "Von Tobel Middle School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1430,7 +1855,9 @@
       "cluster": "Cluster 20",
       "display_name": "Hickey ES",
       "aliases": [
-        "Hickey ES"
+        "Hickey ES",
+        "Hickey",
+        "Hickey Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1439,7 +1866,9 @@
       "cluster": "Cluster 20",
       "display_name": "Herr ES",
       "aliases": [
-        "Herr ES"
+        "Herr ES",
+        "Herr",
+        "Herr Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1450,7 +1879,17 @@
       "aliases": [
         "ML King ES",
         "M L King ES",
-        "Martin Luther King ES"
+        "Martin Luther King ES",
+        "M.L. King",
+        "M L King",
+        "ML King",
+        "Martin Luther King",
+        "Martin Luther King Elementary School",
+        "ML King Elementary School",
+        "ML. King",
+        "King, ML",
+        "King, ML.",
+        "King ML"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1459,7 +1898,9 @@
       "cluster": "Cluster 20",
       "display_name": "Tate ES",
       "aliases": [
-        "Tate ES"
+        "Tate ES",
+        "Tate",
+        "Tate Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1468,7 +1909,9 @@
       "cluster": "Cluster 20",
       "display_name": "McCall ES",
       "aliases": [
-        "McCall ES"
+        "McCall ES",
+        "McCall",
+        "McCall Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1477,7 +1920,9 @@
       "cluster": "Cluster 20",
       "display_name": "Cahlan ES",
       "aliases": [
-        "Cahlan ES"
+        "Cahlan ES",
+        "Cahlan",
+        "Cahlan Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1486,7 +1931,9 @@
       "cluster": "Cluster 21",
       "display_name": "Legacy HS",
       "aliases": [
-        "Legacy HS"
+        "Legacy HS",
+        "Legacy",
+        "Legacy High School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1495,7 +1942,9 @@
       "cluster": "Cluster 21",
       "display_name": "Johnston MS",
       "aliases": [
-        "Johnston MS"
+        "Johnston MS",
+        "Johnston",
+        "Johnston Middle School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1504,7 +1953,9 @@
       "cluster": "Cluster 21",
       "display_name": "Manch ES",
       "aliases": [
-        "Manch ES"
+        "Manch ES",
+        "Manch",
+        "Manch Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1513,7 +1964,9 @@
       "cluster": "Cluster 21",
       "display_name": "Lowman ES",
       "aliases": [
-        "Lowman ES"
+        "Lowman ES",
+        "Lowman",
+        "Lowman Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1522,7 +1975,9 @@
       "cluster": "Cluster 21",
       "display_name": "Scott ES",
       "aliases": [
-        "Scott ES"
+        "Scott ES",
+        "Scott",
+        "Scott Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1531,7 +1986,9 @@
       "cluster": "Cluster 21",
       "display_name": "Tartan ES",
       "aliases": [
-        "Tartan ES"
+        "Tartan ES",
+        "Tartan",
+        "Tartan Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1540,7 +1997,9 @@
       "cluster": "Cluster 21",
       "display_name": "Dickens ES",
       "aliases": [
-        "Dickens ES"
+        "Dickens ES",
+        "Dickens",
+        "Dickens Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1549,7 +2008,9 @@
       "cluster": "Cluster 22",
       "display_name": "Mojave HS",
       "aliases": [
-        "Mojave HS"
+        "Mojave HS",
+        "Mojave",
+        "Mojave High School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1558,7 +2019,9 @@
       "cluster": "Cluster 22",
       "display_name": "Findlay MS",
       "aliases": [
-        "Findlay MS"
+        "Findlay MS",
+        "Findlay",
+        "Findlay Middle School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1567,7 +2030,9 @@
       "cluster": "Cluster 22",
       "display_name": "Watson ES",
       "aliases": [
-        "Watson ES"
+        "Watson ES",
+        "Watson",
+        "Watson Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1576,7 +2041,9 @@
       "cluster": "Cluster 22",
       "display_name": "Cozine ES",
       "aliases": [
-        "Cozine ES"
+        "Cozine ES",
+        "Cozine",
+        "Cozine Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1585,7 +2052,9 @@
       "cluster": "Cluster 22",
       "display_name": "Elizondo ES",
       "aliases": [
-        "Elizondo ES"
+        "Elizondo ES",
+        "Elizondo",
+        "Elizondo Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1595,7 +2064,12 @@
       "display_name": "Cox Clyde ES",
       "aliases": [
         "Cox Clyde ES",
-        "Clyde Cox ES"
+        "Clyde Cox ES",
+        "Cox, Clyde",
+        "Clyde Cox",
+        "Clyde Cox Elementary School",
+        "Cox Clyde",
+        "Cox Clyde Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1604,7 +2078,9 @@
       "cluster": "Cluster 22",
       "display_name": "Woolley ES",
       "aliases": [
-        "Woolley ES"
+        "Woolley ES",
+        "Woolley",
+        "Woolley Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1613,7 +2089,9 @@
       "cluster": "Cluster 22",
       "display_name": "Cecil Walnut ES",
       "aliases": [
-        "Cecil Walnut ES"
+        "Cecil Walnut ES",
+        "Cecil Walnut",
+        "Cecil Walnut Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1624,7 +2102,8 @@
       "aliases": [
         "Veterans Tribute CTA",
         "Veterans Tribute Career Technical Academy",
-        "Veterans Tribute Career and Technical Academy"
+        "Veterans Tribute Career and Technical Academy",
+        "Veterans Tribute"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1633,7 +2112,9 @@
       "cluster": "Cluster 23",
       "display_name": "Mackey MS",
       "aliases": [
-        "Mackey MS"
+        "Mackey MS",
+        "Mackey",
+        "Mackey Middle School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1642,7 +2123,9 @@
       "cluster": "Cluster 23",
       "display_name": "Bridger MS",
       "aliases": [
-        "Bridger MS"
+        "Bridger MS",
+        "Bridger",
+        "Bridger Middle School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1651,7 +2134,9 @@
       "cluster": "Cluster 23",
       "display_name": "Hoggard ES",
       "aliases": [
-        "Hoggard ES"
+        "Hoggard ES",
+        "Hoggard",
+        "Hoggard Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1662,7 +2147,13 @@
       "aliases": [
         "W Williams ES",
         "W. Williams ES",
-        "Williams W ES"
+        "Williams W ES",
+        "W. Williams",
+        "W Williams",
+        "Williams, W",
+        "Williams, W.",
+        "Williams W",
+        "W Williams Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1671,7 +2162,9 @@
       "cluster": "Cluster 23",
       "display_name": "Fitzgerald ES",
       "aliases": [
-        "Fitzgerald ES"
+        "Fitzgerald ES",
+        "Fitzgerald",
+        "Fitzgerald Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1680,7 +2173,13 @@
       "cluster": "Cluster 23",
       "display_name": "Jeffers J ES",
       "aliases": [
-        "Jeffers J ES"
+        "Jeffers J ES",
+        "Jeffers J",
+        "Jeffers J Elementary School",
+        "Jeffers, J",
+        "Jeffers, J.",
+        "J Jeffers",
+        "J. Jeffers"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1689,7 +2188,9 @@
       "cluster": "Cluster 23",
       "display_name": "Herron ES",
       "aliases": [
-        "Herron ES"
+        "Herron ES",
+        "Herron",
+        "Herron Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1710,7 +2211,9 @@
       "cluster": "Cluster 24",
       "display_name": "Cram MS",
       "aliases": [
-        "Cram MS"
+        "Cram MS",
+        "Cram",
+        "Cram Middle School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1719,7 +2222,9 @@
       "cluster": "Cluster 24",
       "display_name": "Simmons ES",
       "aliases": [
-        "Simmons ES"
+        "Simmons ES",
+        "Simmons",
+        "Simmons Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1728,7 +2233,9 @@
       "cluster": "Cluster 24",
       "display_name": "Antonello ES",
       "aliases": [
-        "Antonello ES"
+        "Antonello ES",
+        "Antonello",
+        "Antonello Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1737,7 +2244,9 @@
       "cluster": "Cluster 24",
       "display_name": "Duncan ES",
       "aliases": [
-        "Duncan ES"
+        "Duncan ES",
+        "Duncan",
+        "Duncan Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1746,7 +2255,9 @@
       "cluster": "Cluster 24",
       "display_name": "Hayden ES",
       "aliases": [
-        "Hayden ES"
+        "Hayden ES",
+        "Hayden",
+        "Hayden Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1755,7 +2266,9 @@
       "cluster": "Cluster 24",
       "display_name": "Gilbert ES",
       "aliases": [
-        "Gilbert ES"
+        "Gilbert ES",
+        "Gilbert",
+        "Gilbert Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1764,7 +2277,9 @@
       "cluster": "Cluster 25",
       "display_name": "Desert Oasis HS",
       "aliases": [
-        "Desert Oasis HS"
+        "Desert Oasis HS",
+        "Desert Oasis",
+        "Desert Oasis High School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1773,7 +2288,9 @@
       "cluster": "Cluster 25",
       "display_name": "Gunderson MS",
       "aliases": [
-        "Gunderson MS"
+        "Gunderson MS",
+        "Gunderson",
+        "Gunderson Middle School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1782,7 +2299,9 @@
       "cluster": "Cluster 25",
       "display_name": "Ortwein ES",
       "aliases": [
-        "Ortwein ES"
+        "Ortwein ES",
+        "Ortwein",
+        "Ortwein Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1791,7 +2310,9 @@
       "cluster": "Cluster 25",
       "display_name": "Stuckey ES",
       "aliases": [
-        "Stuckey ES"
+        "Stuckey ES",
+        "Stuckey",
+        "Stuckey Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1800,7 +2321,9 @@
       "cluster": "Cluster 25",
       "display_name": "Frias ES",
       "aliases": [
-        "Frias ES"
+        "Frias ES",
+        "Frias",
+        "Frias Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1809,7 +2332,9 @@
       "cluster": "Cluster 25",
       "display_name": "Wright ES",
       "aliases": [
-        "Wright ES"
+        "Wright ES",
+        "Wright",
+        "Wright Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1818,7 +2343,9 @@
       "cluster": "Cluster 25",
       "display_name": "Blackhurst ES",
       "aliases": [
-        "Blackhurst ES"
+        "Blackhurst ES",
+        "Blackhurst",
+        "Blackhurst Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1827,7 +2354,9 @@
       "cluster": "Cluster 25",
       "display_name": "Reedom ES",
       "aliases": [
-        "Reedom ES"
+        "Reedom ES",
+        "Reedom",
+        "Reedom Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1838,7 +2367,13 @@
       "aliases": [
         "Thompson T ES",
         "T Thompson ES",
-        "T. Thompson ES"
+        "T. Thompson ES",
+        "Thompson T",
+        "Thompson T Elementary School",
+        "Thompson, T",
+        "Thompson, T.",
+        "T Thompson",
+        "T. Thompson"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1849,7 +2384,8 @@
       "aliases": [
         "Southwest CTA",
         "Southwest Career Technical Academy",
-        "Southwest Career and Technical Academy"
+        "Southwest Career and Technical Academy",
+        "Southwest"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1858,7 +2394,9 @@
       "cluster": "Cluster 26",
       "display_name": "Cannarelli MS",
       "aliases": [
-        "Cannarelli MS"
+        "Cannarelli MS",
+        "Cannarelli",
+        "Cannarelli Middle School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1867,7 +2405,9 @@
       "cluster": "Cluster 26",
       "display_name": "Tarkanian MS",
       "aliases": [
-        "Tarkanian MS"
+        "Tarkanian MS",
+        "Tarkanian",
+        "Tarkanian Middle School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1876,7 +2416,9 @@
       "cluster": "Cluster 26",
       "display_name": "Ries ES",
       "aliases": [
-        "Ries ES"
+        "Ries ES",
+        "Ries",
+        "Ries Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1885,7 +2427,9 @@
       "cluster": "Cluster 26",
       "display_name": "Forbuss ES",
       "aliases": [
-        "Forbuss ES"
+        "Forbuss ES",
+        "Forbuss",
+        "Forbuss Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1894,7 +2438,9 @@
       "cluster": "Cluster 26",
       "display_name": "Mathis ES",
       "aliases": [
-        "Mathis ES"
+        "Mathis ES",
+        "Mathis",
+        "Mathis Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1903,7 +2449,9 @@
       "cluster": "Cluster 26",
       "display_name": "Fine ES",
       "aliases": [
-        "Fine ES"
+        "Fine ES",
+        "Fine",
+        "Fine Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1914,7 +2462,19 @@
       "aliases": [
         "Snyder D&D ES",
         "Snyder D D ES",
-        "D&D Snyder ES"
+        "D&D Snyder ES",
+        "Snyder, D&D",
+        "Snyder D&D",
+        "Snyder D D",
+        "D&D Snyder",
+        "D D Snyder",
+        "Snyder D&D Elementary School",
+        "DandD Snyder ES",
+        "Snyder DandD ES",
+        "Snyder, DandD",
+        "Snyder DandD",
+        "DandD Snyder",
+        "Snyder DandD Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1923,7 +2483,9 @@
       "cluster": "Cluster 27",
       "display_name": "Sierra Vista HS",
       "aliases": [
-        "Sierra Vista HS"
+        "Sierra Vista HS",
+        "Sierra Vista",
+        "Sierra Vista High School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1932,7 +2494,9 @@
       "cluster": "Cluster 27",
       "display_name": "Fertitta MS",
       "aliases": [
-        "Fertitta MS"
+        "Fertitta MS",
+        "Fertitta",
+        "Fertitta Middle School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1942,7 +2506,8 @@
       "display_name": "Faiss MS",
       "aliases": [
         "Faiss MS",
-        "Faiss"
+        "Faiss",
+        "Faiss Middle School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1951,7 +2516,9 @@
       "cluster": "Cluster 27",
       "display_name": "Steele ES",
       "aliases": [
-        "Steele ES"
+        "Steele ES",
+        "Steele",
+        "Steele Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1960,7 +2527,9 @@
       "cluster": "Cluster 27",
       "display_name": "Batterman ES",
       "aliases": [
-        "Batterman ES"
+        "Batterman ES",
+        "Batterman",
+        "Batterman Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1969,7 +2538,9 @@
       "cluster": "Cluster 27",
       "display_name": "Rogers ES",
       "aliases": [
-        "Rogers ES"
+        "Rogers ES",
+        "Rogers",
+        "Rogers Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1978,7 +2549,9 @@
       "cluster": "Cluster 27",
       "display_name": "Berkley ES",
       "aliases": [
-        "Berkley ES"
+        "Berkley ES",
+        "Berkley",
+        "Berkley Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1987,7 +2560,9 @@
       "cluster": "Cluster 27",
       "display_name": "Tanaka ES",
       "aliases": [
-        "Tanaka ES"
+        "Tanaka ES",
+        "Tanaka",
+        "Tanaka Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1996,7 +2571,9 @@
       "cluster": "Cluster 27",
       "display_name": "Alamo ES",
       "aliases": [
-        "Alamo ES"
+        "Alamo ES",
+        "Alamo",
+        "Alamo Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -2005,7 +2582,9 @@
       "cluster": "Cluster 28",
       "display_name": "Durango HS",
       "aliases": [
-        "Durango HS"
+        "Durango HS",
+        "Durango",
+        "Durango High School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -2014,7 +2593,9 @@
       "cluster": "Cluster 28",
       "display_name": "Guinn MS",
       "aliases": [
-        "Guinn MS"
+        "Guinn MS",
+        "Guinn",
+        "Guinn Middle School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -2023,7 +2604,9 @@
       "cluster": "Cluster 28",
       "display_name": "Sawyer MS",
       "aliases": [
-        "Sawyer MS"
+        "Sawyer MS",
+        "Sawyer",
+        "Sawyer Middle School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -2032,7 +2615,9 @@
       "cluster": "Cluster 28",
       "display_name": "Jydstrup ES",
       "aliases": [
-        "Jydstrup ES"
+        "Jydstrup ES",
+        "Jydstrup",
+        "Jydstrup Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -2041,7 +2626,9 @@
       "cluster": "Cluster 28",
       "display_name": "Thiriot ES",
       "aliases": [
-        "Thiriot ES"
+        "Thiriot ES",
+        "Thiriot",
+        "Thiriot Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -2050,7 +2637,9 @@
       "cluster": "Cluster 28",
       "display_name": "Dondero ES",
       "aliases": [
-        "Dondero ES"
+        "Dondero ES",
+        "Dondero",
+        "Dondero Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -2060,7 +2649,12 @@
       "display_name": "Earl Marion ES",
       "aliases": [
         "Earl Marion ES",
-        "Marion Earl ES"
+        "Marion Earl ES",
+        "Earl, Marion",
+        "Marion Earl",
+        "Marion Earl Elementary School",
+        "Earl Marion",
+        "Earl Marion Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -2070,7 +2664,12 @@
       "display_name": "Kim Frank ES",
       "aliases": [
         "Kim Frank ES",
-        "Frank Kim ES"
+        "Frank Kim ES",
+        "Kim, Frank",
+        "Frank Kim",
+        "Frank Kim Elementary School",
+        "Kim Frank",
+        "Kim Frank Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -2079,7 +2678,9 @@
       "cluster": "Cluster 29",
       "display_name": "Spring Valley HS",
       "aliases": [
-        "Spring Valley HS"
+        "Spring Valley HS",
+        "Spring Valley",
+        "Spring Valley High School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -2088,7 +2689,9 @@
       "cluster": "Cluster 29",
       "display_name": "Lawrence MS",
       "aliases": [
-        "Lawrence MS"
+        "Lawrence MS",
+        "Lawrence",
+        "Lawrence Middle School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -2097,7 +2700,9 @@
       "cluster": "Cluster 29",
       "display_name": "Diskin ES",
       "aliases": [
-        "Diskin ES"
+        "Diskin ES",
+        "Diskin",
+        "Diskin Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -2106,7 +2711,9 @@
       "cluster": "Cluster 29",
       "display_name": "Christensen ES",
       "aliases": [
-        "Christensen ES"
+        "Christensen ES",
+        "Christensen",
+        "Christensen Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -2115,7 +2722,9 @@
       "cluster": "Cluster 29",
       "display_name": "Hayes ES",
       "aliases": [
-        "Hayes ES"
+        "Hayes ES",
+        "Hayes",
+        "Hayes Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -2124,7 +2733,9 @@
       "cluster": "Cluster 29",
       "display_name": "Bendorf ES",
       "aliases": [
-        "Bendorf ES"
+        "Bendorf ES",
+        "Bendorf",
+        "Bendorf Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -2134,7 +2745,13 @@
       "display_name": "Bryan R ES",
       "aliases": [
         "Bryan R ES",
-        "R Bryan ES"
+        "R Bryan ES",
+        "Bryan, R",
+        "Bryan, R.",
+        "R Bryan",
+        "R. Bryan",
+        "Bryan R",
+        "Bryan R Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -2143,7 +2760,9 @@
       "cluster": "Cluster 29",
       "display_name": "Abston ES",
       "aliases": [
-        "Abston ES"
+        "Abston ES",
+        "Abston",
+        "Abston Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -2152,7 +2771,9 @@
       "cluster": "Cluster 30",
       "display_name": "Clark HS",
       "aliases": [
-        "Clark HS"
+        "Clark HS",
+        "Clark",
+        "Clark High School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -2161,7 +2782,9 @@
       "cluster": "Cluster 30",
       "display_name": "Hyde Park MS",
       "aliases": [
-        "Hyde Park MS"
+        "Hyde Park MS",
+        "Hyde Park",
+        "Hyde Park Middle School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -2170,7 +2793,9 @@
       "cluster": "Cluster 30",
       "display_name": "Cashman MS",
       "aliases": [
-        "Cashman MS"
+        "Cashman MS",
+        "Cashman",
+        "Cashman Middle School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -2179,7 +2804,9 @@
       "cluster": "Cluster 30",
       "display_name": "Griffith ES",
       "aliases": [
-        "Griffith ES"
+        "Griffith ES",
+        "Griffith",
+        "Griffith Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -2188,7 +2815,9 @@
       "cluster": "Cluster 30",
       "display_name": "Wasden ES",
       "aliases": [
-        "Wasden ES"
+        "Wasden ES",
+        "Wasden",
+        "Wasden Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -2197,7 +2826,9 @@
       "cluster": "Cluster 30",
       "display_name": "Vegas Verdes ES",
       "aliases": [
-        "Vegas Verdes ES"
+        "Vegas Verdes ES",
+        "Vegas Verdes",
+        "Vegas Verdes Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -2207,7 +2838,12 @@
       "display_name": "Bell Rex ES",
       "aliases": [
         "Bell Rex ES",
-        "Rex Bell ES"
+        "Rex Bell ES",
+        "Bell, Rex",
+        "Rex Bell",
+        "Rex Bell Elementary School",
+        "Bell Rex",
+        "Bell Rex Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -2216,7 +2852,9 @@
       "cluster": "Cluster 30",
       "display_name": "Roundy ES",
       "aliases": [
-        "Roundy ES"
+        "Roundy ES",
+        "Roundy",
+        "Roundy Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -2225,7 +2863,9 @@
       "cluster": "Cluster 30",
       "display_name": "Wynn ES",
       "aliases": [
-        "Wynn ES"
+        "Wynn ES",
+        "Wynn",
+        "Wynn Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -2234,7 +2874,9 @@
       "cluster": "Cluster 31",
       "display_name": "Bonanza HS",
       "aliases": [
-        "Bonanza HS"
+        "Bonanza HS",
+        "Bonanza",
+        "Bonanza High School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2243,7 +2885,9 @@
       "cluster": "Cluster 31",
       "display_name": "Garside MS",
       "aliases": [
-        "Garside MS"
+        "Garside MS",
+        "Garside",
+        "Garside Middle School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2252,7 +2896,9 @@
       "cluster": "Cluster 31",
       "display_name": "Adcock ES",
       "aliases": [
-        "Adcock ES"
+        "Adcock ES",
+        "Adcock",
+        "Adcock Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2262,7 +2908,13 @@
       "display_name": "Warren R ES",
       "aliases": [
         "Warren R ES",
-        "R Warren ES"
+        "R Warren ES",
+        "Warren, R",
+        "Warren, R.",
+        "R Warren",
+        "R. Warren",
+        "Warren R",
+        "Warren R Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2271,7 +2923,9 @@
       "cluster": "Cluster 31",
       "display_name": "Red Rock ES",
       "aliases": [
-        "Red Rock ES"
+        "Red Rock ES",
+        "Red Rock",
+        "Red Rock Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2280,7 +2934,9 @@
       "cluster": "Cluster 31",
       "display_name": "Hancock ES",
       "aliases": [
-        "Hancock ES"
+        "Hancock ES",
+        "Hancock",
+        "Hancock Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2289,7 +2945,9 @@
       "cluster": "Cluster 31",
       "display_name": "Gray ES",
       "aliases": [
-        "Gray ES"
+        "Gray ES",
+        "Gray",
+        "Gray Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2298,7 +2956,9 @@
       "cluster": "Cluster 31",
       "display_name": "Decker ES",
       "aliases": [
-        "Decker ES"
+        "Decker ES",
+        "Decker",
+        "Decker Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2309,7 +2969,8 @@
       "aliases": [
         "West CTA",
         "West Career Technical Academy",
-        "West Career and Technical Academy"
+        "West Career and Technical Academy",
+        "West"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2319,7 +2980,10 @@
       "display_name": "Johnson JHS",
       "aliases": [
         "Johnson JHS",
-        "Johnson MS"
+        "Johnson MS",
+        "Johnson",
+        "Johnson Junior High School",
+        "Johnson Middle School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2328,7 +2992,9 @@
       "cluster": "Cluster 32",
       "display_name": "Jacobson ES",
       "aliases": [
-        "Jacobson ES"
+        "Jacobson ES",
+        "Jacobson",
+        "Jacobson Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2339,7 +3005,17 @@
       "aliases": [
         "H M Smith ES",
         "H.M. Smith ES",
-        "Smith H M ES"
+        "Smith H M ES",
+        "H.M. Smith",
+        "H. M. Smith",
+        "Smith, H.M.",
+        "Smith, H M",
+        "Smith H M",
+        "H M Smith",
+        "H M Smith Elementary School",
+        "HM Smith",
+        "HM Smith ES",
+        "Smith, HM"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2349,7 +3025,9 @@
       "display_name": "Piggott ES",
       "aliases": [
         "Piggott ES",
-        "Piggot ES"
+        "Piggot ES",
+        "Piggott",
+        "Piggott Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2358,7 +3036,9 @@
       "cluster": "Cluster 32",
       "display_name": "Ober ES",
       "aliases": [
-        "Ober ES"
+        "Ober ES",
+        "Ober",
+        "Ober Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2367,7 +3047,9 @@
       "cluster": "Cluster 32",
       "display_name": "Goolsby ES",
       "aliases": [
-        "Goolsby ES"
+        "Goolsby ES",
+        "Goolsby",
+        "Goolsby Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2376,7 +3058,9 @@
       "cluster": "Cluster 32",
       "display_name": "Derfelt ES",
       "aliases": [
-        "Derfelt ES"
+        "Derfelt ES",
+        "Derfelt",
+        "Derfelt Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2385,7 +3069,9 @@
       "cluster": "Cluster 33",
       "display_name": "Arbor View HS",
       "aliases": [
-        "Arbor View HS"
+        "Arbor View HS",
+        "Arbor View",
+        "Arbor View High School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2394,7 +3080,9 @@
       "cluster": "Cluster 33",
       "display_name": "Cadwallader MS",
       "aliases": [
-        "Cadwallader MS"
+        "Cadwallader MS",
+        "Cadwallader",
+        "Cadwallader Middle School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2403,7 +3091,9 @@
       "cluster": "Cluster 33",
       "display_name": "Rhodes ES",
       "aliases": [
-        "Rhodes ES"
+        "Rhodes ES",
+        "Rhodes",
+        "Rhodes Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2413,7 +3103,11 @@
       "display_name": "O'Roarke ES",
       "aliases": [
         "O'Roarke ES",
-        "O Roarke ES"
+        "O Roarke ES",
+        "O'Roarke",
+        "O Roarke",
+        "O'Roarke Elementary School",
+        "O Roarke Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2422,7 +3116,9 @@
       "cluster": "Cluster 33",
       "display_name": "Scherkenbach ES",
       "aliases": [
-        "Scherkenbach ES"
+        "Scherkenbach ES",
+        "Scherkenbach",
+        "Scherkenbach Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2431,7 +3127,9 @@
       "cluster": "Cluster 33",
       "display_name": "Bilbray ES",
       "aliases": [
-        "Bilbray ES"
+        "Bilbray ES",
+        "Bilbray",
+        "Bilbray Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2441,7 +3139,13 @@
       "display_name": "Thompson S ES",
       "aliases": [
         "Thompson S ES",
-        "S Thompson ES"
+        "S Thompson ES",
+        "Thompson, S",
+        "Thompson, S.",
+        "S Thompson",
+        "S. Thompson",
+        "Thompson S",
+        "Thompson S Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2450,7 +3154,9 @@
       "cluster": "Cluster 34",
       "display_name": "Centennial HS",
       "aliases": [
-        "Centennial HS"
+        "Centennial HS",
+        "Centennial",
+        "Centennial High School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2459,7 +3165,9 @@
       "cluster": "Cluster 34",
       "display_name": "Escobedo MS",
       "aliases": [
-        "Escobedo MS"
+        "Escobedo MS",
+        "Escobedo",
+        "Escobedo Middle School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2468,7 +3176,9 @@
       "cluster": "Cluster 34",
       "display_name": "Bozarth ES",
       "aliases": [
-        "Bozarth ES"
+        "Bozarth ES",
+        "Bozarth",
+        "Bozarth Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2477,7 +3187,9 @@
       "cluster": "Cluster 34",
       "display_name": "Divich ES",
       "aliases": [
-        "Divich ES"
+        "Divich ES",
+        "Divich",
+        "Divich Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2486,7 +3198,9 @@
       "cluster": "Cluster 34",
       "display_name": "Darnell ES",
       "aliases": [
-        "Darnell ES"
+        "Darnell ES",
+        "Darnell",
+        "Darnell Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2495,7 +3209,9 @@
       "cluster": "Cluster 34",
       "display_name": "Conners ES",
       "aliases": [
-        "Conners ES"
+        "Conners ES",
+        "Conners",
+        "Conners Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2504,7 +3220,9 @@
       "cluster": "Cluster 34",
       "display_name": "Tarr ES",
       "aliases": [
-        "Tarr ES"
+        "Tarr ES",
+        "Tarr",
+        "Tarr Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2513,7 +3231,9 @@
       "cluster": "Cluster 34",
       "display_name": "Garehime ES",
       "aliases": [
-        "Garehime ES"
+        "Garehime ES",
+        "Garehime",
+        "Garehime Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2522,7 +3242,9 @@
       "cluster": "Cluster 35",
       "display_name": "Cheyenne HS",
       "aliases": [
-        "Cheyenne HS"
+        "Cheyenne HS",
+        "Cheyenne",
+        "Cheyenne High School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2531,7 +3253,9 @@
       "cluster": "Cluster 35",
       "display_name": "Swainston MS",
       "aliases": [
-        "Swainston MS"
+        "Swainston MS",
+        "Swainston",
+        "Swainston Middle School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2540,7 +3264,9 @@
       "cluster": "Cluster 35",
       "display_name": "Bruner ES",
       "aliases": [
-        "Bruner ES"
+        "Bruner ES",
+        "Bruner",
+        "Bruner Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2549,7 +3275,9 @@
       "cluster": "Cluster 35",
       "display_name": "Carl ES",
       "aliases": [
-        "Carl ES"
+        "Carl ES",
+        "Carl",
+        "Carl Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2558,7 +3286,9 @@
       "cluster": "Cluster 35",
       "display_name": "Guy ES",
       "aliases": [
-        "Guy ES"
+        "Guy ES",
+        "Guy",
+        "Guy Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2567,7 +3297,9 @@
       "cluster": "Cluster 35",
       "display_name": "May ES",
       "aliases": [
-        "May ES"
+        "May ES",
+        "May",
+        "May Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2576,7 +3308,11 @@
       "cluster": "Cluster 35",
       "display_name": "Parson ES",
       "aliases": [
-        "Parson ES"
+        "Parson ES",
+        "Parsons ES",
+        "Parson Elementary School",
+        "Parsons Elementary School",
+        "Parson"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2586,7 +3322,12 @@
       "display_name": "Wolfe Eva ES",
       "aliases": [
         "Wolfe Eva ES",
-        "Eva Wolfe ES"
+        "Eva Wolfe ES",
+        "Wolfe, Eva",
+        "Eva Wolfe",
+        "Eva Wolfe Elementary School",
+        "Wolfe Eva",
+        "Wolfe Eva Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2595,7 +3336,9 @@
       "cluster": "Cluster 36",
       "display_name": "Cimarron HS",
       "aliases": [
-        "Cimarron HS"
+        "Cimarron HS",
+        "Cimarron",
+        "Cimarron High School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2604,7 +3347,9 @@
       "cluster": "Cluster 36",
       "display_name": "Brinley MS",
       "aliases": [
-        "Brinley MS"
+        "Brinley MS",
+        "Brinley",
+        "Brinley Middle School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2614,7 +3359,16 @@
       "display_name": "Bryan R H ES",
       "aliases": [
         "Bryan R H ES",
-        "R H Bryan ES"
+        "R H Bryan ES",
+        "Bryan, R.H.",
+        "Bryan, R H",
+        "R.H. Bryan",
+        "R H Bryan",
+        "R. H. Bryan",
+        "Bryan R H",
+        "Bryan R H Elementary School",
+        "Bryan, RH",
+        "RH Bryan"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2623,7 +3377,9 @@
       "cluster": "Cluster 36",
       "display_name": "Bunker ES",
       "aliases": [
-        "Bunker ES"
+        "Bunker ES",
+        "Bunker",
+        "Bunker Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2632,7 +3388,9 @@
       "cluster": "Cluster 36",
       "display_name": "Fong ES",
       "aliases": [
-        "Fong ES"
+        "Fong ES",
+        "Fong",
+        "Fong Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2641,7 +3399,9 @@
       "cluster": "Cluster 36",
       "display_name": "Katz ES",
       "aliases": [
-        "Katz ES"
+        "Katz ES",
+        "Katz",
+        "Katz Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2650,7 +3410,9 @@
       "cluster": "Cluster 36",
       "display_name": "McMillan ES",
       "aliases": [
-        "McMillan ES"
+        "McMillan ES",
+        "McMillan",
+        "McMillan Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2659,7 +3421,9 @@
       "cluster": "Cluster 36",
       "display_name": "Pittman ES",
       "aliases": [
-        "Pittman ES"
+        "Pittman ES",
+        "Pittman",
+        "Pittman Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2670,7 +3434,8 @@
       "aliases": [
         "Northwest CTA",
         "Northwest Career Technical Academy",
-        "Northwest Career and Technical Academy"
+        "Northwest Career and Technical Academy",
+        "Northwest"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2679,7 +3444,9 @@
       "cluster": "Cluster 37",
       "display_name": "Leavitt MS",
       "aliases": [
-        "Leavitt MS"
+        "Leavitt MS",
+        "Leavitt",
+        "Leavitt Middle School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2688,7 +3455,9 @@
       "cluster": "Cluster 37",
       "display_name": "Molasky MS",
       "aliases": [
-        "Molasky MS"
+        "Molasky MS",
+        "Molasky",
+        "Molasky Middle School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2697,7 +3466,9 @@
       "cluster": "Cluster 37",
       "display_name": "Allen ES",
       "aliases": [
-        "Allen ES"
+        "Allen ES",
+        "Allen",
+        "Allen Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2706,7 +3477,9 @@
       "cluster": "Cluster 37",
       "display_name": "Deskin ES",
       "aliases": [
-        "Deskin ES"
+        "Deskin ES",
+        "Deskin",
+        "Deskin Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2715,7 +3488,9 @@
       "cluster": "Cluster 37",
       "display_name": "Eisenberg ES",
       "aliases": [
-        "Eisenberg ES"
+        "Eisenberg ES",
+        "Eisenberg",
+        "Eisenberg Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2724,7 +3499,9 @@
       "cluster": "Cluster 37",
       "display_name": "Tobler ES",
       "aliases": [
-        "Tobler ES"
+        "Tobler ES",
+        "Tobler",
+        "Tobler Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2733,7 +3510,9 @@
       "cluster": "Cluster 37",
       "display_name": "Kahre ES",
       "aliases": [
-        "Kahre ES"
+        "Kahre ES",
+        "Kahre",
+        "Kahre Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2742,7 +3521,9 @@
       "cluster": "Cluster 38",
       "display_name": "Palo Verde HS",
       "aliases": [
-        "Palo Verde HS"
+        "Palo Verde HS",
+        "Palo Verde",
+        "Palo Verde High School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2751,7 +3532,9 @@
       "cluster": "Cluster 38",
       "display_name": "Rogich MS",
       "aliases": [
-        "Rogich MS"
+        "Rogich MS",
+        "Rogich",
+        "Rogich Middle School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2760,7 +3543,9 @@
       "cluster": "Cluster 38",
       "display_name": "Becker MS",
       "aliases": [
-        "Becker MS"
+        "Becker MS",
+        "Becker",
+        "Becker Middle School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2769,7 +3554,9 @@
       "cluster": "Cluster 38",
       "display_name": "Vassiliadis ES",
       "aliases": [
-        "Vassiliadis ES"
+        "Vassiliadis ES",
+        "Vassiliadis",
+        "Vassiliadis Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2778,7 +3565,9 @@
       "cluster": "Cluster 38",
       "display_name": "Givens ES",
       "aliases": [
-        "Givens ES"
+        "Givens ES",
+        "Givens",
+        "Givens Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2787,7 +3576,9 @@
       "cluster": "Cluster 38",
       "display_name": "Bonner ES",
       "aliases": [
-        "Bonner ES"
+        "Bonner ES",
+        "Bonner",
+        "Bonner Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2796,7 +3587,9 @@
       "cluster": "Cluster 38",
       "display_name": "Staton ES",
       "aliases": [
-        "Staton ES"
+        "Staton ES",
+        "Staton",
+        "Staton Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2805,7 +3598,9 @@
       "cluster": "Cluster 38",
       "display_name": "Lummis ES",
       "aliases": [
-        "Lummis ES"
+        "Lummis ES",
+        "Lummis",
+        "Lummis Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2814,7 +3609,9 @@
       "cluster": "Cluster 39",
       "display_name": "Shadow Ridge HS",
       "aliases": [
-        "Shadow Ridge HS"
+        "Shadow Ridge HS",
+        "Shadow Ridge",
+        "Shadow Ridge High School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2823,7 +3620,9 @@
       "cluster": "Cluster 39",
       "display_name": "Saville MS",
       "aliases": [
-        "Saville MS"
+        "Saville MS",
+        "Saville",
+        "Saville Middle School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2832,7 +3631,9 @@
       "cluster": "Cluster 39",
       "display_name": "Lied MS",
       "aliases": [
-        "Lied MS"
+        "Lied MS",
+        "Lied",
+        "Lied Middle School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2842,7 +3643,12 @@
       "display_name": "Ward Kitty ES",
       "aliases": [
         "Ward Kitty ES",
-        "Kitty Ward ES"
+        "Kitty Ward ES",
+        "Ward, Kitty",
+        "Kitty Ward",
+        "Kitty Ward Elementary School",
+        "Ward Kitty",
+        "Ward Kitty Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2851,7 +3657,9 @@
       "cluster": "Cluster 39",
       "display_name": "Heckethorn ES",
       "aliases": [
-        "Heckethorn ES"
+        "Heckethorn ES",
+        "Heckethorn",
+        "Heckethorn Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2860,7 +3668,9 @@
       "cluster": "Cluster 39",
       "display_name": "Triggs ES",
       "aliases": [
-        "Triggs ES"
+        "Triggs ES",
+        "Triggs",
+        "Triggs Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2869,7 +3679,9 @@
       "cluster": "Cluster 39",
       "display_name": "Goynes ES",
       "aliases": [
-        "Goynes ES"
+        "Goynes ES",
+        "Goynes",
+        "Goynes Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2878,7 +3690,9 @@
       "cluster": "Cluster 39",
       "display_name": "Neal ES",
       "aliases": [
-        "Neal ES"
+        "Neal ES",
+        "Neal",
+        "Neal Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2887,7 +3701,9 @@
       "cluster": "Cluster 40",
       "display_name": "Western HS",
       "aliases": [
-        "Western HS"
+        "Western HS",
+        "Western",
+        "Western High School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2896,7 +3712,9 @@
       "cluster": "Cluster 40",
       "display_name": "Gibson MS",
       "aliases": [
-        "Gibson MS"
+        "Gibson MS",
+        "Gibson",
+        "Gibson Middle School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2905,7 +3723,9 @@
       "cluster": "Cluster 40",
       "display_name": "Twin Lakes ES",
       "aliases": [
-        "Twin Lakes ES"
+        "Twin Lakes ES",
+        "Twin Lakes",
+        "Twin Lakes Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2914,7 +3734,9 @@
       "cluster": "Cluster 40",
       "display_name": "Detwiler ES",
       "aliases": [
-        "Detwiler ES"
+        "Detwiler ES",
+        "Detwiler",
+        "Detwiler Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2923,7 +3745,9 @@
       "cluster": "Cluster 40",
       "display_name": "McWilliams ES",
       "aliases": [
-        "McWilliams ES"
+        "McWilliams ES",
+        "McWilliams",
+        "McWilliams Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2932,7 +3756,9 @@
       "cluster": "Cluster 40",
       "display_name": "Culley ES",
       "aliases": [
-        "Culley ES"
+        "Culley ES",
+        "Culley",
+        "Culley Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2941,7 +3767,9 @@
       "cluster": "Cluster 40",
       "display_name": "Reed ES",
       "aliases": [
-        "Reed ES"
+        "Reed ES",
+        "Reed",
+        "Reed Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     },
@@ -2950,10 +3778,12 @@
       "cluster": "Cluster 40",
       "display_name": "Ronzone ES",
       "aliases": [
-        "Ronzone ES"
+        "Ronzone ES",
+        "Ronzone",
+        "Ronzone Elementary School"
       ],
       "source_image": "clusters 31-40.png"
     }
   ],
-  "generated_at": "2026-05-21T04:40:18.887240+00:00"
+  "generated_at": "2026-05-21T05:02:38.297229+00:00"
 }
