@@ -32,7 +32,8 @@ def main(argv: list[str] | None = None) -> int:
 
 
 def export_static_site(run_dir: Path, school_file: Path, docs_dir: Path) -> dict:
-    payload = build_static_payload(run_dir=run_dir, school_file=school_file)
+    previous_payload = _load_existing_payload(docs_dir / "data" / "board-data.json")
+    payload = build_static_payload(run_dir=run_dir, school_file=school_file, previous_payload=previous_payload)
     data_dir = docs_dir / "data"
     data_dir.mkdir(parents=True, exist_ok=True)
     (data_dir / "board-data.json").write_text(json.dumps(payload, indent=2), encoding="utf-8")
@@ -44,7 +45,7 @@ def export_static_site(run_dir: Path, school_file: Path, docs_dir: Path) -> dict
     return payload
 
 
-def build_static_payload(run_dir: Path, school_file: Path) -> dict:
+def build_static_payload(run_dir: Path, school_file: Path, previous_payload: dict | None = None) -> dict:
     run_dir = run_dir.resolve()
     result = json.loads((run_dir / "findings.json").read_text(encoding="utf-8"))
     schools = [asdict(school) for school in load_schools(school_file)]
@@ -66,6 +67,9 @@ def build_static_payload(run_dir: Path, school_file: Path) -> dict:
         meetings.append(meeting)
         attachments.extend(_export_meeting_attachments(meeting_dir, meeting, meeting_result.get("attachments") or []))
 
+    previous_signatures = _attachment_signatures(previous_payload)
+    _mark_new_since_previous_export(attachments, previous_signatures)
+
     return {
         "schema_version": 1,
         "generated_at": generated_at,
@@ -79,6 +83,8 @@ def build_static_payload(run_dir: Path, school_file: Path) -> dict:
             "attachment_count": len(attachments),
             "source_url": (result.get("meeting") or {}).get("source_url", ""),
             "run_label": run_dir.name,
+            "compared_to_previous_export": bool(previous_signatures),
+            "new_attachment_count": sum(1 for attachment in attachments if attachment.get("is_new_since_previous_export")),
         },
         "schools": schools,
         "meetings": _dedupe_meetings(meetings),
@@ -115,6 +121,7 @@ def _export_meeting_attachments(meeting_dir: Path, meeting: dict, attachments: l
                 "document_url": attachment.get("document_url", ""),
                 "movement_type": attachment.get("movement_type", ""),
                 "line_count": len(lines),
+                "content_signature": _attachment_signature(meeting, attachment, lines),
                 "lines": lines,
             }
         )
@@ -138,6 +145,66 @@ def _dedupe_meetings(meetings: list[dict]) -> list[dict]:
         seen.add(key)
         deduped.append(meeting)
     return deduped
+
+
+def _load_existing_payload(path: Path) -> dict | None:
+    try:
+        if path.exists():
+            payload = json.loads(path.read_text(encoding="utf-8"))
+            if isinstance(payload, dict):
+                return payload
+    except (OSError, json.JSONDecodeError):
+        return None
+    return None
+
+
+def _mark_new_since_previous_export(attachments: list[dict], previous_signatures: dict[str, str]) -> None:
+    for attachment in attachments:
+        key = _attachment_identity(attachment)
+        previous_signature = previous_signatures.get(key)
+        attachment["is_new_since_previous_export"] = bool(previous_signatures) and previous_signature != attachment.get("content_signature")
+
+
+def _attachment_signatures(payload: dict | None) -> dict[str, str]:
+    signatures: dict[str, str] = {}
+    if not payload:
+        return signatures
+    for attachment in payload.get("attachments") or []:
+        if not isinstance(attachment, dict):
+            continue
+        key = _attachment_identity(attachment)
+        if not key:
+            continue
+        signatures[key] = str(attachment.get("content_signature") or _attachment_signature_from_exported(attachment))
+    return signatures
+
+
+def _attachment_identity(attachment: dict) -> str:
+    return "|".join(
+        str(attachment.get(key, "") or "")
+        for key in ("meeting_id", "document_id", "item_number")
+    )
+
+
+def _attachment_signature(meeting: dict, attachment: dict, lines: list[str]) -> str:
+    return _fingerprint(
+        meeting.get("meeting_id", ""),
+        attachment.get("document_id", ""),
+        attachment.get("item_number", ""),
+        attachment.get("movement_type", ""),
+        "\n".join(lines),
+    )
+
+
+def _attachment_signature_from_exported(attachment: dict) -> str:
+    lines = attachment.get("lines") if isinstance(attachment.get("lines"), list) else []
+    return _fingerprint(
+        attachment.get("meeting_id", ""),
+        attachment.get("document_id", ""),
+        attachment.get("item_number", ""),
+        attachment.get("movement_type", ""),
+        "\n".join(str(line) for line in lines),
+    )
 
 
 def _current_year(result: dict) -> int:

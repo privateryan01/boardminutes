@@ -625,6 +625,7 @@ function markNewFindings() {
   const currentSignature = schoolPreferenceSignature();
   const generatedAt = snapshotGeneratedAt();
   let newIds = new Set();
+  const publishedNewIds = publishedNewFindingIds();
 
   if (
     snapshot &&
@@ -635,6 +636,14 @@ function markNewFindings() {
   ) {
     const previousIds = new Set(snapshot.finding_ids.map(String));
     newIds = new Set(currentIds.filter((id) => !previousIds.has(id)));
+  }
+
+  for (const id of publishedNewIds) {
+    newIds.add(id);
+  }
+
+  if (!newIds.size && !hasPublishedNewMetadata()) {
+    newIds = latestMeetingFindingIds(state.findings);
   }
 
   state.newFindingIds = newIds;
@@ -664,6 +673,41 @@ function saveFindingSnapshot(generatedAt, schoolSignature, findingIds) {
 function snapshotGeneratedAt() {
   const source = state.data.source || {};
   return String(state.data.generated_at || source.generated_at || source.scanned_at || "");
+}
+
+function publishedNewFindingIds() {
+  const newAttachmentIds = new Set((state.data.attachments || [])
+    .filter((attachment) => attachment.is_new_since_previous_export)
+    .map((attachment) => String(attachment.attachment_id || "")));
+  if (!newAttachmentIds.size) return new Set();
+  return new Set(state.findings
+    .filter((finding) => newAttachmentIds.has(String(finding.attachment_id || "")))
+    .map((finding) => finding.id));
+}
+
+function hasPublishedNewMetadata() {
+  const source = state.data.source || {};
+  if (source.compared_to_previous_export) return true;
+  return (state.data.attachments || []).some((attachment) => Object.prototype.hasOwnProperty.call(attachment, "is_new_since_previous_export"));
+}
+
+function latestMeetingFindingIds(findings) {
+  let latestValue = Number.NEGATIVE_INFINITY;
+  for (const finding of findings) {
+    latestValue = Math.max(latestValue, meetingSortValue(finding));
+  }
+  if (!Number.isFinite(latestValue)) return new Set();
+  return new Set(findings
+    .filter((finding) => meetingSortValue(finding) === latestValue)
+    .map((finding) => finding.id));
+}
+
+function meetingSortValue(finding) {
+  const parsed = Date.parse(String(finding.meeting_date || ""));
+  if (Number.isFinite(parsed)) return parsed;
+  const year = Number.parseInt(finding.meeting_year, 10);
+  const meetingId = Number.parseInt(finding.meeting_id, 10);
+  return (Number.isFinite(year) ? year : 0) * 1000000 + (Number.isFinite(meetingId) ? meetingId : 0);
 }
 
 function schoolPreferenceSignature() {
