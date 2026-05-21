@@ -400,20 +400,20 @@ def _run_auto_refresh_targets(
 
 
 def _cluster_counts(findings: list[dict]) -> dict[str, int]:
-    return dict(sorted(Counter(finding["cluster"] for finding in findings).items(), key=lambda item: cluster_sort_key(item[0])))
+    return dict(sorted(Counter(cluster for finding in findings for cluster in _finding_clusters(finding)).items(), key=lambda item: cluster_sort_key(item[0])))
 
 
 def _filtered_data(data: dict, selected_cluster: str) -> dict:
     if not selected_cluster:
         return data
     filtered = dict(data)
-    filtered["findings"] = [finding for finding in data.get("findings", []) if finding.get("cluster") == selected_cluster]
+    filtered["findings"] = [finding for finding in data.get("findings", []) if selected_cluster in _finding_clusters(finding)]
     return filtered
 
 
 def _summary(data: dict) -> dict:
     findings = data.get("findings", [])
-    by_cluster = dict(sorted(Counter(finding["cluster"] for finding in findings).items(), key=lambda item: cluster_sort_key(item[0])))
+    by_cluster = dict(sorted(Counter(cluster for finding in findings for cluster in _finding_clusters(finding)).items(), key=lambda item: cluster_sort_key(item[0])))
     by_type = Counter(finding["movement_type"] for finding in findings)
     by_attachment_type = Counter(attachment["movement_type"] for attachment in data.get("attachments", []))
     schools = defaultdict(int)
@@ -431,6 +431,17 @@ def _summary(data: dict) -> dict:
         "year_sections": _year_sections(findings),
         "schools": dict(sorted(schools.items(), key=lambda item: (-item[1], item[0]))),
     }
+
+
+def _finding_clusters(finding: dict) -> list[str]:
+    clusters = finding.get("clusters")
+    if isinstance(clusters, list):
+        values = clusters
+    elif clusters:
+        values = str(clusters).split(";")
+    else:
+        values = str(finding.get("cluster", "")).split("->")
+    return [cluster.strip() for cluster in values if cluster and cluster.strip()]
 
 
 def _year_sections(findings: list[dict]) -> list[dict]:

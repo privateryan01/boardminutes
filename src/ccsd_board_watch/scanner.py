@@ -249,6 +249,12 @@ def _write_findings_csv(path: Path, findings: list[dict] | list[Finding]) -> Non
             "movement_type",
             "school_name",
             "cluster",
+            "school_ids",
+            "clusters",
+            "from_school_name",
+            "from_cluster",
+            "to_school_name",
+            "to_cluster",
             "person_name",
             "employment_effective_date",
             "reason",
@@ -280,6 +286,12 @@ def _write_findings_csv(path: Path, findings: list[dict] | list[Finding]) -> Non
                     "movement_type": row.get("movement_type", ""),
                     "school_name": row.get("school_name", ""),
                     "cluster": row.get("cluster", ""),
+                    "school_ids": _csv_list(row.get("school_ids") or row.get("school_id", "")),
+                    "clusters": _csv_list(row.get("clusters") or row.get("cluster", "")),
+                    "from_school_name": row.get("from_school_name", ""),
+                    "from_cluster": row.get("from_cluster", ""),
+                    "to_school_name": row.get("to_school_name", ""),
+                    "to_cluster": row.get("to_cluster", ""),
                     "person_name": row.get("person_name", ""),
                     "employment_effective_date": row.get("effective_date", ""),
                     "reason": row.get("reason", ""),
@@ -367,6 +379,12 @@ def _year_counts(findings: list[dict]) -> dict[str, int]:
         year = _finding_year(finding)
         counts[year] = counts.get(year, 0) + 1
     return dict(sorted(counts.items()))
+
+
+def _csv_list(value: object) -> str:
+    if isinstance(value, (list, tuple, set)):
+        return ";".join(str(item) for item in value if str(item))
+    return str(value or "")
 
 
 def _finding_year(finding: dict) -> str:

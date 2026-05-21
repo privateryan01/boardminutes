@@ -48,6 +48,26 @@ class WebFilterTests(unittest.TestCase):
         self.assertEqual(filtered["findings"], [{"cluster": "Henderson", "school_name": "Wallin ES"}])
         self.assertEqual(len(data["findings"]), 2)
 
+    def test_cluster_filters_include_both_sides_of_transfer_routes(self):
+        data = {
+            "attachments": [{"movement_type": "promotion_transfer"}],
+            "findings": [
+                {
+                    "cluster": "Cluster 5 -> Cluster 4",
+                    "clusters": ["Cluster 5", "Cluster 4"],
+                    "school_name": "Martin MS -> Rundle ES",
+                },
+                {"cluster": "Cluster 6", "school_name": "Las Vegas HS"},
+            ],
+        }
+
+        self.assertEqual(
+            _cluster_counts(data["findings"]),
+            {"Cluster 4": 1, "Cluster 5": 1, "Cluster 6": 1},
+        )
+        self.assertEqual(_filtered_data(data, "Cluster 4")["findings"], [data["findings"][0]])
+        self.assertEqual(_filtered_data(data, "Cluster 5")["findings"], [data["findings"][0]])
+
     def test_user_cookie_is_created_for_shared_app(self):
         with tempfile.TemporaryDirectory() as tmp:
             with patch.dict(os.environ, {"CCSD_WATCH_DATA_DIR": tmp}):

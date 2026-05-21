@@ -381,18 +381,35 @@ pre {
   border-color: #e0b9b5;
 }
 
-.type-staffing_report {
-  color: #334b78;
-  background: #e8eef8;
-  border-color: #c8d5ea;
-}
-
 .subtle {
   display: block;
   margin-top: 3px;
   color: var(--muted);
   font-size: 12px;
   line-height: 1.25;
+}
+
+.route-cell {
+  display: grid;
+  gap: 6px;
+}
+
+.route-cell span {
+  display: grid;
+  gap: 2px;
+  font-weight: 700;
+}
+
+.route-cell small {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.route-cell.compact span {
+  font-weight: 600;
 }
 
 .section-heading {

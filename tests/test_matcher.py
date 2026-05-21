@@ -80,6 +80,34 @@ class MatcherTests(unittest.TestCase):
         self.assertEqual(findings[0].person_name, "Hannibal A. Nisperos")
         self.assertEqual(findings[0].effective_date, "April 16, 2026")
 
+    def test_combines_transfer_between_two_watched_schools(self):
+        text = """
+        TRANSFERS/REASSIGNMENTS:
+        April 20, 2026
+        Shawana F. King Assistant Principal Assistant Principal   TBD
+        Martin MS Rundle ES
+        RoAnn Triana
+        May 14, 2026
+        """
+        attachment = Attachment("8.02", "Unified Personnel Promotions and Transfers/Reassignments.", "Info 8.02.pdf", "doc", "https://example.test/doc", "promotion_transfer")
+        meeting = Meeting(1678, "Regular Board Meeting - May 14 2026", "May 14, 2026", "https://example.test/meeting")
+        schools = [
+            School("martin_ms", "Cluster 5", "Martin MS", ("Martin MS", "Martin"), "clusters 1-10.png"),
+            School("rundle_es", "Cluster 4", "Rundle ES", ("Rundle ES", "Rundle"), "clusters 1-10.png"),
+        ]
+
+        findings = find_school_personnel_matches(text, attachment, meeting, schools)
+
+        self.assertEqual(len(findings), 1)
+        self.assertEqual(findings[0].person_name, "Shawana F. King")
+        self.assertEqual(findings[0].school_name, "Martin MS -> Rundle ES")
+        self.assertEqual(findings[0].cluster, "Cluster 5 -> Cluster 4")
+        self.assertEqual(findings[0].school_ids, ["martin_ms", "rundle_es"])
+        self.assertEqual(findings[0].clusters, ["Cluster 5", "Cluster 4"])
+        self.assertEqual(findings[0].from_school_name, "Martin MS")
+        self.assertEqual(findings[0].to_school_name, "Rundle ES")
+        self.assertEqual(findings[0].effective_date, "TBD")
+
     def test_ignores_new_hire_resume_company_location_matches(self):
         text = """
         Experience:

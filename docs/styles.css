@@ -342,6 +342,29 @@ pre {
   line-height: 1.25;
 }
 
+.route-cell {
+  display: grid;
+  gap: 6px;
+}
+
+.route-cell span {
+  display: grid;
+  gap: 2px;
+  font-weight: 700;
+}
+
+.route-cell small {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.route-cell.compact span {
+  font-weight: 600;
+}
+
 .type-chip,
 .new-badge {
   display: inline-flex;

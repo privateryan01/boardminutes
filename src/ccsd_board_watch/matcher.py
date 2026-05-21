@@ -137,63 +137,92 @@ def find_school_personnel_matches(text: str, attachment: Attachment, meeting: Me
     for index, normalized in enumerate(normalized_lines):
         if not normalized:
             continue
-        for school, alias, normalized_alias in aliases:
-            if not _contains_alias(normalized, normalized_alias):
-                continue
+        matches = _line_school_matches(normalized, aliases)
+        if not matches:
+            continue
 
-            start = max(0, index - 3)
-            end = min(len(lines), index + 4)
-            context_lines = lines[start:end]
-            context = "\n".join(context_lines)
-            person = extract_person_name(lines, index, alias)
-            effective_date = extract_effective_date_for_match(lines, index, context)
-            reason = extract_reason_for_match(lines, index, context)
-            if _should_reject_finding(lines, index, context, person, attachment.movement_type):
-                continue
-            confidence, flags = _confidence_for(person, effective_date, attachment.movement_type)
-            fingerprint_parts = [
-                meeting.meeting_id,
-                attachment.document_id,
-                school.school_id,
-                attachment.movement_type,
-                person,
-                effective_date,
-            ]
-            if not person:
-                fingerprint_parts.append(context)
-            fingerprint = _fingerprint(*fingerprint_parts)
-            if fingerprint in seen:
-                continue
-            seen.add(fingerprint)
+        if attachment.movement_type == "promotion_transfer" and len(matches) >= 2:
+            finding = _build_finding_from_matches(lines, index, matches[:2], attachment, meeting, seen)
+            if finding:
+                findings.append(finding)
+            continue
 
-            findings.append(
-                Finding(
-                    finding_id=fingerprint,
-                    meeting_id=meeting.meeting_id,
-                    meeting_name=meeting.meeting_name,
-                    meeting_date=meeting.meeting_date,
-                    board_meeting_url=meeting.source_url,
-                    item_number=attachment.item_number,
-                    item_title=attachment.item_title,
-                    movement_type=attachment.movement_type,
-                    school_id=school.school_id,
-                    school_name=school.display_name,
-                    cluster=school.cluster,
-                    matched_alias=alias,
-                    person_name=person,
-                    effective_date=effective_date,
-                    reason=reason,
-                    attachment_name=attachment.attachment_name,
-                    source_url=attachment.document_url,
-                    context=context,
-                    matched_line_number=index + 1,
-                    context_line_start=start + 1,
-                    context_line_end=end,
-                    confidence=confidence,
-                    flags=flags,
-                )
-            )
+        for match in matches:
+            finding = _build_finding_from_matches(lines, index, [match], attachment, meeting, seen)
+            if finding:
+                findings.append(finding)
     return findings
+
+
+def _build_finding_from_matches(
+    lines: list[str],
+    index: int,
+    matches: list[tuple[School, str, str, int]],
+    attachment: Attachment,
+    meeting: Meeting,
+    seen: set[str],
+) -> Finding | None:
+    start = max(0, index - 3)
+    end = min(len(lines), index + 4)
+    context_lines = lines[start:end]
+    context = "\n".join(context_lines)
+    primary = matches[0]
+    destination = matches[1] if len(matches) > 1 else None
+    person = extract_person_name(lines, index, primary[1])
+    effective_date = extract_effective_date_for_match(lines, index, context)
+    reason = extract_reason_for_match(lines, index, context)
+    if _should_reject_finding(lines, index, context, person, attachment.movement_type):
+        return None
+    confidence, flags = _confidence_for(person, effective_date, attachment.movement_type)
+    school_ids = [match[0].school_id for match in matches]
+    school_names = [match[0].display_name for match in matches]
+    clusters = list(dict.fromkeys(match[0].cluster for match in matches if match[0].cluster))
+    fingerprint = _fingerprint(
+        meeting.meeting_id,
+        attachment.document_id,
+        ">".join(school_ids),
+        attachment.movement_type,
+        person,
+        effective_date,
+    )
+    if fingerprint in seen:
+        return None
+    seen.add(fingerprint)
+
+    return Finding(
+        finding_id=fingerprint,
+        meeting_id=meeting.meeting_id,
+        meeting_name=meeting.meeting_name,
+        meeting_date=meeting.meeting_date,
+        board_meeting_url=meeting.source_url,
+        item_number=attachment.item_number,
+        item_title=attachment.item_title,
+        movement_type=attachment.movement_type,
+        school_id="|".join(school_ids),
+        school_name=" -> ".join(school_names),
+        cluster=" -> ".join(clusters),
+        matched_alias="; ".join(match[1] for match in matches),
+        person_name=person,
+        effective_date=effective_date,
+        reason=reason,
+        attachment_name=attachment.attachment_name,
+        source_url=attachment.document_url,
+        context=context,
+        matched_line_number=index + 1,
+        context_line_start=start + 1,
+        context_line_end=end,
+        confidence=confidence,
+        flags=flags,
+        school_ids=school_ids,
+        school_names=school_names,
+        clusters=clusters,
+        from_school_id=primary[0].school_id,
+        from_school_name=primary[0].display_name,
+        from_cluster=primary[0].cluster,
+        to_school_id=destination[0].school_id if destination else "",
+        to_school_name=destination[0].display_name if destination else "",
+        to_cluster=destination[0].cluster if destination else "",
+    )
 
 
 def extract_person_name(lines: list[str], index: int, alias: str) -> str:
@@ -255,9 +284,35 @@ def extract_reason_for_match(lines: list[str], index: int, context: str) -> str:
 
 
 def _contains_alias(normalized_line: str, normalized_alias: str) -> bool:
+    return _alias_match_position(normalized_line, normalized_alias) >= 0
+
+
+def _alias_match_position(normalized_line: str, normalized_alias: str) -> int:
     if len(normalized_alias) < 4:
-        return False
-    return re.search(rf"(^|\s){re.escape(normalized_alias)}($|\s)", normalized_line) is not None
+        return -1
+    match = re.search(rf"(^|\s){re.escape(normalized_alias)}($|\s)", normalized_line)
+    return match.start() + len(match.group(1)) if match else -1
+
+
+def _line_school_matches(
+    normalized_line: str,
+    aliases: list[tuple[School, str, str]],
+) -> list[tuple[School, str, str, int]]:
+    matches: list[tuple[School, str, str, int]] = []
+    for school, alias, normalized_alias in aliases:
+        position = _alias_match_position(normalized_line, normalized_alias)
+        if position >= 0:
+            matches.append((school, alias, normalized_alias, position))
+
+    seen: set[str] = set()
+    distinct: list[tuple[School, str, str, int]] = []
+    for match in sorted(matches, key=lambda item: (item[3], -len(item[2]))):
+        school = match[0]
+        if school.school_id in seen:
+            continue
+        seen.add(school.school_id)
+        distinct.append(match)
+    return distinct
 
 
 def _person_from_line_prefix(line: str, alias: str, next_line: str = "") -> str:

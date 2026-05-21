@@ -54,7 +54,7 @@
             <p>{{ finding.attachment_name }}</p>
           </div>
           <div>
-            <span>Matched School</span>
+            <span>{% if finding.from_school_name and finding.to_school_name %}Transfer Route{% else %}Matched School{% endif %}</span>
             <strong>{{ finding.school_name }}</strong>
             <p>{{ finding.cluster }}</p>
           </div>

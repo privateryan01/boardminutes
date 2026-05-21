@@ -297,66 +297,89 @@ function buildFindings(attachments, schools) {
     if (!EMPLOYMENT_MOVEMENT_TYPES.has(String(attachment.movement_type || ""))) continue;
     const lines = Array.isArray(attachment.lines) ? attachment.lines.map((line) => String(line).trim()).filter(Boolean) : [];
     const normalizedLines = lines.map(normalizeName);
-    const matchedLineSchools = new Set();
     for (let index = 0; index < normalizedLines.length; index += 1) {
       const normalized = normalizedLines[index];
       if (!normalized) continue;
-      for (const aliasInfo of aliases) {
-        if (!containsAlias(normalized, aliasInfo.normalizedAlias)) continue;
-        const lineSchoolKey = `${attachment.attachment_id}:${index}:${aliasInfo.school.school_id}`;
-        if (matchedLineSchools.has(lineSchoolKey)) continue;
-        matchedLineSchools.add(lineSchoolKey);
+      const matches = lineSchoolMatches(normalized, aliases);
+      if (!matches.length) continue;
 
-        const start = Math.max(0, index - 3);
-        const end = Math.min(lines.length, index + 4);
-        const contextLines = lines.slice(start, end);
-        const context = contextLines.join("\n");
-        const person = extractPersonName(lines, index, aliasInfo.normalizedAlias);
-        const effectiveDate = extractEffectiveDateForMatch(lines, index, context);
-        const reason = extractReasonForMatch(lines, index, context);
-        if (shouldRejectFinding(lines, index, context, person, attachment.movement_type)) continue;
-        const fingerprintParts = [
-          attachment.meeting_id,
-          attachment.document_id,
-          aliasInfo.school.school_id,
-          attachment.movement_type,
-          person,
-          effectiveDate,
-        ];
-        if (!person) fingerprintParts.push(context);
-        const id = fingerprint(fingerprintParts);
-        if (seen.has(id)) continue;
-        seen.add(id);
-        findings.push({
-          id,
-          meeting_id: attachment.meeting_id,
-          meeting_name: attachment.meeting_name,
-          meeting_date: attachment.meeting_date,
-          meeting_year: attachment.meeting_year,
-          board_meeting_url: attachment.board_meeting_url,
-          item_number: attachment.item_number,
-          item_title: attachment.item_title,
-          movement_type: attachment.movement_type,
-          school_id: aliasInfo.school.school_id,
-          school_name: aliasInfo.school.display_name,
-          cluster: aliasInfo.school.cluster,
-          matched_alias: aliasInfo.alias,
-          person_name: person,
-          effective_date: effectiveDate,
-          reason,
-          attachment_id: attachment.attachment_id,
-          attachment_name: attachment.attachment_name,
-          document_url: attachment.document_url,
-          context,
-          matched_line_number: index + 1,
-          context_line_start: start + 1,
-          context_line_end: end,
-        });
+      if (attachment.movement_type === "promotion_transfer" && matches.length >= 2) {
+        const finding = buildFindingFromMatches(attachment, lines, index, matches.slice(0, 2), seen);
+        if (finding) findings.push(finding);
+        continue;
+      }
+
+      for (const match of matches) {
+        const finding = buildFindingFromMatches(attachment, lines, index, [match], seen);
+        if (finding) findings.push(finding);
       }
     }
   }
 
   return findings.sort(compareFindings);
+}
+
+function buildFindingFromMatches(attachment, lines, index, matches, seen) {
+  const start = Math.max(0, index - 3);
+  const end = Math.min(lines.length, index + 4);
+  const contextLines = lines.slice(start, end);
+  const context = contextLines.join("\n");
+  const primary = matches[0];
+  const destination = matches[1] || null;
+  const person = extractPersonName(lines, index, primary.normalizedAlias);
+  const effectiveDate = extractEffectiveDateForMatch(lines, index, context);
+  const reason = extractReasonForMatch(lines, index, context);
+  if (shouldRejectFinding(lines, index, context, person, attachment.movement_type)) return null;
+
+  const schoolIds = matches.map((match) => match.school.school_id);
+  const schoolNames = matches.map((match) => match.school.display_name);
+  const clusters = unique(matches.map((match) => match.school.cluster));
+  const fingerprintParts = [
+    attachment.meeting_id,
+    attachment.document_id,
+    schoolIds.join(">"),
+    attachment.movement_type,
+    person,
+    effectiveDate,
+  ];
+  const id = fingerprint(fingerprintParts);
+  if (seen.has(id)) return null;
+  seen.add(id);
+
+  return {
+    id,
+    meeting_id: attachment.meeting_id,
+    meeting_name: attachment.meeting_name,
+    meeting_date: attachment.meeting_date,
+    meeting_year: attachment.meeting_year,
+    board_meeting_url: attachment.board_meeting_url,
+    item_number: attachment.item_number,
+    item_title: attachment.item_title,
+    movement_type: attachment.movement_type,
+    school_id: schoolIds.join("|"),
+    school_ids: schoolIds,
+    school_name: schoolNames.join(" -> "),
+    school_names: schoolNames,
+    cluster: clusters.join(" -> "),
+    clusters,
+    matched_alias: matches.map((match) => match.alias).join("; "),
+    from_school_id: primary.school.school_id,
+    from_school_name: primary.school.display_name,
+    from_cluster: primary.school.cluster,
+    to_school_id: destination ? destination.school.school_id : "",
+    to_school_name: destination ? destination.school.display_name : "",
+    to_cluster: destination ? destination.school.cluster : "",
+    person_name: person,
+    effective_date: effectiveDate,
+    reason,
+    attachment_id: attachment.attachment_id,
+    attachment_name: attachment.attachment_name,
+    document_url: attachment.document_url,
+    context,
+    matched_line_number: index + 1,
+    context_line_start: start + 1,
+    context_line_end: end,
+  };
 }
 
 function renderAll() {
@@ -401,13 +424,13 @@ function renderDashboard() {
   renderMetrics();
   renderBars("typeBars", countBy(state.filteredFindings, "movement_type"), labelMovementType);
   renderBars("yearBars", countBy(state.filteredFindings, "meeting_year"), (year) => labelYear(year));
-  renderBars("clusterBars", countBy(state.filteredFindings, "cluster"), (cluster) => cluster || "Unassigned", (a, b) => compareClusters(a[0], b[0]));
+  renderBars("clusterBars", countByFindingClusters(state.filteredFindings), (cluster) => cluster || "Unassigned", (a, b) => compareClusters(a[0], b[0]));
   renderFindingsTable();
 }
 
 function renderMetrics() {
   const source = state.data.source || {};
-  const matchedSchools = new Set(state.filteredFindings.map((finding) => finding.school_id)).size;
+  const matchedSchools = new Set(state.filteredFindings.flatMap(findingSchoolIds)).size;
   document.getElementById("metricsGrid").innerHTML = [
     metric("Meetings Scanned", source.scanned_meeting_count || 0),
     metric("Attachments", source.attachment_count || 0),
@@ -427,10 +450,10 @@ function renderFindingsTable() {
   body.innerHTML = state.filteredFindings.map((finding) => `
     <tr${finding.is_new ? ' class="row-new"' : ""}>
       <td>
-        ${escapeHtml(finding.school_name)}
+        ${renderSchoolCell(finding)}
         ${finding.is_new ? '<span class="new-badge">New</span>' : ""}
       </td>
-      <td>${escapeHtml(finding.cluster)}</td>
+      <td>${renderClusterCell(finding)}</td>
       <td>
         <a href="${escapeAttribute(finding.board_meeting_url)}" target="_blank" rel="noreferrer">${escapeHtml(finding.meeting_date)}</a>
         <span class="subtle">${escapeHtml(finding.meeting_name)}</span>
@@ -522,9 +545,9 @@ function renderTrace(findingId) {
         <p>${escapeHtml(finding.attachment_name)}</p>
       </div>
       <div>
-        <span>Matched School</span>
-        <strong>${escapeHtml(finding.school_name)}</strong>
-        <p>${escapeHtml(finding.cluster)}</p>
+        <span>${isTransferRoute(finding) ? "Transfer Route" : "Matched School"}</span>
+        <strong>${escapeHtml(findingSchoolText(finding))}</strong>
+        <p>${escapeHtml(findingClusterText(finding))}</p>
       </div>
       <div>
         <span>Person / Date</span>
@@ -555,13 +578,17 @@ function renderTrace(findingId) {
 function applyFilters(findings) {
   return findings.filter((finding) => {
     if (state.filters.year !== "all" && finding.meeting_year !== state.filters.year) return false;
-    if (state.filters.cluster !== "all" && finding.cluster !== state.filters.cluster) return false;
+    if (state.filters.cluster !== "all" && !findingClusters(finding).includes(state.filters.cluster)) return false;
     if (state.filters.type !== "all" && finding.movement_type !== state.filters.type) return false;
     if (state.filters.newOnly && !finding.is_new) return false;
     if (state.filters.search) {
       const haystack = [
-        finding.school_name,
-        finding.cluster,
+        findingSchoolText(finding),
+        findingClusterText(finding),
+        finding.from_school_name,
+        finding.from_cluster,
+        finding.to_school_name,
+        finding.to_cluster,
         finding.person_name,
         finding.movement_type,
         labelMovementType(finding.movement_type),
@@ -807,10 +834,63 @@ function typeChip(value) {
   return `<span class="type-chip type-${escapeAttribute(className)}">${escapeHtml(labelMovementType(type))}</span>`;
 }
 
+function renderSchoolCell(finding) {
+  if (!isTransferRoute(finding)) return escapeHtml(finding.school_name);
+  return `
+    <div class="route-cell">
+      <span><small>From</small>${escapeHtml(finding.from_school_name)}</span>
+      <span><small>To</small>${escapeHtml(finding.to_school_name)}</span>
+    </div>
+  `;
+}
+
+function renderClusterCell(finding) {
+  if (!isTransferRoute(finding)) return escapeHtml(finding.cluster);
+  return `
+    <div class="route-cell compact">
+      <span><small>From</small>${escapeHtml(finding.from_cluster)}</span>
+      <span><small>To</small>${escapeHtml(finding.to_cluster)}</span>
+    </div>
+  `;
+}
+
+function isTransferRoute(finding) {
+  return finding.movement_type === "promotion_transfer" && Boolean(finding.from_school_name && finding.to_school_name);
+}
+
+function findingSchoolText(finding) {
+  if (isTransferRoute(finding)) return `${finding.from_school_name} -> ${finding.to_school_name}`;
+  return String(finding.school_name || "");
+}
+
+function findingClusterText(finding) {
+  if (isTransferRoute(finding)) return `${finding.from_cluster} -> ${finding.to_cluster}`;
+  return String(finding.cluster || "");
+}
+
+function findingSchoolIds(finding) {
+  const ids = Array.isArray(finding.school_ids) ? finding.school_ids : String(finding.school_id || "").split("|");
+  return unique(ids.map((id) => String(id || "").trim()).filter(Boolean));
+}
+
+function findingClusters(finding) {
+  const clusters = Array.isArray(finding.clusters) ? finding.clusters : String(finding.cluster || "").split("->");
+  return unique(clusters.map((cluster) => String(cluster || "").trim()).filter(Boolean));
+}
+
 function countBy(items, key) {
   return items.reduce((counts, item) => {
     const value = item[key] || "Unknown";
     counts[value] = (counts[value] || 0) + 1;
+    return counts;
+  }, {});
+}
+
+function countByFindingClusters(findings) {
+  return findings.reduce((counts, finding) => {
+    for (const cluster of findingClusters(finding)) {
+      counts[cluster] = (counts[cluster] || 0) + 1;
+    }
     return counts;
   }, {});
 }
@@ -827,6 +907,28 @@ function compiledSchoolAliases(schools) {
     }
   }
   return compiled.sort((a, b) => b.normalizedAlias.length - a.normalizedAlias.length);
+}
+
+function lineSchoolMatches(normalizedLine, aliases) {
+  const matches = [];
+  for (const aliasInfo of aliases) {
+    const position = aliasMatchPosition(normalizedLine, aliasInfo.normalizedAlias);
+    if (position < 0) continue;
+    matches.push({ ...aliasInfo, position });
+  }
+  return uniqueSchoolMatches(matches);
+}
+
+function uniqueSchoolMatches(matches) {
+  const seen = new Set();
+  const uniqueMatches = [];
+  const ordered = [...matches].sort((a, b) => a.position - b.position || b.normalizedAlias.length - a.normalizedAlias.length);
+  for (const match of ordered) {
+    if (seen.has(match.school.school_id)) continue;
+    seen.add(match.school.school_id);
+    uniqueMatches.push(match);
+  }
+  return uniqueMatches;
 }
 
 function normalizeName(value) {
@@ -864,8 +966,13 @@ function skipBareAlias(alias, normalizedVariant) {
 }
 
 function containsAlias(normalizedLine, normalizedAlias) {
-  if (normalizedAlias.length < 4) return false;
-  return new RegExp(`(^|\\s)${escapeRegExp(normalizedAlias)}($|\\s)`).test(normalizedLine);
+  return aliasMatchPosition(normalizedLine, normalizedAlias) >= 0;
+}
+
+function aliasMatchPosition(normalizedLine, normalizedAlias) {
+  if (normalizedAlias.length < 4) return -1;
+  const match = new RegExp(`(^|\\s)${escapeRegExp(normalizedAlias)}($|\\s)`).exec(normalizedLine);
+  return match ? match.index + match[1].length : -1;
 }
 
 function extractPersonName(lines, index, alias) {
@@ -1073,7 +1180,7 @@ function compareFindings(a, b) {
   const dateA = Date.parse(a.meeting_date) || 0;
   const dateB = Date.parse(b.meeting_date) || 0;
   if (dateA !== dateB) return dateB - dateA;
-  return `${a.school_name} ${a.person_name}`.localeCompare(`${b.school_name} ${b.person_name}`);
+  return `${findingSchoolText(a)} ${a.person_name}`.localeCompare(`${findingSchoolText(b)} ${b.person_name}`);
 }
 
 function compareClusters(a, b) {

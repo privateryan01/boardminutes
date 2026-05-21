@@ -168,7 +168,7 @@
               <table>
                 <thead>
                   <tr>
-                    <th>School</th>
+                    <th>School / Route</th>
                     <th>Cluster</th>
                     <th>Board Meeting</th>
                     <th>Type</th>
@@ -181,8 +181,26 @@
                 <tbody>
                   {% for finding in section.findings %}
                     <tr>
-                      <td>{{ finding.school_name }}</td>
-                      <td>{{ finding.cluster }}</td>
+                      <td>
+                        {% if finding.from_school_name and finding.to_school_name %}
+                          <div class="route-cell">
+                            <span><small>From</small>{{ finding.from_school_name }}</span>
+                            <span><small>To</small>{{ finding.to_school_name }}</span>
+                          </div>
+                        {% else %}
+                          {{ finding.school_name }}
+                        {% endif %}
+                      </td>
+                      <td>
+                        {% if finding.from_school_name and finding.to_school_name %}
+                          <div class="route-cell compact">
+                            <span><small>From</small>{{ finding.from_cluster }}</span>
+                            <span><small>To</small>{{ finding.to_cluster }}</span>
+                          </div>
+                        {% else %}
+                          {{ finding.cluster }}
+                        {% endif %}
+                      </td>
                       <td>
                         <a href="{{ finding.board_meeting_url }}" target="_blank" rel="noreferrer">{{ finding.meeting_date }}</a>
                         <span class="subtle">{{ finding.meeting_name }}</span>

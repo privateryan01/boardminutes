@@ -58,6 +58,15 @@ class Finding:
     source_text_path: str = ""
     confidence: str = "medium"
     flags: list[str] = field(default_factory=list)
+    school_ids: list[str] = field(default_factory=list)
+    school_names: list[str] = field(default_factory=list)
+    clusters: list[str] = field(default_factory=list)
+    from_school_id: str = ""
+    from_school_name: str = ""
+    from_cluster: str = ""
+    to_school_id: str = ""
+    to_school_name: str = ""
+    to_cluster: str = ""
 
     def to_dict(self) -> dict[str, object]:
         return asdict(self)
