@@ -77,3 +77,21 @@ class WebFilterTests(unittest.TestCase):
     def test_user_id_validation_rejects_non_cookie_path_values(self):
         self.assertTrue(_valid_user_id("a" * 32))
         self.assertFalse(_valid_user_id("../bad"))
+
+    def test_scan_rejects_non_ccsd_meeting_url(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            data_dir = Path(tmp)
+            shutil.copy2(Path("data/schools.csv"), data_dir / "schools.csv")
+            app = create_app(school_file=data_dir / "schools.csv", output_dir=data_dir / "runs")
+            app.config.update(TESTING=True)
+
+            with app.test_client() as client:
+                response = client.post(
+                    "/scan",
+                    data={
+                        "action": "single",
+                        "meeting_url": "http://127.0.0.1:8765/Portal/MeetingInformation.aspx?Org=Cal&Id=1678",
+                    },
+                )
+
+            self.assertEqual(response.status_code, 400)

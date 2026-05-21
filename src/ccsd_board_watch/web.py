@@ -85,18 +85,21 @@ def create_app(
         action = request.form.get("action") or "single"
         meeting_url = request.form.get("meeting_url") or DEFAULT_MEETING_URL
         include_all = request.form.get("include_all") == "on"
-        if action == "previous_year":
-            from_date, to_date = previous_and_current_calendar_window()
-            scan_meeting_range(from_date, to_date, active_school_file, active_output_dir, source_url=meeting_url, include_all_attachments=include_all)
-        elif action == "range":
-            from_date = request.form.get("from_date", "").strip()
-            to_date = request.form.get("to_date", "").strip()
-            if from_date and to_date:
+        try:
+            if action == "previous_year":
+                from_date, to_date = previous_and_current_calendar_window()
                 scan_meeting_range(from_date, to_date, active_school_file, active_output_dir, source_url=meeting_url, include_all_attachments=include_all)
+            elif action == "range":
+                from_date = request.form.get("from_date", "").strip()
+                to_date = request.form.get("to_date", "").strip()
+                if from_date and to_date:
+                    scan_meeting_range(from_date, to_date, active_school_file, active_output_dir, source_url=meeting_url, include_all_attachments=include_all)
+                else:
+                    scan_meeting(meeting_url, active_school_file, active_output_dir, include_all_attachments=include_all)
             else:
                 scan_meeting(meeting_url, active_school_file, active_output_dir, include_all_attachments=include_all)
-        else:
-            scan_meeting(meeting_url, active_school_file, active_output_dir, include_all_attachments=include_all)
+        except ValueError as exc:
+            abort(400, description=str(exc))
         return redirect(url_for("index"))
 
     @app.get("/schools")

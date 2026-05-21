@@ -1,6 +1,6 @@
 import unittest
 
-from ccsd_board_watch.diligent import extract_personnel_attachments
+from ccsd_board_watch.diligent import DiligentClient, _read_limited_response, extract_personnel_attachments, validate_document_url
 
 
 class DiligentTests(unittest.TestCase):
@@ -56,3 +56,67 @@ class DiligentTests(unittest.TestCase):
         attachments = extract_personnel_attachments(html, "https://example.test")
 
         self.assertEqual(attachments, [])
+
+    def test_rejects_non_ccsd_meeting_hosts(self):
+        with self.assertRaises(ValueError):
+            DiligentClient("https://evil.example/Portal/MeetingInformation.aspx?Org=Cal&Id=1678")
+
+    def test_rejects_non_https_meeting_urls(self):
+        with self.assertRaises(ValueError):
+            DiligentClient("http://ccsd.community.diligentoneplatform.com/Portal/MeetingInformation.aspx?Org=Cal&Id=1678")
+
+    def test_rejects_non_standard_meeting_url_ports(self):
+        with self.assertRaises(ValueError):
+            DiligentClient("https://ccsd.community.diligentoneplatform.com:8443/Portal/MeetingInformation.aspx?Org=Cal&Id=1678")
+
+    def test_extract_personnel_attachments_skips_off_origin_documents(self):
+        html = """
+        <table><tr><td>8.02</td><td><h3>Unified Personnel Promotions and Transfers/Reassignments.</h3>
+        <a href="https://evil.example/document/abc-123">05.14.26 Info. 8.02.pdf</a></td></tr></table>
+        """
+
+        attachments = extract_personnel_attachments(html, "https://ccsd.community.diligentoneplatform.com")
+
+        self.assertEqual(attachments, [])
+
+    def test_document_urls_must_stay_on_meeting_origin(self):
+        with self.assertRaises(ValueError):
+            validate_document_url(
+                "https://evil.example/document/abc-123",
+                "https://ccsd.community.diligentoneplatform.com",
+            )
+
+    def test_document_urls_must_stay_on_meeting_port(self):
+        with self.assertRaises(ValueError):
+            validate_document_url(
+                "https://ccsd.community.diligentoneplatform.com:8443/document/abc-123",
+                "https://ccsd.community.diligentoneplatform.com",
+            )
+
+    def test_document_urls_must_not_use_credentials(self):
+        with self.assertRaises(ValueError):
+            validate_document_url(
+                "https://user:pass@ccsd.community.diligentoneplatform.com/document/abc-123",
+                "https://ccsd.community.diligentoneplatform.com",
+            )
+
+    def test_read_limited_response_rejects_large_content_length(self):
+        response = _FakeResponse(headers={"Content-Length": "11"}, chunks=[b"small"])
+
+        with self.assertRaises(ValueError):
+            _read_limited_response(response, max_bytes=10)
+
+    def test_read_limited_response_rejects_stream_over_limit(self):
+        response = _FakeResponse(headers={}, chunks=[b"12345", b"67890", b"1"])
+
+        with self.assertRaises(ValueError):
+            _read_limited_response(response, max_bytes=10)
+
+
+class _FakeResponse:
+    def __init__(self, headers: dict[str, str], chunks: list[bytes]):
+        self.headers = headers
+        self._chunks = chunks
+
+    def iter_content(self, chunk_size: int):
+        yield from self._chunks

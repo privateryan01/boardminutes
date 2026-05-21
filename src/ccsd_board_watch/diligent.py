@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import re
 from html import unescape
 from urllib.parse import parse_qs, urlencode, urljoin, urlparse
@@ -10,6 +11,9 @@ from bs4 import BeautifulSoup
 from .models import Attachment, Meeting
 
 DEFAULT_MEETING_URL = "https://ccsd.community.diligentoneplatform.com/Portal/MeetingInformation.aspx?Org=Cal&Id=1678"
+ALLOWED_MEETING_HOSTS = frozenset({"ccsd.community.diligentoneplatform.com"})
+MAX_JSON_BYTES = 10 * 1024 * 1024
+MAX_DOCUMENT_BYTES = 25 * 1024 * 1024
 
 PERSONNEL_KEYWORDS = (
     "personnel",
@@ -28,8 +32,8 @@ PERSONNEL_KEYWORDS = (
 
 class DiligentClient:
     def __init__(self, source_url: str = DEFAULT_MEETING_URL, timeout: int = 45):
-        self.source_url = source_url
-        self.base_url = _base_url(source_url)
+        self.source_url = validate_meeting_url(source_url)
+        self.base_url = _base_url(self.source_url)
         self.timeout = timeout
         self.session = requests.Session()
         self.session.headers.update(
@@ -42,31 +46,32 @@ class DiligentClient:
     def get_meeting_documents_payload(self, meeting_id: int | None = None) -> dict:
         meeting_id = meeting_id or meeting_id_from_url(self.source_url)
         url = urljoin(self.base_url, f"/Services/MeetingsService.svc/meetings/{meeting_id}/meetingDocuments")
-        response = self.session.get(url, timeout=self.timeout)
-        response.raise_for_status()
-        return response.json()
+        return self._get_json(url)
 
     def get_meeting_data(self, meeting_id: int | None = None) -> dict:
         meeting_id = meeting_id or meeting_id_from_url(self.source_url)
         url = urljoin(self.base_url, f"/Services/MeetingsService.svc/meetings/{meeting_id}/meetingData")
-        response = self.session.get(url, timeout=self.timeout)
-        response.raise_for_status()
-        return response.json()
+        return self._get_json(url)
 
     def list_meetings(self, from_date: str, to_date: str, load_all: bool = True) -> list[dict]:
         query = urlencode({"from": from_date, "to": to_date, "loadall": str(load_all).lower()})
         url = urljoin(self.base_url, f"/Services/MeetingsService.svc/meetings?{query}")
-        response = self.session.get(url, timeout=self.timeout)
-        response.raise_for_status()
-        meetings = response.json()
+        meetings = self._get_json(url)
         if not isinstance(meetings, list):
             raise ValueError("Meeting list endpoint did not return a list.")
         return meetings
 
     def download_document(self, document_url: str) -> bytes:
-        response = self.session.get(document_url, timeout=self.timeout)
+        validated_url = validate_document_url(document_url, self.base_url)
+        return self._get_bytes(validated_url, MAX_DOCUMENT_BYTES)
+
+    def _get_json(self, url: str) -> dict | list:
+        return json.loads(self._get_bytes(url, MAX_JSON_BYTES).decode("utf-8"))
+
+    def _get_bytes(self, url: str, max_bytes: int) -> bytes:
+        response = self.session.get(url, timeout=self.timeout, stream=True)
         response.raise_for_status()
-        return response.content
+        return _read_limited_response(response, max_bytes)
 
 
 def meeting_id_from_url(url: str) -> int:
@@ -75,6 +80,39 @@ def meeting_id_from_url(url: str) -> int:
     if "Id" not in query:
         raise ValueError(f"Meeting URL is missing Id query parameter: {url}")
     return int(query["Id"][0])
+
+
+def validate_meeting_url(url: str) -> str:
+    parsed = urlparse(url)
+    if parsed.scheme.lower() != "https":
+        raise ValueError("Meeting URL must use https.")
+    if parsed.username or parsed.password:
+        raise ValueError("Meeting URL must not contain credentials.")
+    if _effective_port(parsed) != 443:
+        raise ValueError("Meeting URL must use the standard https port.")
+    host = (parsed.hostname or "").lower().rstrip(".")
+    if host not in ALLOWED_MEETING_HOSTS:
+        raise ValueError("Meeting URL must use the official CCSD Diligent board website.")
+    if parsed.path.lower() != "/portal/meetinginformation.aspx":
+        raise ValueError("Meeting URL must point to a Diligent meeting information page.")
+    meeting_id_from_url(url)
+    return url
+
+
+def validate_document_url(document_url: str, base_url: str) -> str:
+    parsed_url = urlparse(document_url)
+    parsed_base = urlparse(base_url)
+    if parsed_url.username or parsed_url.password:
+        raise ValueError("Document URL must not contain credentials.")
+    if parsed_url.scheme.lower() != parsed_base.scheme.lower():
+        raise ValueError("Document URL must use the same scheme as the meeting website.")
+    if (parsed_url.hostname or "").lower().rstrip(".") != (parsed_base.hostname or "").lower().rstrip("."):
+        raise ValueError("Document URL must stay on the official meeting website.")
+    if _effective_port(parsed_url) != _effective_port(parsed_base):
+        raise ValueError("Document URL must use the same port as the meeting website.")
+    if not re.search(r"/document/[^/?#]+", parsed_url.path):
+        raise ValueError("Document URL must point to a Diligent document.")
+    return document_url
 
 
 def extract_meeting(source_url: str, documents_payload: dict, meeting_data: dict) -> Meeting:
@@ -128,13 +166,17 @@ def extract_personnel_attachments(agenda_html: str, base_url: str, include_all: 
             continue
         seen.add(document_id)
 
+        document_url = _same_origin_document_url(base_url, href)
+        if not document_url:
+            continue
+
         attachments.append(
             Attachment(
                 item_number=item_number,
                 item_title=item_title,
                 attachment_name=attachment_name,
                 document_id=document_id,
-                document_url=urljoin(base_url, href),
+                document_url=document_url,
                 movement_type=movement_type,
             )
         )
@@ -169,6 +211,50 @@ def clean_text(value: str) -> str:
 def _base_url(source_url: str) -> str:
     parsed = urlparse(source_url)
     return f"{parsed.scheme}://{parsed.netloc}"
+
+
+def _same_origin_document_url(base_url: str, href: str) -> str:
+    document_url = urljoin(base_url, href)
+    try:
+        return validate_document_url(document_url, base_url)
+    except ValueError:
+        return ""
+
+
+def _effective_port(parsed) -> int:
+    try:
+        port = parsed.port
+    except ValueError as exc:
+        raise ValueError("URL port is invalid.") from exc
+    if port:
+        return port
+    if parsed.scheme.lower() == "https":
+        return 443
+    if parsed.scheme.lower() == "http":
+        return 80
+    return 0
+
+
+def _read_limited_response(response: requests.Response, max_bytes: int) -> bytes:
+    content_length = response.headers.get("Content-Length")
+    if content_length:
+        try:
+            expected_length = int(content_length)
+        except ValueError:
+            expected_length = 0
+        if expected_length > max_bytes:
+            raise ValueError("Response is too large.")
+
+    chunks: list[bytes] = []
+    total = 0
+    for chunk in response.iter_content(chunk_size=64 * 1024):
+        if not chunk:
+            continue
+        total += len(chunk)
+        if total > max_bytes:
+            raise ValueError("Response is too large.")
+        chunks.append(chunk)
+    return b"".join(chunks)
 
 
 def _is_personnel_item(item_title: str, attachment_name: str) -> bool:

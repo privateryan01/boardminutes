@@ -13,6 +13,10 @@ from .models import Attachment, Finding, Meeting
 from .pdf_text import extract_pdf_text
 from .schools import load_schools
 
+MAX_RANGE_DAYS = 731
+MAX_MEETINGS_PER_RANGE = 250
+MAX_ATTACHMENTS_PER_MEETING = 75
+
 
 def scan_meeting(
     meeting_url: str,
@@ -38,11 +42,13 @@ def scan_meeting_range(
     include_all_attachments: bool = False,
     published_only: bool = True,
 ) -> dict:
+    _validate_date_window(from_date, to_date)
     schools = load_schools(school_file)
     client = DiligentClient(source_url)
     meeting_rows = client.list_meetings(from_date, to_date, load_all=True)
     if published_only:
         meeting_rows = [row for row in meeting_rows if row.get("Published") is True and not row.get("ExternalCalendar")]
+    _enforce_meeting_count(meeting_rows)
     meeting_rows = sorted(meeting_rows, key=lambda row: (row.get("MeetingDate") or "", row.get("MeetingDateTime") or "", row.get("Id") or 0))
 
     run_dir = _run_dir(output_dir, f"range-{from_date}-to-{to_date}")
@@ -102,6 +108,28 @@ def previous_and_current_calendar_window(today: date | None = None) -> tuple[str
     return date(today.year - 1, 1, 1).isoformat(), today.isoformat()
 
 
+def _validate_date_window(from_date: str, to_date: str) -> None:
+    try:
+        start = date.fromisoformat(from_date)
+        end = date.fromisoformat(to_date)
+    except ValueError as exc:
+        raise ValueError("Date range must use YYYY-MM-DD dates.") from exc
+    if start > end:
+        raise ValueError("Date range start must be on or before end.")
+    if (end - start).days > MAX_RANGE_DAYS:
+        raise ValueError(f"Date range cannot exceed {MAX_RANGE_DAYS} days.")
+
+
+def _enforce_meeting_count(meeting_rows: list[dict]) -> None:
+    if len(meeting_rows) > MAX_MEETINGS_PER_RANGE:
+        raise ValueError(f"Meeting range returned {len(meeting_rows)} meetings; limit is {MAX_MEETINGS_PER_RANGE}.")
+
+
+def _enforce_attachment_count(attachments: list[Attachment]) -> None:
+    if len(attachments) > MAX_ATTACHMENTS_PER_MEETING:
+        raise ValueError(f"Meeting returned {len(attachments)} attachments; limit is {MAX_ATTACHMENTS_PER_MEETING}.")
+
+
 def _scan_one_meeting(
     client: DiligentClient,
     meeting_id: int,
@@ -116,6 +144,7 @@ def _scan_one_meeting(
     meeting = extract_meeting(source_url, documents_payload, meeting_data)
     agenda_html = extract_agenda_html(documents_payload)
     attachments = extract_personnel_attachments(agenda_html, client.base_url, include_all=include_all_attachments)
+    _enforce_attachment_count(attachments)
 
     pdf_dir = run_dir / "pdfs"
     text_dir = run_dir / "text"
