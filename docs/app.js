@@ -77,6 +77,18 @@ const EMPLOYMENT_MOVEMENT_TYPES = new Set([
   "promotion_transfer",
   "separation",
 ]);
+const TYPE_FILTER_ORDER = [
+  "new_hire",
+  "promotion_transfer",
+  "retirement",
+  "relocation",
+  "separation",
+];
+const TYPE_FILTER_LABELS = {
+  relocation: "Relocation",
+  retirement: "Retirement",
+  separation: "Other Separation",
+};
 const ORGANIZATION_WORDS = new Set([
   "agency",
   "association",
@@ -412,8 +424,8 @@ function renderFilterOptions() {
   const clusters = unique(state.schools.map((school) => school.cluster).filter(Boolean)).sort(compareClusters);
   setOptions(document.getElementById("clusterFilter"), [["all", "All clusters"], ...clusters.map((cluster) => [cluster, cluster])], state.filters.cluster);
 
-  const types = unique(state.findings.map((finding) => finding.movement_type).filter((type) => EMPLOYMENT_MOVEMENT_TYPES.has(type))).sort();
-  setOptions(document.getElementById("typeFilter"), [["all", "All types"], ...types.map((type) => [type, labelMovementType(type)])], state.filters.type);
+  const types = unique(state.findings.map(findingTypeFilter)).sort(compareTypeFilters);
+  setOptions(document.getElementById("typeFilter"), [["all", "All types"], ...types.map((type) => [type, labelTypeFilter(type)])], state.filters.type);
 
   document.getElementById("searchFilter").value = state.filters.search;
   document.getElementById("newOnlyFilter").checked = state.filters.newOnly;
@@ -422,7 +434,7 @@ function renderFilterOptions() {
 function renderDashboard() {
   state.filteredFindings = applyFilters(state.findings);
   renderMetrics();
-  renderBars("typeBars", countBy(state.filteredFindings, "movement_type"), labelMovementType);
+  renderBars("typeBars", countByTypeFilter(state.filteredFindings), labelTypeFilter, (a, b) => compareTypeFilters(a[0], b[0]));
   renderBars("yearBars", countBy(state.filteredFindings, "meeting_year"), (year) => labelYear(year));
   renderBars("clusterBars", countByFindingClusters(state.filteredFindings), (cluster) => cluster || "Unassigned", (a, b) => compareClusters(a[0], b[0]));
   renderFindingsTable();
@@ -458,7 +470,7 @@ function renderFindingsTable() {
         <a href="${escapeAttribute(finding.board_meeting_url)}" target="_blank" rel="noreferrer">${escapeHtml(finding.meeting_date)}</a>
         <span class="subtle">${escapeHtml(finding.meeting_name)}</span>
       </td>
-      <td>${typeChip(finding.movement_type)}</td>
+      <td>${findingTypeChip(finding)}</td>
       <td>
         <strong>${escapeHtml(finding.person_name || "Review needed")}</strong>
       </td>
@@ -529,7 +541,7 @@ function renderTrace(findingId) {
   document.getElementById("officialSourcePanel").innerHTML = `
     <div class="section-heading">
       <h2>1. Official Board Source</h2>
-      ${typeChip(finding.movement_type)}
+      ${findingTypeChip(finding)}
     </div>
     <p>This record traces back to the official CCSD/Diligent board meeting page. Open the board site to review the agenda item and linked attachment on the public source page.</p>
     <a class="official-link" href="${escapeAttribute(finding.board_meeting_url)}" target="_blank" rel="noreferrer">Open Official Board Meeting Website</a>
@@ -579,7 +591,7 @@ function applyFilters(findings) {
   return findings.filter((finding) => {
     if (state.filters.year !== "all" && finding.meeting_year !== state.filters.year) return false;
     if (state.filters.cluster !== "all" && !findingClusters(finding).includes(state.filters.cluster)) return false;
-    if (state.filters.type !== "all" && finding.movement_type !== state.filters.type) return false;
+    if (state.filters.type !== "all" && findingTypeFilter(finding) !== state.filters.type) return false;
     if (state.filters.newOnly && !finding.is_new) return false;
     if (state.filters.search) {
       const haystack = [
@@ -592,6 +604,7 @@ function applyFilters(findings) {
         finding.person_name,
         finding.movement_type,
         labelMovementType(finding.movement_type),
+        labelTypeFilter(findingTypeFilter(finding)),
         finding.reason,
         finding.effective_date,
         finding.meeting_name,
@@ -834,6 +847,40 @@ function typeChip(value) {
   return `<span class="type-chip type-${escapeAttribute(className)}">${escapeHtml(labelMovementType(type))}</span>`;
 }
 
+function findingTypeChip(finding) {
+  const type = findingTypeFilter(finding);
+  const className = type.toLowerCase().replace(/[^a-z0-9_-]+/g, "-");
+  return `<span class="type-chip type-${escapeAttribute(className)}">${escapeHtml(findingTypeLabel(finding))}</span>`;
+}
+
+function findingTypeLabel(finding) {
+  const type = findingTypeFilter(finding);
+  if (type === "retirement" || type === "relocation") return labelTypeFilter(type);
+  return labelMovementType(finding.movement_type);
+}
+
+function findingTypeFilter(finding) {
+  if (finding.movement_type === "separation") {
+    const reason = normalizeName(finding.reason).toLowerCase();
+    if (reason.includes("retirement")) return "retirement";
+    if (reason === "relocation") return "relocation";
+  }
+  return String(finding.movement_type || "unknown");
+}
+
+function labelTypeFilter(value) {
+  return TYPE_FILTER_LABELS[value] || labelMovementType(value);
+}
+
+function compareTypeFilters(a, b) {
+  const indexA = TYPE_FILTER_ORDER.indexOf(String(a));
+  const indexB = TYPE_FILTER_ORDER.indexOf(String(b));
+  if (indexA >= 0 && indexB >= 0 && indexA !== indexB) return indexA - indexB;
+  if (indexA >= 0 && indexB < 0) return -1;
+  if (indexA < 0 && indexB >= 0) return 1;
+  return labelTypeFilter(a).localeCompare(labelTypeFilter(b));
+}
+
 function renderSchoolCell(finding) {
   if (!isTransferRoute(finding)) return escapeHtml(finding.school_name);
   return `
@@ -881,6 +928,14 @@ function findingClusters(finding) {
 function countBy(items, key) {
   return items.reduce((counts, item) => {
     const value = item[key] || "Unknown";
+    counts[value] = (counts[value] || 0) + 1;
+    return counts;
+  }, {});
+}
+
+function countByTypeFilter(findings) {
+  return findings.reduce((counts, finding) => {
+    const value = findingTypeFilter(finding);
     counts[value] = (counts[value] || 0) + 1;
     return counts;
   }, {});

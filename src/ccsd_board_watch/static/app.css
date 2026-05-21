@@ -381,6 +381,18 @@ pre {
   border-color: #e0b9b5;
 }
 
+.type-retirement {
+  color: #6f2d17;
+  background: #fff0e6;
+  border-color: #e4bea8;
+}
+
+.type-relocation {
+  color: #174f66;
+  background: #e5f3f8;
+  border-color: #b7d8e5;
+}
+
 .subtle {
   display: block;
   margin-top: 3px;
