@@ -155,7 +155,8 @@ a {
 
 .filters-grid {
   display: grid;
-  grid-template-columns: minmax(0, 170px) minmax(0, 220px) minmax(0, 220px) minmax(220px, 1fr);
+  grid-template-columns: minmax(0, 160px) minmax(0, 190px) minmax(0, 210px) minmax(220px, 1fr) minmax(180px, auto);
+  align-items: end;
   gap: 12px;
 }
 
@@ -178,6 +179,27 @@ textarea {
   color: var(--ink);
   background: #fff;
   font: inherit;
+}
+
+.filter-check {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  gap: 9px;
+  margin-bottom: 8px;
+  padding: 0 12px;
+  color: var(--ink);
+  background: var(--band);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.filter-check input {
+  width: auto;
+}
+
+.filter-check span {
+  line-height: 1.2;
 }
 
 textarea {
@@ -320,15 +342,59 @@ pre {
   line-height: 1.25;
 }
 
-.flag {
-  display: inline-block;
-  margin-left: 6px;
-  padding: 2px 6px;
-  color: #7a3b00;
-  background: #fff0dd;
+.type-chip,
+.new-badge {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  min-height: 24px;
+  padding: 3px 8px;
+  border: 1px solid transparent;
   border-radius: 999px;
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.type-chip {
+  color: #38505d;
+  background: #ecf2f5;
+  border-color: #cfdae1;
+}
+
+.type-new_hire {
+  color: #17603f;
+  background: #e7f3ec;
+  border-color: #badac8;
+}
+
+.type-promotion_transfer {
+  color: #6a4a08;
+  background: #fff2c9;
+  border-color: #e8cd70;
+}
+
+.type-separation {
+  color: #7a2c2c;
+  background: #f9e7e5;
+  border-color: #e0b9b5;
+}
+
+.type-staffing_report {
+  color: #334b78;
+  background: #e8eef8;
+  border-color: #c8d5ea;
+}
+
+.new-badge {
+  margin-left: 8px;
+  color: #fff;
+  background: var(--accent-2);
+}
+
+.row-new td:first-child {
+  box-shadow: inset 4px 0 0 var(--accent-2);
 }
 
 .school-form {
@@ -415,6 +481,37 @@ pre {
   border-radius: 8px;
 }
 
+.trace-source-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.trace-source-grid > div {
+  min-width: 0;
+  padding: 14px;
+  background: var(--band);
+  border-radius: 8px;
+}
+
+.trace-source-grid span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.trace-source-grid strong {
+  display: block;
+  margin-top: 6px;
+}
+
+.trace-source-grid p {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
 .board-item span {
   color: var(--muted);
   font-size: 12px;
@@ -472,7 +569,8 @@ pre {
   .metrics-grid,
   .split,
   .school-form,
-  .trace-summary {
+  .trace-summary,
+  .trace-source-grid {
     grid-template-columns: 1fr;
   }
 

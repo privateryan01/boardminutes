@@ -347,15 +347,44 @@ pre {
   font-size: 12px;
 }
 
-.flag {
-  display: inline-block;
-  margin-left: 6px;
-  padding: 2px 6px;
-  color: #7a3b00;
-  background: #fff0dd;
+.type-chip {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  min-height: 24px;
+  padding: 3px 8px;
+  color: #38505d;
+  background: #ecf2f5;
+  border: 1px solid #cfdae1;
   border-radius: 999px;
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.type-new_hire {
+  color: #17603f;
+  background: #e7f3ec;
+  border-color: #badac8;
+}
+
+.type-promotion_transfer {
+  color: #6a4a08;
+  background: #fff2c9;
+  border-color: #e8cd70;
+}
+
+.type-separation {
+  color: #7a2c2c;
+  background: #f9e7e5;
+  border-color: #e0b9b5;
+}
+
+.type-staffing_report {
+  color: #334b78;
+  background: #e8eef8;
+  border-color: #c8d5ea;
 }
 
 .subtle {
@@ -456,6 +485,37 @@ pre {
   text-transform: uppercase;
 }
 
+.trace-source-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.trace-source-grid > div {
+  min-width: 0;
+  padding: 14px;
+  background: var(--band);
+  border-radius: 8px;
+}
+
+.trace-source-grid span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.trace-source-grid strong {
+  display: block;
+  margin-top: 6px;
+}
+
+.trace-source-grid p {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
 .school-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -533,7 +593,8 @@ pre {
   .filter-row,
   .metrics-grid,
   .split,
-  .trace-summary {
+  .trace-summary,
+  .trace-source-grid {
     grid-template-columns: 1fr;
   }
 

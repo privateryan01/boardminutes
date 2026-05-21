@@ -1,5 +1,7 @@
 const DATA_URL = "data/board-data.json";
 const SCHOOL_STORAGE_KEY = "ccsd-board-watch-schools-v1";
+const FILTER_STORAGE_KEY = "ccsd-board-watch-filters-v1";
+const SNAPSHOT_STORAGE_KEY = "ccsd-board-watch-finding-snapshot-v1";
 
 const DATE_PATTERN = /\b(?:\d{1,2}\/\d{1,2}\/\d{2,4}|(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\s+\d{1,2},\s+\d{4}|TBD)\b/ig;
 const HEADER_HINTS = new Set([
@@ -60,18 +62,15 @@ const state = {
   schools: [],
   findings: [],
   filteredFindings: [],
-  filters: {
-    year: "all",
-    cluster: "all",
-    type: "all",
-    search: "",
-  },
+  newFindingIds: new Set(),
+  filters: defaultFilters(),
 };
 
 document.addEventListener("DOMContentLoaded", init);
 window.addEventListener("hashchange", route);
 
 async function init() {
+  state.filters = loadSavedFilters();
   bindControls();
   try {
     const response = await fetch(DATA_URL, { cache: "no-store" });
@@ -92,19 +91,23 @@ async function init() {
 function bindControls() {
   document.getElementById("yearFilter").addEventListener("change", (event) => {
     state.filters.year = event.target.value;
-    renderDashboard();
+    persistFilters();
   });
   document.getElementById("clusterFilter").addEventListener("change", (event) => {
     state.filters.cluster = event.target.value;
-    renderDashboard();
+    persistFilters();
   });
   document.getElementById("typeFilter").addEventListener("change", (event) => {
     state.filters.type = event.target.value;
-    renderDashboard();
+    persistFilters();
   });
   document.getElementById("searchFilter").addEventListener("input", (event) => {
     state.filters.search = event.target.value.trim().toLowerCase();
-    renderDashboard();
+    persistFilters();
+  });
+  document.getElementById("newOnlyFilter").addEventListener("change", (event) => {
+    state.filters.newOnly = event.target.checked;
+    persistFilters();
   });
 
   document.getElementById("addSchoolForm").addEventListener("submit", addSchool);
@@ -116,6 +119,38 @@ function bindControls() {
   document.getElementById("importSchoolsInput").addEventListener("change", importSchools);
   document.getElementById("schoolGrid").addEventListener("submit", saveSchool);
   document.getElementById("schoolGrid").addEventListener("click", deleteSchool);
+}
+
+function defaultFilters() {
+  return {
+    year: "all",
+    cluster: "all",
+    type: "all",
+    search: "",
+    newOnly: false,
+  };
+}
+
+function loadSavedFilters() {
+  const fallback = defaultFilters();
+  try {
+    const saved = JSON.parse(localStorage.getItem(FILTER_STORAGE_KEY) || "null");
+    if (!saved || typeof saved !== "object") return fallback;
+    return {
+      year: String(saved.year || fallback.year),
+      cluster: String(saved.cluster || fallback.cluster),
+      type: String(saved.type || fallback.type),
+      search: String(saved.search || fallback.search).trim().toLowerCase(),
+      newOnly: Boolean(saved.newOnly),
+    };
+  } catch {
+    return fallback;
+  }
+}
+
+function persistFilters() {
+  saveJsonToStorage(FILTER_STORAGE_KEY, state.filters);
+  renderDashboard();
 }
 
 function loadSavedSchools(defaultSchools) {
@@ -132,7 +167,7 @@ function loadSavedSchools(defaultSchools) {
 }
 
 function saveSchoolsToStorage() {
-  localStorage.setItem(SCHOOL_STORAGE_KEY, JSON.stringify(state.schools));
+  saveJsonToStorage(SCHOOL_STORAGE_KEY, state.schools);
 }
 
 function normalizeSchools(schools) {
@@ -154,6 +189,7 @@ function normalizeSchools(schools) {
 
 function recomputeFindings() {
   state.findings = buildFindings(state.data.attachments || [], state.schools);
+  markNewFindings();
 }
 
 function buildFindings(attachments, schools) {
@@ -181,7 +217,6 @@ function buildFindings(attachments, schools) {
         const person = extractPersonName(lines, index, aliasInfo.normalizedAlias);
         const effectiveDate = extractEffectiveDateForMatch(lines, index, context);
         const reason = extractReasonForMatch(lines, index, context);
-        const [confidence, flags] = confidenceFor(person, effectiveDate, attachment.movement_type);
         const fingerprintParts = [
           attachment.meeting_id,
           attachment.document_id,
@@ -218,8 +253,6 @@ function buildFindings(attachments, schools) {
           matched_line_number: index + 1,
           context_line_start: start + 1,
           context_line_end: end,
-          confidence,
-          flags,
         });
       }
     }
@@ -260,6 +293,9 @@ function renderFilterOptions() {
 
   const types = unique((state.data.attachments || []).map((attachment) => attachment.movement_type).filter(Boolean)).sort();
   setOptions(document.getElementById("typeFilter"), [["all", "All types"], ...types.map((type) => [type, labelMovementType(type)])], state.filters.type);
+
+  document.getElementById("searchFilter").value = state.filters.search;
+  document.getElementById("newOnlyFilter").checked = state.filters.newOnly;
 }
 
 function renderDashboard() {
@@ -278,6 +314,7 @@ function renderMetrics() {
     metric("Meetings Scanned", source.scanned_meeting_count || 0),
     metric("Attachments", source.attachment_count || 0),
     metric("Schools Matched", matchedSchools),
+    metric("New Since Last Update", state.newFindingIds.size),
     metric("Findings", state.filteredFindings.length),
   ].join("");
   document.getElementById("findingCountLabel").textContent = `${state.filteredFindings.length} findings`;
@@ -290,17 +327,19 @@ function renderFindingsTable() {
     return;
   }
   body.innerHTML = state.filteredFindings.map((finding) => `
-    <tr>
-      <td>${escapeHtml(finding.school_name)}</td>
+    <tr${finding.is_new ? ' class="row-new"' : ""}>
+      <td>
+        ${escapeHtml(finding.school_name)}
+        ${finding.is_new ? '<span class="new-badge">New</span>' : ""}
+      </td>
       <td>${escapeHtml(finding.cluster)}</td>
       <td>
         <a href="${escapeAttribute(finding.board_meeting_url)}" target="_blank" rel="noreferrer">${escapeHtml(finding.meeting_date)}</a>
         <span class="subtle">${escapeHtml(finding.meeting_name)}</span>
       </td>
-      <td>${escapeHtml(labelMovementType(finding.movement_type))}</td>
+      <td>${typeChip(finding.movement_type)}</td>
       <td>
         <strong>${escapeHtml(finding.person_name || "Review needed")}</strong>
-        ${finding.confidence !== "high" ? `<span class="flag">${escapeHtml(finding.confidence)}</span>` : ""}
       </td>
       <td>${escapeHtml(finding.effective_date)}</td>
       <td>${escapeHtml(finding.reason)}</td>
@@ -367,14 +406,33 @@ function renderTrace(findingId) {
     </div>
   `;
   document.getElementById("officialSourcePanel").innerHTML = `
-    <h2>Board Website Source</h2>
-    <p>This record is tied to the official CCSD/Diligent board meeting page. The board site opens in a new tab because Diligent blocks embedded viewing from other websites.</p>
+    <div class="section-heading">
+      <h2>1. Official Board Source</h2>
+      ${typeChip(finding.movement_type)}
+    </div>
+    <p>This record traces back to the official CCSD/Diligent board meeting page. Open the board site to review the agenda item and linked attachment on the public source page.</p>
     <a class="official-link" href="${escapeAttribute(finding.board_meeting_url)}" target="_blank" rel="noreferrer">Open Official Board Meeting Website</a>
-    <div class="board-item">
-      <span>Agenda Item</span>
-      <strong>${escapeHtml(finding.item_number)} - ${escapeHtml(finding.item_title)}</strong>
-      <span>Linked Attachment Listed On Board Website</span>
-      <strong>${escapeHtml(finding.attachment_name)}</strong>
+    <div class="trace-source-grid">
+      <div>
+        <span>Board Meeting</span>
+        <strong>${escapeHtml(finding.meeting_date)}</strong>
+        <p>${escapeHtml(finding.meeting_name)}</p>
+      </div>
+      <div>
+        <span>Agenda Item</span>
+        <strong>${escapeHtml(finding.item_number)} - ${escapeHtml(finding.item_title)}</strong>
+        <p>${escapeHtml(finding.attachment_name)}</p>
+      </div>
+      <div>
+        <span>Matched School</span>
+        <strong>${escapeHtml(finding.school_name)}</strong>
+        <p>${escapeHtml(finding.cluster)}</p>
+      </div>
+      <div>
+        <span>Person / Date</span>
+        <strong>${escapeHtml(finding.person_name || "Review needed")}</strong>
+        <p>${escapeHtml(finding.effective_date || finding.reason || "Review source text")}</p>
+      </div>
     </div>
   `;
   const lines = attachment && Array.isArray(attachment.lines) ? attachment.lines : [];
@@ -401,6 +459,7 @@ function applyFilters(findings) {
     if (state.filters.year !== "all" && finding.meeting_year !== state.filters.year) return false;
     if (state.filters.cluster !== "all" && finding.cluster !== state.filters.cluster) return false;
     if (state.filters.type !== "all" && finding.movement_type !== state.filters.type) return false;
+    if (state.filters.newOnly && !finding.is_new) return false;
     if (state.filters.search) {
       const haystack = [
         finding.school_name,
@@ -415,6 +474,62 @@ function applyFilters(findings) {
     }
     return true;
   });
+}
+
+function markNewFindings() {
+  const currentIds = state.findings.map((finding) => finding.id);
+  const snapshot = loadFindingSnapshot();
+  const currentSignature = schoolPreferenceSignature();
+  const generatedAt = snapshotGeneratedAt();
+  let newIds = new Set();
+
+  if (
+    snapshot &&
+    snapshot.generated_at &&
+    snapshot.generated_at !== generatedAt &&
+    snapshot.school_signature === currentSignature &&
+    Array.isArray(snapshot.finding_ids)
+  ) {
+    const previousIds = new Set(snapshot.finding_ids.map(String));
+    newIds = new Set(currentIds.filter((id) => !previousIds.has(id)));
+  }
+
+  state.newFindingIds = newIds;
+  state.findings.forEach((finding) => {
+    finding.is_new = newIds.has(finding.id);
+  });
+  saveFindingSnapshot(generatedAt, currentSignature, currentIds);
+}
+
+function loadFindingSnapshot() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(SNAPSHOT_STORAGE_KEY) || "null");
+    return saved && typeof saved === "object" ? saved : null;
+  } catch {
+    return null;
+  }
+}
+
+function saveFindingSnapshot(generatedAt, schoolSignature, findingIds) {
+  saveJsonToStorage(SNAPSHOT_STORAGE_KEY, {
+    generated_at: generatedAt,
+    school_signature: schoolSignature,
+    finding_ids: findingIds,
+  });
+}
+
+function snapshotGeneratedAt() {
+  const source = state.data.source || {};
+  return String(state.data.generated_at || source.generated_at || source.scanned_at || "");
+}
+
+function schoolPreferenceSignature() {
+  return fingerprint(state.schools.map((school) => [
+    school.school_id,
+    school.cluster,
+    school.display_name,
+    ...(school.aliases || []),
+  ].join("|")));
 }
 
 function route() {
@@ -484,7 +599,7 @@ function deleteSchool(event) {
 }
 
 function resetSchools() {
-  localStorage.removeItem(SCHOOL_STORAGE_KEY);
+  removeFromStorage(SCHOOL_STORAGE_KEY);
   state.schools = normalizeSchools(state.data.schools || []);
   persistSchoolChanges(false);
 }
@@ -536,6 +651,22 @@ function setStatus(title, detail, hidden) {
   }
 }
 
+function saveJsonToStorage(key, value) {
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+  } catch {
+    // Managed browsers can disable storage; keep the app usable without persistence.
+  }
+}
+
+function removeFromStorage(key) {
+  try {
+    localStorage.removeItem(key);
+  } catch {
+    // Managed browsers can disable storage; keep reset usable without persistence.
+  }
+}
+
 function setOptions(select, options, selectedValue) {
   const values = new Set(options.map(([value]) => String(value)));
   const finalValue = values.has(String(selectedValue)) ? String(selectedValue) : "all";
@@ -556,6 +687,12 @@ function renderBars(elementId, counts, labeler) {
 
 function metric(label, value) {
   return `<div class="metric"><span>${escapeHtml(label)}</span><strong>${escapeHtml(String(value))}</strong></div>`;
+}
+
+function typeChip(value) {
+  const type = String(value || "unknown");
+  const className = type.toLowerCase().replace(/[^a-z0-9_-]+/g, "-");
+  return `<span class="type-chip type-${escapeAttribute(className)}">${escapeHtml(labelMovementType(type))}</span>`;
 }
 
 function countBy(items, key) {
@@ -776,15 +913,6 @@ function extractReason(context) {
     .filter(([position]) => position >= 0)
     .sort((a, b) => a[0] - b[0]);
   return matches.length ? matches[0][1] : "";
-}
-
-function confidenceFor(person, effectiveDate, movementType) {
-  const flags = [];
-  if (!person) flags.push("person_not_parsed");
-  if (["separation", "promotion_transfer", "new_hire"].includes(movementType) && !effectiveDate) flags.push("effective_date_not_parsed");
-  if (!flags.length) return ["high", flags];
-  if (person) return ["medium", flags];
-  return ["low", flags];
 }
 
 function compareFindings(a, b) {

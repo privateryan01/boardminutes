@@ -187,12 +187,11 @@
                         <a href="{{ finding.board_meeting_url }}" target="_blank" rel="noreferrer">{{ finding.meeting_date }}</a>
                         <span class="subtle">{{ finding.meeting_name }}</span>
                       </td>
-                      <td>{{ finding.movement_type.replace('_', ' ').title() }}</td>
+                      <td>
+                        <span class="type-chip type-{{ finding.movement_type }}">{{ finding.movement_type.replace('_', ' ').title() }}</span>
+                      </td>
                       <td>
                         <strong>{{ finding.person_name or 'Review needed' }}</strong>
-                        {% if finding.confidence != 'high' %}
-                          <span class="flag">{{ finding.confidence }}</span>
-                        {% endif %}
                       </td>
                       <td>{{ finding.effective_date }}</td>
                       <td>{{ finding.reason }}</td>

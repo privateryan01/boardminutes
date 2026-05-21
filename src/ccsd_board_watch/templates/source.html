@@ -10,7 +10,8 @@
     <header class="topbar source-topbar">
       <div>
         <p class="eyebrow">Source Trace</p>
-        <h1>{{ finding.school_name }} - {{ finding.movement_type.replace('_', ' ').title() }}</h1>
+        <h1>{{ finding.school_name }}</h1>
+        <span class="type-chip type-{{ finding.movement_type }}">{{ finding.movement_type.replace('_', ' ').title() }}</span>
       </div>
       <nav class="source-actions">
         <a href="{{ url_for('index') }}">Dashboard</a>
@@ -38,20 +39,36 @@
       </section>
 
       <section class="official-source-panel">
-        <h2>Board Website Source</h2>
-        <p>This finding is tied to the official CCSD/Diligent board meeting page below. The board site blocks embedded viewing from other websites, so it opens in a new tab.</p>
+        <h2>1. Official Board Source</h2>
+        <p>This finding traces back to the official CCSD/Diligent board meeting page below. Open the board site to review the agenda item and linked attachment on the public source page.</p>
         <a class="official-link" href="{{ finding.board_meeting_url }}" target="_blank" rel="noreferrer">Open Official Board Meeting Website</a>
-        <div class="board-item">
-          <span>Agenda Item</span>
-          <strong>{{ finding.item_number }} - {{ finding.item_title }}</strong>
-          <span>Linked Attachment Listed On Board Website</span>
-          <strong>{{ finding.attachment_name }}</strong>
+        <div class="trace-source-grid">
+          <div>
+            <span>Board Meeting</span>
+            <strong>{{ finding.meeting_date }}</strong>
+            <p>{{ finding.meeting_name }}</p>
+          </div>
+          <div>
+            <span>Agenda Item</span>
+            <strong>{{ finding.item_number }} - {{ finding.item_title }}</strong>
+            <p>{{ finding.attachment_name }}</p>
+          </div>
+          <div>
+            <span>Matched School</span>
+            <strong>{{ finding.school_name }}</strong>
+            <p>{{ finding.cluster }}</p>
+          </div>
+          <div>
+            <span>Person / Date</span>
+            <strong>{{ finding.person_name or 'Review needed' }}</strong>
+            <p>{{ finding.effective_date or finding.reason or 'Review source text' }}</p>
+          </div>
         </div>
       </section>
 
       <section class="source-text-panel">
         <div class="section-heading">
-          <h2>Highlighted Extracted Evidence</h2>
+          <h2>2. Highlighted Extracted Evidence</h2>
           <span>{{ text_path }}</span>
         </div>
         <div class="source-lines">
