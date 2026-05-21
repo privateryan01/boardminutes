@@ -1,7 +1,7 @@
 const DATA_URL = "data/board-data.json";
 const SCHOOL_STORAGE_KEY = "ccsd-board-watch-schools-v1";
 const SCHOOL_VERSION_STORAGE_KEY = "ccsd-board-watch-schools-version-v1";
-const DEFAULT_SCHOOL_SET_VERSION = "cluster-1-40-v2";
+const DEFAULT_SCHOOL_SET_VERSION = "cluster-1-40-v3";
 const FILTER_STORAGE_KEY = "ccsd-board-watch-filters-v1";
 const SNAPSHOT_STORAGE_KEY = "ccsd-board-watch-finding-snapshot-v1";
 const LEGACY_DEFAULT_SOURCE_IMAGES = new Set([
@@ -64,12 +64,79 @@ const REASON_PATTERNS = [
   "Mutual Resignation",
   "No Reason Given",
   "Return to School",
+  "End of Contract",
   "Retirement",
   "Relocation",
+  "Personal",
   "Medical",
   "No Contract",
   "Death",
 ];
+const EMPLOYMENT_MOVEMENT_TYPES = new Set([
+  "new_hire",
+  "promotion_transfer",
+  "separation",
+]);
+const ORGANIZATION_WORDS = new Set([
+  "agency",
+  "association",
+  "bank",
+  "brothers",
+  "center",
+  "clinic",
+  "college",
+  "company",
+  "consulting",
+  "corp",
+  "corporation",
+  "department",
+  "district",
+  "foundation",
+  "fundraising",
+  "group",
+  "hospital",
+  "inc",
+  "llc",
+  "lp",
+  "marketing",
+  "office",
+  "program",
+  "resort",
+  "services",
+  "systems",
+  "technologies",
+  "university",
+]);
+const LOCATION_HISTORY_PATTERN = /\b[A-Z][A-Za-z'.-]*(?:\s+[A-Z][A-Za-z'.-]*)*,\s*[A-Z]{2}\s*\([^)]*(?:\d{4}|present|current|remote)[^)]*\)/i;
+const RESUME_SECTION_PATTERN = /\b(experience|education|employment history|professional experience|work history)\b/i;
+const SPLIT_NAME_BLOCK_WORDS = new Set([
+  "art",
+  "dance",
+  "early",
+  "education",
+  "english",
+  "explorations",
+  "fifth",
+  "first",
+  "fourth",
+  "grade",
+  "history",
+  "kindergarten",
+  "language",
+  "math",
+  "music",
+  "orchestra",
+  "physical",
+  "reading",
+  "school",
+  "science",
+  "second",
+  "special",
+  "star",
+  "strings",
+  "study",
+  "third",
+]);
 
 const state = {
   data: null,
@@ -227,6 +294,7 @@ function buildFindings(attachments, schools) {
   const seen = new Set();
 
   for (const attachment of attachments) {
+    if (!EMPLOYMENT_MOVEMENT_TYPES.has(String(attachment.movement_type || ""))) continue;
     const lines = Array.isArray(attachment.lines) ? attachment.lines.map((line) => String(line).trim()).filter(Boolean) : [];
     const normalizedLines = lines.map(normalizeName);
     const matchedLineSchools = new Set();
@@ -246,6 +314,7 @@ function buildFindings(attachments, schools) {
         const person = extractPersonName(lines, index, aliasInfo.normalizedAlias);
         const effectiveDate = extractEffectiveDateForMatch(lines, index, context);
         const reason = extractReasonForMatch(lines, index, context);
+        if (shouldRejectFinding(lines, index, context, person, attachment.movement_type)) continue;
         const fingerprintParts = [
           attachment.meeting_id,
           attachment.document_id,
@@ -320,7 +389,7 @@ function renderFilterOptions() {
   const clusters = unique(state.schools.map((school) => school.cluster).filter(Boolean)).sort(compareClusters);
   setOptions(document.getElementById("clusterFilter"), [["all", "All clusters"], ...clusters.map((cluster) => [cluster, cluster])], state.filters.cluster);
 
-  const types = unique((state.data.attachments || []).map((attachment) => attachment.movement_type).filter(Boolean)).sort();
+  const types = unique(state.findings.map((finding) => finding.movement_type).filter((type) => EMPLOYMENT_MOVEMENT_TYPES.has(type))).sort();
   setOptions(document.getElementById("typeFilter"), [["all", "All types"], ...types.map((type) => [type, labelMovementType(type)])], state.filters.type);
 
   document.getElementById("searchFilter").value = state.filters.search;
@@ -494,10 +563,15 @@ function applyFilters(findings) {
         finding.school_name,
         finding.cluster,
         finding.person_name,
+        finding.movement_type,
+        labelMovementType(finding.movement_type),
         finding.reason,
+        finding.effective_date,
         finding.meeting_name,
         finding.meeting_date,
-        finding.context,
+        finding.item_title,
+        finding.attachment_name,
+        finding.matched_alias,
       ].join(" ").toLowerCase();
       if (!haystack.includes(state.filters.search)) return false;
     }
@@ -795,7 +869,7 @@ function containsAlias(normalizedLine, normalizedAlias) {
 }
 
 function extractPersonName(lines, index, alias) {
-  const inline = personFromLinePrefix(lines[index], alias);
+  const inline = personFromLinePrefix(lines[index], alias, lines[index + 1]);
   if (inline) return inline;
   for (let i = index - 1; i >= Math.max(0, index - 3); i -= 1) {
     const candidate = lines[i].trim();
@@ -806,7 +880,7 @@ function extractPersonName(lines, index, alias) {
   return "";
 }
 
-function personFromLinePrefix(line, alias) {
+function personFromLinePrefix(line, alias, nextLine = "") {
   const normalized = normalizeWithMapping(line);
   let bestPosition = null;
   const variants = [normalizeName(alias), ...aliasTextVariants(alias).sort((a, b) => b.length - a.length)];
@@ -816,7 +890,6 @@ function personFromLinePrefix(line, alias) {
   }
   if (bestPosition === null || bestPosition === 0) return "";
   const prefixWords = normalized.text.slice(0, bestPosition).trim().split(/\s+/);
-  if (prefixWords.length < 2) return "";
   const originalCut = normalized.mapping[bestPosition] || line.length;
   const originalWords = line.slice(0, originalCut).replace(/\s+/g, " ").split(" ");
   const nameWords = [];
@@ -826,6 +899,10 @@ function personFromLinePrefix(line, alias) {
     if (ROLE_WORDS.has(cleaned.toLowerCase())) break;
     nameWords.push(cleaned);
     if (nameWords.length >= 5) break;
+  }
+  if (prefixWords.length < 2 && nameWords.length === 1) {
+    const nextWord = firstSplitNameWord(nextLine);
+    if (nextWord) return cleanPerson(`${nameWords[0]} ${nextWord}`);
   }
   return cleanPerson(nameWords.join(" "));
 }
@@ -872,6 +949,7 @@ function cleanPerson(value) {
   const words = text.split(" ").filter(Boolean);
   if (words.length < 2) return "";
   if (looksLikeSchoolOrOrg(text)) return "";
+  if (looksLikeOrganization(text)) return "";
   if (words.some((word) => HEADER_HINTS.has(word.toLowerCase()))) return "";
   return text;
 }
@@ -879,7 +957,45 @@ function cleanPerson(value) {
 function looksLikeSchoolOrOrg(value) {
   const words = normalizeName(value).split(" ").filter(Boolean);
   if (!words.length) return false;
-  return new Set(["ES", "MS", "JHS", "HS", "SCHOOL", "ACADEMY", "CENTER", "UNIT", "DEPARTMENT"]).has(words[words.length - 1]);
+  const schoolOrgWords = new Set(["ES", "MS", "JHS", "HS", "SCHOOL", "ACADEMY", "CENTER", "UNIT", "DEPARTMENT"]);
+  return schoolOrgWords.has(words[words.length - 1]) || words.some((word) => schoolOrgWords.has(word));
+}
+
+function firstSplitNameWord(line) {
+  const first = String(line || "").trim().split(/\s+/)[0] || "";
+  const cleaned = first.replace(/[^A-Za-z'.-]/g, "");
+  if (!cleaned) return "";
+  const lower = cleaned.toLowerCase();
+  if (ROLE_WORDS.has(lower) || HEADER_HINTS.has(lower) || SPLIT_NAME_BLOCK_WORDS.has(lower)) return "";
+  return cleaned;
+}
+
+function shouldRejectFinding(lines, index, context, person, movementType) {
+  if (!EMPLOYMENT_MOVEMENT_TYPES.has(String(movementType || ""))) return true;
+  if (!person || looksLikeOrganization(person)) return true;
+  const currentLine = lines[index] || "";
+  if (looksLikeLocationHistory(currentLine)) return true;
+  if (String(movementType || "") === "new_hire" && looksLikeResumeContext(lines, index, context)) return true;
+  return false;
+}
+
+function looksLikeLocationHistory(value) {
+  return LOCATION_HISTORY_PATTERN.test(String(value || ""));
+}
+
+function looksLikeResumeContext(lines, index, context) {
+  if (RESUME_SECTION_PATTERN.test(String(context || ""))) return true;
+  const windowStart = Math.max(0, index - 6);
+  const nearby = lines.slice(windowStart, index + 1).join("\n");
+  return RESUME_SECTION_PATTERN.test(nearby) && looksLikeLocationHistory(lines[index] || "");
+}
+
+function looksLikeOrganization(value) {
+  const words = normalizeName(value).toLowerCase().split(" ").filter(Boolean);
+  if (!words.length) return false;
+  if (words.length > 5) return true;
+  if (String(value || "").includes("&")) return true;
+  return words.some((word) => ORGANIZATION_WORDS.has(word.replace(/\.$/, "")));
 }
 
 function looksLikeHeader(line) {

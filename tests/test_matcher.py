@@ -79,3 +79,53 @@ class MatcherTests(unittest.TestCase):
         self.assertEqual(len(findings), 1)
         self.assertEqual(findings[0].person_name, "Hannibal A. Nisperos")
         self.assertEqual(findings[0].effective_date, "April 16, 2026")
+
+    def test_ignores_new_hire_resume_company_location_matches(self):
+        text = """
+        Experience:
+        The MIDAS Consulting Group LLC
+        Las Vegas, NV (2021-present)
+        Senior Vice President, Client Development
+        Catapult Fundraising, Inc.
+        Las Vegas, NV (2022-2024)
+        Roseman University of Health Services
+        Las Vegas, NV (2019-2021)
+        """
+        attachment = Attachment("3.07", "Approval to Employ Licensed Personnel.", "Info 3.07.pdf", "doc", "https://example.test/doc", "new_hire")
+        meeting = Meeting(1678, "Regular Board Meeting - May 14 2026", "May 14, 2026", "https://example.test/meeting")
+        school = School("las_vegas_hs", "Cluster 6", "Las Vegas HS", ("Las Vegas HS", "Las Vegas"), "clusters 1-10.png")
+
+        findings = find_school_personnel_matches(text, attachment, meeting, [school])
+
+        self.assertEqual(findings, [])
+
+    def test_matches_wrapped_last_name_without_borrowing_previous_row(self):
+        text = """
+        Name School and Assignment Date Date Reason
+        Shawn Drinkard Ronzone ES 07/31/24 05/27/26 Accepted Position
+        Physical Education in Other District
+        Michaelene  Lowman ES 08/15/07 05/27/26 Retirement
+        Duncan-Holstein Second Grade
+        """
+        attachment = Attachment("8.04", "Licensed Personnel Separations.", "Info 8.04.pdf", "doc", "https://example.test/doc", "separation")
+        meeting = Meeting(1678, "Regular Board Meeting - May 14 2026", "May 14, 2026", "https://example.test/meeting")
+        school = School("lowman_es", "Cluster 21", "Lowman ES", ("Lowman ES", "Lowman"), "clusters 21-30.png")
+
+        findings = find_school_personnel_matches(text, attachment, meeting, [school])
+
+        self.assertEqual(len(findings), 1)
+        self.assertEqual(findings[0].person_name, "Michaelene Duncan-Holstein")
+        self.assertEqual(findings[0].reason, "Retirement")
+
+    def test_ignores_staffing_report_attachments(self):
+        text = """
+        SUPPORT PROFESSIONAL AND SCHOOL POLICE STAFFING REPORT
+        Wallin ES Custodian Vacancy
+        """
+        attachment = Attachment("8.05", "Support Professional and School Police Staffing Report.", "Info 8.05.pdf", "doc", "https://example.test/doc", "staffing_report")
+        meeting = Meeting(1678, "Regular Board Meeting - May 14 2026", "May 14, 2026", "https://example.test/meeting")
+        school = School("wallin_es", "Cluster 11", "Wallin ES", ("Wallin ES", "Wallin"), "clusters 11-20.png")
+
+        findings = find_school_personnel_matches(text, attachment, meeting, [school])
+
+        self.assertEqual(findings, [])

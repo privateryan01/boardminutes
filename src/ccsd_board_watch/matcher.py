@@ -58,10 +58,76 @@ REASON_PATTERNS = [
     "No Contract/Mutual Resign",
     "No Contract",
     "Mutual Resignation",
+    "End of Contract",
+    "Personal",
 ]
+EMPLOYMENT_MOVEMENT_TYPES = {"new_hire", "promotion_transfer", "separation"}
+ORGANIZATION_WORDS = {
+    "agency",
+    "association",
+    "bank",
+    "brothers",
+    "center",
+    "clinic",
+    "college",
+    "company",
+    "consulting",
+    "corp",
+    "corporation",
+    "department",
+    "district",
+    "foundation",
+    "fundraising",
+    "group",
+    "hospital",
+    "inc",
+    "llc",
+    "lp",
+    "marketing",
+    "office",
+    "program",
+    "resort",
+    "services",
+    "systems",
+    "technologies",
+    "university",
+}
+LOCATION_HISTORY_PATTERN = re.compile(r"\b[A-Z][A-Za-z'.-]*(?:\s+[A-Z][A-Za-z'.-]*)*,\s*[A-Z]{2}\s*\([^)]*(?:\d{4}|present|current|remote)[^)]*\)", re.I)
+RESUME_SECTION_PATTERN = re.compile(r"\b(experience|education|employment history|professional experience|work history)\b", re.I)
+SPLIT_NAME_BLOCK_WORDS = {
+    "art",
+    "dance",
+    "early",
+    "education",
+    "english",
+    "explorations",
+    "fifth",
+    "first",
+    "fourth",
+    "grade",
+    "history",
+    "kindergarten",
+    "language",
+    "math",
+    "music",
+    "orchestra",
+    "physical",
+    "reading",
+    "school",
+    "science",
+    "second",
+    "special",
+    "star",
+    "strings",
+    "study",
+    "third",
+}
 
 
 def find_school_personnel_matches(text: str, attachment: Attachment, meeting: Meeting, schools: list[School]) -> list[Finding]:
+    if attachment.movement_type not in EMPLOYMENT_MOVEMENT_TYPES:
+        return []
+
     lines = [line.strip() for line in text.splitlines() if line.strip()]
     normalized_lines = [normalize_name(line) for line in lines]
     aliases = compiled_school_aliases(schools)
@@ -82,6 +148,8 @@ def find_school_personnel_matches(text: str, attachment: Attachment, meeting: Me
             person = extract_person_name(lines, index, alias)
             effective_date = extract_effective_date_for_match(lines, index, context)
             reason = extract_reason_for_match(lines, index, context)
+            if _should_reject_finding(lines, index, context, person, attachment.movement_type):
+                continue
             confidence, flags = _confidence_for(person, effective_date, attachment.movement_type)
             fingerprint_parts = [
                 meeting.meeting_id,
@@ -130,7 +198,8 @@ def find_school_personnel_matches(text: str, attachment: Attachment, meeting: Me
 
 def extract_person_name(lines: list[str], index: int, alias: str) -> str:
     current = lines[index]
-    inline = _person_from_line_prefix(current, alias)
+    next_line = lines[index + 1] if index + 1 < len(lines) else ""
+    inline = _person_from_line_prefix(current, alias, next_line)
     if inline:
         return inline
 
@@ -191,7 +260,7 @@ def _contains_alias(normalized_line: str, normalized_alias: str) -> bool:
     return re.search(rf"(^|\s){re.escape(normalized_alias)}($|\s)", normalized_line) is not None
 
 
-def _person_from_line_prefix(line: str, alias: str) -> str:
+def _person_from_line_prefix(line: str, alias: str, next_line: str = "") -> str:
     normalized_line, mapping = _normalize_with_mapping(line)
     best_position: int | None = None
     for variant in [normalize_name(alias), *sorted(_alias_text_variants(alias), key=len, reverse=True)]:
@@ -202,9 +271,6 @@ def _person_from_line_prefix(line: str, alias: str) -> str:
         return ""
 
     prefix_words = normalized_line[:best_position].strip().split()
-    if len(prefix_words) < 2:
-        return ""
-
     original_cut = mapping[best_position] if best_position < len(mapping) else len(line)
     original_words = re.sub(r"\s+", " ", line[:original_cut]).split()
     name_words: list[str] = []
@@ -217,6 +283,10 @@ def _person_from_line_prefix(line: str, alias: str) -> str:
         name_words.append(cleaned)
         if len(name_words) >= 5:
             break
+    if len(prefix_words) < 2 and len(name_words) == 1:
+        next_word = _first_split_name_word(next_line)
+        if next_word:
+            return _clean_person(f"{name_words[0]} {next_word}")
     return _clean_person(" ".join(name_words))
 
 
@@ -268,6 +338,8 @@ def _clean_person(value: str) -> str:
         return ""
     if _looks_like_school_or_org(value):
         return ""
+    if _looks_like_organization(value):
+        return ""
     if any(word.lower() in HEADER_HINTS for word in words):
         return ""
     return value
@@ -278,7 +350,54 @@ def _looks_like_school_or_org(value: str) -> bool:
     if not normalized_words:
         return False
     school_suffixes = {"ES", "MS", "JHS", "HS", "SCHOOL", "ACADEMY", "CENTER", "UNIT", "DEPARTMENT"}
-    return normalized_words[-1] in school_suffixes
+    return normalized_words[-1] in school_suffixes or any(word in school_suffixes for word in normalized_words)
+
+
+def _first_split_name_word(line: str) -> str:
+    first = (line or "").strip().split()[0] if (line or "").strip() else ""
+    cleaned = re.sub(r"[^A-Za-z'.-]", "", first)
+    if not cleaned:
+        return ""
+    lower = cleaned.lower()
+    if lower in ROLE_WORDS or lower in HEADER_HINTS or lower in SPLIT_NAME_BLOCK_WORDS:
+        return ""
+    return cleaned
+
+
+def _should_reject_finding(lines: list[str], index: int, context: str, person: str, movement_type: str) -> bool:
+    if movement_type not in EMPLOYMENT_MOVEMENT_TYPES:
+        return True
+    if not person or _looks_like_organization(person):
+        return True
+    current_line = lines[index] if index < len(lines) else ""
+    if _looks_like_location_history(current_line):
+        return True
+    if movement_type == "new_hire" and _looks_like_resume_context(lines, index, context):
+        return True
+    return False
+
+
+def _looks_like_location_history(value: str) -> bool:
+    return LOCATION_HISTORY_PATTERN.search(value or "") is not None
+
+
+def _looks_like_resume_context(lines: list[str], index: int, context: str) -> bool:
+    if RESUME_SECTION_PATTERN.search(context or ""):
+        return True
+    nearby = "\n".join(lines[max(0, index - 6) : index + 1])
+    current_line = lines[index] if index < len(lines) else ""
+    return RESUME_SECTION_PATTERN.search(nearby) is not None and _looks_like_location_history(current_line)
+
+
+def _looks_like_organization(value: str) -> bool:
+    words = [word.strip(".").lower() for word in normalize_name(value).split() if word]
+    if not words:
+        return False
+    if len(words) > 5:
+        return True
+    if "&" in value:
+        return True
+    return any(word in ORGANIZATION_WORDS for word in words)
 
 
 def _alias_text_variants(alias: str) -> set[str]:
