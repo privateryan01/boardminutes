@@ -4,6 +4,8 @@ const SCHOOL_VERSION_STORAGE_KEY = "ccsd-board-watch-schools-version-v1";
 const DEFAULT_SCHOOL_SET_VERSION = "cluster-1-40-v3";
 const FILTER_STORAGE_KEY = "ccsd-board-watch-filters-v1";
 const SNAPSHOT_STORAGE_KEY = "ccsd-board-watch-finding-snapshot-v1";
+const FINDING_CACHE_STORAGE_KEY = "ccsd-board-watch-finding-cache-v1";
+const FINDING_CACHE_VERSION = "findings-v2";
 const LEGACY_DEFAULT_SOURCE_IMAGES = new Set([
   "henderson cluster.png",
   "North east vegas cluster.png",
@@ -166,7 +168,7 @@ async function init() {
   state.filters = loadSavedFilters();
   bindControls();
   try {
-    const response = await fetch(DATA_URL, { cache: "no-store" });
+    const response = await fetch(DATA_URL, { cache: "no-cache" });
     if (!response.ok) {
       throw new Error(`Data request failed: ${response.status}`);
     }
@@ -296,7 +298,14 @@ function normalizeSchools(schools) {
 }
 
 function recomputeFindings() {
-  state.findings = buildFindings(state.data.attachments || [], state.schools);
+  const cacheKey = findingCacheKey();
+  const cachedFindings = loadCachedFindings(cacheKey);
+  if (cachedFindings) {
+    state.findings = cachedFindings;
+  } else {
+    state.findings = buildFindings(state.data.attachments || [], state.schools);
+    saveCachedFindings(cacheKey, state.findings);
+  }
   markNewFindings();
 }
 
@@ -670,6 +679,48 @@ function saveFindingSnapshot(generatedAt, schoolSignature, findingIds) {
   });
 }
 
+function findingCacheKey() {
+  const source = state.data.source || {};
+  return fingerprint([
+    FINDING_CACHE_VERSION,
+    snapshotGeneratedAt(),
+    state.data.source_run_at || "",
+    source.run_label || "",
+    source.attachment_count || "",
+    schoolPreferenceSignature(),
+  ]);
+}
+
+function loadCachedFindings(cacheKey) {
+  try {
+    const cached = JSON.parse(localStorage.getItem(FINDING_CACHE_STORAGE_KEY) || "null");
+    if (
+      cached &&
+      cached.version === FINDING_CACHE_VERSION &&
+      cached.cache_key === cacheKey &&
+      Array.isArray(cached.findings)
+    ) {
+      return cached.findings;
+    }
+  } catch {
+    return null;
+  }
+  return null;
+}
+
+function saveCachedFindings(cacheKey, findings) {
+  try {
+    localStorage.setItem(FINDING_CACHE_STORAGE_KEY, JSON.stringify({
+      version: FINDING_CACHE_VERSION,
+      cache_key: cacheKey,
+      generated_at: snapshotGeneratedAt(),
+      findings,
+    }));
+  } catch {
+    removeFromStorage(FINDING_CACHE_STORAGE_KEY);
+  }
+}
+
 function snapshotGeneratedAt() {
   const source = state.data.source || {};
   return String(state.data.generated_at || source.generated_at || source.scanned_at || "");
@@ -1001,7 +1052,7 @@ function compiledSchoolAliases(schools) {
     for (const alias of aliases) {
       for (const variant of aliasVariants(alias)) {
         if (skipBareAlias(alias, variant)) continue;
-        compiled.push({ school, alias, normalizedAlias: variant });
+        compiled.push({ school, alias, normalizedAlias: variant, pattern: aliasMatchPattern(variant) });
       }
     }
   }
@@ -1011,7 +1062,7 @@ function compiledSchoolAliases(schools) {
 function lineSchoolMatches(normalizedLine, aliases) {
   const matches = [];
   for (const aliasInfo of aliases) {
-    const position = aliasMatchPosition(normalizedLine, aliasInfo.normalizedAlias);
+    const position = aliasMatchPosition(normalizedLine, aliasInfo);
     if (position < 0) continue;
     matches.push({ ...aliasInfo, position });
   }
@@ -1068,10 +1119,16 @@ function containsAlias(normalizedLine, normalizedAlias) {
   return aliasMatchPosition(normalizedLine, normalizedAlias) >= 0;
 }
 
-function aliasMatchPosition(normalizedLine, normalizedAlias) {
+function aliasMatchPosition(normalizedLine, aliasOrInfo) {
+  const normalizedAlias = typeof aliasOrInfo === "string" ? aliasOrInfo : aliasOrInfo.normalizedAlias;
   if (normalizedAlias.length < 4) return -1;
-  const match = new RegExp(`(^|\\s)${escapeRegExp(normalizedAlias)}($|\\s)`).exec(normalizedLine);
+  const pattern = typeof aliasOrInfo === "string" ? aliasMatchPattern(normalizedAlias) : aliasOrInfo.pattern;
+  const match = pattern.exec(normalizedLine);
   return match ? match.index + match[1].length : -1;
+}
+
+function aliasMatchPattern(normalizedAlias) {
+  return new RegExp(`(^|\\s)${escapeRegExp(normalizedAlias)}($|\\s)`);
 }
 
 function extractPersonName(lines, index, alias) {
