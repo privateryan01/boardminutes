@@ -1,19 +1,19 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-02T13:33:02.337223+00:00",
-  "source_run_at": "2026-06-02T13:33:01.731239+00:00",
+  "generated_at": "2026-06-03T00:45:37.988843+00:00",
+  "source_run_at": "2026-06-03T00:45:37.368286+00:00",
   "range": {
     "from_date": "2025-01-01",
-    "to_date": "2026-06-02"
+    "to_date": "2026-06-03"
   },
   "current_year": 2026,
   "previous_year": 2025,
   "source": {
-    "meeting_count": 99,
-    "scanned_meeting_count": 99,
+    "meeting_count": 101,
+    "scanned_meeting_count": 101,
     "attachment_count": 184,
     "source_url": "https://ccsd.community.diligentoneplatform.com/Portal/MeetingInformation.aspx?Org=Cal&Id=1678",
-    "run_label": "20260602-130203-range-2025-01-01-to-2026-06-02",
+    "run_label": "20260603-001547-range-2025-01-01-to-2026-06-03",
     "compared_to_previous_export": true,
     "new_attachment_count": 0
   },
@@ -4593,6 +4593,22 @@
       "meeting_date": "May 28, 2026",
       "source_url": "https://ccsd.community.diligentoneplatform.com/Portal/MeetingInformation.aspx?Org=Cal&Id=1683",
       "meeting_type": "41",
+      "meeting_year": "2026"
+    },
+    {
+      "meeting_id": 1668,
+      "meeting_name": "Board Work Session - Jun 03 2026",
+      "meeting_date": "June 3, 2026",
+      "source_url": "https://ccsd.community.diligentoneplatform.com/Portal/MeetingInformation.aspx?Org=Cal&Id=1668",
+      "meeting_type": "52",
+      "meeting_year": "2026"
+    },
+    {
+      "meeting_id": 1693,
+      "meeting_name": "Amended Agenda, Work Session  - Jun 03 2026",
+      "meeting_date": "June 3, 2026",
+      "source_url": "https://ccsd.community.diligentoneplatform.com/Portal/MeetingInformation.aspx?Org=Cal&Id=1693",
+      "meeting_type": "56",
       "meeting_year": "2026"
     }
   ],
