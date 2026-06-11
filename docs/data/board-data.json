@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-11T14:51:18.339665+00:00",
-  "source_run_at": "2026-06-11T14:51:17.735379+00:00",
+  "generated_at": "2026-06-11T23:42:50.727262+00:00",
+  "source_run_at": "2026-06-11T23:42:50.128080+00:00",
   "range": {
     "from_date": "2025-01-01",
     "to_date": "2026-06-11"
@@ -13,9 +13,9 @@
     "scanned_meeting_count": 102,
     "attachment_count": 190,
     "source_url": "https://ccsd.community.diligentoneplatform.com/Portal/MeetingInformation.aspx?Org=Cal&Id=1678",
-    "run_label": "20260611-142609-range-2025-01-01-to-2026-06-11",
+    "run_label": "20260611-231128-range-2025-01-01-to-2026-06-11",
     "compared_to_previous_export": true,
-    "new_attachment_count": 6
+    "new_attachment_count": 0
   },
   "schools": [
     {
@@ -26562,7 +26562,7 @@
         "Page 1 of 1",
         "Reference 2.07"
       ],
-      "is_new_since_previous_export": true
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "c8715491335cf52f57",
@@ -26619,7 +26619,7 @@
         "Page 2 of 2",
         "Reference 2.08"
       ],
-      "is_new_since_previous_export": true
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "5546ffa31ababcfffb",
@@ -27225,7 +27225,7 @@
         "Page 16 of 16",
         "Information 8.02"
       ],
-      "is_new_since_previous_export": true
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "f49a0d50f9b993e9e0",
@@ -27338,7 +27338,7 @@
         "Page 2 of 2",
         "Information 8.03"
       ],
-      "is_new_since_previous_export": true
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "27760dad135a2ca050",
@@ -27396,7 +27396,7 @@
         "Page 1 of 1",
         "Information 8.04"
       ],
-      "is_new_since_previous_export": true
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "7d08fcef77e4d394e5",
@@ -27474,7 +27474,7 @@
         "Page 1 of 1",
         "Information 8.05"
       ],
-      "is_new_since_previous_export": true
+      "is_new_since_previous_export": false
     }
   ],
   "errors": []
