@@ -1,19 +1,19 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-21T20:34:49.451055+00:00",
-  "source_run_at": "2026-06-21T20:34:48.854486+00:00",
+  "generated_at": "2026-06-22T05:56:27.800810+00:00",
+  "source_run_at": "2026-06-22T05:56:27.172097+00:00",
   "range": {
     "from_date": "2025-01-01",
-    "to_date": "2026-06-21"
+    "to_date": "2026-06-22"
   },
   "current_year": 2026,
   "previous_year": 2025,
   "source": {
-    "meeting_count": 102,
-    "scanned_meeting_count": 102,
+    "meeting_count": 103,
+    "scanned_meeting_count": 103,
     "attachment_count": 190,
     "source_url": "https://ccsd.community.diligentoneplatform.com/Portal/MeetingInformation.aspx?Org=Cal&Id=1678",
-    "run_label": "20260621-200346-range-2025-01-01-to-2026-06-21",
+    "run_label": "20260622-053142-range-2025-01-01-to-2026-06-22",
     "compared_to_previous_export": true,
     "new_attachment_count": 0
   },
@@ -4617,6 +4617,14 @@
       "meeting_date": "June 11, 2026",
       "source_url": "https://ccsd.community.diligentoneplatform.com/Portal/MeetingInformation.aspx?Org=Cal&Id=1688",
       "meeting_type": "42",
+      "meeting_year": "2026"
+    },
+    {
+      "meeting_id": 1694,
+      "meeting_name": "School Name Committee - Jun 22 2026",
+      "meeting_date": "June 22, 2026",
+      "source_url": "https://ccsd.community.diligentoneplatform.com/Portal/MeetingInformation.aspx?Org=Cal&Id=1694",
+      "meeting_type": "69",
       "meeting_year": "2026"
     }
   ],
