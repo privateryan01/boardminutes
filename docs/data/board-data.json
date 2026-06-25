@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-25T05:00:28.048099+00:00",
-  "source_run_at": "2026-06-25T05:00:27.426147+00:00",
+  "generated_at": "2026-06-25T10:17:33.413894+00:00",
+  "source_run_at": "2026-06-25T10:17:32.805510+00:00",
   "range": {
     "from_date": "2025-01-01",
     "to_date": "2026-06-25"
@@ -13,9 +13,9 @@
     "scanned_meeting_count": 104,
     "attachment_count": 194,
     "source_url": "https://ccsd.community.diligentoneplatform.com/Portal/MeetingInformation.aspx?Org=Cal&Id=1678",
-    "run_label": "20260625-043441-range-2025-01-01-to-2026-06-25",
+    "run_label": "20260625-094535-range-2025-01-01-to-2026-06-25",
     "compared_to_previous_export": true,
-    "new_attachment_count": 4
+    "new_attachment_count": 0
   },
   "schools": [
     {
@@ -27690,7 +27690,7 @@
         "Page 5 of 5",
         "Information 7.02"
       ],
-      "is_new_since_previous_export": true
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "5a4f71469c543bad34",
@@ -27754,7 +27754,7 @@
         "Page 2 of 2",
         "Information 7.03"
       ],
-      "is_new_since_previous_export": true
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "71aafde2a6cfd29e79",
@@ -27794,7 +27794,7 @@
         "Page 1 of 1",
         "Information 7.04"
       ],
-      "is_new_since_previous_export": true
+      "is_new_since_previous_export": false
     },
     {
       "attachment_id": "92271ad6be9880f8d8",
@@ -27865,7 +27865,7 @@
         "Page 1 of 1",
         "Information 7.05"
       ],
-      "is_new_since_previous_export": true
+      "is_new_since_previous_export": false
     }
   ],
   "errors": []
