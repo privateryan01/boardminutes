@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-01T20:47:45.979644+00:00",
-  "source_run_at": "2026-07-01T20:47:45.326152+00:00",
+  "generated_at": "2026-07-02T04:57:07.596442+00:00",
+  "source_run_at": "2026-07-02T04:57:06.960888+00:00",
   "range": {
     "from_date": "2025-01-01",
-    "to_date": "2026-07-01"
+    "to_date": "2026-07-02"
   },
   "current_year": 2026,
   "previous_year": 2025,
@@ -13,7 +13,7 @@
     "scanned_meeting_count": 106,
     "attachment_count": 197,
     "source_url": "https://ccsd.community.diligentoneplatform.com/Portal/MeetingInformation.aspx?Org=Cal&Id=1678",
-    "run_label": "20260701-201524-range-2025-01-01-to-2026-07-01",
+    "run_label": "20260702-043132-range-2025-01-01-to-2026-07-02",
     "compared_to_previous_export": true,
     "new_attachment_count": 0
   },
