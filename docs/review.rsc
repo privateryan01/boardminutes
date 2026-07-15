@@ -1,0 +1,8 @@
+2:I["16c2bf41eac7",[],"Children",1]
+3:I["e22b1880423d",[],"LayoutSegmentProvider",1]
+4:I["16c2bf41eac7",[],"Slot",1]
+5:I["8a584ae74f19",[],"RedirectBoundary",1]
+:HL["/boardminutes/assets/index-BOqRefLv.css","style"]
+0:{"__route":"route:/review/","__interceptionContext":null,"__layoutIds":["layout:/"],"__rootLayout":"/","page:/review/":"$L1","layout:/":[[[["$","link","css:/boardminutes/assets/index-BOqRefLv.css",{"rel":"stylesheet","precedence":"vite-rsc/importer-resources","href":"/boardminutes/assets/index-BOqRefLv.css","data-rsc-css-href":"/boardminutes/assets/index-BOqRefLv.css"}],"$undefined"],["$","html",null,{"lang":"en","children":["$","body",null,{"children":["$","$L2",null,{}]}]}]],null],"route:/review/":[[["$","meta",null,{"charSet":"utf-8"}],[["$","title","0",{"children":"CCSD Board Personnel Watch Beta"}],["$","meta","1",{"name":"description","content":"Investigate CCSD employment changes, review extracted evidence, and analyze personnel trends."}]],[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]],["$","$L3",null,{"segmentMap":{"children":["review"]},"children":["$","$L4",null,{"id":"layout:/","parallelSlots":"$undefined","children":["$","$L5",null,{"children":["$","$L3",null,{"segmentMap":{"children":[]},"children":["$","$L4",null,{"id":"page:/review/"}]}]}]}]}]],"__layoutFlags":{"layout:/":"s"},"__artifactCompatibility":{"schemaVersion":1,"graphVersion":"app-route-graph:1tl0mcg110cxuc","deploymentVersion":"489f5881-1021-4d12-a4da-56ef36d485db","appElementsSchemaVersion":1,"rscPayloadSchemaVersion":1,"rootBoundaryId":"/","renderEpoch":null}}
+6:I["c3e0d1b34bc9",[],"default",1]
+1:["$","$L6",null,{"initialView":"review"}]
