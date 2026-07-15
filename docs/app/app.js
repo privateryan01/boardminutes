@@ -1330,6 +1330,7 @@ function uniqueSchoolMatches(matches) {
 function validAliasContext(normalizedLine, aliasInfo, position) {
   const aliasWords = aliasInfo.normalizedAlias.split(" ").filter(Boolean);
   if (!aliasWords.length || SCHOOL_SUFFIXES.has(aliasWords[aliasWords.length - 1])) return true;
+  if (/\bK 8$/.test(aliasInfo.normalizedAlias)) return true;
   if (aliasWords.some((word) => SCHOOL_DESCRIPTOR_WORDS.has(word))) return true;
   const lineWords = normalizedLine.split(" ").filter(Boolean);
   const startWord = normalizedLine.slice(0, position).trim().split(/\s+/).filter(Boolean).length;

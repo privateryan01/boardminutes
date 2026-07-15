@@ -1653,6 +1653,11 @@
       "aliases": [
         "West Prep",
         "West Prep Academy",
+        "West Preparatory Academy at Charles I. West Hall",
+        "West Prep ES",
+        "West Prep MS",
+        "West Prep HS",
+        "West Prep K-12",
         "Western Prep",
         "Western Prep Academy"
       ],
@@ -1676,7 +1681,11 @@
       "aliases": [
         "Toland ES",
         "Toland",
-        "Toland Elementary School"
+        "Toland Elementary School",
+        "Helen Anderson Toland International Academy",
+        "Helen Anderson International Academy",
+        "Toland International Academy",
+        "Toland, Helen Anderson Int Acd"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1687,7 +1696,9 @@
       "aliases": [
         "Booker ES",
         "Booker",
-        "Booker Elementary School"
+        "Booker Elementary School",
+        "Kermit R. Booker Sr. ES",
+        "Kermit R Booker Sr Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1698,7 +1709,9 @@
       "aliases": [
         "Martinez ES",
         "Martinez",
-        "Martinez Elementary School"
+        "Martinez Elementary School",
+        "Reynaldo L. Martinez ES",
+        "Reynaldo L Martinez Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1709,7 +1722,8 @@
       "aliases": [
         "Canyon Springs HS",
         "Canyon Springs",
-        "Canyon Springs High School"
+        "Canyon Springs High School",
+        "Canyon Springs HS and the Leadership and Law Preparatory Academy"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1725,12 +1739,28 @@
       "source_image": "clusters 11-20.png"
     },
     {
+      "school_id": "desert_rose_adult_hs",
+      "cluster": "Cluster 19",
+      "display_name": "Desert Rose Adult HS",
+      "aliases": [
+        "Desert Rose Adult HS",
+        "Desert Rose Adult High School",
+        "Desert Rose Adult School",
+        "Desert Rose Adult Ed",
+        "Desert Rose Adult Education Programs"
+      ],
+      "source_image": "North region list"
+    },
+    {
       "school_id": "csn_east",
       "cluster": "Cluster 19",
       "display_name": "CSN East",
       "aliases": [
         "CSN East",
-        "College of Southern Nevada East"
+        "College of Southern Nevada East",
+        "College of Southern Nevada High School East",
+        "College of So. NV HS East Campus",
+        "CSN High School East"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1741,7 +1771,9 @@
       "aliases": [
         "Sedway MS",
         "Sedway",
-        "Sedway Middle School"
+        "Sedway Middle School",
+        "Marvin M. Sedway MS",
+        "Marvin M Sedway Middle School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1752,7 +1784,9 @@
       "aliases": [
         "Wilhelm ES",
         "Wilhelm",
-        "Wilhelm Elementary School"
+        "Wilhelm Elementary School",
+        "Elizabeth Wilhelm ES",
+        "Elizabeth Wilhelm Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1769,7 +1803,10 @@
         "Perkins, C",
         "Perkins, C.",
         "Perkins C",
-        "C Perkins Elementary School"
+        "C Perkins Elementary School",
+        "Dr. Claude G. Perkins ES",
+        "Claude G. Perkins ES",
+        "Claude G Perkins Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1780,7 +1817,9 @@
       "aliases": [
         "Priest ES",
         "Priest",
-        "Priest Elementary School"
+        "Priest Elementary School",
+        "Richard C. Priest ES",
+        "Richard C Priest Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1791,7 +1830,9 @@
       "aliases": [
         "Craig ES",
         "Craig",
-        "Craig Elementary School"
+        "Craig Elementary School",
+        "Lois Craig ES",
+        "Lois Craig Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1834,7 +1875,9 @@
         "Bailey W H Middle School",
         "Bailey WH MS",
         "Bailey, WH",
-        "WH Bailey"
+        "WH Bailey",
+        "Dr. William H. Bob Bailey MS",
+        "William H. Bob Bailey Middle School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1845,7 +1888,9 @@
       "aliases": [
         "Von Tobel MS",
         "Von Tobel",
-        "Von Tobel Middle School"
+        "Von Tobel Middle School",
+        "Ed Von Tobel MS",
+        "Ed Von Tobel Middle School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1856,7 +1901,9 @@
       "aliases": [
         "Hickey ES",
         "Hickey",
-        "Hickey Elementary School"
+        "Hickey Elementary School",
+        "Liliam Lujan Hickey ES",
+        "Liliam Lujan Hickey Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1899,7 +1946,9 @@
       "aliases": [
         "Tate ES",
         "Tate",
-        "Tate Elementary School"
+        "Tate Elementary School",
+        "Myrtle Tate ES",
+        "Myrtle Tate Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1910,7 +1959,9 @@
       "aliases": [
         "McCall ES",
         "McCall",
-        "McCall Elementary School"
+        "McCall Elementary School",
+        "Quannah McCall ES",
+        "Quannah McCall Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1921,7 +1972,9 @@
       "aliases": [
         "Cahlan ES",
         "Cahlan",
-        "Cahlan Elementary School"
+        "Cahlan Elementary School",
+        "Marion Cahlan ES",
+        "Marion Cahlan Elementary School"
       ],
       "source_image": "clusters 11-20.png"
     },
@@ -1943,7 +1996,9 @@
       "aliases": [
         "Johnston MS",
         "Johnston",
-        "Johnston Middle School"
+        "Johnston Middle School",
+        "Carroll M. Johnston MS",
+        "Carroll M. Johnston STEM Academy of Environmental Studies"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1954,7 +2009,9 @@
       "aliases": [
         "Manch ES",
         "Manch",
-        "Manch Elementary School"
+        "Manch Elementary School",
+        "J. E. Manch ES",
+        "J E Manch Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1965,7 +2022,9 @@
       "aliases": [
         "Lowman ES",
         "Lowman",
-        "Lowman Elementary School"
+        "Lowman Elementary School",
+        "Mary and Zel Lowman ES",
+        "Mary & Zel Lowman Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1976,7 +2035,9 @@
       "aliases": [
         "Scott ES",
         "Scott",
-        "Scott Elementary School"
+        "Scott Elementary School",
+        "Jesse D. Scott ES",
+        "Jesse D Scott Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -1987,7 +2048,9 @@
       "aliases": [
         "Tartan ES",
         "Tartan",
-        "Tartan Elementary School"
+        "Tartan Elementary School",
+        "John Tartan ES",
+        "John Tartan Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -2020,7 +2083,10 @@
       "aliases": [
         "Findlay MS",
         "Findlay",
-        "Findlay Middle School"
+        "Findlay Middle School",
+        "Clifford O. Pete Findlay MS",
+        "Clifford O. Findlay MS",
+        "Clifford O Findlay Middle School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -2031,7 +2097,9 @@
       "aliases": [
         "Watson ES",
         "Watson",
-        "Watson Elementary School"
+        "Watson Elementary School",
+        "Fredric W. Watson ES",
+        "Fredric W Watson Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -2042,7 +2110,9 @@
       "aliases": [
         "Cozine ES",
         "Cozine",
-        "Cozine Elementary School"
+        "Cozine Elementary School",
+        "Steve and Linda Cozine ES",
+        "Steve Cozine Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -2053,7 +2123,9 @@
       "aliases": [
         "Elizondo ES",
         "Elizondo",
-        "Elizondo Elementary School"
+        "Elizondo Elementary School",
+        "Raul P. Elizondo ES",
+        "Raul P Elizondo Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -2068,7 +2140,9 @@
         "Clyde Cox",
         "Clyde Cox Elementary School",
         "Cox Clyde",
-        "Cox Clyde Elementary School"
+        "Cox Clyde Elementary School",
+        "Clyde C. Cox ES",
+        "Clyde C Cox Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -2079,7 +2153,9 @@
       "aliases": [
         "Woolley ES",
         "Woolley",
-        "Woolley Elementary School"
+        "Woolley Elementary School",
+        "Gwendolyn Woolley ES",
+        "Gwendolyn Woolley Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -2113,7 +2189,12 @@
       "aliases": [
         "Mackey MS",
         "Mackey",
-        "Mackey Middle School"
+        "Mackey Middle School",
+        "Jo Mackey iLead Academy for the Digital Sciences",
+        "Jo Mackey Academy",
+        "Jo Mackey K-8",
+        "Jo Mackey ES",
+        "Jo Mackey MS"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -2124,7 +2205,9 @@
       "aliases": [
         "Bridger MS",
         "Bridger",
-        "Bridger Middle School"
+        "Bridger Middle School",
+        "Jim Bridger MS",
+        "Jim Bridger Middle School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -2135,7 +2218,9 @@
       "aliases": [
         "Hoggard ES",
         "Hoggard",
-        "Hoggard Elementary School"
+        "Hoggard Elementary School",
+        "Mabel W. Hoggard ES",
+        "Mabel Hoggard Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -2152,7 +2237,10 @@
         "Williams, W",
         "Williams, W.",
         "Williams W",
-        "W Williams Elementary School"
+        "W Williams Elementary School",
+        "Wendell Williams ES",
+        "Wendell P. Williams ES",
+        "Wendell P. Williams Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -2163,7 +2251,9 @@
       "aliases": [
         "Fitzgerald ES",
         "Fitzgerald",
-        "Fitzgerald Elementary School"
+        "Fitzgerald Elementary School",
+        "H. P. Fitzgerald ES",
+        "H P Fitzgerald Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -2189,7 +2279,9 @@
       "aliases": [
         "Herron ES",
         "Herron",
-        "Herron Elementary School"
+        "Herron Elementary School",
+        "Fay Herron ES",
+        "Fay Herron Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -2212,7 +2304,9 @@
       "aliases": [
         "Cram MS",
         "Cram",
-        "Cram Middle School"
+        "Cram Middle School",
+        "Brian and Teri Cram MS",
+        "Brian and Teri Cram Middle School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -2223,7 +2317,9 @@
       "aliases": [
         "Simmons ES",
         "Simmons",
-        "Simmons Elementary School"
+        "Simmons Elementary School",
+        "Eva G. Simmons ES",
+        "Eva G Simmons Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -2234,7 +2330,9 @@
       "aliases": [
         "Antonello ES",
         "Antonello",
-        "Antonello Elementary School"
+        "Antonello Elementary School",
+        "Lee Antonello ES",
+        "Lee Antonello Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -2245,7 +2343,9 @@
       "aliases": [
         "Duncan ES",
         "Duncan",
-        "Duncan Elementary School"
+        "Duncan Elementary School",
+        "Ruby Duncan ES",
+        "Ruby Duncan Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -2256,7 +2356,9 @@
       "aliases": [
         "Hayden ES",
         "Hayden",
-        "Hayden Elementary School"
+        "Hayden Elementary School",
+        "Don E. Hayden ES",
+        "Don E Hayden Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -2267,7 +2369,9 @@
       "aliases": [
         "Gilbert ES",
         "Gilbert",
-        "Gilbert Elementary School"
+        "Gilbert Elementary School",
+        "C. V. T. Gilbert ES",
+        "C V T Gilbert Elementary School"
       ],
       "source_image": "clusters 21-30.png"
     },
@@ -3786,5 +3890,5 @@
       "source_image": "clusters 31-40.png"
     }
   ],
-  "generated_at": "2026-07-15T05:48:35.544206+00:00"
+  "generated_at": "2026-07-15T06:37:37.653381+00:00"
 }
