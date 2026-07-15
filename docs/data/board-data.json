@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-15T05:20:26.942916+00:00",
-  "source_run_at": "2026-07-15T05:20:25.688153+00:00",
+  "generated_at": "2026-07-15T05:48:35.544206+00:00",
+  "source_run_at": "2026-07-15T05:48:35.215129+00:00",
   "range": {
     "from_date": "2025-01-01",
     "to_date": "2026-07-15"
@@ -11,11 +11,11 @@
   "source": {
     "meeting_count": 106,
     "scanned_meeting_count": 106,
-    "attachment_count": 197,
+    "attachment_count": 198,
     "source_url": "https://ccsd.community.diligentoneplatform.com/Portal/MeetingInformation.aspx?Org=Cal&Id=1678",
-    "run_label": "20260714-222001-range-2026-06-30-to-2026-07-15",
+    "run_label": "20260715-054436-range-2026-05-31-to-2026-07-15",
     "compared_to_previous_export": true,
-    "new_attachment_count": 0,
+    "new_attachment_count": 1,
     "incremental": true
   },
   "schools": [
@@ -20726,6 +20726,43 @@
         "Information 7.05"
       ],
       "is_new_since_previous_export": false
+    },
+    {
+      "attachment_id": "48750deb9c1c513545",
+      "meeting_id": 1689,
+      "meeting_name": "Regular Board Meeting - Jun 25 2026",
+      "meeting_date": "June 25, 2026",
+      "meeting_year": "2026",
+      "board_meeting_url": "https://ccsd.community.diligentoneplatform.com/Portal/MeetingInformation.aspx?Org=Cal&Id=1689",
+      "meeting_type": "42",
+      "item_number": "7.11",
+      "item_title": "Unified Personnel Rescission of Resignation.",
+      "attachment_name": "06.25.26 Info. 7.11.pdf",
+      "document_id": "4ec2ac6f-5db6-4875-81b2-5bd5cb8cdfe2",
+      "document_url": "https://ccsd.community.diligentoneplatform.com/document/4ec2ac6f-5db6-4875-81b2-5bd5cb8cdfe2",
+      "movement_type": "separation",
+      "line_count": 17,
+      "content_signature": "91cc836890c7bce80e28387f409b29c8d8ed52ca",
+      "lines": [
+        "--- page 1 ---",
+        "INFORMATION ON UNIFIED PERSONNEL RESCISSION OF RESIGNATION",
+        "Strategic Imperative(s):  Engagement (SI-2)",
+        "Priority 3:  Safe and Supportive Schools (P-3)",
+        "Henry Blackeye has been employed with the Clark County School District since 2003 and is currently",
+        "serving as the chief of school police in the Police Services department.  Henry Blackeye submitted his",
+        "notice for retirement to be effective July 1, 2026.",
+        "Mr. Blackeye has requested a rescission of his resignation.  A new retirement date has been established",
+        "as July 18, 2026.",
+        "Clark County School District Regulation 4360 specifies that a resignation may only be rescinded upon the",
+        "recommendation of the Chief Human Resources Officer, with the approval of the superintendent.",
+        "The Chief Human Resources Officer recommends approval of the rescission of the resignation of Henry",
+        "Blackeye, and the superintendent has approved his rescission of resignation.",
+        "RoAnn Triana",
+        "June 25, 2026",
+        "Page 1 of 1",
+        "Information 7.11"
+      ],
+      "is_new_since_previous_export": true
     },
     {
       "attachment_id": "60a09a4af663e5d876",
