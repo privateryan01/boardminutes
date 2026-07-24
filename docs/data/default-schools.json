@@ -759,22 +759,15 @@
     {
       "school_id": "peterson_d_es",
       "cluster": "Cluster 8",
-      "display_name": "Petersen D ES",
+      "display_name": "Peterson D ES",
       "aliases": [
-        "Petersen D ES",
-        "Petersen ES",
-        "Petersen D",
-        "Petersen D Elementary School",
-        "Petersen, D",
-        "Petersen, D.",
-        "D Petersen",
-        "D. Petersen",
-        "Dean Petersen",
-        "Petersen, Dean",
-        "Dean Petersen Elementary School",
         "Peterson D ES",
         "Peterson D",
-        "Peterson D Elementary School"
+        "Peterson D Elementary School",
+        "Peterson, D",
+        "Peterson, D.",
+        "D Peterson",
+        "D. Peterson"
       ],
       "source_image": "clusters 1-10.png"
     },
@@ -3897,5 +3890,5 @@
       "source_image": "clusters 31-40.png"
     }
   ],
-  "generated_at": "2026-07-20T16:07:44.713359+00:00"
+  "generated_at": "2026-07-24T15:49:09.752352+00:00"
 }
