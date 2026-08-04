@@ -5,7 +5,7 @@ const DEFAULT_SCHOOL_SET_VERSION = "cluster-1-40-v3";
 const FILTER_STORAGE_KEY = "ccsd-board-watch-filters-v1";
 const SNAPSHOT_STORAGE_KEY = "ccsd-board-watch-finding-snapshot-v1";
 const FINDING_CACHE_STORAGE_KEY = "ccsd-board-watch-finding-cache-v1";
-const FINDING_CACHE_VERSION = "findings-v2";
+const FINDING_CACHE_VERSION = "findings-v3";
 const LEGACY_DEFAULT_SOURCE_IMAGES = new Set([
   "henderson cluster.png",
   "North east vegas cluster.png",
@@ -76,6 +76,7 @@ const ROLE_WORDS = new Set([
   "para-professional",
   "paraprofessional",
   "police",
+  "project",
   "receptionist",
   "registrar",
   "resources",
@@ -377,14 +378,21 @@ function recomputeFindings() {
   if (cachedFindings) {
     state.findings = cachedFindings;
   } else {
-    state.findings = buildFindings(state.data.attachments || [], state.schools);
+    state.findings = buildFindings(
+      state.data.attachments || [],
+      state.schools,
+      state.data.schools || state.schools,
+    );
     saveCachedFindings(cacheKey, state.findings);
   }
   markNewFindings();
 }
 
-function buildFindings(attachments, schools) {
+function buildFindings(attachments, schools, boundarySchools = schools) {
   const aliases = compiledSchoolAliases(schools);
+  const boundaryAliases = boundarySchools === schools
+    ? aliases
+    : compiledSchoolAliases([...boundarySchools, ...schools]);
   const findings = [];
   const seen = new Set();
 
@@ -395,13 +403,14 @@ function buildFindings(attachments, schools) {
     for (let index = 0; index < normalizedLines.length; index += 1) {
       const normalized = normalizedLines[index];
       if (!normalized) continue;
-      let matches = lineSchoolMatches(normalized, aliases);
-      if (!matches.length && normalizedLines[index + 1]) {
-        matches = crossLineSchoolMatches(normalized, normalizedLines[index + 1], aliases);
-      }
+      let matches = schoolMatchesAtIndex(normalizedLines, index, aliases);
       if (!matches.length) continue;
 
       if (attachment.movement_type === "separation") {
+        const boundaryMatches = boundaryAliases === aliases
+          ? matches
+          : schoolMatchesAtIndex(normalizedLines, index, boundaryAliases);
+        matches = preferInlineSeparationMatches(lines, index, matches, boundaryMatches);
         matches = matches.filter((match) => !isDuplicateSchoolContinuation(
           lines,
           normalizedLines,
@@ -413,7 +422,7 @@ function buildFindings(attachments, schools) {
       }
 
       const separationRowEnd = attachment.movement_type === "separation"
-        ? nextSchoolRowIndex(lines, normalizedLines, index, aliases)
+        ? nextSchoolRowIndex(lines, normalizedLines, index, boundaryAliases)
         : null;
 
       if (attachment.movement_type === "promotion_transfer" && matches.length >= 2) {
@@ -538,7 +547,7 @@ function buildFindingFromMatches(attachment, lines, index, matches, seen, separa
   const separationSourceIndex = attachment.movement_type === "separation"
     ? separationSourceIndexFor(lines, index)
     : index;
-  const person = extractPersonName(lines, index, primary.normalizedAlias);
+  const person = extractPersonName(lines, index, primary.normalizedAlias, attachment.movement_type);
   const effectiveDate = extractEffectiveDateForMatch(
     lines,
     separationSourceIndex,
@@ -1363,19 +1372,45 @@ function crossLineSchoolMatches(currentLine, nextLine, aliases) {
   ));
 }
 
+function schoolMatchesAtIndex(normalizedLines, index, aliases) {
+  const matches = lineSchoolMatches(normalizedLines[index], aliases);
+  if (!normalizedLines[index + 1] || (matches.length && !matches.some((match) => match.position === 0))) {
+    return matches;
+  }
+  return uniqueSchoolMatches([
+    ...matches,
+    ...crossLineSchoolMatches(normalizedLines[index], normalizedLines[index + 1], aliases),
+  ]);
+}
+
+function preferInlineSeparationMatches(lines, index, matches, evidenceMatches) {
+  if (evidenceMatches.length < 2) return matches;
+  const inlinePeople = new Map(evidenceMatches.map((match) => [
+    match.school.school_id,
+    inlinePersonForSchoolMatch(lines, index, match),
+  ]));
+  if (![...inlinePeople.values()].some(Boolean)) return matches;
+  const filtered = matches.filter((match) => (
+    match.position !== 0 || inlinePeople.get(match.school.school_id)
+  ));
+  return filtered;
+}
+
+function inlinePersonForSchoolMatch(lines, index, match) {
+  const currentLine = lines[index] || "";
+  const nextLine = lines[index + 1] || "";
+  let person = personFromLinePrefix(currentLine, match.alias, nextLine);
+  if (person || !aliasSpansLines(currentLine, nextLine, match.alias)) return person;
+  person = personFromLinePrefix(`${currentLine} ${nextLine}`, match.alias, lines[index + 2] || "");
+  return person;
+}
+
 function nextSchoolRowIndex(lines, normalizedLines, index, aliases) {
   const limit = Math.min(normalizedLines.length, index + 8);
   let dateTokensSeen = separationDateLikeTokens(lines[index]).length;
   for (let candidateIndex = index + 1; candidateIndex < limit; candidateIndex += 1) {
     const candidateTokens = separationDateLikeTokens(lines[candidateIndex]);
-    let matches = lineSchoolMatches(normalizedLines[candidateIndex], aliases);
-    if (!matches.length && normalizedLines[candidateIndex + 1]) {
-      matches = crossLineSchoolMatches(
-        normalizedLines[candidateIndex],
-        normalizedLines[candidateIndex + 1],
-        aliases,
-      );
-    }
+    const matches = schoolMatchesAtIndex(normalizedLines, candidateIndex, aliases);
     if (matches.length) {
       const nextLine = lines[candidateIndex + 1] || "";
       const hasPersonPrefix = matches.some((match) => (
@@ -1475,7 +1510,7 @@ function aliasMatchPattern(normalizedAlias) {
   return new RegExp(`(^|\\s)${escapeRegExp(normalizedAlias)}($|\\s)`);
 }
 
-function extractPersonName(lines, index, alias) {
+function extractPersonName(lines, index, alias, movementType = "") {
   const currentLine = lines[index] || "";
   const sourceIndex = separationSourceIndexFor(lines, index);
   if (sourceIndex !== index) {
@@ -1491,6 +1526,27 @@ function extractPersonName(lines, index, alias) {
   for (let i = index - 1; i >= Math.max(0, index - 3); i -= 1) {
     const candidate = lines[i].trim();
     if (looksLikeHeader(candidate) || fullDateMatch(candidate)) continue;
+    if (!looksLikePersonLine(candidate)) continue;
+    const person = leadingPersonName(candidate);
+    if (person) return person;
+  }
+  if (movementType === "promotion_transfer") return personBeforeKnownAssignment(lines, index);
+  return "";
+}
+
+function personBeforeKnownAssignment(lines, index) {
+  const windowStart = Math.max(0, index - 8);
+  let assignmentIndex = -1;
+  for (let i = index - 1; i >= windowStart; i -= 1) {
+    if (/^(?:Child Find(?: Project)?|Zoom Schools|Turnaround Zone)$/i.test(String(lines[i] || "").replace(/\s+/g, " ").trim())) {
+      assignmentIndex = i;
+      break;
+    }
+  }
+  if (assignmentIndex < 0) return "";
+  for (let i = assignmentIndex - 1; i >= Math.max(windowStart, assignmentIndex - 3); i -= 1) {
+    const candidate = String(lines[i] || "").trim();
+    if (looksLikeHeader(candidate) || fullDateMatch(candidate) || looksLikeSchoolOrOrg(candidate)) break;
     if (!looksLikePersonLine(candidate)) continue;
     const person = leadingPersonName(candidate);
     if (person) return person;
@@ -1522,10 +1578,11 @@ function personFromLinePrefix(line, alias, nextLine = "") {
   const originalCut = normalized.mapping[bestPosition] || line.length;
   const originalWords = line.slice(0, originalCut).replace(/\s+/g, " ").split(" ");
   const nameWords = [];
-  for (const word of originalWords) {
-    const cleaned = word.replace(/[^A-Za-z'.-]/g, "");
-    if (!cleaned) continue;
+  const cleanedWords = originalWords.map((word) => word.replace(/[^A-Za-z'.-]/g, "")).filter(Boolean);
+  for (let wordIndex = 0; wordIndex < cleanedWords.length; wordIndex += 1) {
+    const cleaned = cleanedWords[wordIndex];
     if (ROLE_WORDS.has(cleaned.toLowerCase())) break;
+    if (startsAssignmentPhrase(cleanedWords, wordIndex)) break;
     nameWords.push(cleaned);
     if (nameWords.length >= 5) break;
   }
@@ -1543,6 +1600,16 @@ function normalizeWithMapping(value) {
   const text = String(value || "");
   for (let index = 0; index < text.length; index += 1) {
     const char = text[index].toUpperCase();
+    if (char === "&") {
+      if (chars.length && chars[chars.length - 1] !== " ") {
+        chars.push(" ");
+        mapping.push(index);
+      }
+      chars.push("A", "N", "D");
+      mapping.push(index, index, index);
+      pendingSpace = true;
+      continue;
+    }
     if (/[A-Z0-9]/.test(char)) {
       if (pendingSpace && chars.length) {
         chars.push(" ");
@@ -1562,10 +1629,11 @@ function normalizeWithMapping(value) {
 function leadingPersonName(line) {
   const words = String(line || "").replace(/\s+/g, " ").split(" ");
   const nameWords = [];
-  for (const word of words) {
-    const cleaned = word.replace(/[^A-Za-z'.-]/g, "");
-    if (!cleaned) continue;
+  const cleanedWords = words.map((word) => word.replace(/[^A-Za-z'.-]/g, "")).filter(Boolean);
+  for (let wordIndex = 0; wordIndex < cleanedWords.length; wordIndex += 1) {
+    const cleaned = cleanedWords[wordIndex];
     if (ROLE_WORDS.has(cleaned.toLowerCase())) break;
+    if (startsAssignmentPhrase(cleanedWords, wordIndex)) break;
     if (HEADER_HINTS.has(cleaned.toLowerCase())) return "";
     nameWords.push(cleaned);
     if (nameWords.length >= 5) break;
@@ -1573,8 +1641,24 @@ function leadingPersonName(line) {
   return cleanPerson(nameWords.join(" "));
 }
 
+function startsAssignmentPhrase(words, index) {
+  if (!words[index + 1]) return false;
+  if (
+    words[index + 2]
+    && words[index].toLowerCase() === "don"
+    && words[index + 1].toLowerCase() === "dee"
+    && words[index + 2].toLowerCase() === "snyder"
+  ) return true;
+  const phrase = `${words[index].toLowerCase()} ${words[index + 1].toLowerCase()}`;
+  return phrase === "zoom project"
+    || phrase === "zoom learning"
+    || phrase === "english language"
+    || phrase === "child find";
+}
+
 function cleanPerson(value) {
   const text = String(value || "").replace(/\s+/g, " ").replace(/^[\s,-]+|[\s,-]+$/g, "");
+  if (/^(?:English Language(?: Learner)?|Child Find(?: Project)?|Strategic Projects|Zoom Schools|Performance Zone|Turnaround Zone)$/i.test(text)) return "";
   const words = text.split(" ").filter(Boolean);
   if (words.length < 2) return "";
   if (words.some((word) => !/^(?:'?[A-Z][A-Za-z'.-]*|[A-Z]\.)$/.test(word) && !NAME_PARTICLES.has(word.toLowerCase()))) return "";
