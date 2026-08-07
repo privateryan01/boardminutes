@@ -11,11 +11,10 @@ importScripts("app/app.js");
 
 self.onmessage = (event) => {
   try {
-    const { attachments, schools, boundarySchools, requestId } = event.data || {};
+    const { attachments, schools, requestId } = event.data || {};
     const findings = buildFindings(
       Array.isArray(attachments) ? attachments : [],
       Array.isArray(schools) ? schools : [],
-      Array.isArray(boundarySchools) ? boundarySchools : schools,
     );
     self.postMessage({ requestId, findings });
   } catch (error) {

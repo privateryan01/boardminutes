@@ -5,7 +5,7 @@ const DEFAULT_SCHOOL_SET_VERSION = "cluster-1-40-v3";
 const FILTER_STORAGE_KEY = "ccsd-board-watch-filters-v1";
 const SNAPSHOT_STORAGE_KEY = "ccsd-board-watch-finding-snapshot-v1";
 const FINDING_CACHE_STORAGE_KEY = "ccsd-board-watch-finding-cache-v1";
-const FINDING_CACHE_VERSION = "findings-v3";
+const FINDING_CACHE_VERSION = "findings-v2";
 const LEGACY_DEFAULT_SOURCE_IMAGES = new Set([
   "henderson cluster.png",
   "North east vegas cluster.png",
@@ -20,9 +20,6 @@ const CLUSTER_DEFAULT_SOURCE_IMAGES = new Set([
 ]);
 
 const DATE_PATTERN = /\b(?:\d{1,2}\/\d{1,2}\/+\d{2,4}|(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\s+\d{1,2},\s+\d{4}|TBD)\b/ig;
-const SEPARATION_DATE_LIKE_PATTERN = /\b(?:\d{1,2}\/\d{1,2}(?:\/+\d{1,4})?(?![\d/])|(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\s+\d{1,2},\s+\d{4}|TBD)\b/ig;
-const MALFORMED_HIRE_DATE_PATTERN = /(?<!\d)(?:\d{3,4}\/\d{2,4}|\d{1,2}\/\d{3,4}|\d{1,2}\/\/+\d{2,4}|(?:0[1-9]|1[0-2])\d{2}|\d{1,2}\/\s+\d{2,4})\s*$/i;
-const MAX_EFFECTIVE_DATE_DISTANCE_MS = 366 * 2 * 24 * 60 * 60 * 1000;
 const HEADER_HINTS = new Set([
   "name",
   "school and assignment",
@@ -76,7 +73,6 @@ const ROLE_WORDS = new Set([
   "para-professional",
   "paraprofessional",
   "police",
-  "project",
   "receptionist",
   "registrar",
   "resources",
@@ -96,36 +92,26 @@ const ROLE_WORDS = new Set([
 ]);
 const REASON_RULES = [
   [/\bdisability\s+retirement\b/i, "Disability Retirement"],
-  [/\bearly\s+retirement(?:\s+incentive)?\b/i, "Early Retirement Incentive"],
   [/\bnormal\s+retirement\b/i, "Retirement"],
-  [/\b(?:r\s+etirement|retirement|reitrement|retitrement|retirment)\b/i, "Retirement"],
-  [/\b(?:death|d\s+eceased|deceased)\b/i, "Death"],
-  [/\b(?:r\s+elocation|relocation|reloation|relocatin|relocaion|relcoation)\b/i, "Relocation"],
-  [/\b(?:a\s*ccept|acce\s*pt)(?:ed)?\s+pos(?:ition|iton|tion)?\b.{0,140}?\banother\s+bargaining\s+group\b/i, "Accepted Position in Another Bargaining Group"],
-  [/\b(?:a\s*ccept|acce\s*pt)(?:ed)?\s+pos(?:ition|iton|tion)?\b.{0,220}?\b(?:other|a\s*nother)\b.{0,220}?\b(?:n\s*evada\s+)?district\b/i, "Accepted Position in Other District"],
-  [/\baccept(?:ed)?\s+pos(?:ition)?\s+in\s*\/?\s*moving(?:\s+to)?(?:\s+[a-z()]+){0,10}\s+(?:another|other)\s+nevada(?:\s+[a-z()]+){0,4}\s+district\b/i, "Accepted Position in Other District"],
-  [/\bmoving(?:\s+to)?(?:\s+[a-z()]+){0,10}\s+(?:another|other)\s+nevada(?:\s+[a-z()]+){0,4}\s+district\b/i, "Accepted Position in Other District"],
-  [/\baccept(?:ed)?\s+other\s+pos(?:ition)?\s*\/?\s*leav(?:e|ing)\s+prof+e?s+s?ion\b/i, "Accepted Other Position/Leaving Profession"],
+  [/\bretirement\b/i, "Retirement"],
+  [/\bdeath\b/i, "Death"],
+  [/\brelocation\b/i, "Relocation"],
+  [/\baccept(?:ed)?\s+pos(?:ition)?(?:\s+[a-z]+){0,4}\s+in\s+(?:an?\s+)?other\s+district\b/i, "Accepted Position in Other District"],
+  [/\baccept(?:ed)?\s+other\s+pos(?:ition)?\s*\/?\s*leave\s+prof+e?s+s?ion\b/i, "Accepted Other Position/Leaving Profession"],
   [/\baccepted\s+other\s+position\s*\/\s*leaving\s+profession\b/i, "Accepted Other Position/Leaving Profession"],
   [/\baccepted\s+other\s+position\b/i, "Accepted Other Position"],
   [/\baccepted\s+position\b/i, "Accepted Position"],
-  [/\bno\s*\/?\s*(?:negative|negotiation)\s+response\b.{0,180}?\bto\b.{0,180}?\b(?:declaration\s+of\s+)?intent\b/i, "No/Negative Response to Declaration of Intent"],
-  [/\bno\s+response(?:\s+[a-z]+){0,5}\s+to(?:\s+[a-z]+){0,5}\s+declaration\s+of\s+intent\b/i, "No Response to Declaration of Intent"],
+  [/\bno\s*\/?\s*negative\s+response(?:\s+[a-z]+){0,5}\s+to\s+declaration\s+of\s+intent\b/i, "No/Negative Response to Declaration of Intent"],
   [/\bfailure\s+to\s+license\b/i, "Failure to License"],
   [/\breturn\s+to\s+licensed\s+status\b/i, "Return to Licensed Status"],
-  [/\breturn(?:ing)?\s+to\s+school\b/i, "Return to School"],
-  [/\b(?:m\s+edical|medical)(?:\s+reasons?)?\b/i, "Medical"],
+  [/\breturn\s+to\s+school\b/i, "Return to School"],
+  [/\bmedical(?:\s+reasons?)?\b/i, "Medical"],
   [/\bleaving\s+profession\b/i, "Leaving Profession"],
-  [/\bdiss?atisfied\s+(?:w\/|with)\s+.{0,100}?\bdistrict\b/i, "Dissatisfied with District"],
-  [/\bdiss?atisfied\s+(?:w\/|with)\s+.{0,100}?\bcommunity\b/i, "Dissatisfied with Community"],
-  [/\bcontract\s+non[- ]?renewed\b/i, "Contract Nonrenewed"],
-  [/\bo\s*ther\s+employm(?:ent|enet)\b/i, "Other Employment"],
-  [/\bdismissed\b/i, "Dismissed"],
-  [/\bmilitary(?:\s+service)?\b/i, "Military"],
-  [/\bnot\s+offered(?:\s+administrative)?\s+contract\b/i, "Not Offered Contract"],
-  [/\bbreach\s+of\s+contract\b/i, "Breach of Contract"],
+  [/\bdiss?atisfied\s+(?:w\/|with\s+)(?:the\s+)?district\b/i, "Dissatisfied with District"],
+  [/\bdiss?atisfied\s+(?:w\/|with\s+)(?:the\s+)?community\b/i, "Dissatisfied with Community"],
+  [/\bnot\s+offered\s+contract\b/i, "Not Offered Contract"],
   [/\bpersonal\s*\/\s*family\s+reasons?\b/i, "Personal/Family Reasons"],
-  [/\bn\s*o\s+reason\s+given\b/i, "No Reason Given"],
+  [/\bno\s+reason\s+given\b/i, "No Reason Given"],
   [/\bboard\s*\/\s*admin\s+action\b/i, "Board/Admin Action"],
   [/\bno\s+contract\s*\/\s*mutual\s+resign(?:ation)?\b/i, "No Contract/Mutual Resign"],
   [/\bmutual\s+resignation\b/i, "Mutual Resignation"],
@@ -135,7 +121,7 @@ const REASON_RULES = [
   [/\bbroke\s+contract\b/i, "Broke Contract"],
   [/\bresignation\b/i, "Resignation"],
   [/\bno\s+contract\b/i, "No Contract"],
-  [/\b(?:p\s+ersonal|personal|pesonal|perso\s+nal)\b/i, "Personal"],
+  [/\bpersonal\b/i, "Personal"],
 ];
 const EMPLOYMENT_MOVEMENT_TYPES = new Set([
   "new_hire",
@@ -378,21 +364,14 @@ function recomputeFindings() {
   if (cachedFindings) {
     state.findings = cachedFindings;
   } else {
-    state.findings = buildFindings(
-      state.data.attachments || [],
-      state.schools,
-      state.data.schools || state.schools,
-    );
+    state.findings = buildFindings(state.data.attachments || [], state.schools);
     saveCachedFindings(cacheKey, state.findings);
   }
   markNewFindings();
 }
 
-function buildFindings(attachments, schools, boundarySchools = schools) {
+function buildFindings(attachments, schools) {
   const aliases = compiledSchoolAliases(schools);
-  const boundaryAliases = boundarySchools === schools
-    ? aliases
-    : compiledSchoolAliases([...boundarySchools, ...schools]);
   const findings = [];
   const seen = new Set();
 
@@ -403,50 +382,20 @@ function buildFindings(attachments, schools, boundarySchools = schools) {
     for (let index = 0; index < normalizedLines.length; index += 1) {
       const normalized = normalizedLines[index];
       if (!normalized) continue;
-      let matches = schoolMatchesAtIndex(normalizedLines, index, aliases);
+      let matches = lineSchoolMatches(normalized, aliases);
+      if (!matches.length && normalizedLines[index + 1]) {
+        matches = crossLineSchoolMatches(normalized, normalizedLines[index + 1], aliases);
+      }
       if (!matches.length) continue;
 
-      if (attachment.movement_type === "separation") {
-        const boundaryMatches = boundaryAliases === aliases
-          ? matches
-          : schoolMatchesAtIndex(normalizedLines, index, boundaryAliases);
-        matches = preferInlineSeparationMatches(lines, index, matches, boundaryMatches);
-        matches = matches.filter((match) => !isDuplicateSchoolContinuation(
-          lines,
-          normalizedLines,
-          index,
-          match,
-          aliases,
-        ));
-        if (!matches.length) continue;
-      }
-
-      const separationRowEnd = attachment.movement_type === "separation"
-        ? nextSchoolRowIndex(lines, normalizedLines, index, boundaryAliases)
-        : null;
-
       if (attachment.movement_type === "promotion_transfer" && matches.length >= 2) {
-        const finding = buildFindingFromMatches(
-          attachment,
-          lines,
-          index,
-          matches.slice(0, 2),
-          seen,
-          separationRowEnd,
-        );
+        const finding = buildFindingFromMatches(attachment, lines, index, matches.slice(0, 2), seen);
         if (finding) findings.push(finding);
         continue;
       }
 
       for (const match of matches) {
-        const finding = buildFindingFromMatches(
-          attachment,
-          lines,
-          index,
-          [match],
-          seen,
-          separationRowEnd,
-        );
+        const finding = buildFindingFromMatches(attachment, lines, index, [match], seen);
         if (finding) findings.push(finding);
       }
     }
@@ -537,32 +486,16 @@ function mergePromotionFindings(first, second) {
   return merged;
 }
 
-function buildFindingFromMatches(attachment, lines, index, matches, seen, separationRowEnd = null) {
+function buildFindingFromMatches(attachment, lines, index, matches, seen) {
   const start = Math.max(0, index - 3);
-  const end = Math.min(lines.length, index + (attachment.movement_type === "separation" ? 8 : 4));
+  const end = Math.min(lines.length, index + 4);
   const contextLines = lines.slice(start, end);
   const context = contextLines.join("\n");
   const primary = matches[0];
   const destination = matches[1] || null;
-  const separationSourceIndex = attachment.movement_type === "separation"
-    ? separationSourceIndexFor(lines, index)
-    : index;
-  const person = extractPersonName(lines, index, primary.normalizedAlias, attachment.movement_type);
-  const effectiveDate = extractEffectiveDateForMatch(
-    lines,
-    separationSourceIndex,
-    context,
-    attachment.movement_type,
-    attachment.meeting_date,
-    separationRowEnd,
-  );
-  const reason = extractReasonForMatch(
-    lines,
-    separationSourceIndex,
-    context,
-    attachment.movement_type,
-    separationRowEnd,
-  );
+  const person = extractPersonName(lines, index, primary.normalizedAlias);
+  const effectiveDate = extractEffectiveDateForMatch(lines, index, context);
+  const reason = extractReasonForMatch(lines, index, context);
   if (shouldRejectFinding(lines, index, context, person, effectiveDate, attachment.movement_type)) return null;
 
   const schoolIds = matches.map((match) => match.school.school_id);
@@ -1237,6 +1170,12 @@ function metric(label, value) {
   return `<div class="metric"><span>${escapeHtml(label)}</span><strong>${escapeHtml(String(value))}</strong></div>`;
 }
 
+function typeChip(value) {
+  const type = String(value || "unknown");
+  const className = type.toLowerCase().replace(/[^a-z0-9_-]+/g, "-");
+  return `<span class="type-chip type-${escapeAttribute(className)}">${escapeHtml(labelMovementType(type))}</span>`;
+}
+
 function findingTypeChip(finding) {
   const type = findingTypeFilter(finding);
   const className = type.toLowerCase().replace(/[^a-z0-9_-]+/g, "-");
@@ -1372,67 +1311,6 @@ function crossLineSchoolMatches(currentLine, nextLine, aliases) {
   ));
 }
 
-function schoolMatchesAtIndex(normalizedLines, index, aliases) {
-  const matches = lineSchoolMatches(normalizedLines[index], aliases);
-  if (!normalizedLines[index + 1] || (matches.length && !matches.some((match) => match.position === 0))) {
-    return matches;
-  }
-  return uniqueSchoolMatches([
-    ...matches,
-    ...crossLineSchoolMatches(normalizedLines[index], normalizedLines[index + 1], aliases),
-  ]);
-}
-
-function preferInlineSeparationMatches(lines, index, matches, evidenceMatches) {
-  if (evidenceMatches.length < 2) return matches;
-  const inlinePeople = new Map(evidenceMatches.map((match) => [
-    match.school.school_id,
-    inlinePersonForSchoolMatch(lines, index, match),
-  ]));
-  if (![...inlinePeople.values()].some(Boolean)) return matches;
-  const filtered = matches.filter((match) => (
-    match.position !== 0 || inlinePeople.get(match.school.school_id)
-  ));
-  return filtered;
-}
-
-function inlinePersonForSchoolMatch(lines, index, match) {
-  const currentLine = lines[index] || "";
-  const nextLine = lines[index + 1] || "";
-  let person = personFromLinePrefix(currentLine, match.alias, nextLine);
-  if (person || !aliasSpansLines(currentLine, nextLine, match.alias)) return person;
-  person = personFromLinePrefix(`${currentLine} ${nextLine}`, match.alias, lines[index + 2] || "");
-  return person;
-}
-
-function nextSchoolRowIndex(lines, normalizedLines, index, aliases) {
-  const limit = Math.min(normalizedLines.length, index + 8);
-  let dateTokensSeen = separationDateLikeTokens(lines[index]).length;
-  for (let candidateIndex = index + 1; candidateIndex < limit; candidateIndex += 1) {
-    const candidateTokens = separationDateLikeTokens(lines[candidateIndex]);
-    const matches = schoolMatchesAtIndex(normalizedLines, candidateIndex, aliases);
-    if (matches.length) {
-      const nextLine = lines[candidateIndex + 1] || "";
-      const hasPersonPrefix = matches.some((match) => (
-        personFromLinePrefix(lines[candidateIndex], match.alias, nextLine)
-        || (
-          aliasSpansLines(lines[candidateIndex], nextLine, match.alias)
-          && personFromLinePrefix(
-            `${lines[candidateIndex]} ${nextLine}`,
-            match.alias,
-            lines[candidateIndex + 2] || "",
-          )
-        )
-      ));
-      if (dateTokensSeen >= 2 || candidateTokens.length >= 2 || hasPersonPrefix) {
-        return candidateIndex;
-      }
-    }
-    dateTokensSeen += candidateTokens.length;
-  }
-  return limit;
-}
-
 function uniqueSchoolMatches(matches) {
   const seen = new Set();
   const occupied = [];
@@ -1498,6 +1376,10 @@ function skipBareAlias(alias, normalizedVariant) {
   return !(stripped === stripped.toUpperCase() && stripped.length >= 4);
 }
 
+function containsAlias(normalizedLine, normalizedAlias) {
+  return aliasMatchPosition(normalizedLine, normalizedAlias) >= 0;
+}
+
 function aliasMatchPosition(normalizedLine, aliasOrInfo) {
   const normalizedAlias = typeof aliasOrInfo === "string" ? aliasOrInfo : aliasOrInfo.normalizedAlias;
   if (normalizedAlias.length < 4) return -1;
@@ -1510,13 +1392,8 @@ function aliasMatchPattern(normalizedAlias) {
   return new RegExp(`(^|\\s)${escapeRegExp(normalizedAlias)}($|\\s)`);
 }
 
-function extractPersonName(lines, index, alias, movementType = "") {
+function extractPersonName(lines, index, alias) {
   const currentLine = lines[index] || "";
-  const sourceIndex = separationSourceIndexFor(lines, index);
-  if (sourceIndex !== index) {
-    const person = leadingPersonName((lines[sourceIndex] || "").split(/\bArea\s+Service\s+Center\b/i, 1)[0]);
-    if (person) return person;
-  }
   const nextLine = lines[index + 1] || "";
   let inline = personFromLinePrefix(currentLine, alias, nextLine);
   if (!inline && aliasSpansLines(currentLine, nextLine, alias)) {
@@ -1526,28 +1403,6 @@ function extractPersonName(lines, index, alias, movementType = "") {
   for (let i = index - 1; i >= Math.max(0, index - 3); i -= 1) {
     const candidate = lines[i].trim();
     if (looksLikeHeader(candidate) || fullDateMatch(candidate)) continue;
-    if (!looksLikePersonLine(candidate)) continue;
-    const person = leadingPersonName(candidate);
-    if (person) return person;
-  }
-  if (movementType === "promotion_transfer") return personBeforeKnownAssignment(lines, index);
-  return "";
-}
-
-function personBeforeKnownAssignment(lines, index) {
-  const windowStart = Math.max(0, index - 8);
-  let assignmentIndex = -1;
-  for (let i = index - 1; i >= windowStart; i -= 1) {
-    if (/^(?:Child Find(?: Project)?|Zoom Schools|Turnaround Zone)$/i.test(String(lines[i] || "").replace(/\s+/g, " ").trim())) {
-      assignmentIndex = i;
-      break;
-    }
-  }
-  if (assignmentIndex < 0) return "";
-  for (let i = assignmentIndex - 1; i >= Math.max(windowStart, assignmentIndex - 3); i -= 1) {
-    const candidate = String(lines[i] || "").trim();
-    if (looksLikeHeader(candidate) || fullDateMatch(candidate) || looksLikeSchoolOrOrg(candidate)) break;
-    if (!looksLikePersonLine(candidate)) continue;
     const person = leadingPersonName(candidate);
     if (person) return person;
   }
@@ -1578,11 +1433,10 @@ function personFromLinePrefix(line, alias, nextLine = "") {
   const originalCut = normalized.mapping[bestPosition] || line.length;
   const originalWords = line.slice(0, originalCut).replace(/\s+/g, " ").split(" ");
   const nameWords = [];
-  const cleanedWords = originalWords.map((word) => word.replace(/[^A-Za-z'.-]/g, "")).filter(Boolean);
-  for (let wordIndex = 0; wordIndex < cleanedWords.length; wordIndex += 1) {
-    const cleaned = cleanedWords[wordIndex];
+  for (const word of originalWords) {
+    const cleaned = word.replace(/[^A-Za-z'.-]/g, "");
+    if (!cleaned) continue;
     if (ROLE_WORDS.has(cleaned.toLowerCase())) break;
-    if (startsAssignmentPhrase(cleanedWords, wordIndex)) break;
     nameWords.push(cleaned);
     if (nameWords.length >= 5) break;
   }
@@ -1600,16 +1454,6 @@ function normalizeWithMapping(value) {
   const text = String(value || "");
   for (let index = 0; index < text.length; index += 1) {
     const char = text[index].toUpperCase();
-    if (char === "&") {
-      if (chars.length && chars[chars.length - 1] !== " ") {
-        chars.push(" ");
-        mapping.push(index);
-      }
-      chars.push("A", "N", "D");
-      mapping.push(index, index, index);
-      pendingSpace = true;
-      continue;
-    }
     if (/[A-Z0-9]/.test(char)) {
       if (pendingSpace && chars.length) {
         chars.push(" ");
@@ -1629,11 +1473,10 @@ function normalizeWithMapping(value) {
 function leadingPersonName(line) {
   const words = String(line || "").replace(/\s+/g, " ").split(" ");
   const nameWords = [];
-  const cleanedWords = words.map((word) => word.replace(/[^A-Za-z'.-]/g, "")).filter(Boolean);
-  for (let wordIndex = 0; wordIndex < cleanedWords.length; wordIndex += 1) {
-    const cleaned = cleanedWords[wordIndex];
+  for (const word of words) {
+    const cleaned = word.replace(/[^A-Za-z'.-]/g, "");
+    if (!cleaned) continue;
     if (ROLE_WORDS.has(cleaned.toLowerCase())) break;
-    if (startsAssignmentPhrase(cleanedWords, wordIndex)) break;
     if (HEADER_HINTS.has(cleaned.toLowerCase())) return "";
     nameWords.push(cleaned);
     if (nameWords.length >= 5) break;
@@ -1641,24 +1484,8 @@ function leadingPersonName(line) {
   return cleanPerson(nameWords.join(" "));
 }
 
-function startsAssignmentPhrase(words, index) {
-  if (!words[index + 1]) return false;
-  if (
-    words[index + 2]
-    && words[index].toLowerCase() === "don"
-    && words[index + 1].toLowerCase() === "dee"
-    && words[index + 2].toLowerCase() === "snyder"
-  ) return true;
-  const phrase = `${words[index].toLowerCase()} ${words[index + 1].toLowerCase()}`;
-  return phrase === "zoom project"
-    || phrase === "zoom learning"
-    || phrase === "english language"
-    || phrase === "child find";
-}
-
 function cleanPerson(value) {
   const text = String(value || "").replace(/\s+/g, " ").replace(/^[\s,-]+|[\s,-]+$/g, "");
-  if (/^(?:English Language(?: Learner)?|Child Find(?: Project)?|Strategic Projects|Zoom Schools|Performance Zone|Turnaround Zone)$/i.test(text)) return "";
   const words = text.split(" ").filter(Boolean);
   if (words.length < 2) return "";
   if (words.some((word) => !/^(?:'?[A-Z][A-Za-z'.-]*|[A-Z]\.)$/.test(word) && !NAME_PARTICLES.has(word.toLowerCase()))) return "";
@@ -1739,18 +1566,7 @@ function aliasTextVariants(alias) {
   return [...variants];
 }
 
-function extractEffectiveDateForMatch(
-  lines,
-  index,
-  context,
-  movementType = "",
-  meetingDate = "",
-  separationRowEnd = null,
-) {
-  if (movementType === "separation") {
-    return extractSeparationEffectiveDate(lines, index, meetingDate, separationRowEnd);
-  }
-
+function extractEffectiveDateForMatch(lines, index, context) {
   const candidates = [
     lines[index],
     ...lines.slice(Math.max(0, index - 2), index).reverse(),
@@ -1761,106 +1577,6 @@ function extractEffectiveDateForMatch(
     if (date) return date;
   }
   return extractEffectiveDate(context);
-}
-
-function extractSeparationEffectiveDate(lines, index, meetingDate, rowEnd = null) {
-  const dateLikeCandidates = [];
-  const rowLines = separationRowLines(lines, index, rowEnd);
-
-  // Separation reports put hire date before effective date. Reading only the
-  // current row and its forward continuation prevents borrowing a date from a
-  // neighboring employee when this row's effective date is unusable.
-  for (const line of rowLines) {
-    for (const token of separationDateLikeTokens(line)) {
-      dateLikeCandidates.push(token);
-      if (dateLikeCandidates.length === 2) break;
-    }
-    if (dateLikeCandidates.length === 2 || extractReason(line)) break;
-  }
-
-  let effectiveDate = "";
-  if (dateLikeCandidates.length === 2) {
-    effectiveDate = dateLikeCandidates[1];
-  } else if (
-    dateLikeCandidates.length === 1
-    && hasMalformedHireBeforeEffective(rowLines, dateLikeCandidates[0])
-  ) {
-    [effectiveDate] = dateLikeCandidates;
-  } else {
-    return "";
-  }
-  return isPlausibleEffectiveDate(effectiveDate, meetingDate) ? effectiveDate : "";
-}
-
-function separationDateLikeTokens(value) {
-  const matches = [...String(value || "").matchAll(SEPARATION_DATE_LIKE_PATTERN)]
-    .map((match) => match[0].replace(/\/+/g, "/"));
-  SEPARATION_DATE_LIKE_PATTERN.lastIndex = 0;
-  return matches;
-}
-
-function hasMalformedHireBeforeEffective(rowLines, effectiveDate) {
-  const rowText = rowLines.join(" ");
-  const effectivePosition = rowText.indexOf(effectiveDate);
-  return effectivePosition >= 0 && MALFORMED_HIRE_DATE_PATTERN.test(rowText.slice(0, effectivePosition));
-}
-
-function isPlausibleEffectiveDate(value, meetingDate) {
-  if (/^TBD$/i.test(String(value || ""))) return true;
-  const candidate = parseEmploymentDateToken(value, meetingDate);
-  if (candidate === null) return false;
-  const reference = parseMeetingDate(meetingDate);
-  return reference === null || Math.abs(candidate - reference) <= MAX_EFFECTIVE_DATE_DISTANCE_MS;
-}
-
-function parseEmploymentDateToken(value, meetingDate) {
-  const text = String(value || "").trim().replace(/\/+/g, "/");
-  const reference = parseMeetingDate(meetingDate);
-  const referenceYear = reference === null ? null : new Date(reference).getUTCFullYear();
-
-  let match = text.match(/^(\d{1,2})\/(\d{2})$/);
-  if (match) {
-    return validUtcDate(resolveShortYear(Number(match[2]), referenceYear), Number(match[1]), 1);
-  }
-
-  match = text.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2}|\d{4})$/);
-  if (match) {
-    const rawYear = Number(match[3]);
-    const year = match[3].length === 2 ? resolveShortYear(rawYear, referenceYear) : rawYear;
-    return validUtcDate(year, Number(match[1]), Number(match[2]));
-  }
-
-  match = text.replace(".", "").match(/^([A-Za-z]+)\s+(\d{1,2}),\s*(\d{4})$/);
-  if (!match) return null;
-  const months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
-  const month = months.indexOf(match[1].slice(0, 3).toLowerCase()) + 1;
-  return validUtcDate(Number(match[3]), month, Number(match[2]));
-}
-
-function parseMeetingDate(value) {
-  const text = String(value || "").trim().replace(/\s+/g, " ");
-  let match = text.match(/^([A-Za-z]+)\s+(\d{1,2}),\s*(\d{4})$/);
-  if (match) {
-    const months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
-    const month = months.indexOf(match[1].slice(0, 3).toLowerCase()) + 1;
-    return validUtcDate(Number(match[3]), month, Number(match[2]));
-  }
-  match = text.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
-  return match ? validUtcDate(Number(match[1]), Number(match[2]), Number(match[3])) : null;
-}
-
-function validUtcDate(year, month, day) {
-  if (!Number.isInteger(year) || !Number.isInteger(month) || !Number.isInteger(day) || month < 1) return null;
-  const parsed = new Date(Date.UTC(year, month - 1, day));
-  if (parsed.getUTCFullYear() !== year || parsed.getUTCMonth() !== month - 1 || parsed.getUTCDate() !== day) return null;
-  return parsed.getTime();
-}
-
-function resolveShortYear(year, referenceYear) {
-  if (referenceYear === null) return year >= 70 ? 1900 + year : 2000 + year;
-  const century = Math.floor(referenceYear / 100) * 100;
-  return [century - 100 + year, century + year, century + 100 + year]
-    .sort((first, second) => Math.abs(first - referenceYear) - Math.abs(second - referenceYear))[0];
 }
 
 function extractEffectiveDate(context) {
@@ -1876,18 +1592,7 @@ function fullDateMatch(value) {
   return Boolean(match && match[0] === text);
 }
 
-function extractReasonForMatch(lines, index, context, movementType = "", separationRowEnd = null) {
-  if (movementType === "separation") {
-    const rowLines = separationRowLines(lines, index, separationRowEnd);
-    const reasonText = separationReasonText(rowLines);
-    if (/^\s*Person\b/i.test(reasonText)) return "Personal";
-    const reason = extractReason(reasonText);
-    if (!reason && hasSameLineSpecialEducationReason(rowLines)) {
-      return "Special Education";
-    }
-    return reason;
-  }
-
+function extractReasonForMatch(lines, index, context) {
   const candidates = [
     lines[index],
     ...lines.slice(index + 1, Math.min(lines.length, index + 3)),
@@ -1898,112 +1603,6 @@ function extractReasonForMatch(lines, index, context, movementType = "", separat
     if (reason) return reason;
   }
   return extractReason(context);
-}
-
-function separationReasonText(rowLines) {
-  const rowText = rowLines.join(" ");
-  const dateMatches = [...rowText.matchAll(SEPARATION_DATE_LIKE_PATTERN)];
-  SEPARATION_DATE_LIKE_PATTERN.lastIndex = 0;
-  if (!dateMatches.length) return rowText;
-  const reasonMatch = dateMatches[Math.min(1, dateMatches.length - 1)];
-  return rowText.slice((reasonMatch.index || 0) + reasonMatch[0].length);
-}
-
-function hasSameLineSpecialEducationReason(rowLines) {
-  let datesSeen = 0;
-  for (const line of rowLines) {
-    const matches = [...String(line || "").matchAll(SEPARATION_DATE_LIKE_PATTERN)];
-    SEPARATION_DATE_LIKE_PATTERN.lastIndex = 0;
-    for (const match of matches) {
-      datesSeen += 1;
-      if (datesSeen === 2) {
-        return /^\s*Special\s+Education\b/i.test(line.slice((match.index || 0) + match[0].length));
-      }
-    }
-  }
-  return false;
-}
-
-function separationRowLines(lines, index, rowEnd = null) {
-  const limit = Math.min(lines.length, index + 8, rowEnd ?? lines.length);
-  const rowLines = [];
-  let dateTokensSeen = 0;
-  for (let candidateIndex = index; candidateIndex < limit; candidateIndex += 1) {
-    const line = lines[candidateIndex];
-    const tokens = separationDateLikeTokens(line);
-    if (
-      candidateIndex > index
-      && looksLikeNewSeparationEmployee(lines, candidateIndex, dateTokensSeen)
-    ) break;
-    if (dateTokensSeen && dateTokensSeen + tokens.length > 2) break;
-    rowLines.push(line);
-    dateTokensSeen += tokens.length;
-  }
-  return rowLines;
-}
-
-function looksLikeNewSeparationEmployee(lines, candidateIndex, dateTokensSeen) {
-  if (dateTokensSeen) return false;
-  const line = lines[candidateIndex];
-  const tokens = separationDateLikeTokens(line);
-  if (tokens.length >= 2) {
-    const prefix = line.slice(0, line.indexOf(tokens[0]));
-    if (
-      prefix.trim().split(/\s+/).filter(Boolean).length >= 4
-      && /\b(?:ES|MS|JHS|HS|CTA|School|Academy|Center)\b/i.test(prefix)
-    ) return true;
-    return false;
-  }
-  if (/\b(?:ES|MS|JHS|HS|CTA|School|Academy|Center)\b/i.test(line)) return false;
-  if (!looksLikePersonLine(line)) return false;
-  let futureTokens = 0;
-  let sawSchoolLine = false;
-  const futureLimit = Math.min(lines.length, candidateIndex + 6);
-  for (let offset = candidateIndex; offset < futureLimit; offset += 1) {
-    if (offset > candidateIndex && looksLikeHeader(lines[offset])) break;
-    if (
-      offset > candidateIndex
-      && /\b(?:ES|MS|JHS|HS|CTA|School|Academy|Center)\b/i.test(lines[offset])
-    ) sawSchoolLine = true;
-    futureTokens += separationDateLikeTokens(lines[offset]).length;
-    if (futureTokens >= 2 && !sawSchoolLine) return false;
-  }
-  return sawSchoolLine && futureTokens >= 2;
-}
-
-function looksLikePersonLine(line) {
-  return Boolean(firstSplitNameWord(line) && leadingPersonName(line));
-}
-
-function separationSourceIndexFor(lines, index) {
-  if (index <= 0 || !/^at\s+/i.test(lines[index] || "")) return index;
-  const previous = lines[index - 1] || "";
-  if (!/\bArea\s+Service\s+Center\b/i.test(previous)) return index;
-  if (separationDateLikeTokens(previous).length < 2) return index;
-  return extractReason(separationReasonText([previous])) ? index - 1 : index;
-}
-
-function isDuplicateSchoolContinuation(lines, normalizedLines, index, match, aliases) {
-  if (separationDateLikeTokens(lines[index]).length) return false;
-  if (personFromLinePrefix(lines[index], match.alias)) return false;
-  const nextLine = lines[index + 1] || "";
-  if (
-    aliasSpansLines(lines[index], nextLine, match.alias)
-    && personFromLinePrefix(`${lines[index]} ${nextLine}`, match.alias, lines[index + 2] || "")
-  ) return false;
-  for (let priorIndex = Math.max(0, index - 2); priorIndex < index; priorIndex += 1) {
-    const priorMatches = lineSchoolMatches(normalizedLines[priorIndex], aliases);
-    if (!priorMatches.some((prior) => prior.school.school_id === match.school.school_id)) continue;
-    let hasInterveningPerson = false;
-    for (let middle = priorIndex + 1; middle < index; middle += 1) {
-      if (looksLikePersonLine(lines[middle])) {
-        hasInterveningPerson = true;
-        break;
-      }
-    }
-    if (!hasInterveningPerson) return true;
-  }
-  return false;
 }
 
 function extractReason(context) {
