@@ -25,6 +25,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Validate public data and application contract
+        run: python3 scripts/validate_public_bundle.py docs
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
