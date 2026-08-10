@@ -145,14 +145,38 @@ const EMPLOYMENT_MOVEMENT_TYPES = new Set([
   "promotion_transfer",
   "separation",
 ]);
+const EMPLOYMENT_STATUS_LEGENDS = [
+  /\(1\)\s+DENOTES\s+FORMER\s+CCSD\s+EMPLOYEE/i,
+  /\(2\)\s+DENOTES\s+RETURNING\s+LOA\s+EMPLOYEE/i,
+];
+const EMPLOYMENT_MARKER_PATTERN = /^([A-Z][A-Z'.()\-]*(?:\s+[A-Z][A-Z'.()\-]*){1,4})\s+([12])\s+/i;
+const EMPLOYMENT_MARKER_BLOCK_WORDS = new Set(["ES", "MS", "JHS", "HS", "CTA", "KDG", "GRADE"]);
+const DISTRICT_WORK_LOCATIONS = [
+  "EMPLOYEE & STUDENT HEALTH SVCS",
+  "DEAF AND HARD OF HEARING DEPT",
+  "PHYSICAL & OCCUPATION THERAPY",
+  "EARLY CHILDHOOD EDUCATION PROJ",
+  "PSYCHOLOGICAL SERVICES",
+  "SPEECH DEPARTMENT",
+  "BOWLER, GRANT ES",
+  "VARIETY K 5 ES",
+  "WIENER, JR., LOUIS ES",
+  "SPRING MOUNTAIN J/SHS",
+  "NEVADA LEARNING ACADEMY",
+  "INDIAN SPRINGS HS",
+];
 const TYPE_FILTER_ORDER = [
   "new_hire",
+  "former_employee",
+  "returning_loa",
   "promotion_transfer",
   "retirement",
   "relocation",
   "separation",
 ];
 const TYPE_FILTER_LABELS = {
+  former_employee: "Former CCSD Employee",
+  returning_loa: "Returning from LOA",
   relocation: "Relocation",
   retirement: "Retirement",
   separation: "Other Separation",
@@ -457,13 +481,26 @@ function analyzeBoardData(attachments, schools, boundarySchools = schools) {
       }
       if (!matches.length) {
         if (rowFields.salary_text && rowFields.effective_date) {
+          const movementType = employmentMovementType(attachment, lines, lines[index]);
           reviewCandidates.push(reviewCandidate(attachment, {
             reasonCodes: [compactCandidateIds.length ? "school_location_ambiguous" : "school_location_unmatched"],
             line: lines[index],
             lineNumber: index + 1,
             fields: rowFields,
             candidateSchoolIds: compactCandidateIds,
+            movementType,
           }));
+          if (attachment.movement_type === "new_hire") {
+            const retained = buildRetainedEmploymentFinding(
+              attachment,
+              lines,
+              index,
+              schools,
+              rowFields,
+              seen,
+            );
+            if (retained) findings.push(retained);
+          }
         }
         continue;
       }
@@ -499,13 +536,19 @@ function analyzeBoardData(attachments, schools, boundarySchools = schools) {
         );
         if (finding) findings.push(finding);
         if (rowFields.salary_text && rowFields.effective_date && findings.length === findingCountBefore) {
+          const movementType = employmentMovementType(attachment, lines, lines[index]);
           reviewCandidates.push(reviewCandidate(attachment, {
             reasonCodes: ["parser_rejected"],
             line: lines[index],
             lineNumber: index + 1,
             fields: rowFields,
             candidateSchoolIds: matches.slice(0, 2).map((match) => match.school.school_id),
+            movementType,
           }));
+          if (attachment.movement_type === "new_hire") {
+            const retained = buildRetainedEmploymentFinding(attachment, lines, index, schools, rowFields, seen);
+            if (retained) findings.push(retained);
+          }
         }
         continue;
       }
@@ -522,13 +565,19 @@ function analyzeBoardData(attachments, schools, boundarySchools = schools) {
         if (finding) findings.push(finding);
       }
       if (rowFields.salary_text && rowFields.effective_date && findings.length === findingCountBefore) {
+        const movementType = employmentMovementType(attachment, lines, lines[index]);
         reviewCandidates.push(reviewCandidate(attachment, {
           reasonCodes: ["parser_rejected"],
           line: lines[index],
           lineNumber: index + 1,
           fields: rowFields,
           candidateSchoolIds: matches.map((match) => match.school.school_id),
+          movementType,
         }));
+        if (attachment.movement_type === "new_hire") {
+          const retained = buildRetainedEmploymentFinding(attachment, lines, index, schools, rowFields, seen);
+          if (retained) findings.push(retained);
+        }
       }
     }
     const attachmentFindings = findings.slice(attachmentFindingStart);
@@ -554,6 +603,7 @@ function dedupeFindings(findings) {
     ];
     if (finding.movement_type !== "promotion_transfer") {
       keyParts.push([...finding.school_ids].sort().join(">"));
+      if (!finding.school_ids.length) keyParts.push(normalizeName(finding.matched_alias || finding.school_name));
     }
     const key = keyParts.join("|");
     const existing = byKey.get(key);
@@ -655,11 +705,12 @@ function buildFindingFromMatches(attachment, lines, index, matches, seen, separa
   const schoolIds = matches.map((match) => match.school.school_id);
   const schoolNames = matches.map((match) => match.school.display_name);
   const clusters = unique(matches.map((match) => match.school.cluster));
+  const movementType = employmentMovementType(attachment, lines, lines[index]);
   const fingerprintParts = [
     attachment.meeting_id,
     attachment.document_id,
     schoolIds.join(">"),
-    attachment.movement_type,
+    movementType,
     person,
     effectiveDate,
   ];
@@ -676,7 +727,7 @@ function buildFindingFromMatches(attachment, lines, index, matches, seen, separa
     board_meeting_url: attachment.board_meeting_url,
     item_number: attachment.item_number,
     item_title: attachment.item_title,
-    movement_type: attachment.movement_type,
+    movement_type: movementType,
     school_id: schoolIds.join("|"),
     school_ids: schoolIds,
     school_name: schoolNames.join(" -> "),
@@ -718,7 +769,7 @@ function renderRunMeta() {
   meta.innerHTML = `
     <span>${escapeHtml(formatGeneratedAt(state.data.generated_at))}</span>
     <strong>${state.findings.length}</strong>
-    <span>recognized changes</span>
+    <span>personnel records</span>
   `;
 }
 
@@ -1335,8 +1386,7 @@ function findingTypeChip(finding) {
 
 function findingTypeLabel(finding) {
   const type = findingTypeFilter(finding);
-  if (type === "retirement" || type === "relocation") return labelTypeFilter(type);
-  return labelMovementType(finding.movement_type);
+  return labelTypeFilter(type);
 }
 
 function findingTypeFilter(finding) {
@@ -1614,12 +1664,159 @@ function compactCandidateScore(locationText, school) {
   return best;
 }
 
+function hasEmploymentStatusLegend(lines) {
+  const text = lines.join("\n");
+  return EMPLOYMENT_STATUS_LEGENDS.every((pattern) => pattern.test(text));
+}
+
+function employmentMarker(line) {
+  const match = EMPLOYMENT_MARKER_PATTERN.exec(String(line || "").replace(/\s+/g, " ").trim());
+  if (!match) return "";
+  const prefixWords = new Set(normalizeName(match[1]).split(" ").filter(Boolean));
+  if ([...prefixWords].some((word) => EMPLOYMENT_MARKER_BLOCK_WORDS.has(word))) return "";
+  return match[2];
+}
+
+function employmentMovementType(attachment, lines, line) {
+  if (attachment.movement_type !== "new_hire" || !hasEmploymentStatusLegend(lines)) {
+    return attachment.movement_type;
+  }
+  return { 1: "former_employee", 2: "returning_loa" }[employmentMarker(line)] || "new_hire";
+}
+
+function retainedLocationAnchors(schools) {
+  const anchors = new Map(DISTRICT_WORK_LOCATIONS.map((location) => [normalizeName(location), location]));
+  for (const school of schools) {
+    const labels = [
+      school.display_name,
+      ...(school.source_labels || []).map((label) => label.source_label),
+    ];
+    for (const label of labels) {
+      const normalized = normalizeName(label);
+      if (normalized && !anchors.has(normalized)) anchors.set(normalized, school.display_name);
+    }
+  }
+  return [...anchors].sort((left, right) => right[0].length - left[0].length);
+}
+
+function retainedEmploymentRowParts(line, fields, schools) {
+  const normalized = normalizeWithMapping(line);
+  let locationMatch = null;
+  for (const [normalizedAnchor, displayName] of retainedLocationAnchors(schools)) {
+    const position = aliasMatchPosition(normalized.text, normalizedAnchor);
+    if (position <= 0) continue;
+    if (
+      !locationMatch
+      || position < locationMatch.position
+      || (position === locationMatch.position && normalizedAnchor.length > locationMatch.normalizedAnchor.length)
+    ) {
+      locationMatch = { position, normalizedAnchor, displayName };
+    }
+  }
+
+  const salaryMatch = SALARY_PATTERN.exec(line);
+  const salaryStart = salaryMatch ? salaryMatch.index : line.length;
+  if (locationMatch && normalized.mapping.length) {
+    const originalStart = normalized.mapping[Math.min(locationMatch.position, normalized.mapping.length - 1)];
+    const normalizedEnd = Math.min(
+      locationMatch.position + locationMatch.normalizedAnchor.length - 1,
+      normalized.mapping.length - 1,
+    );
+    const originalEnd = normalized.mapping[normalizedEnd] + 1;
+    const personPrefix = line.slice(0, originalStart).trim().replace(/\s+[12]\s*$/, "");
+    const person = cleanPerson(personPrefix);
+    const assignment = line.slice(originalEnd, salaryStart).replace(/\s+/g, " ").replace(/^[ ,.$-]+|[ ,.$-]+$/g, "");
+    const locationText = fields.location_text || line.slice(originalStart, originalEnd).replace(/\s+/g, " ").trim();
+    return {
+      person,
+      workLocation: locationMatch.displayName || locationText,
+      assignment: assignment || fields.assignment_raw,
+      matchedAlias: locationText,
+    };
+  }
+
+  const compactLine = String(line || "").replace(/\s+/g, " ").trim();
+  const markerMatch = EMPLOYMENT_MARKER_PATTERN.exec(compactLine);
+  let person = markerMatch && employmentMarker(line) ? cleanPerson(markerMatch[1]) : "";
+  if (!person) {
+    const words = compactLine.split(" ").map((word) => word.replace(/[^A-Za-z'.-]/g, "")).filter(Boolean);
+    person = cleanPerson(words.slice(0, 2).join(" "));
+  }
+  let sourceWithoutTotals = line.slice(0, salaryStart).replace(/\s+/g, " ").trim();
+  if (person && sourceWithoutTotals.toUpperCase().startsWith(person.toUpperCase())) {
+    sourceWithoutTotals = sourceWithoutTotals.slice(person.length).trim();
+  }
+  sourceWithoutTotals = sourceWithoutTotals.replace(/^[12]\s+/, "");
+  return {
+    person,
+    workLocation: "Work location pending review",
+    assignment: fields.assignment_raw || sourceWithoutTotals,
+    matchedAlias: fields.location_text || "",
+  };
+}
+
+function buildRetainedEmploymentFinding(attachment, lines, index, schools, fields, seen) {
+  const row = retainedEmploymentRowParts(lines[index], fields, schools);
+  const movementType = employmentMovementType(attachment, lines, lines[index]);
+  const id = fingerprint([
+    attachment.meeting_id,
+    attachment.document_id,
+    index + 1,
+    movementType,
+    row.person,
+    fields.effective_date,
+  ]);
+  if (seen.has(id)) return null;
+  seen.add(id);
+  const start = Math.max(0, index - 3);
+  const end = Math.min(lines.length, index + 4);
+  return {
+    id,
+    meeting_id: attachment.meeting_id,
+    meeting_name: attachment.meeting_name,
+    meeting_date: attachment.meeting_date,
+    meeting_year: attachment.meeting_year,
+    board_meeting_url: attachment.board_meeting_url,
+    item_number: attachment.item_number,
+    item_title: attachment.item_title,
+    movement_type: movementType,
+    school_id: "",
+    school_ids: [],
+    school_name: row.workLocation,
+    school_names: [],
+    cluster: "",
+    clusters: [],
+    matched_alias: row.matchedAlias || row.workLocation,
+    from_school_id: "",
+    from_school_name: "",
+    from_cluster: "",
+    to_school_id: "",
+    to_school_name: "",
+    to_cluster: "",
+    person_name: row.person,
+    effective_date: fields.effective_date,
+    assignment_raw: row.assignment,
+    assignment_normalized: normalizeAssignment(row.assignment),
+    salary_text: fields.salary_text,
+    reason: "",
+    attachment_id: attachment.attachment_id,
+    attachment_name: attachment.attachment_name,
+    document_url: attachment.document_url,
+    context: lines.slice(start, end).join("\n"),
+    matched_line_number: index + 1,
+    context_line_start: start + 1,
+    context_line_end: end,
+    flags: ["source_retained", "school_location_pending"],
+  };
+}
+
 function reviewCandidate(attachment, {
   reasonCodes,
   line = "",
   lineNumber = 0,
   fields = emptySourceRowFields(),
   candidateSchoolIds = [],
+  movementType = "",
 }) {
   return {
     review_id: `recognition-${fingerprint([
@@ -1634,7 +1831,7 @@ function reviewCandidate(attachment, {
     board_meeting_url: attachment.board_meeting_url,
     item_number: attachment.item_number,
     item_title: attachment.item_title,
-    movement_type: attachment.movement_type,
+    movement_type: movementType || attachment.movement_type,
     attachment_id: attachment.attachment_id,
     attachment_name: attachment.attachment_name,
     document_url: attachment.document_url,
