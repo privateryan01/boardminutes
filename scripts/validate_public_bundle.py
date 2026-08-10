@@ -27,9 +27,13 @@ EXPECTED_FINDING_COLUMNS = [
     "effective_date",
     "reason",
     "matched_line_number",
+    "assignment_raw",
+    "assignment_normalized",
+    "salary_text",
 ]
 MIN_FINDING_COUNT = 30_000
 MAX_ACTIONABLE_REVIEW_COUNT = 1_000
+MAX_RECOGNITION_REVIEW_COUNT = 5_000
 PUBLIC_BASE_PATH = "/boardminutes/"
 
 
@@ -100,6 +104,7 @@ def validate_bundle(
     data_dir = docs_dir / "data"
     board = _load_json(data_dir / "board-data.json")
     findings = _load_json(data_dir / "default-findings.json")
+    review_payload = _load_json(data_dir / "default-review-candidates.json")
     schools_payload = _load_json(data_dir / "default-schools.json")
     try:
         last_updated = (data_dir / "last-updated.txt").read_text(encoding="utf-8").strip()
@@ -174,7 +179,7 @@ def validate_bundle(
             f"Region mismatch for school {school_id}",
         )
 
-    _require(findings.get("schema_version") == 2, "default-findings.json must use compact schema v2")
+    _require(findings.get("schema_version") == 3, "default-findings.json must use compact schema v3")
     columns = findings.get("columns")
     rows = findings.get("finding_rows")
     _require(columns == EXPECTED_FINDING_COLUMNS, "default-findings.json columns changed unexpectedly")
@@ -231,6 +236,61 @@ def validate_bundle(
         f"{actionable_review_count}; deployment ceiling is {max_review_queue}",
     )
 
+    _require(
+        review_payload.get("schema_version") == 1,
+        "default-review-candidates.json must use schema v1",
+    )
+    _require(
+        review_payload.get("generated_at") == generated_at,
+        "default-review-candidates.json generated_at must match board-data.json",
+    )
+    review_candidates = review_payload.get("review_candidates")
+    _require(
+        isinstance(review_candidates, list),
+        "default-review-candidates.json review_candidates must be an array",
+    )
+    _require(
+        len(review_candidates) <= MAX_RECOGNITION_REVIEW_COUNT,
+        "Recognition Review Queue grew to "
+        f"{len(review_candidates)}; deployment ceiling is {MAX_RECOGNITION_REVIEW_COUNT}",
+    )
+    review_ids: set[str] = set()
+    for candidate_number, candidate in enumerate(review_candidates, start=1):
+        _require(isinstance(candidate, dict), f"Review candidate {candidate_number} must be an object")
+        review_id = str(candidate.get("review_id") or "")
+        _require(
+            review_id.startswith("recognition-"),
+            f"Review candidate {candidate_number} must use a namespaced recognition ID",
+        )
+        _require(review_id not in review_ids, f"Duplicate review candidate ID {review_id}")
+        _require(review_id not in finding_ids, f"Review candidate ID collides with finding ID {review_id}")
+        review_ids.add(review_id)
+
+        attachment_id = str(candidate.get("attachment_id") or "")
+        _require(
+            attachment_id in attachment_by_id,
+            f"Review candidate {review_id} references unknown attachment {attachment_id}",
+        )
+        reason_codes = candidate.get("reason_codes")
+        _require(
+            isinstance(reason_codes, list)
+            and bool(reason_codes)
+            and all(isinstance(reason, str) and bool(reason.strip()) for reason in reason_codes),
+            f"Review candidate {review_id} must contain reason codes",
+        )
+        candidate_school_ids = candidate.get("candidate_school_ids")
+        _require(
+            isinstance(candidate_school_ids, list),
+            f"Review candidate {review_id} candidate_school_ids must be an array",
+        )
+        unknown_school_ids = {
+            str(school_id) for school_id in candidate_school_ids if str(school_id) not in school_by_id
+        }
+        _require(
+            not unknown_school_ids,
+            f"Review candidate {review_id} references unknown schools {sorted(unknown_school_ids)}",
+        )
+
     checked_assets = _validate_assets(docs_dir)
     browser_state_asset = _validate_browser_state_persistence(docs_dir)
     return {
@@ -240,6 +300,7 @@ def validate_bundle(
         "new_attachments": flagged_new_count,
         "findings": len(rows),
         "review_queue": actionable_review_count,
+        "recognition_review_queue": len(review_candidates),
         "review_queue_by_region": dict(sorted(review_regions.items())),
         "regions": dict(sorted(region_counts.items())),
         "asset_references_checked": checked_assets,

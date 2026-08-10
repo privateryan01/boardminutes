@@ -43,6 +43,9 @@ def _make_bundle(root: Path, *, issue_count: int = 0) -> Path:
                 "" if index < issue_count else "08/07/26",
                 "Retirement",
                 index + 1,
+                "",
+                "",
+                "",
             ]
         )
 
@@ -55,7 +58,7 @@ def _make_bundle(root: Path, *, issue_count: int = 0) -> Path:
         "schools": schools,
     }
     findings = {
-        "schema_version": 2,
+        "schema_version": 3,
         "columns": [
             "id",
             "attachment_id",
@@ -65,11 +68,22 @@ def _make_bundle(root: Path, *, issue_count: int = 0) -> Path:
             "effective_date",
             "reason",
             "matched_line_number",
+            "assignment_raw",
+            "assignment_normalized",
+            "salary_text",
         ],
         "finding_rows": rows,
     }
     _write_json(data / "board-data.json", board)
     _write_json(data / "default-findings.json", findings)
+    _write_json(
+        data / "default-review-candidates.json",
+        {
+            "schema_version": 1,
+            "generated_at": generated_at,
+            "review_candidates": [],
+        },
+    )
     _write_json(data / "default-schools.json", {"schools": schools})
     (data / "last-updated.txt").write_text(generated_at, encoding="utf-8")
     (docs / "assets").mkdir(parents=True)
@@ -113,7 +127,24 @@ class PublicBundleContractTests(unittest.TestCase):
             docs = _make_bundle(Path(directory))
             findings_path = docs / "data" / "default-findings.json"
             _write_json(findings_path, {"schema_version": 1, "findings": []})
-            with self.assertRaisesRegex(ContractViolation, "compact schema v2"):
+            with self.assertRaisesRegex(ContractViolation, "compact schema v3"):
+                validate_bundle(docs, min_findings=1, max_review_queue=5)
+
+    def test_unknown_recognition_review_attachment_is_rejected(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            docs = _make_bundle(Path(directory))
+            review_path = docs / "data" / "default-review-candidates.json"
+            payload = json.loads(review_path.read_text(encoding="utf-8"))
+            payload["review_candidates"] = [
+                {
+                    "review_id": "recognition-test",
+                    "attachment_id": "missing-attachment",
+                    "reason_codes": ["school_location_unmatched"],
+                    "candidate_school_ids": [],
+                }
+            ]
+            _write_json(review_path, payload)
+            with self.assertRaisesRegex(ContractViolation, "unknown attachment"):
                 validate_bundle(docs, min_findings=1, max_review_queue=5)
 
     def test_initial_browser_state_overwrite_is_rejected(self) -> None:
