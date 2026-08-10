@@ -1,11 +1,11 @@
 const DATA_URL = "data/board-data.json";
 const SCHOOL_STORAGE_KEY = "ccsd-board-watch-schools-v1";
 const SCHOOL_VERSION_STORAGE_KEY = "ccsd-board-watch-schools-version-v1";
-const DEFAULT_SCHOOL_SET_VERSION = "cluster-1-40-v3";
+const DEFAULT_SCHOOL_SET_VERSION = "cluster-1-40-source-labels-v4";
 const FILTER_STORAGE_KEY = "ccsd-board-watch-filters-v1";
 const SNAPSHOT_STORAGE_KEY = "ccsd-board-watch-finding-snapshot-v1";
 const FINDING_CACHE_STORAGE_KEY = "ccsd-board-watch-finding-cache-v1";
-const FINDING_CACHE_VERSION = "findings-v3";
+const FINDING_CACHE_VERSION = "findings-v4-source-labels";
 const LEGACY_DEFAULT_SOURCE_IMAGES = new Set([
   "henderson cluster.png",
   "North east vegas cluster.png",
@@ -22,6 +22,9 @@ const CLUSTER_DEFAULT_SOURCE_IMAGES = new Set([
 const DATE_PATTERN = /\b(?:\d{1,2}\/\d{1,2}\/+\d{2,4}|(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\s+\d{1,2},\s+\d{4}|TBD)\b/ig;
 const SEPARATION_DATE_LIKE_PATTERN = /\b(?:\d{1,2}\/\d{1,2}(?:\/+\d{1,4})?(?![\d/])|(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\s+\d{1,2},\s+\d{4}|TBD)\b/ig;
 const MALFORMED_HIRE_DATE_PATTERN = /(?<!\d)(?:\d{3,4}\/\d{2,4}|\d{1,2}\/\d{3,4}|\d{1,2}\/\/+\d{2,4}|(?:0[1-9]|1[0-2])\d{2}|\d{1,2}\/\s+\d{2,4})\s*$/i;
+const SALARY_PATTERN = /(?<![\d,])(\$?\s*(?:\d{1,3}(?:,\d{3})+|\d{4,6})(?:\.\d{2})?\s*\$)(?!\d)/;
+const EXPLICIT_EMPLOYMENT_DATE_PATTERN = /\b\d{1,2}\/\d{1,2}\/(?:\d{2}|\d{4})\b/;
+const COMPACT_LOCATION_SUFFIX_PATTERN = /\b(ES|MS|JHS|HS|CTA)\b/i;
 const MAX_EFFECTIVE_DATE_DISTANCE_MS = 366 * 2 * 24 * 60 * 60 * 1000;
 const HEADER_HINTS = new Set([
   "name",
@@ -368,8 +371,30 @@ function normalizeSchools(schools) {
       display_name: displayName || `School ${index + 1}`,
       aliases,
       source_image: String(school.source_image || ""),
+      region: String(school.region || ""),
+      source_labels: normalizeSchoolSourceLabels(school.source_labels),
     };
   });
+}
+
+function normalizeSchoolSourceLabels(sourceLabels) {
+  if (!Array.isArray(sourceLabels)) return [];
+  return sourceLabels.map((label) => ({
+    source_label: String(label?.source_label || "").trim(),
+    valid_from_year: Number(label?.valid_from_year || 0),
+    valid_to_year: Number(label?.valid_to_year || 0),
+    observed_years: Array.isArray(label?.observed_years)
+      ? unique(label.observed_years.map(Number).filter(Number.isInteger)).sort((a, b) => a - b)
+      : [],
+    observed_rows: Number(label?.observed_rows || 0),
+    attachment_count: Number(label?.attachment_count || 0),
+    status: String(label?.status || "active").trim().toLowerCase(),
+  })).filter((label) => (
+    label.source_label
+    && label.valid_from_year > 0
+    && label.valid_to_year >= label.valid_from_year
+    && ["active", "retired"].includes(label.status)
+  ));
 }
 
 function recomputeFindings() {
@@ -389,22 +414,60 @@ function recomputeFindings() {
 }
 
 function buildFindings(attachments, schools, boundarySchools = schools) {
-  const aliases = compiledSchoolAliases(schools);
-  const boundaryAliases = boundarySchools === schools
-    ? aliases
-    : compiledSchoolAliases([...boundarySchools, ...schools]);
+  return analyzeBoardData(attachments, schools, boundarySchools).findings;
+}
+
+function analyzeBoardData(attachments, schools, boundarySchools = schools) {
+  const compactSchoolIndex = compactSchoolIndexFor(schools);
+  const aliasesByYear = new Map();
+  const boundaryAliasesByYear = new Map();
+  const sharesBoundarySchools = boundarySchools === schools;
   const findings = [];
+  const reviewCandidates = [];
   const seen = new Set();
 
   for (const attachment of attachments) {
     if (!EMPLOYMENT_MOVEMENT_TYPES.has(String(attachment.movement_type || ""))) continue;
+    const meetingYear = attachmentMeetingYear(attachment);
+    const yearKey = meetingYear || "all";
+    if (!aliasesByYear.has(yearKey)) {
+      aliasesByYear.set(yearKey, compiledSchoolAliases(schools, meetingYear));
+    }
+    const aliases = aliasesByYear.get(yearKey);
+    if (!sharesBoundarySchools && !boundaryAliasesByYear.has(yearKey)) {
+      boundaryAliasesByYear.set(
+        yearKey,
+        compiledSchoolAliases([...boundarySchools, ...schools], meetingYear),
+      );
+    }
+    const boundaryAliases = sharesBoundarySchools ? aliases : boundaryAliasesByYear.get(yearKey);
     const lines = Array.isArray(attachment.lines) ? attachment.lines.map((line) => String(line).trim()).filter(Boolean) : [];
     const normalizedLines = lines.map(normalizeName);
+    const attachmentFindingStart = findings.length;
     for (let index = 0; index < normalizedLines.length; index += 1) {
       const normalized = normalizedLines[index];
       if (!normalized) continue;
+      const rowFields = attachment.movement_type === "new_hire" ? sourceRowFields(lines[index]) : emptySourceRowFields();
       let matches = schoolMatchesAtIndex(normalizedLines, index, aliases);
-      if (!matches.length) continue;
+      let compactCandidateIds = [];
+      if (!matches.length && rowFields.salary_text && rowFields.effective_date) {
+        const compact = compactSchoolMatches(normalized, rowFields, compactSchoolIndex);
+        matches = compact.matches;
+        compactCandidateIds = compact.candidateSchoolIds;
+      }
+      if (!matches.length) {
+        if (rowFields.salary_text && rowFields.effective_date) {
+          reviewCandidates.push(reviewCandidate(attachment, {
+            reasonCodes: [compactCandidateIds.length ? "school_location_ambiguous" : "school_location_unmatched"],
+            line: lines[index],
+            lineNumber: index + 1,
+            fields: rowFields,
+            candidateSchoolIds: compactCandidateIds,
+          }));
+        }
+        continue;
+      }
+      const findingCountBefore = findings.length;
 
       if (attachment.movement_type === "separation") {
         const boundaryMatches = boundaryAliases === aliases
@@ -435,6 +498,15 @@ function buildFindings(attachments, schools, boundarySchools = schools) {
           separationRowEnd,
         );
         if (finding) findings.push(finding);
+        if (rowFields.salary_text && rowFields.effective_date && findings.length === findingCountBefore) {
+          reviewCandidates.push(reviewCandidate(attachment, {
+            reasonCodes: ["parser_rejected"],
+            line: lines[index],
+            lineNumber: index + 1,
+            fields: rowFields,
+            candidateSchoolIds: matches.slice(0, 2).map((match) => match.school.school_id),
+          }));
+        }
         continue;
       }
 
@@ -449,10 +521,24 @@ function buildFindings(attachments, schools, boundarySchools = schools) {
         );
         if (finding) findings.push(finding);
       }
+      if (rowFields.salary_text && rowFields.effective_date && findings.length === findingCountBefore) {
+        reviewCandidates.push(reviewCandidate(attachment, {
+          reasonCodes: ["parser_rejected"],
+          line: lines[index],
+          lineNumber: index + 1,
+          fields: rowFields,
+          candidateSchoolIds: matches.map((match) => match.school.school_id),
+        }));
+      }
     }
+    const attachmentFindings = findings.slice(attachmentFindingStart);
+    reviewCandidates.push(...attachmentCompletenessReviews(attachment, lines, attachmentFindings));
   }
 
-  return dedupeFindings(findings).sort(compareFindings);
+  return {
+    findings: dedupeFindings(findings).sort(compareFindings),
+    reviewCandidates: dedupeReviewCandidates(reviewCandidates),
+  };
 }
 
 function dedupeFindings(findings) {
@@ -563,6 +649,7 @@ function buildFindingFromMatches(attachment, lines, index, matches, seen, separa
     attachment.movement_type,
     separationRowEnd,
   );
+  const rowFields = sourceFieldsForMatch(lines[index], primary.normalizedAlias);
   if (shouldRejectFinding(lines, index, context, person, effectiveDate, attachment.movement_type)) return null;
 
   const schoolIds = matches.map((match) => match.school.school_id);
@@ -605,6 +692,9 @@ function buildFindingFromMatches(attachment, lines, index, matches, seen, separa
     to_cluster: destination ? destination.school.cluster : "",
     person_name: person,
     effective_date: effectiveDate,
+    assignment_raw: rowFields.assignment_raw,
+    assignment_normalized: normalizeAssignment(rowFields.assignment_raw),
+    salary_text: rowFields.salary_text,
     reason,
     attachment_id: attachment.attachment_id,
     attachment_name: attachment.attachment_name,
@@ -1340,10 +1430,294 @@ function countByFindingClusters(findings) {
   }, {});
 }
 
-function compiledSchoolAliases(schools) {
+function emptySourceRowFields() {
+  return {
+    salary_text: "",
+    effective_date: "",
+    location_text: "",
+    assignment_raw: "",
+    location_start: -1,
+    location_end: -1,
+    school_suffix: "",
+    school_surname: "",
+  };
+}
+
+function sourceRowFields(line) {
+  const text = String(line || "");
+  const salaryMatch = SALARY_PATTERN.exec(text);
+  if (!salaryMatch) return emptySourceRowFields();
+  const afterSalary = text.slice(salaryMatch.index + salaryMatch[0].length);
+  const dateMatch = EXPLICIT_EMPLOYMENT_DATE_PATTERN.exec(afterSalary);
+  const base = {
+    ...emptySourceRowFields(),
+    salary_text: cleanSalary(salaryMatch[1]),
+    effective_date: dateMatch ? dateMatch[0] : "",
+  };
+  if (!dateMatch) return base;
+
+  const beforeSalary = text.slice(0, salaryMatch.index);
+  const commaIndex = beforeSalary.lastIndexOf(",");
+  if (commaIndex < 0) return base;
+  const surnameMatch = /([A-Za-z][A-Za-z'.-]*)\s*$/.exec(beforeSalary.slice(0, commaIndex));
+  const afterComma = beforeSalary.slice(commaIndex + 1);
+  const suffixMatch = COMPACT_LOCATION_SUFFIX_PATTERN.exec(afterComma);
+  if (!surnameMatch || !suffixMatch) return base;
+
+  const locationStart = surnameMatch.index;
+  const locationEnd = commaIndex + 1 + suffixMatch.index + suffixMatch[0].length;
+  return {
+    ...base,
+    location_text: text.slice(locationStart, locationEnd).replace(/\s+/g, " ").trim(),
+    assignment_raw: text.slice(locationEnd, salaryMatch.index).replace(/\s+/g, " ").replace(/^[\s,.$-]+|[\s,.$-]+$/g, ""),
+    location_start: locationStart,
+    location_end: locationEnd,
+    school_suffix: suffixMatch[1].toUpperCase(),
+    school_surname: normalizeName(surnameMatch[1]),
+  };
+}
+
+function sourceFieldsForMatch(line, normalizedAlias) {
+  const fields = sourceRowFields(line);
+  const text = String(line || "");
+  const salaryMatch = SALARY_PATTERN.exec(text);
+  if (!salaryMatch) return fields;
+  const normalized = normalizeWithMapping(text);
+  const aliasPosition = aliasMatchPosition(normalized.text, normalizedAlias);
+  if (aliasPosition < 0 || !normalized.mapping.length) return fields;
+  const aliasLastIndex = Math.min(normalized.mapping.length - 1, aliasPosition + normalizedAlias.length - 1);
+  const originalEnd = normalized.mapping[aliasLastIndex] + 1;
+  const assignment = text
+    .slice(originalEnd, salaryMatch.index)
+    .replace(/\s+/g, " ")
+    .replace(/^[\s,.$-]+|[\s,.$-]+$/g, "")
+    .replace(/^(?:ES|MS|JHS|HS|CTA)\b\s*/i, "");
+  return {
+    ...fields,
+    salary_text: fields.salary_text || cleanSalary(salaryMatch[1]),
+    location_text: fields.location_text || text.slice(0, originalEnd).trim(),
+    assignment_raw: assignment,
+    location_end: originalEnd,
+  };
+}
+
+function cleanSalary(value) {
+  return String(value || "").replace(/\s+/g, "").trim();
+}
+
+function normalizeAssignment(value) {
+  const normalized = String(value || "").replace(/\s+/g, " ").trim();
+  if (!normalized) return "";
+  if (/^KDG(?:\s+\d+\s+AM\/\d+\s+PM)?$/i.test(normalized)) {
+    return normalized.replace(/^KDG\b/i, "Kindergarten");
+  }
+  const grade = /^GRADE\s+(K|\d+(?:-\d+)?)$/i.exec(normalized);
+  if (grade) return `Grade ${grade[1].toUpperCase()}`;
+  if (/^(?:AUTISM|MUSIC|DANCE|SOCIAL WORKER|COUNSELOR\/ELE|PHYSICAL ED)$/i.test(normalized)) {
+    return normalized.toLowerCase().replace(/\b\w/g, (character) => character.toUpperCase()).replace("/Ele", "/Elementary");
+  }
+  return "";
+}
+
+function compactSchoolIndexFor(schools) {
+  const indexed = new Map();
+  for (const school of schools) {
+    for (const label of unique([school.display_name, ...(school.aliases || [])])) {
+      const parsed = schoolLabelBodyAndSuffix(normalizeName(label).split(" ").filter(Boolean));
+      if (!parsed) continue;
+      const surnames = unique([parsed.body[0], parsed.body[parsed.body.length - 1]]);
+      const suffixes = new Set([parsed.suffix]);
+      if (parsed.suffix === "MS") suffixes.add("JHS");
+      if (parsed.suffix === "JHS") suffixes.add("MS");
+      for (const surname of surnames) {
+        for (const suffix of suffixes) {
+          const key = `${surname}|${suffix}`;
+          if (!indexed.has(key)) indexed.set(key, new Map());
+          indexed.get(key).set(school.school_id, school);
+        }
+      }
+    }
+  }
+  return new Map([...indexed].map(([key, values]) => [key, [...values.values()]]));
+}
+
+function schoolLabelBodyAndSuffix(words) {
+  if (!words.length) return null;
+  const shortSuffix = words[words.length - 1];
+  if (SCHOOL_SUFFIXES.has(shortSuffix) && words.length >= 2) {
+    return { body: words.slice(0, -1), suffix: shortSuffix };
+  }
+  const expanded = [
+    [["ELEMENTARY", "SCHOOL"], "ES"],
+    [["MIDDLE", "SCHOOL"], "MS"],
+    [["JUNIOR", "HIGH", "SCHOOL"], "JHS"],
+    [["HIGH", "SCHOOL"], "HS"],
+    [["CAREER", "TECHNICAL", "ACADEMY"], "CTA"],
+  ];
+  for (const [suffixWords, suffix] of expanded) {
+    if (words.length <= suffixWords.length) continue;
+    if (suffixWords.every((word, index) => words[words.length - suffixWords.length + index] === word)) {
+      return { body: words.slice(0, -suffixWords.length), suffix };
+    }
+  }
+  return null;
+}
+
+function compactSchoolMatches(normalizedLine, fields, compactIndex) {
+  if (!fields.location_text || !fields.school_surname || !fields.school_suffix) {
+    return { matches: [], candidateSchoolIds: [] };
+  }
+  let candidates = compactIndex.get(`${fields.school_surname}|${fields.school_suffix}`) || [];
+  const candidateSchoolIds = candidates.map((school) => school.school_id).sort();
+  if (candidates.length !== 1) {
+    const ranked = candidates
+      .map((school) => ({ school, score: compactCandidateScore(fields.location_text, school) }))
+      .sort((left, right) => right.score - left.score);
+    if (!ranked.length || ranked[0].score <= 0 || (ranked[1] && ranked[0].score === ranked[1].score)) {
+      return { matches: [], candidateSchoolIds };
+    }
+    candidates = [ranked[0].school];
+  }
+  const normalizedLocation = normalizeName(fields.location_text);
+  const position = aliasMatchPosition(normalizedLine, normalizedLocation);
+  if (position < 0) return { matches: [], candidateSchoolIds };
+  const school = candidates[0];
+  return {
+    matches: [{
+      school,
+      alias: fields.location_text,
+      normalizedAlias: normalizedLocation,
+      pattern: aliasMatchPattern(normalizedLocation),
+      position,
+    }],
+    candidateSchoolIds,
+  };
+}
+
+function compactCandidateScore(locationText, school) {
+  const sourceWords = normalizeName(locationText).split(" ").filter(Boolean);
+  if (sourceWords.length < 3) return 0;
+  const sourceGiven = sourceWords.slice(1, -1);
+  const surname = sourceWords[0];
+  let best = 0;
+  for (const label of unique([school.display_name, ...(school.aliases || [])])) {
+    const parsed = schoolLabelBodyAndSuffix(normalizeName(label).split(" ").filter(Boolean));
+    if (!parsed) continue;
+    const candidateGiven = parsed.body.filter((word) => word !== surname);
+    let score = 0;
+    for (const sourceWord of sourceGiven) {
+      if (candidateGiven.includes(sourceWord)) score += 3;
+      else if (candidateGiven.some((candidate) => sourceWord[0] && sourceWord[0] === candidate[0])) score += 1;
+    }
+    best = Math.max(best, score);
+  }
+  return best;
+}
+
+function reviewCandidate(attachment, {
+  reasonCodes,
+  line = "",
+  lineNumber = 0,
+  fields = emptySourceRowFields(),
+  candidateSchoolIds = [],
+}) {
+  return {
+    review_id: `recognition-${fingerprint([
+      attachment.meeting_id,
+      attachment.document_id,
+      lineNumber,
+      [...reasonCodes].sort().join("|"),
+    ])}`,
+    meeting_id: attachment.meeting_id,
+    meeting_name: attachment.meeting_name,
+    meeting_date: attachment.meeting_date,
+    board_meeting_url: attachment.board_meeting_url,
+    item_number: attachment.item_number,
+    item_title: attachment.item_title,
+    movement_type: attachment.movement_type,
+    attachment_id: attachment.attachment_id,
+    attachment_name: attachment.attachment_name,
+    document_url: attachment.document_url,
+    document_id: attachment.document_id,
+    reason_codes: [...reasonCodes],
+    source_line: line,
+    matched_line_number: lineNumber,
+    location_text: fields.location_text,
+    assignment_raw: fields.assignment_raw,
+    salary_text: fields.salary_text,
+    effective_date: fields.effective_date,
+    candidate_school_ids: [...candidateSchoolIds],
+  };
+}
+
+function attachmentCompletenessReviews(attachment, lines, attachmentFindings) {
+  if (!EMPLOYMENT_MOVEMENT_TYPES.has(String(attachment.movement_type || ""))) return [];
+  const reasons = Array.isArray(attachment.extraction_review_reasons)
+    ? attachment.extraction_review_reasons.map(String).filter(Boolean)
+    : [];
+  const extractedLineCount = Number(attachment.extracted_line_count ?? attachment.line_count ?? lines.length);
+  if (attachment.movement_type === "new_hire" && extractedLineCount < 6 && !reasons.includes("low_text_extraction")) {
+    reasons.push("low_text_extraction");
+  }
+  const contractTotal = declaredContractTotal(lines);
+  if (contractTotal && (attachmentFindings.length === 0 || attachmentFindings.length / contractTotal < 0.75)) {
+    reasons.push("contract_count_mismatch");
+  }
+  if (!reasons.length) return [];
+  const line = contractTotal ? `Parsed ${attachmentFindings.length} of ${contractTotal} declared contracts` : "";
+  return [reviewCandidate(attachment, {
+    reasonCodes: unique(reasons),
+    line,
+  })];
+}
+
+function declaredContractTotal(lines) {
+  for (const line of lines) {
+    const match = /\bNUMBER\s+OF\s+CONTRACTS\s*:?\s*(\d+)\b/i.exec(String(line || ""));
+    if (match) return Number(match[1]);
+  }
+  return 0;
+}
+
+function dedupeReviewCandidates(candidates) {
+  const byId = new Map();
+  for (const candidate of candidates) byId.set(candidate.review_id, candidate);
+  return [...byId.values()].sort((left, right) => (
+    (Date.parse(right.meeting_date) || 0) - (Date.parse(left.meeting_date) || 0)
+    || left.matched_line_number - right.matched_line_number
+    || left.review_id.localeCompare(right.review_id)
+  ));
+}
+
+function attachmentMeetingYear(attachment) {
+  const explicit = Number(attachment?.meeting_year || 0);
+  if (Number.isInteger(explicit) && explicit >= 1900 && explicit <= 2100) return explicit;
+  for (const value of [attachment?.meeting_date, attachment?.meeting_name]) {
+    const match = /\b(?:19|20)\d{2}\b/.exec(String(value || ""));
+    if (match) return Number(match[0]);
+  }
+  return null;
+}
+
+function sourceLabelActiveForYear(label, meetingYear) {
+  if (String(label?.status || "active").toLowerCase() !== "active") return false;
+  if (!meetingYear) return true;
+  const observedYears = Array.isArray(label?.observed_years)
+    ? label.observed_years.map(Number).filter(Number.isInteger)
+    : [];
+  if (observedYears.length) return observedYears.includes(meetingYear);
+  return meetingYear >= Number(label?.valid_from_year || 0)
+    && meetingYear <= Number(label?.valid_to_year || 0);
+}
+
+function compiledSchoolAliases(schools, meetingYear = null) {
   const compiled = [];
   for (const school of schools) {
-    const aliases = unique([school.display_name, ...(school.aliases || [])]);
+    const sourceLabels = (school.source_labels || [])
+      .filter((label) => sourceLabelActiveForYear(label, meetingYear))
+      .map((label) => String(label.source_label || "").trim())
+      .filter(Boolean);
+    const aliases = unique([school.display_name, ...(school.aliases || []), ...sourceLabels]);
     for (const alias of aliases) {
       for (const variant of aliasVariants(alias)) {
         if (skipBareAlias(alias, variant)) continue;
