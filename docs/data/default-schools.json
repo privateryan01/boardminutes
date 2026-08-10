@@ -102,8 +102,8 @@
             2025,
             2026
           ],
-          "observed_rows": 28,
-          "attachment_count": 18,
+          "observed_rows": 29,
+          "attachment_count": 19,
           "status": "active"
         }
       ]
@@ -583,7 +583,19 @@
       ],
       "source_image": "clusters 1-10.png",
       "region": "East",
-      "source_labels": []
+      "source_labels": [
+        {
+          "source_label": "EAST CAREER TECH ACADEMY",
+          "valid_from_year": 2026,
+          "valid_to_year": 2026,
+          "observed_years": [
+            2026
+          ],
+          "observed_rows": 1,
+          "attachment_count": 1,
+          "status": "active"
+        }
+      ]
     },
     {
       "school_id": "mack_j_ms",
@@ -635,17 +647,18 @@
         {
           "source_label": "JENKINS, EARL N. ES",
           "valid_from_year": 2020,
-          "valid_to_year": 2025,
+          "valid_to_year": 2026,
           "observed_years": [
             2020,
             2021,
             2022,
             2023,
             2024,
-            2025
+            2025,
+            2026
           ],
-          "observed_rows": 33,
-          "attachment_count": 22,
+          "observed_rows": 34,
+          "attachment_count": 23,
           "status": "active"
         }
       ]
@@ -664,24 +677,7 @@
       ],
       "source_image": "clusters 1-10.png",
       "region": "East",
-      "source_labels": [
-        {
-          "source_label": "SMITH, HELEN ES",
-          "valid_from_year": 2020,
-          "valid_to_year": 2025,
-          "observed_years": [
-            2020,
-            2021,
-            2022,
-            2023,
-            2024,
-            2025
-          ],
-          "observed_rows": 23,
-          "attachment_count": 11,
-          "status": "active"
-        }
-      ]
+      "source_labels": []
     },
     {
       "school_id": "dearing_l_es",
@@ -959,16 +955,17 @@
         {
           "source_label": "ADAMS, KIRK L. ES",
           "valid_from_year": 2021,
-          "valid_to_year": 2025,
+          "valid_to_year": 2026,
           "observed_years": [
             2021,
             2022,
             2023,
             2024,
-            2025
+            2025,
+            2026
           ],
-          "observed_rows": 20,
-          "attachment_count": 14,
+          "observed_rows": 21,
+          "attachment_count": 15,
           "status": "active"
         }
       ]
@@ -1381,17 +1378,18 @@
         {
           "source_label": "MOORE, WILLIAM ES",
           "valid_from_year": 2020,
-          "valid_to_year": 2025,
+          "valid_to_year": 2026,
           "observed_years": [
             2020,
             2021,
             2022,
             2023,
             2024,
-            2025
+            2025,
+            2026
           ],
-          "observed_rows": 29,
-          "attachment_count": 17,
+          "observed_rows": 30,
+          "attachment_count": 18,
           "status": "active"
         }
       ]
@@ -1627,15 +1625,16 @@
         {
           "source_label": "RONNOW, C.C. ES",
           "valid_from_year": 2022,
-          "valid_to_year": 2025,
+          "valid_to_year": 2026,
           "observed_years": [
             2022,
             2023,
             2024,
-            2025
+            2025,
+            2026
           ],
-          "observed_rows": 14,
-          "attachment_count": 12,
+          "observed_rows": 16,
+          "attachment_count": 13,
           "status": "active"
         }
       ]
@@ -2216,16 +2215,17 @@
         {
           "source_label": "MITCHELL, ANDREW ES",
           "valid_from_year": 2021,
-          "valid_to_year": 2025,
+          "valid_to_year": 2026,
           "observed_years": [
             2021,
             2022,
             2023,
             2024,
-            2025
+            2025,
+            2026
           ],
-          "observed_rows": 12,
-          "attachment_count": 10,
+          "observed_rows": 13,
+          "attachment_count": 11,
           "status": "active"
         }
       ]
@@ -2582,17 +2582,18 @@
         {
           "source_label": "FRENCH, DORIS ES",
           "valid_from_year": 2020,
-          "valid_to_year": 2025,
+          "valid_to_year": 2026,
           "observed_years": [
             2020,
             2021,
             2022,
             2023,
             2024,
-            2025
+            2025,
+            2026
           ],
-          "observed_rows": 47,
-          "attachment_count": 34,
+          "observed_rows": 48,
+          "attachment_count": 35,
           "status": "active"
         }
       ]
@@ -3839,7 +3840,19 @@
       ],
       "source_image": "clusters 11-20.png",
       "region": "North",
-      "source_labels": []
+      "source_labels": [
+        {
+          "source_label": "WEST PREPARATORY ACADEMY MS",
+          "valid_from_year": 2026,
+          "valid_to_year": 2026,
+          "observed_years": [
+            2026
+          ],
+          "observed_rows": 1,
+          "attachment_count": 1,
+          "status": "active"
+        }
+      ]
     },
     {
       "school_id": "kelly_es",
@@ -4159,7 +4172,7 @@
         {
           "source_label": "PERKINS, CLAUDE ES",
           "valid_from_year": 2016,
-          "valid_to_year": 2025,
+          "valid_to_year": 2026,
           "observed_years": [
             2016,
             2017,
@@ -4170,10 +4183,11 @@
             2022,
             2023,
             2024,
-            2025
+            2025,
+            2026
           ],
-          "observed_rows": 68,
-          "attachment_count": 34,
+          "observed_rows": 69,
+          "attachment_count": 35,
           "status": "active"
         },
         {
@@ -7548,6 +7562,23 @@
           "observed_rows": 2,
           "attachment_count": 1,
           "status": "active"
+        },
+        {
+          "source_label": "SMITH, HELEN ES",
+          "valid_from_year": 2020,
+          "valid_to_year": 2026,
+          "observed_years": [
+            2020,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025,
+            2026
+          ],
+          "observed_rows": 25,
+          "attachment_count": 12,
+          "status": "active"
         }
       ]
     },
@@ -8635,7 +8666,19 @@
       ],
       "source_image": "clusters 31-40.png",
       "region": "",
-      "source_labels": []
+      "source_labels": [
+        {
+          "source_label": "NW CAREER TECH ACADEMY",
+          "valid_from_year": 2026,
+          "valid_to_year": 2026,
+          "observed_years": [
+            2026
+          ],
+          "observed_rows": 1,
+          "attachment_count": 1,
+          "status": "active"
+        }
+      ]
     },
     {
       "school_id": "leavitt_ms",
@@ -9077,16 +9120,17 @@
         {
           "source_label": "LUMMIS, WILLIAM ES",
           "valid_from_year": 2020,
-          "valid_to_year": 2025,
+          "valid_to_year": 2026,
           "observed_years": [
             2020,
             2021,
             2023,
             2024,
-            2025
+            2025,
+            2026
           ],
-          "observed_rows": 18,
-          "attachment_count": 13,
+          "observed_rows": 19,
+          "attachment_count": 14,
           "status": "active"
         }
       ]

@@ -2076,10 +2076,11 @@ function looksLikeLocationHistory(value) {
 }
 
 function looksLikeResumeContext(lines, index, context) {
-  if (RESUME_SECTION_PATTERN.test(String(context || ""))) return true;
+  const currentLine = lines[index] || "";
+  if (!looksLikeLocationHistory(currentLine)) return false;
   const windowStart = Math.max(0, index - 6);
   const nearby = lines.slice(windowStart, index + 1).join("\n");
-  return RESUME_SECTION_PATTERN.test(nearby) && looksLikeLocationHistory(lines[index] || "");
+  return RESUME_SECTION_PATTERN.test(nearby) || RESUME_SECTION_PATTERN.test(String(context || ""));
 }
 
 function looksLikeOrganization(value) {
