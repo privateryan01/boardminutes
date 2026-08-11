@@ -855,7 +855,7 @@ function renderFindingsTable() {
         <a href="${escapeAttribute(finding.board_meeting_url)}" target="_blank" rel="noreferrer">${escapeHtml(finding.meeting_date)}</a>
         <span class="subtle">${escapeHtml(finding.meeting_name)}</span>
       </td>
-      <td>${findingTypeChip(finding)}</td>
+      <td>${findingTypeChip(finding, true)}</td>
       <td>
         <span class="person-name-line">
           <strong>${escapeHtml(finding.person_name || "Review needed")}</strong>
@@ -1396,10 +1396,13 @@ function metric(label, value) {
   return `<div class="metric"><span>${escapeHtml(label)}</span><strong>${escapeHtml(String(value))}</strong></div>`;
 }
 
-function findingTypeChip(finding) {
-  const type = findingTypeFilter(finding);
+function findingTypeChip(finding, employmentUmbrella = false) {
+  const classifiedType = findingTypeFilter(finding);
+  const type = employmentUmbrella && ["former_employee", "returning_loa"].includes(classifiedType)
+    ? "new_hire"
+    : classifiedType;
   const className = type.toLowerCase().replace(/[^a-z0-9_-]+/g, "-");
-  return `<span class="type-chip type-${escapeAttribute(className)}">${escapeHtml(findingTypeLabel(finding))}</span>`;
+  return `<span class="type-chip type-${escapeAttribute(className)}">${escapeHtml(labelTypeFilter(type))}</span>`;
 }
 
 function findingTypeLabel(finding) {
