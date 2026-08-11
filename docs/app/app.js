@@ -857,7 +857,10 @@ function renderFindingsTable() {
       </td>
       <td>${findingTypeChip(finding)}</td>
       <td>
-        <strong>${escapeHtml(finding.person_name || "Review needed")}</strong>
+        <span class="person-name-line">
+          <strong>${escapeHtml(finding.person_name || "Review needed")}</strong>
+          ${findingEmploymentStatusLabel(finding) ? `<span class="employment-status type-${escapeAttribute(finding.movement_type)}">${escapeHtml(findingEmploymentStatusLabel(finding))}</span>` : ""}
+        </span>
       </td>
       <td>${escapeHtml(finding.effective_date)}</td>
       <td>${escapeHtml(finding.reason)}</td>
@@ -976,7 +979,7 @@ function applyFilters(findings) {
   return findings.filter((finding) => {
     if (state.filters.year !== "all" && finding.meeting_year !== state.filters.year) return false;
     if (state.filters.cluster !== "all" && !findingClusters(finding).includes(state.filters.cluster)) return false;
-    if (state.filters.type !== "all" && findingTypeFilter(finding) !== state.filters.type) return false;
+    if (!matchesFindingTypeFilter(finding, state.filters.type)) return false;
     if (state.filters.newOnly && !finding.is_new) return false;
     if (state.filters.search) {
       const haystack = [
@@ -1002,6 +1005,21 @@ function applyFilters(findings) {
     }
     return true;
   });
+}
+
+function matchesFindingTypeFilter(finding, selectedType) {
+  if (selectedType === "all") return true;
+  const findingType = findingTypeFilter(finding);
+  if (selectedType === "new_hire") {
+    return ["new_hire", "former_employee", "returning_loa"].includes(findingType);
+  }
+  return findingType === selectedType;
+}
+
+function findingEmploymentStatusLabel(finding) {
+  if (finding.movement_type === "former_employee") return "Former CCSD";
+  if (finding.movement_type === "returning_loa") return "Returning from LOA";
+  return "";
 }
 
 function sortFindingsForDisplay(findings) {
