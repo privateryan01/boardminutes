@@ -157,6 +157,14 @@ class PublicBundleContractTests(unittest.TestCase):
             with self.assertRaisesRegex(ContractViolation, "before initial data hydration"):
                 validate_bundle(docs, min_findings=1, max_review_queue=5)
 
+    def test_missing_maplibre_worker_is_rejected(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            docs = _make_bundle(Path(directory))
+            app_asset = docs / "assets" / "BoardWatchApp-safe.js"
+            app_asset.write_text("maplibre-gl-worker.mjs", encoding="utf-8")
+            with self.assertRaisesRegex(ContractViolation, "missing MapLibre worker"):
+                validate_bundle(docs, min_findings=1, max_review_queue=5)
+
 
 if __name__ == "__main__":
     unittest.main()

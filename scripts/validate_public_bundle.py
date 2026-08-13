@@ -90,6 +90,11 @@ def _validate_browser_state_persistence(docs_dir: Path) -> str:
         unsafe_initial_write.search(text) is None,
         "BoardWatchApp writes browser state before initial data hydration",
     )
+    if "maplibre-gl-worker.mjs" in text:
+        _require(
+            (docs_dir / "assets" / "maplibre-gl-worker.mjs").is_file(),
+            "BoardWatchApp references a missing MapLibre worker asset",
+        )
     return app_asset.name
 
 
