@@ -53,6 +53,8 @@ const ROLE_WORDS = new Set([
   "principal",
   "teacher",
   "coordinator",
+  "chief",
+  "deputy",
   "manager",
   "director",
   "specialist",
@@ -96,6 +98,7 @@ const ROLE_WORDS = new Set([
   "training",
   "transportation",
   "warehouse",
+  "superintendent",
 ]);
 const REASON_RULES = [
   [/\bdisability\s+retirement\b/i, "Disability Retirement"],
@@ -471,7 +474,10 @@ function analyzeBoardData(attachments, schools, boundarySchools = schools) {
     for (let index = 0; index < normalizedLines.length; index += 1) {
       const normalized = normalizedLines[index];
       if (!normalized) continue;
-      const rowFields = attachment.movement_type === "new_hire" ? sourceRowFields(lines[index]) : emptySourceRowFields();
+      const rowFields = attachment.movement_type === "new_hire"
+        ? employmentRowFields(attachment, lines, index)
+        : emptySourceRowFields();
+      const retainableEmploymentRow = Boolean(rowFields.effective_date && (rowFields.salary_text || rowFields.person_name));
       let matches = schoolMatchesAtIndex(normalizedLines, index, aliases);
       let compactCandidateIds = [];
       if (!matches.length && rowFields.salary_text && rowFields.effective_date) {
@@ -480,16 +486,18 @@ function analyzeBoardData(attachments, schools, boundarySchools = schools) {
         compactCandidateIds = compact.candidateSchoolIds;
       }
       if (!matches.length) {
-        if (rowFields.salary_text && rowFields.effective_date) {
+        if (retainableEmploymentRow) {
           const movementType = employmentMovementType(attachment, lines, lines[index]);
-          reviewCandidates.push(reviewCandidate(attachment, {
-            reasonCodes: [compactCandidateIds.length ? "school_location_ambiguous" : "school_location_unmatched"],
-            line: lines[index],
-            lineNumber: index + 1,
-            fields: rowFields,
-            candidateSchoolIds: compactCandidateIds,
-            movementType,
-          }));
+          if (!rowFields.person_name) {
+            reviewCandidates.push(reviewCandidate(attachment, {
+              reasonCodes: [compactCandidateIds.length ? "school_location_ambiguous" : "school_location_unmatched"],
+              line: lines[index],
+              lineNumber: index + 1,
+              fields: rowFields,
+              candidateSchoolIds: compactCandidateIds,
+              movementType,
+            }));
+          }
           if (attachment.movement_type === "new_hire") {
             const retained = buildRetainedEmploymentFinding(
               attachment,
@@ -591,8 +599,12 @@ function analyzeBoardData(attachments, schools, boundarySchools = schools) {
 }
 
 function dedupeFindings(findings) {
+  const schoolBackedRows = new Set(findings.filter((finding) => finding.school_ids.length).map(unifiedEmploymentIdentity));
   const byKey = new Map();
   for (const finding of findings) {
+    if (finding.flags?.includes("source_retained") && !finding.school_ids.length && schoolBackedRows.has(unifiedEmploymentIdentity(finding))) {
+      continue;
+    }
     const keyParts = [
       normalizeName(finding.meeting_date),
       canonicalMeetingName(finding.meeting_name),
@@ -616,6 +628,15 @@ function dedupeFindings(findings) {
     }
   }
   return [...byKey.values()];
+}
+
+function unifiedEmploymentIdentity(finding) {
+  return [
+    finding.attachment_id,
+    finding.movement_type,
+    normalizeName(finding.person_name),
+    normalizeName(finding.effective_date),
+  ].join("|");
 }
 
 function findingQuality(finding) {
@@ -1405,11 +1426,6 @@ function findingTypeChip(finding, employmentUmbrella = false) {
   return `<span class="type-chip type-${escapeAttribute(className)}">${escapeHtml(labelTypeFilter(type))}</span>`;
 }
 
-function findingTypeLabel(finding) {
-  const type = findingTypeFilter(finding);
-  return labelTypeFilter(type);
-}
-
 function findingTypeFilter(finding) {
   if (finding.movement_type === "separation") {
     const reason = normalizeName(finding.reason).toLowerCase();
@@ -1503,6 +1519,7 @@ function countByFindingClusters(findings) {
 
 function emptySourceRowFields() {
   return {
+    person_name: "",
     salary_text: "",
     effective_date: "",
     location_text: "",
@@ -1511,6 +1528,52 @@ function emptySourceRowFields() {
     location_end: -1,
     school_suffix: "",
     school_surname: "",
+  };
+}
+
+function employmentRowFields(attachment, lines, index) {
+  const compact = sourceRowFields(lines[index]);
+  if (compact.effective_date) return compact;
+  if (!/unified personnel employment/i.test(String(attachment.item_title || ""))) return compact;
+  if (Number(attachment.meeting_year || 0) && Number(attachment.meeting_year) < 2024) return compact;
+  const discussionIndex = lines.findIndex((line) => /^Discussion and possible action/i.test(line));
+  if (discussionIndex >= 0 && index >= discussionIndex) return compact;
+
+  const row = unifiedEmploymentSummaryRow(lines[index]);
+  if (!row) return compact;
+  const details = [];
+  for (let candidate = index + 1; candidate < Math.min(lines.length, index + 6); candidate += 1) {
+    const line = String(lines[candidate] || "").trim();
+    if (unifiedEmploymentSummaryRow(line) || /^Discussion and possible action|^--- page|^Reference\b/i.test(line)) break;
+    if (line && !/^UNIFIED PERSONNEL EMPLOYMENT|^Name Assignment/i.test(line)) details.push(line);
+  }
+  const location = details.length ? details[details.length - 1] : "Districtwide work location";
+  const assignmentDetails = details.length > 1 ? details.slice(0, -1) : [];
+  const assignment = [row.assignment, ...assignmentDetails].filter(Boolean).join(" · ");
+  return {
+    ...emptySourceRowFields(),
+    person_name: row.personName,
+    effective_date: row.effectiveDate,
+    assignment_raw: assignment,
+    location_text: location,
+  };
+}
+
+function unifiedEmploymentSummaryRow(value) {
+  const line = String(value || "").replace(/\s+/g, " ").trim();
+  const dateMatch = line.match(/(?:\b\d{1,2}\/\d{1,2}\/(?:\d{2}|\d{4})\b|\b(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\s+\d{1,2},\s+\d{4}\b|\bTBD\b)\s*$/i);
+  if (!dateMatch) return null;
+  const words = line.slice(0, dateMatch.index).trim().split(" ").filter(Boolean);
+  const roleIndex = words.findIndex((word) => ROLE_WORDS.has(word.replace(/[^A-Za-z-]/g, "").toLowerCase()));
+  if (roleIndex < 2) return null;
+  const personWords = words.slice(0, roleIndex);
+  if (personWords[0].replace(/[^A-Za-z]/g, "").length < 2 || /^[a-z]/.test(personWords[0])) return null;
+  const personName = cleanPerson(personWords.join(" "));
+  if (!personName) return null;
+  return {
+    personName,
+    assignment: words.slice(roleIndex).join(" "),
+    effectiveDate: dateMatch[0].trim(),
   };
 }
 
@@ -1721,6 +1784,14 @@ function retainedLocationAnchors(schools) {
 }
 
 function retainedEmploymentRowParts(line, fields, schools) {
+  if (fields.person_name) {
+    return {
+      person: fields.person_name,
+      workLocation: fields.location_text || "Districtwide work location",
+      assignment: fields.assignment_raw,
+      matchedAlias: fields.location_text || "Districtwide work location",
+    };
+  }
   const normalized = normalizeWithMapping(line);
   let locationMatch = null;
   for (const [normalizedAnchor, displayName] of retainedLocationAnchors(schools)) {
