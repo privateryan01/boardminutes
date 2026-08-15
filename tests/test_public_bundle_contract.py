@@ -18,12 +18,40 @@ def _make_bundle(root: Path, *, issue_count: int = 0) -> Path:
     data = docs / "data"
     generated_at = "2026-08-07T15:12:01.479859+00:00"
     schools = []
-    for index in range(66):
-        schools.append({"school_id": f"east_{index}", "region": "East"})
-    for index in range(49):
-        schools.append({"school_id": f"north_{index}", "region": "North"})
-    for index in range(205):
-        schools.append({"school_id": f"other_{index}", "region": ""})
+
+    def route_school(school_id: str, region: str, route_region: str, index: int) -> dict:
+        return {
+            "school_id": school_id,
+            "region": region,
+            "location": {
+                "route_region": route_region,
+                "address": f"{index + 1} Test Ave",
+                "latitude": 36.0 + index / 10_000,
+                "longitude": -115.0 - index / 10_000,
+                "route_stage": "elementary",
+                "dismissal_time": "14:41",
+                "source_url": "https://example.test/directory",
+                "source_date": "2026-08-11",
+                "schedule_source_url": "https://example.test/schedule",
+                "coordinate_source_url": "https://example.test/coordinates",
+                "coordinate_checked_date": "2026-08-12",
+            },
+        }
+
+    route_groups = (
+        ("East", "East", 66),
+        ("North", "North", 49),
+        ("", "Southeast", 68),
+        ("", "Northwest", 38),
+        ("", "Southwest", 67),
+    )
+    index = 0
+    for region, route_region, count in route_groups:
+        for offset in range(count):
+            schools.append(route_school(f"{route_region.lower()}_{offset}", region, route_region, index))
+            index += 1
+    for offset in range(32):
+        schools.append({"school_id": f"other_{offset}", "region": ""})
 
     attachment = {
         "attachment_id": "attachment-1",
@@ -114,6 +142,18 @@ class PublicBundleContractTests(unittest.TestCase):
                 school["region"] = ""
             _write_json(schools_path, payload)
             with self.assertRaisesRegex(ContractViolation, "Region East"):
+                validate_bundle(docs, min_findings=1, max_review_queue=5)
+
+    def test_missing_route_locations_are_rejected(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            docs = _make_bundle(Path(directory))
+            for name in ("board-data.json", "default-schools.json"):
+                payload_path = docs / "data" / name
+                payload = json.loads(payload_path.read_text(encoding="utf-8"))
+                for school in payload["schools"]:
+                    school.pop("location", None)
+                _write_json(payload_path, payload)
+            with self.assertRaisesRegex(ContractViolation, "Route region North must contain 49 validated locations; found 0"):
                 validate_bundle(docs, min_findings=1, max_review_queue=5)
 
     def test_unbounded_review_queue_is_rejected(self) -> None:

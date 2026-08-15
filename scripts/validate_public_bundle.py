@@ -18,6 +18,24 @@ from typing import Any
 
 
 EXPECTED_REGION_COUNTS = {"East": 66, "North": 49}
+EXPECTED_ROUTE_LOCATION_COUNTS = {
+    "North": 49,
+    "East": 66,
+    "Southeast": 68,
+    "Northwest": 38,
+    "Southwest": 67,
+}
+ROUTE_LOCATION_TEXT_FIELDS = (
+    "route_region",
+    "address",
+    "route_stage",
+    "dismissal_time",
+    "source_url",
+    "source_date",
+    "schedule_source_url",
+    "coordinate_source_url",
+    "coordinate_checked_date",
+)
 EXPECTED_FINDING_COLUMNS = [
     "id",
     "attachment_id",
@@ -168,20 +186,56 @@ def validate_bundle(
             f"Region {region} must contain {expected_count} schools; found {region_counts[region]}",
         )
 
-    board_region_by_id = {
-        str(school.get("school_id") or ""): str(school.get("region") or "")
+    board_school_by_id = {
+        str(school.get("school_id") or ""): school
         for school in board_schools
         if isinstance(school, dict)
     }
     _require(
-        set(board_region_by_id) == set(school_by_id),
+        set(board_school_by_id) == set(school_by_id),
         "board-data.json and default-schools.json must contain the same school IDs",
     )
+    route_location_counts: Counter[str] = Counter()
     for school_id, school in school_by_id.items():
         expected_region = str(school.get("region") or "")
         _require(
-            board_region_by_id[school_id] == expected_region,
+            str(board_school_by_id[school_id].get("region") or "") == expected_region,
             f"Region mismatch for school {school_id}",
+        )
+        location = school.get("location")
+        _require(
+            board_school_by_id[school_id].get("location") == location,
+            f"Route location mismatch for school {school_id}",
+        )
+        if location is None:
+            continue
+        _require(isinstance(location, dict), f"Route location for school {school_id} must be an object")
+        _require(
+            all(str(location.get(field) or "").strip() for field in ROUTE_LOCATION_TEXT_FIELDS),
+            f"Route location for school {school_id} is incomplete",
+        )
+        route_region = str(location["route_region"]).strip()
+        _require(
+            route_region in EXPECTED_ROUTE_LOCATION_COUNTS,
+            f"Route location for school {school_id} has an unknown route region {route_region!r}",
+        )
+        try:
+            latitude = float(location["latitude"])
+            longitude = float(location["longitude"])
+        except (KeyError, TypeError, ValueError) as exc:
+            raise ContractViolation(f"Route location for school {school_id} has invalid coordinates") from exc
+        _require(
+            -90 <= latitude <= 90 and -180 <= longitude <= 180,
+            f"Route location for school {school_id} has out-of-range coordinates",
+        )
+        route_location_counts[route_region] += 1
+
+    for route_region, expected_count in EXPECTED_ROUTE_LOCATION_COUNTS.items():
+        _require(
+            route_location_counts[route_region] == expected_count,
+            "Route region "
+            f"{route_region} must contain {expected_count} validated locations; "
+            f"found {route_location_counts[route_region]}",
         )
 
     _require(findings.get("schema_version") == 3, "default-findings.json must use compact schema v3")
@@ -308,6 +362,7 @@ def validate_bundle(
         "recognition_review_queue": len(review_candidates),
         "review_queue_by_region": dict(sorted(review_regions.items())),
         "regions": dict(sorted(region_counts.items())),
+        "route_locations": dict(sorted(route_location_counts.items())),
         "asset_references_checked": checked_assets,
         "browser_state_asset": browser_state_asset,
     }
