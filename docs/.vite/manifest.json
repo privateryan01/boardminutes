@@ -1,0 +1,80 @@
+{
+  "_data-C-3x5_to.js": {
+    "file": "assets/data-C-3x5_to.js",
+    "name": "data",
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "_framework-CXnKph_e.js"
+    ]
+  },
+  "_framework-CXnKph_e.js": {
+    "file": "assets/framework-CXnKph_e.js",
+    "name": "framework",
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js"
+    ]
+  },
+  "_rolldown-runtime-S-ySWqyJ.js": {
+    "file": "assets/rolldown-runtime-S-ySWqyJ.js",
+    "name": "rolldown-runtime"
+  },
+  "app/BoardWatchApp.tsx": {
+    "file": "assets/BoardWatchApp-A8pmT81K.js",
+    "name": "BoardWatchApp",
+    "src": "app/BoardWatchApp.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "virtual:vinext-app-browser-entry",
+      "_data-C-3x5_to.js",
+      "_framework-CXnKph_e.js"
+    ],
+    "dynamicImports": [
+      "node_modules/.pnpm/maplibre-gl@6.3.0/node_modules/maplibre-gl/dist/maplibre-gl.mjs",
+      "app/components/TrendsPage.tsx"
+    ]
+  },
+  "app/components/TrendsPage.tsx": {
+    "file": "assets/TrendsPage-Bz3QayIU.js",
+    "name": "TrendsPage",
+    "src": "app/components/TrendsPage.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "_data-C-3x5_to.js",
+      "_framework-CXnKph_e.js"
+    ]
+  },
+  "node_modules/.pnpm/maplibre-gl@6.3.0/node_modules/maplibre-gl/dist/maplibre-gl.mjs": {
+    "file": "assets/maplibre-gl-Dx5J4MWN.js",
+    "name": "maplibre-gl",
+    "src": "node_modules/.pnpm/maplibre-gl@6.3.0/node_modules/maplibre-gl/dist/maplibre-gl.mjs",
+    "isDynamicEntry": true
+  },
+  "node_modules/.pnpm/vinext@0.0.50_@vitejs+plugin-react@6.0.2_vite@8.0.13_@types+node@22.19.19_esbuild@0.28._96b5850863a66e12ed6b57abc544a6be/node_modules/vinext/dist/shims/layout-segment-context.js": {
+    "file": "assets/layout-segment-context-BaFzcKMM.js",
+    "name": "layout-segment-context",
+    "src": "node_modules/.pnpm/vinext@0.0.50_@vitejs+plugin-react@6.0.2_vite@8.0.13_@types+node@22.19.19_esbuild@0.28._96b5850863a66e12ed6b57abc544a6be/node_modules/vinext/dist/shims/layout-segment-context.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "virtual:vinext-app-browser-entry",
+      "_framework-CXnKph_e.js"
+    ]
+  },
+  "virtual:vinext-app-browser-entry": {
+    "file": "assets/index-s9GbPQVY.js",
+    "name": "index",
+    "src": "virtual:vinext-app-browser-entry",
+    "isEntry": true,
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "_framework-CXnKph_e.js"
+    ],
+    "dynamicImports": [
+      "node_modules/.pnpm/vinext@0.0.50_@vitejs+plugin-react@6.0.2_vite@8.0.13_@types+node@22.19.19_esbuild@0.28._96b5850863a66e12ed6b57abc544a6be/node_modules/vinext/dist/shims/layout-segment-context.js",
+      "virtual:vinext-app-browser-entry",
+      "app/BoardWatchApp.tsx"
+    ]
+  }
+}
